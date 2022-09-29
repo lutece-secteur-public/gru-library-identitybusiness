@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <title>Library Identitybusiness</title>
+    </properties>
+    <body>
+        <section name="Librairie Identity Business">
+            <subsection name="Introduction">
+                <p>
+                Cette librairie expose des classes et interfaces à partager entre les plugins serveur et client.
+                </p>
+            </subsection>
+            <subsection name="Usage">
+                <p>
+               A déclarer en tant que dépendance.
+                </p>
+            </subsection>
+            <subsection name="Configuration">
+                <p>
+                sans objet.
+                </p>
+            </subsection>
+        </section>
+    </body>
+</document>
