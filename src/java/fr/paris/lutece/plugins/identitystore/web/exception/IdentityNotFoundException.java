@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -33,8 +33,6 @@
  */
 package fr.paris.lutece.plugins.identitystore.web.exception;
 
-
-
 /**
  *
  * Exception thrown when no identity is found during a query
@@ -42,18 +40,17 @@ package fr.paris.lutece.plugins.identitystore.web.exception;
  */
 public class IdentityNotFoundException extends IdentityStoreException
 {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * constructor
-	 * 
-	 * @param strError
-	 */
-	public IdentityNotFoundException(String strError) 
-	{
-		super(strError);
-	}
-	
+    /**
+     * constructor
+     * 
+     * @param strError
+     */
+    public IdentityNotFoundException( String strError )
+    {
+        super( strError );
+    }
 
     /**
      * @param strError
@@ -65,7 +62,5 @@ public class IdentityNotFoundException extends IdentityStoreException
     {
         super( strError, error );
     }
-	
-	
-   
+
 }

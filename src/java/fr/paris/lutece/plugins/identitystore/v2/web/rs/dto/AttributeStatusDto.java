@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2019, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -61,7 +61,7 @@ public class AttributeStatusDto implements Serializable
     public static final String INFO_VALUE_CERTIFIED_CODE = "303";
     public static final String INFO_LONGER_CERTIFIER_CODE = "304";
     public static final String INFO_DELETE_CERTIFER_NOT_ALLOW_CODE = "305";
-    
+
     public static final String ERROR_DEFAULT_CODE = "400";
 
     /**
@@ -73,6 +73,7 @@ public class AttributeStatusDto implements Serializable
     private String _strNewCertifier;
     private Date _dateNewCertificateExpirationDate;
     private String _strDeleteCertifier;
+
     /**
      * @return the _strStatusCode
      */
@@ -141,7 +142,7 @@ public class AttributeStatusDto implements Serializable
     {
         return _strDeleteCertifier;
     }
-    
+
     /**
      * @param strDeleteCertifier
      *            the strDeleteCertifier to set
@@ -151,8 +152,7 @@ public class AttributeStatusDto implements Serializable
     {
         this._strDeleteCertifier = strDeleteCertifier;
     }
-    
-    
+
     /**
      * @return the _dateCertificateExpirationDate
      */

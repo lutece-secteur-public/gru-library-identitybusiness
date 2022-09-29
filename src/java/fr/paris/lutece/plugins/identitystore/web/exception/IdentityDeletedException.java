@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2019, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -33,20 +33,18 @@
  */
 package fr.paris.lutece.plugins.identitystore.web.exception;
 
-
-
 public class IdentityDeletedException extends IdentityStoreException
 {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * constructor
-	 * 
-	 * @param strError
-	 */
-	public IdentityDeletedException(String strError) 
-	{
-		super(strError);
-	}
-	
+    /**
+     * constructor
+     * 
+     * @param strError
+     */
+    public IdentityDeletedException( String strError )
+    {
+        super( strError );
+    }
+
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2019, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,8 +53,8 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 public class AppRightDto implements Serializable
 {
     /**
-	 * 
-	 */
+     * 
+     */
     private static final long serialVersionUID = 1L;
     private String _strAttributeKey;
     private boolean _bReadable;
@@ -118,12 +118,11 @@ public class AppRightDto implements Serializable
     {
         this._bWritable = bWritable;
     }
-    
 
     /**
      * @return the bMandatory
      */
-    @JsonProperty( DtoFormatConstants.KEY_ATTRIBUTE_MANDATORY)
+    @JsonProperty( DtoFormatConstants.KEY_ATTRIBUTE_MANDATORY )
     public boolean isMandatory( )
     {
         return _bMandatory;
