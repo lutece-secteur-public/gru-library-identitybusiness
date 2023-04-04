@@ -35,6 +35,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -72,6 +73,9 @@ public class CertifiedAttribute
      * Date de certification
      */
     protected Date certificationDate;
+
+    private Timestamp lastUpdateDate;
+    private String lastUpdateApplicationCode;
 
     public String getKey( )
     {
@@ -131,5 +135,21 @@ public class CertifiedAttribute
     public void setCertificationDate( Date certificationDate )
     {
         this.certificationDate = certificationDate;
+    }
+
+    public Timestamp getLastUpdateDate() {
+        return lastUpdateDate;
+    }
+
+    public void setLastUpdateDate(Timestamp lastUpdateDate) {
+        this.lastUpdateDate = lastUpdateDate;
+    }
+
+    public String getLastUpdateApplicationCode() {
+        return lastUpdateApplicationCode;
+    }
+
+    public void setLastUpdateApplicationCode(String lastUpdateApplicationCode) {
+        this.lastUpdateApplicationCode = lastUpdateApplicationCode;
     }
 }

@@ -104,6 +104,11 @@ public final class Constants
     public static final String PARAM_ADDRESS_CITY = "address_city";
     public static final String PARAM_FC_KEY = "fc_key";
 
+    /** Attribute keys for user search */
+    public static final String PARAM_COMMON_EMAIL = "common_email";
+    public static final String PARAM_COMMON_PHONE = "common_phone";
+    public static final String PARAM_COMMON_LASTNAME = "common_lastname";
+
     /**
      * Default constructor
      */

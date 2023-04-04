@@ -73,9 +73,6 @@ public class IdentityChangeResponse
     @JsonProperty( "duplicates" )
     protected DuplicateDto duplicates;
 
-    @JsonProperty( "identity" )
-    protected Identity identity;
-
     public IdentityChangeStatus getStatus( )
     {
         return status;
@@ -156,13 +153,4 @@ public class IdentityChangeResponse
         this.duplicates = duplicates;
     }
 
-    public Identity getIdentity( )
-    {
-        return identity;
-    }
-
-    public void setIdentity( Identity identity )
-    {
-        this.identity = identity;
-    }
 }
