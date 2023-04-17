@@ -108,7 +108,7 @@ public class AttributeDefinitionDto
     {
         this._bPivot = bPivot;
     }
-    
+
     public int getKeyWeight( )
     {
         return _nKeyWeight;

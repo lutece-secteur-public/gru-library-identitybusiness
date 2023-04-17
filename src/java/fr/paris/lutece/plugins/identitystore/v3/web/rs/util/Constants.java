@@ -44,6 +44,7 @@ public final class Constants
     public static final String VERSION_PATH_V2 = "/v2";
     public static final String VERSION_PATH_V3 = "/v3";
     public static final String IDENTITY_PATH = "/identity";
+    public static final String SERVICECONTRACT_PATH = "/contract";
     public static final String DOWNLOAD_FILE_PATH = "/file";
     public static final String UPDATE_IDENTITY_PATH = "/update";
     public static final String CREATE_IDENTITY_PATH = "/create";
@@ -105,7 +106,6 @@ public final class Constants
     public static final String PARAM_FC_KEY = "fc_key";
 
     /** Service Contract */
-    public static final String SERVICECONTRACT_PATH = "/contract";
     public static final String SERVICECONTRACTS_PATH = "/contracts";
     public static final String SERVICECONTRACT_END_DATE_PATH = "/enddate";
     public static final String PARAM_ID_SERVICE_CONTRACT = "service_contract_id";
@@ -127,7 +127,13 @@ public final class Constants
     /** Module identity quality */
     public static final String QUALITY_PATH = "/quality";
     public static final String SUSPICIONS_PATH = "suspicions";
+    public static final String RAPPROCHEMENT_PATH = "rapprochement";
+    public static final String EXCLUSION_PATH = "exclusion";
     public static final String RULES_PATH = "rules";
+    public static final int MANUAL_SUSPICIOUS_RULE_ID = 0;
+    public static final String PARAM_MAX = "max";
+    public static final String PARAM_SIZE = "size";
+    public static final String PARAM_PAGE = "page";
 
     /**
      * Default constructor
