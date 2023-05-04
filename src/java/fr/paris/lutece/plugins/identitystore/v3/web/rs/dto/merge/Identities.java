@@ -35,13 +35,18 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Identities
 {
-    @JsonProperty( "primary_connection_id" )
+    @JsonProperty( "primary_customer_id" )
     protected String primaryCuid;
 
-    @JsonProperty( "secondary_connection_id" )
+    @JsonProperty( "secondary_customer_id" )
     protected String secondaryCuid;
+    @JsonProperty( "attributes" )
+    protected List<String> attributeKeys = new ArrayList<>();
 
     public String getPrimaryCuid( )
     {
@@ -61,5 +66,9 @@ public class Identities
     public void setSecondaryCuid( String secondaryCuid )
     {
         this.secondaryCuid = secondaryCuid;
+    }
+
+    public List<String> getAttributeKeys() {
+        return attributeKeys;
     }
 }

@@ -109,6 +109,10 @@ public final class Constants
     public static final String PARAM_COMMON_PHONE = "common_phone";
     public static final String PARAM_COMMON_LASTNAME = "common_lastname";
 
+    /** Module identity quality */
+    public static final String QUALITY_PATH = "/quality";
+    public static final String SUSPICIONS_PATH = "suspicions";
+
     /**
      * Default constructor
      */
