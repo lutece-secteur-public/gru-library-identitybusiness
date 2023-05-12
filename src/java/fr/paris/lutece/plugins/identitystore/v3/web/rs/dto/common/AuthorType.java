@@ -34,17 +34,22 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
 /**
- * Identifie l'origine de la demande
+ * Request origin
  */
 public enum AuthorType
 {
     /**
-     * Usager correspondant à l'identité
+     * Owner of identity
      */
     owner,
 
     /**
      * Agent BO
+     */
+    agent,
+
+    /**
+     * Admin BO
      */
     admin,
 
