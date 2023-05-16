@@ -31,52 +31,36 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application;
 
-public class AttributeRight
+import java.util.ArrayList;
+import java.util.List;
+
+public class ClientsSearchResponse
 {
-    private boolean _bMandatory;
-    private boolean _bSearchable;
-    private boolean _bReadable;
-    private boolean _bWritable;
 
-    public boolean isMandatory( )
+    protected List<ClientApplicationDto> clientApplications = new ArrayList<>( );
+
+    protected ClientSearchStatusType status;
+
+    public List<ClientApplicationDto> getClientApplications( )
     {
-        return _bMandatory;
+        return clientApplications;
     }
 
-    public void setMandatory( boolean _bMandatory )
+    public void setClientApplications( List<ClientApplicationDto> clientApplications )
     {
-        this._bMandatory = _bMandatory;
+        this.clientApplications = clientApplications;
     }
 
-    public boolean isSearchable( )
+    public ClientSearchStatusType getStatus( )
     {
-        return _bSearchable;
+        return status;
     }
 
-    public void setSearchable( boolean _bSearchable )
+    public void setStatus( ClientSearchStatusType status )
     {
-        this._bSearchable = _bSearchable;
+        this.status = status;
     }
 
-    public boolean isReadable( )
-    {
-        return _bReadable;
-    }
-
-    public void setReadable( boolean _bReadable )
-    {
-        this._bReadable = _bReadable;
-    }
-
-    public boolean isWritable( )
-    {
-        return _bWritable;
-    }
-
-    public void setWritable( boolean _bWritable )
-    {
-        this._bWritable = _bWritable;
-    }
 }

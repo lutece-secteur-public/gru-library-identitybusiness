@@ -75,7 +75,7 @@ public class CertifiedAttribute
     protected Date certificationDate;
 
     private Timestamp lastUpdateDate;
-    private String lastUpdateApplicationCode;
+    private String lastUpdateClientCode;
 
     public String getKey( )
     {
@@ -137,19 +137,23 @@ public class CertifiedAttribute
         this.certificationDate = certificationDate;
     }
 
-    public Timestamp getLastUpdateDate() {
+    public Timestamp getLastUpdateDate( )
+    {
         return lastUpdateDate;
     }
 
-    public void setLastUpdateDate(Timestamp lastUpdateDate) {
+    public void setLastUpdateDate( Timestamp lastUpdateDate )
+    {
         this.lastUpdateDate = lastUpdateDate;
     }
 
-    public String getLastUpdateApplicationCode() {
-        return lastUpdateApplicationCode;
+    public String getLastUpdateClientCode( )
+    {
+        return lastUpdateClientCode;
     }
 
-    public void setLastUpdateApplicationCode(String lastUpdateApplicationCode) {
-        this.lastUpdateApplicationCode = lastUpdateApplicationCode;
+    public void setLastUpdateClientCode( String lastUpdateClientCode )
+    {
+        this.lastUpdateClientCode = lastUpdateClientCode;
     }
 }

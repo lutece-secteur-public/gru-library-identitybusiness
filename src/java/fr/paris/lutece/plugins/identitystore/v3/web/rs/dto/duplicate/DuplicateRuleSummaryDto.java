@@ -31,52 +31,53 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.duplicate;
 
-public class AttributeRight
+public class DuplicateRuleSummaryDto
 {
-    private boolean _bMandatory;
-    private boolean _bSearchable;
-    private boolean _bReadable;
-    private boolean _bWritable;
+    private int _nId;
+    private String _strName;
+    private String _strDescription;
 
-    public boolean isMandatory( )
+    private int _nDuplicateCount;
+
+    public int getId( )
     {
-        return _bMandatory;
+        return _nId;
     }
 
-    public void setMandatory( boolean _bMandatory )
+    public void setId( int _nId )
     {
-        this._bMandatory = _bMandatory;
+        this._nId = _nId;
     }
 
-    public boolean isSearchable( )
+    public String getName( )
     {
-        return _bSearchable;
+        return _strName;
     }
 
-    public void setSearchable( boolean _bSearchable )
+    public void setName( String _strName )
     {
-        this._bSearchable = _bSearchable;
+        this._strName = _strName;
     }
 
-    public boolean isReadable( )
+    public String getDescription( )
     {
-        return _bReadable;
+        return _strDescription;
     }
 
-    public void setReadable( boolean _bReadable )
+    public void setDescription( String _strDescription )
     {
-        this._bReadable = _bReadable;
+        this._strDescription = _strDescription;
     }
 
-    public boolean isWritable( )
+    public int getDuplicateCount( )
     {
-        return _bWritable;
+        return _nDuplicateCount;
     }
 
-    public void setWritable( boolean _bWritable )
+    public void setDuplicateCount( int _nDuplicateCount )
     {
-        this._bWritable = _bWritable;
+        this._nDuplicateCount = _nDuplicateCount;
     }
 }

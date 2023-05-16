@@ -46,7 +46,7 @@ public class Identities
     @JsonProperty( "secondary_customer_id" )
     protected String secondaryCuid;
     @JsonProperty( "attributes" )
-    protected List<String> attributeKeys = new ArrayList<>();
+    protected List<String> attributeKeys = new ArrayList<>( );
 
     public String getPrimaryCuid( )
     {
@@ -68,7 +68,8 @@ public class Identities
         this.secondaryCuid = secondaryCuid;
     }
 
-    public List<String> getAttributeKeys() {
+    public List<String> getAttributeKeys( )
+    {
         return attributeKeys;
     }
 }

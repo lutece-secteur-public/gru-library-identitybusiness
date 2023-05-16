@@ -44,5 +44,5 @@ public interface IClientApplication
      * 
      * @return the code
      */
-    String getCode( );
+    String getClientCode( );
 }

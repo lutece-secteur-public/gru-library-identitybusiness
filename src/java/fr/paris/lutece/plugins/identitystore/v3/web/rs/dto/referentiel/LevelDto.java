@@ -31,52 +31,43 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.referentiel;
 
-public class AttributeRight
+public class LevelDto
 {
-    private boolean _bMandatory;
-    private boolean _bSearchable;
-    private boolean _bReadable;
-    private boolean _bWritable;
+    private String _strName;
 
-    public boolean isMandatory( )
+    private String _strDescription;
+
+    private String _strLevel;
+
+    public String getName( )
     {
-        return _bMandatory;
+        return _strName;
     }
 
-    public void setMandatory( boolean _bMandatory )
+    public void setName( String _strName )
     {
-        this._bMandatory = _bMandatory;
+        this._strName = _strName;
     }
 
-    public boolean isSearchable( )
+    public String getDescription( )
     {
-        return _bSearchable;
+        return _strDescription;
     }
 
-    public void setSearchable( boolean _bSearchable )
+    public void setDescription( String _strDescription )
     {
-        this._bSearchable = _bSearchable;
+        this._strDescription = _strDescription;
     }
 
-    public boolean isReadable( )
+    public String getLevel( )
     {
-        return _bReadable;
+        return _strLevel;
     }
 
-    public void setReadable( boolean _bReadable )
+    public void setLevel( String _strLevel )
     {
-        this._bReadable = _bReadable;
-    }
-
-    public boolean isWritable( )
-    {
-        return _bWritable;
-    }
-
-    public void setWritable( boolean _bWritable )
-    {
-        this._bWritable = _bWritable;
+        this._strLevel = _strLevel;
     }
 }

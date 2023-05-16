@@ -44,7 +44,6 @@ public final class Constants
     public static final String VERSION_PATH_V2 = "/v2";
     public static final String VERSION_PATH_V3 = "/v3";
     public static final String IDENTITY_PATH = "/identity";
-    public static final String SERVICECONTRACT_PATH = "/contract";
     public static final String DOWNLOAD_FILE_PATH = "/file";
     public static final String UPDATE_IDENTITY_PATH = "/update";
     public static final String CREATE_IDENTITY_PATH = "/create";
@@ -53,6 +52,7 @@ public final class Constants
     public static final String MERGE_IDENTITIES_PATH = "/merge";
     public static final String APPLICATION_RIGHTS_PATH = "/apprights";
     public static final String PARAM_CLIENT_CODE = "client_code";
+    public static final String PARAM_APPLICATION_CODE = "application_code";
     public static final String PARAM_CERTIFIER_CODE = "certifier_code";
     public static final String PARAM_FILE = "file";
     public static final String PARAM_ATTRIBUTE_KEY = "attribute_key";
@@ -104,6 +104,21 @@ public final class Constants
     public static final String PARAM_ADDRESS_CITY = "address_city";
     public static final String PARAM_FC_KEY = "fc_key";
 
+    /** Service Contract */
+    public static final String SERVICECONTRACT_PATH = "/contract";
+    public static final String SERVICECONTRACTS_PATH = "/contracts";
+    public static final String SERVICECONTRACT_END_DATE_PATH = "/enddate";
+    public static final String PARAM_ID_SERVICE_CONTRACT = "service_contract_id";
+
+    /** Client application */
+    public static final String CLIENTS_PATH = "/clients";
+    public static final String CLIENT_PATH = "/client";
+
+    /** Referential */
+    public static final String REFERENTIAL_PATH = "/referential";
+    public static final String REFERENTIAL_LEVEL_PATH = "/level";
+    public static final String REFERENTIAL_PROCESSUS_PATH = "/processus";
+
     /** Attribute keys for user search */
     public static final String PARAM_COMMON_EMAIL = "common_email";
     public static final String PARAM_COMMON_PHONE = "common_phone";
@@ -112,6 +127,7 @@ public final class Constants
     /** Module identity quality */
     public static final String QUALITY_PATH = "/quality";
     public static final String SUSPICIONS_PATH = "suspicions";
+    public static final String RULES_PATH = "rules";
 
     /**
      * Default constructor

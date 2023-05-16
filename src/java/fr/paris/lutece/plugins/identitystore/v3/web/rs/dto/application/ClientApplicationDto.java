@@ -31,52 +31,52 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application;
 
-public class AttributeRight
+public class ClientApplicationDto
 {
-    private boolean _bMandatory;
-    private boolean _bSearchable;
-    private boolean _bReadable;
-    private boolean _bWritable;
+    private int _nId;
+    private String _strName;
+    private String _strClientCode;
+    private String _strApplicationCode;
 
-    public boolean isMandatory( )
+    public int getId( )
     {
-        return _bMandatory;
+        return _nId;
     }
 
-    public void setMandatory( boolean _bMandatory )
+    public void setId( int _nId )
     {
-        this._bMandatory = _bMandatory;
+        this._nId = _nId;
     }
 
-    public boolean isSearchable( )
+    public String getName( )
     {
-        return _bSearchable;
+        return _strName;
     }
 
-    public void setSearchable( boolean _bSearchable )
+    public void setName( String _strName )
     {
-        this._bSearchable = _bSearchable;
+        this._strName = _strName;
     }
 
-    public boolean isReadable( )
+    public String getClientCode( )
     {
-        return _bReadable;
+        return _strClientCode;
     }
 
-    public void setReadable( boolean _bReadable )
+    public void setClientCode( String _strClientCode )
     {
-        this._bReadable = _bReadable;
+        this._strClientCode = _strClientCode;
     }
 
-    public boolean isWritable( )
+    public String getApplicationCode( )
     {
-        return _bWritable;
+        return _strApplicationCode;
     }
 
-    public void setWritable( boolean _bWritable )
+    public void setApplicationCode( String _strApplicationCode )
     {
-        this._bWritable = _bWritable;
+        this._strApplicationCode = _strApplicationCode;
     }
 }

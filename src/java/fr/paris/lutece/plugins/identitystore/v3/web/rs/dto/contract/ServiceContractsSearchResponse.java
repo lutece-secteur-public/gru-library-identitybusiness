@@ -33,50 +33,34 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
 
-public class AttributeRight
+import java.util.ArrayList;
+import java.util.List;
+
+public class ServiceContractsSearchResponse
 {
-    private boolean _bMandatory;
-    private boolean _bSearchable;
-    private boolean _bReadable;
-    private boolean _bWritable;
 
-    public boolean isMandatory( )
+    protected List<ServiceContractDto> serviceContracts = new ArrayList<>( );
+
+    protected ServiceContractSearchStatusType status;
+
+    public List<ServiceContractDto> getServiceContracts( )
     {
-        return _bMandatory;
+        return serviceContracts;
     }
 
-    public void setMandatory( boolean _bMandatory )
+    public void setServiceContracts( List<ServiceContractDto> serviceContracts )
     {
-        this._bMandatory = _bMandatory;
+        this.serviceContracts = serviceContracts;
     }
 
-    public boolean isSearchable( )
+    public ServiceContractSearchStatusType getStatus( )
     {
-        return _bSearchable;
+        return status;
     }
 
-    public void setSearchable( boolean _bSearchable )
+    public void setStatus( ServiceContractSearchStatusType status )
     {
-        this._bSearchable = _bSearchable;
+        this.status = status;
     }
 
-    public boolean isReadable( )
-    {
-        return _bReadable;
-    }
-
-    public void setReadable( boolean _bReadable )
-    {
-        this._bReadable = _bReadable;
-    }
-
-    public boolean isWritable( )
-    {
-        return _bWritable;
-    }
-
-    public void setWritable( boolean _bWritable )
-    {
-        this._bWritable = _bWritable;
-    }
 }

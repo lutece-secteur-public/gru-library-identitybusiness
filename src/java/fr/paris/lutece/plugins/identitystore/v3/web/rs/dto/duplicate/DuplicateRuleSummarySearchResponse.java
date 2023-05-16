@@ -31,52 +31,32 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.duplicate;
 
-public class AttributeRight
+import java.util.List;
+
+public class DuplicateRuleSummarySearchResponse
 {
-    private boolean _bMandatory;
-    private boolean _bSearchable;
-    private boolean _bReadable;
-    private boolean _bWritable;
+    protected List<DuplicateRuleSummaryDto> duplicateRuleSummaries;
+    protected DuplicateRuleSummarySearchStatusType status;
 
-    public boolean isMandatory( )
+    public List<DuplicateRuleSummaryDto> getDuplicateRuleSummaries( )
     {
-        return _bMandatory;
+        return duplicateRuleSummaries;
     }
 
-    public void setMandatory( boolean _bMandatory )
+    public void setDuplicateRuleSummaries( List<DuplicateRuleSummaryDto> duplicateRuleSummaries )
     {
-        this._bMandatory = _bMandatory;
+        this.duplicateRuleSummaries = duplicateRuleSummaries;
     }
 
-    public boolean isSearchable( )
+    public DuplicateRuleSummarySearchStatusType getStatus( )
     {
-        return _bSearchable;
+        return status;
     }
 
-    public void setSearchable( boolean _bSearchable )
+    public void setStatus( DuplicateRuleSummarySearchStatusType status )
     {
-        this._bSearchable = _bSearchable;
-    }
-
-    public boolean isReadable( )
-    {
-        return _bReadable;
-    }
-
-    public void setReadable( boolean _bReadable )
-    {
-        this._bReadable = _bReadable;
-    }
-
-    public boolean isWritable( )
-    {
-        return _bWritable;
-    }
-
-    public void setWritable( boolean _bWritable )
-    {
-        this._bWritable = _bWritable;
+        this.status = status;
     }
 }

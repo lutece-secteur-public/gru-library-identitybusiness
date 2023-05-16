@@ -31,52 +31,62 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application;
 
-public class AttributeRight
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Arrays;
+
+@JsonInclude( JsonInclude.Include.NON_NULL )
+@JsonFormat( shape = JsonFormat.Shape.OBJECT )
+public enum ClientChangeStatusType
 {
-    private boolean _bMandatory;
-    private boolean _bSearchable;
-    private boolean _bReadable;
-    private boolean _bWritable;
+    SUCCESS( 200, null ),
+    FAILURE( 403, null ),
+    CONFLICT( 409, null ),
+    NOT_FOUND( 404, "Aucune resource n'a été trouvée" );
 
-    public boolean isMandatory( )
+    @JsonProperty( "code" )
+    protected Integer code;
+
+    @JsonProperty( "message" )
+    protected String message;
+
+    ClientChangeStatusType( Integer code, String message )
     {
-        return _bMandatory;
+        this.code = code;
+        this.message = message;
     }
 
-    public void setMandatory( boolean _bMandatory )
+    @JsonCreator
+    public static ClientChangeStatusType forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
     {
-        this._bMandatory = _bMandatory;
+        return Arrays.stream( ClientChangeStatusType.values( ) )
+                .filter( statusType -> code == statusType.getCode( ) && StringUtils.equals( message, statusType.getMessage( ) ) ).findFirst( ).orElse( null );
     }
 
-    public boolean isSearchable( )
+    public Integer getCode( )
     {
-        return _bSearchable;
+        return code;
     }
 
-    public void setSearchable( boolean _bSearchable )
+    public void setCode( Integer code )
     {
-        this._bSearchable = _bSearchable;
+        this.code = code;
     }
 
-    public boolean isReadable( )
+    public String getMessage( )
     {
-        return _bReadable;
+        return message;
     }
 
-    public void setReadable( boolean _bReadable )
+    public void setMessage( String message )
     {
-        this._bReadable = _bReadable;
+        this.message = message;
     }
 
-    public boolean isWritable( )
-    {
-        return _bWritable;
-    }
-
-    public void setWritable( boolean _bWritable )
-    {
-        this._bWritable = _bWritable;
-    }
 }

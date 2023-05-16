@@ -31,52 +31,44 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.referentiel;
 
-public class AttributeRight
+import java.util.ArrayList;
+import java.util.List;
+
+public class AttributeCertificationProcessusDto
 {
-    private boolean _bMandatory;
-    private boolean _bSearchable;
-    private boolean _bReadable;
-    private boolean _bWritable;
+    private String _strLabel;
+    private String _strCode;
+    private List<AttributeCertificationLevelDto> _listAttributeCertificationLevels = new ArrayList<>( );
 
-    public boolean isMandatory( )
+    public String getLabel( )
     {
-        return _bMandatory;
+        return _strLabel;
     }
 
-    public void setMandatory( boolean _bMandatory )
+    public void setLabel( String _strLabel )
     {
-        this._bMandatory = _bMandatory;
+        this._strLabel = _strLabel;
     }
 
-    public boolean isSearchable( )
+    public String getCode( )
     {
-        return _bSearchable;
+        return _strCode;
     }
 
-    public void setSearchable( boolean _bSearchable )
+    public void setCode( String _strCode )
     {
-        this._bSearchable = _bSearchable;
+        this._strCode = _strCode;
     }
 
-    public boolean isReadable( )
+    public List<AttributeCertificationLevelDto> getAttributeCertificationLevels( )
     {
-        return _bReadable;
+        return _listAttributeCertificationLevels;
     }
 
-    public void setReadable( boolean _bReadable )
+    public void setAttributeCertificationLevels( List<AttributeCertificationLevelDto> _listAttributeCertificationLevels )
     {
-        this._bReadable = _bReadable;
-    }
-
-    public boolean isWritable( )
-    {
-        return _bWritable;
-    }
-
-    public void setWritable( boolean _bWritable )
-    {
-        this._bWritable = _bWritable;
+        this._listAttributeCertificationLevels = _listAttributeCertificationLevels;
     }
 }

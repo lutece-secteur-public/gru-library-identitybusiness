@@ -31,52 +31,36 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.referentiel;
 
-public class AttributeRight
+import java.util.ArrayList;
+import java.util.List;
+
+public class LevelSearchResponse
 {
-    private boolean _bMandatory;
-    private boolean _bSearchable;
-    private boolean _bReadable;
-    private boolean _bWritable;
 
-    public boolean isMandatory( )
+    protected List<LevelDto> levels = new ArrayList<>( );
+
+    protected ReferentielSearchStatusType status;
+
+    public List<LevelDto> getLevels( )
     {
-        return _bMandatory;
+        return levels;
     }
 
-    public void setMandatory( boolean _bMandatory )
+    public void setLevels( List<LevelDto> levels )
     {
-        this._bMandatory = _bMandatory;
+        this.levels = levels;
     }
 
-    public boolean isSearchable( )
+    public ReferentielSearchStatusType getStatus( )
     {
-        return _bSearchable;
+        return status;
     }
 
-    public void setSearchable( boolean _bSearchable )
+    public void setStatus( ReferentielSearchStatusType status )
     {
-        this._bSearchable = _bSearchable;
+        this.status = status;
     }
 
-    public boolean isReadable( )
-    {
-        return _bReadable;
-    }
-
-    public void setReadable( boolean _bReadable )
-    {
-        this._bReadable = _bReadable;
-    }
-
-    public boolean isWritable( )
-    {
-        return _bWritable;
-    }
-
-    public void setWritable( boolean _bWritable )
-    {
-        this._bWritable = _bWritable;
-    }
 }

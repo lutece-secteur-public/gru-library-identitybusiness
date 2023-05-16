@@ -31,52 +31,33 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application;
 
-public class AttributeRight
+public class ClientSearchResponse
 {
-    private boolean _bMandatory;
-    private boolean _bSearchable;
-    private boolean _bReadable;
-    private boolean _bWritable;
 
-    public boolean isMandatory( )
+    protected ClientApplicationDto clientApplication;
+
+    protected ClientSearchStatusType status;
+
+    public ClientApplicationDto getClientApplication( )
     {
-        return _bMandatory;
+        return clientApplication;
     }
 
-    public void setMandatory( boolean _bMandatory )
+    public void setClientApplication( ClientApplicationDto clientApplication )
     {
-        this._bMandatory = _bMandatory;
+        this.clientApplication = clientApplication;
     }
 
-    public boolean isSearchable( )
+    public ClientSearchStatusType getStatus( )
     {
-        return _bSearchable;
+        return status;
     }
 
-    public void setSearchable( boolean _bSearchable )
+    public void setStatus( ClientSearchStatusType status )
     {
-        this._bSearchable = _bSearchable;
+        this.status = status;
     }
 
-    public boolean isReadable( )
-    {
-        return _bReadable;
-    }
-
-    public void setReadable( boolean _bReadable )
-    {
-        this._bReadable = _bReadable;
-    }
-
-    public boolean isWritable( )
-    {
-        return _bWritable;
-    }
-
-    public void setWritable( boolean _bWritable )
-    {
-        this._bWritable = _bWritable;
-    }
 }

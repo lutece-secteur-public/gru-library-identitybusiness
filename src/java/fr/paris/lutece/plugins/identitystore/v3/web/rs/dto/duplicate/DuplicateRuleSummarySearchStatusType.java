@@ -31,7 +31,7 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.duplicate;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -40,10 +40,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
-public enum ServiceContractSearchStatusType
+public enum DuplicateRuleSummarySearchStatusType
 {
     SUCCESS( 200, null ),
     FAILURE( 403, null ),
@@ -55,17 +56,19 @@ public enum ServiceContractSearchStatusType
     @JsonProperty( "message" )
     protected String message;
 
-    ServiceContractSearchStatusType( Integer code, String message )
+    DuplicateRuleSummarySearchStatusType( Integer code, String message )
     {
         this.code = code;
         this.message = message;
     }
 
     @JsonCreator
-    public static ServiceContractSearchStatusType forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
+    public static DuplicateRuleSummarySearchStatusType forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
     {
-        return Arrays.stream( ServiceContractSearchStatusType.values( ) )
-                .filter( statusType -> code == statusType.getCode( ) && StringUtils.equals( message, statusType.getMessage( ) ) ).findFirst( ).orElse( null );
+        return Arrays.stream( DuplicateRuleSummarySearchStatusType.values( ) )
+                .filter( duplicateRuleSummarySearchStatusType -> Objects.equals( code, duplicateRuleSummarySearchStatusType.getCode( ) )
+                        && StringUtils.equals( message, duplicateRuleSummarySearchStatusType.getMessage( ) ) )
+                .findFirst( ).orElse( null );
     }
 
     public Integer getCode( )

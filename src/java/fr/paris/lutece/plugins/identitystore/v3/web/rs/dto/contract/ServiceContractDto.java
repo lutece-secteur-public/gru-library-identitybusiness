@@ -39,19 +39,25 @@ import java.util.List;
 
 public class ServiceContractDto
 {
+    private int _nId;
     private String _strName;
 
-    private String _strOrganizationalEntity;
+    private String _strMoaEntityName;
 
-    private String _strResponsibleName;
+    private String _strMoeEntityName;
 
-    private String _strContactName;
+    private String _strMoeResponsibleName;
+
+    private String _strMoaContactName;
 
     private String _strServiceType;
 
     private Date _dateStartingDate;
     private Date _dateEndingDate;
 
+    private boolean _bAuthorizedCreation;
+    private boolean _bAuthorizedUpdate;
+    private boolean _bAuthorizedSearch;
     private boolean _bAuthorizedMerge;
 
     private boolean _bAuthorizedAccountUpdate;
@@ -62,11 +68,17 @@ public class ServiceContractDto
 
     private boolean _bAuthorizedExport;
 
-    private boolean _bIsAuthorizedDeleteValue;
-
-    private boolean _bIsAuthorizedDeleteCertificate;
-
     private List<AttributeDefinitionDto> attributeDefinitions = new ArrayList<>( );
+
+    public int getId( )
+    {
+        return _nId;
+    }
+
+    public void setId( int _nId )
+    {
+        this._nId = _nId;
+    }
 
     public String getName( )
     {
@@ -78,34 +90,44 @@ public class ServiceContractDto
         this._strName = _strName;
     }
 
-    public String getOrganizationalEntity( )
+    public String getMoaEntityName( )
     {
-        return _strOrganizationalEntity;
+        return _strMoaEntityName;
     }
 
-    public void setOrganizationalEntity( String _strOrganizationalEntity )
+    public void setMoaEntityName( String _strMoaEntityName )
     {
-        this._strOrganizationalEntity = _strOrganizationalEntity;
+        this._strMoaEntityName = _strMoaEntityName;
     }
 
-    public String getResponsibleName( )
+    public String getMoeEntityName( )
     {
-        return _strResponsibleName;
+        return _strMoeEntityName;
     }
 
-    public void setResponsibleName( String _strResponsibleName )
+    public void setMoeEntityName( String _strMoeEntityName )
     {
-        this._strResponsibleName = _strResponsibleName;
+        this._strMoeEntityName = _strMoeEntityName;
     }
 
-    public String getContactName( )
+    public String getMoeResponsibleName( )
     {
-        return _strContactName;
+        return _strMoeResponsibleName;
     }
 
-    public void setContactName( String _strContactName )
+    public void setMoeResponsibleName( String _strMoeResponsibleName )
     {
-        this._strContactName = _strContactName;
+        this._strMoeResponsibleName = _strMoeResponsibleName;
+    }
+
+    public String getMoaContactName( )
+    {
+        return _strMoaContactName;
+    }
+
+    public void setMoaContactName( String _strMoaContactName )
+    {
+        this._strMoaContactName = _strMoaContactName;
     }
 
     public String getServiceType( )
@@ -136,6 +158,36 @@ public class ServiceContractDto
     public void setEndingDate( Date _dateEndingDate )
     {
         this._dateEndingDate = _dateEndingDate;
+    }
+
+    public boolean isAuthorizedCreation( )
+    {
+        return _bAuthorizedCreation;
+    }
+
+    public void setAuthorizedCreation( boolean _bAuthorizedCreation )
+    {
+        this._bAuthorizedCreation = _bAuthorizedCreation;
+    }
+
+    public boolean isAuthorizedUpdate( )
+    {
+        return _bAuthorizedUpdate;
+    }
+
+    public void setAuthorizedUpdate( boolean _bAuthorizedUpdate )
+    {
+        this._bAuthorizedUpdate = _bAuthorizedUpdate;
+    }
+
+    public boolean isAuthorizedSearch( )
+    {
+        return _bAuthorizedSearch;
+    }
+
+    public void setAuthorizedSearch( boolean _bAuthorizedSearch )
+    {
+        this._bAuthorizedSearch = _bAuthorizedSearch;
     }
 
     public boolean isAuthorizedMerge( )
@@ -186,26 +238,6 @@ public class ServiceContractDto
     public void setAuthorizedExport( boolean _bAuthorizedExport )
     {
         this._bAuthorizedExport = _bAuthorizedExport;
-    }
-
-    public boolean isIsAuthorizedDeleteValue( )
-    {
-        return _bIsAuthorizedDeleteValue;
-    }
-
-    public void setIsAuthorizedDeleteValue( boolean _bIsAuthorizedDeleteValue )
-    {
-        this._bIsAuthorizedDeleteValue = _bIsAuthorizedDeleteValue;
-    }
-
-    public boolean isIsAuthorizedDeleteCertificate( )
-    {
-        return _bIsAuthorizedDeleteCertificate;
-    }
-
-    public void setIsAuthorizedDeleteCertificate( boolean _bIsAuthorizedDeleteCertificate )
-    {
-        this._bIsAuthorizedDeleteCertificate = _bIsAuthorizedDeleteCertificate;
     }
 
     public List<AttributeDefinitionDto> getAttributeDefinitions( )
