@@ -47,6 +47,8 @@ public enum AttributeChangeStatus
 {
     CREATED( "created", null ),
     UPDATED( "updated", null ),
+    REMOVED( "removed", null ),
+    NOT_REMOVED( "not_removed", "This mandatory attribute cannot be removed." ),
     NOT_UPDATED( "not_updated", "This attribute already exists with the same value and certificate." ),
     MERGED( "merged", null ),
     NOT_FOUND( "not_found", "This attribute does not exist in the repository." ),
@@ -54,7 +56,13 @@ public enum AttributeChangeStatus
             "This attribute cannot be updated because the existing certification level is higher than in the service contract definition for the process provided in the request." ),
     INSUFFICIENT_RIGHTS( "insufficient_rights",
             "This attribute cannot be written because the associated process in the request does not match the contract definition." ),
-    UNAUTHORIZED( "unauthorized", "This attribute is not writable in service contract definition" );
+    UNAUTHORIZED( "unauthorized", "This attribute is not writable in service contract definition" ),
+    UNKNOWN_GEOCODES_CODE( "unknown_geocodes_code", "The provided code was not found in the Geocodes repository." ),
+    UNKNOWN_GEOCODES_LABEL( "unknown_geocodes_label", "The provided label was not found in the Geocodes repository." ),
+    MULTIPLE_GEOCODES_RESULTS_FOR_LABEL( "multiple_geocodes_results_for_label",
+            "The provided label correspond to multiple results in Geocodes. Please specify by providing the code." ),
+    OVERRIDDEN_GEOCODES_LABEL( "overridden_geocodes_label",
+            "The provided label was not corresponding to the provided code, and has been overridden with the correct Geocodes label." );
 
     @JsonProperty( "code" )
     protected String code;
