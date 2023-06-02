@@ -54,9 +54,9 @@ public class AttributeDefinitionDto
         return _strName;
     }
 
-    public void setName( String _strName )
+    public void setName( String strName )
     {
-        this._strName = _strName;
+        this._strName = strName;
     }
 
     public String getKeyName( )
@@ -64,9 +64,9 @@ public class AttributeDefinitionDto
         return _strKeyName;
     }
 
-    public void setKeyName( String _strKeyName )
+    public void setKeyName( String strKeyName )
     {
-        this._strKeyName = _strKeyName;
+        this._strKeyName = strKeyName;
     }
 
     public String getDescription( )
@@ -74,9 +74,9 @@ public class AttributeDefinitionDto
         return _strDescription;
     }
 
-    public void setDescription( String _strDescription )
+    public void setDescription( String strDescription )
     {
-        this._strDescription = _strDescription;
+        this._strDescription = strDescription;
     }
 
     public AttributeType getType( )
@@ -84,9 +84,9 @@ public class AttributeDefinitionDto
         return _keyType;
     }
 
-    public void setType( AttributeType _keyType )
+    public void setType( AttributeType keyType )
     {
-        this._keyType = _keyType;
+        this._keyType = keyType;
     }
 
     public boolean isCertifiable( )
@@ -94,9 +94,9 @@ public class AttributeDefinitionDto
         return _bCertifiable;
     }
 
-    public void setCertifiable( boolean _bCertifiable )
+    public void setCertifiable( boolean bCertifiable )
     {
-        this._bCertifiable = _bCertifiable;
+        this._bCertifiable = bCertifiable;
     }
 
     public boolean isPivot( )
@@ -104,19 +104,19 @@ public class AttributeDefinitionDto
         return _bPivot;
     }
 
-    public void setPivot( boolean _bPivot )
+    public void setPivot( boolean bPivot )
     {
-        this._bPivot = _bPivot;
+        this._bPivot = bPivot;
     }
-
+    
     public int getKeyWeight( )
     {
         return _nKeyWeight;
     }
 
-    public void setKeyWeight( int _nKeyWeight )
+    public void setKeyWeight( int nKeyWeight )
     {
-        this._nKeyWeight = _nKeyWeight;
+        this._nKeyWeight = nKeyWeight;
     }
 
     public AttributeRequirement getAttributeRequirement( )
