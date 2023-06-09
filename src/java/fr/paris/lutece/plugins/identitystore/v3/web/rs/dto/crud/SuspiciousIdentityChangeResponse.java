@@ -35,15 +35,6 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-<<<<<<< HEAD
-=======
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeStatus;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.DuplicateDto;
-
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
->>>>>>> #244:[Service dédoublonnage interne] API POST suggestion de doublon
 
 /**
  * DTO contenant la réponse à une requête de création d'un suspicion identité
@@ -58,23 +49,9 @@ public class SuspiciousIdentityChangeResponse
     @JsonProperty( "message" )
     protected String message;
 
-<<<<<<< HEAD
     @JsonProperty( "suspicious_identity" )
     protected SuspiciousIdentityDto suspiciousIdentity;
-=======
-    @JsonProperty( "customer_id" )
-    protected String customerId;
 
-    @JsonProperty( "duplicate_rule_id" )
-    protected int duplicateRuleID;
-
-    @JsonProperty( "creation_date" )
-    protected Timestamp creationDate;
-
-    @JsonProperty( "last_update_date" )
-    protected Timestamp lastUpdateDate;
-
->>>>>>> #244:[Service dédoublonnage interne] API POST suggestion de doublon
 
     public IdentityChangeStatus getStatus( )
     {
@@ -96,7 +73,6 @@ public class SuspiciousIdentityChangeResponse
         this.message = message;
     }
 
-<<<<<<< HEAD
     public SuspiciousIdentityDto getSuspiciousIdentity( )
     {
         return suspiciousIdentity;
@@ -105,43 +81,5 @@ public class SuspiciousIdentityChangeResponse
     public void setSuspiciousIdentity( SuspiciousIdentityDto suspiciousIdentity )
     {
         this.suspiciousIdentity = suspiciousIdentity;
-=======
-    public String getCustomerId( )
-    {
-        return customerId;
-    }
-
-    public void setCustomerId( String customerId )
-    {
-        this.customerId = customerId;
-    }
-
-    public Timestamp getCreationDate( )
-    {
-        return creationDate;
-    }
-
-    public void setCreationDate( Timestamp creationDate )
-    {
-        this.creationDate = creationDate;
-    }
-
-    public Timestamp getLastUpdateDate( )
-    {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate( Timestamp lastUpdateDate )
-    {
-        this.lastUpdateDate = lastUpdateDate;
-    }
-
-    public int getDuplicateRuleID() {
-        return duplicateRuleID;
-    }
-
-    public void setDuplicateRuleID(int duplicateRuleID) {
-        this.duplicateRuleID = duplicateRuleID;
->>>>>>> #244:[Service dédoublonnage interne] API POST suggestion de doublon
     }
 }
