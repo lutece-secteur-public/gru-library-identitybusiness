@@ -100,6 +100,12 @@ public class QualifiedIdentity
     @JsonProperty( "mon_paris_active" )
     private boolean monParisActive;
 
+    /**
+     * Expiration date
+     */
+    @JsonProperty( "expiration_date" )
+    private Timestamp expirationDate;
+
     public Double getQuality( )
     {
         return quality;
@@ -198,5 +204,15 @@ public class QualifiedIdentity
     public void setMonParisActive( boolean monParisActive )
     {
         this.monParisActive = monParisActive;
+    }
+
+    public Timestamp getExpirationDate( )
+    {
+        return expirationDate;
+    }
+
+    public void setExpirationDate( Timestamp expirationDate )
+    {
+        this.expirationDate = expirationDate;
     }
 }
