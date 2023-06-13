@@ -33,7 +33,6 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
 
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,11 +46,12 @@ public enum AttributeType
     STRING( 0, "string" ),
     NUMERIC( 1, "numeric" ),
     FILE( 2, "file" ),
-    DATE( 3, "date" );
+    DATE( 3, "date" ),
+    ENUM( 4, "enum" );
 
-    private static Map<Integer, AttributeType> _mapKeyType = new HashMap<>( );
-    private int _nId;
-    private String _strCode;
+    private static final Map<Integer, AttributeType> _mapKeyType = new HashMap<>( );
+    private final int _nId;
+    private final String _strCode;
 
     /**
      * private constructor
@@ -61,7 +61,7 @@ public enum AttributeType
      * @param strCode
      *            code
      */
-    AttributeType( int nId, String strCode )
+    AttributeType( final int nId, final String strCode )
     {
         _nId = nId;
         _strCode = strCode;
@@ -69,7 +69,7 @@ public enum AttributeType
 
     static
     {
-        for ( AttributeType enumKeyType : EnumSet.allOf( AttributeType.class ) )
+        for ( final AttributeType enumKeyType : values( ) )
         {
             _mapKeyType.put( enumKeyType._nId, enumKeyType );
         }
@@ -104,7 +104,7 @@ public enum AttributeType
      */
     public static AttributeType valueOf( int nId )
     {
-        return _mapKeyType.get( Integer.valueOf( nId ) );
+        return _mapKeyType.get( nId );
     }
 
 }

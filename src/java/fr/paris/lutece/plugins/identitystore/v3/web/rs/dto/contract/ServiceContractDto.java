@@ -68,6 +68,8 @@ public class ServiceContractDto
 
     private boolean _bAuthorizedExport;
 
+    private int _nDataRetentionPeriodInMonths;
+
     private List<AttributeDefinitionDto> attributeDefinitions = new ArrayList<>( );
 
     public int getId( )
@@ -238,6 +240,16 @@ public class ServiceContractDto
     public void setAuthorizedExport( boolean _bAuthorizedExport )
     {
         this._bAuthorizedExport = _bAuthorizedExport;
+    }
+
+    public int getDataRetentionPeriodInMonths( )
+    {
+        return _nDataRetentionPeriodInMonths;
+    }
+
+    public void setDataRetentionPeriodInMonths( int _nDataRetentionPeriodInMonths )
+    {
+        this._nDataRetentionPeriodInMonths = _nDataRetentionPeriodInMonths;
     }
 
     public List<AttributeDefinitionDto> getAttributeDefinitions( )
