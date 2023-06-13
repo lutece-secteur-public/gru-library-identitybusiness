@@ -54,6 +54,12 @@ public class Identity
     protected String customerId;
 
     /**
+     * Flag indiquant que cette identité est lié à un compte MonParis actif
+     */
+    @JsonProperty( "mon_paris_active" )
+    protected Boolean monParisActive;
+
+    /**
      * Liste des attributs décrivant l'identité
      */
     @JsonProperty( "attributes" )
@@ -87,5 +93,15 @@ public class Identity
     public void setCustomerId( String customerId )
     {
         this.customerId = customerId;
+    }
+
+    public Boolean getMonParisActive( )
+    {
+        return monParisActive;
+    }
+
+    public void setMonParisActive( Boolean monParisActive )
+    {
+        this.monParisActive = monParisActive;
     }
 }

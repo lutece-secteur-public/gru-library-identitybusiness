@@ -94,6 +94,12 @@ public class QualifiedIdentity
     @JsonIgnore
     protected boolean merged;
 
+    /**
+     * Flag pour dire si l'identité est liée à un compte MonParis actif
+     */
+    @JsonProperty( "mon_paris_active" )
+    private boolean monParisActive;
+
     public Double getQuality( )
     {
         return quality;
@@ -182,5 +188,15 @@ public class QualifiedIdentity
     public void setLastUpdateDate( Timestamp lastUpdateDate )
     {
         this.lastUpdateDate = lastUpdateDate;
+    }
+
+    public boolean isMonParisActive( )
+    {
+        return monParisActive;
+    }
+
+    public void setMonParisActive( boolean monParisActive )
+    {
+        this.monParisActive = monParisActive;
     }
 }
