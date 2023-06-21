@@ -46,6 +46,7 @@ import java.util.Arrays;
 public enum AttributeChangeStatus
 {
     CREATED( "created", null ),
+    NOT_CREATED( "not_created", "This attribute was not created because of an invalid provided value." ),
     UPDATED( "updated", null ),
     REMOVED( "removed", null ),
     NOT_REMOVED( "not_removed", "This mandatory attribute cannot be removed." ),
