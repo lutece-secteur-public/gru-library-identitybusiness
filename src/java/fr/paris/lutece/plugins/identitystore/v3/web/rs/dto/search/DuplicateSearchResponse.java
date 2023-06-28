@@ -36,7 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DuplicateDto
+public class DuplicateSearchResponse
 {
     protected String message;
 

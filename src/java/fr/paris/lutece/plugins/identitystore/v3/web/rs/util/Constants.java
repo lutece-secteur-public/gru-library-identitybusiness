@@ -130,6 +130,7 @@ public final class Constants
     public static final String RAPPROCHEMENT_PATH = "rapprochement";
     public static final String EXCLUSION_PATH = "exclusion";
     public static final String RULES_PATH = "rules";
+    public static final String DUPLICATE_PATH = "duplicate";
     public static final int MANUAL_SUSPICIOUS_RULE_ID = 0;
     public static final String PARAM_MAX = "max";
     public static final String PARAM_SIZE = "size";

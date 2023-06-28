@@ -36,7 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeStatus;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.DuplicateDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.DuplicateSearchResponse;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -71,7 +71,7 @@ public class IdentityChangeResponse
     protected List<AttributeStatus> attributeStatuses = new ArrayList<>( );
 
     @JsonProperty( "duplicates" )
-    protected DuplicateDto duplicates;
+    protected DuplicateSearchResponse duplicates;
 
     public IdentityChangeStatus getStatus( )
     {
@@ -143,12 +143,12 @@ public class IdentityChangeResponse
         this.attributeStatuses = attributeStatuses;
     }
 
-    public DuplicateDto getDuplicates( )
+    public DuplicateSearchResponse getDuplicates( )
     {
         return duplicates;
     }
 
-    public void setDuplicates( DuplicateDto duplicates )
+    public void setDuplicates( DuplicateSearchResponse duplicates )
     {
         this.duplicates = duplicates;
     }
