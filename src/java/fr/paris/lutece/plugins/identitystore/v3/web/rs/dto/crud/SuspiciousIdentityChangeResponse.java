@@ -52,7 +52,6 @@ public class SuspiciousIdentityChangeResponse
     @JsonProperty( "suspicious_identity" )
     protected SuspiciousIdentityDto suspiciousIdentity;
 
-
     public IdentityChangeStatus getStatus( )
     {
         return status;
