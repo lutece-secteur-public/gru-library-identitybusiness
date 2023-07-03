@@ -35,26 +35,13 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeStatus;
-
-import java.util.ArrayList;
-import java.util.List;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ChangeResponse;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
-public class IdentityMergeResponse
+public class IdentityMergeResponse extends ChangeResponse
 {
-
     @JsonProperty( "status" )
     protected IdentityMergeStatus status;
-
-    @JsonProperty( "customer_id" )
-    protected String customerId;
-
-    @JsonProperty( "attributes_status" )
-    protected List<AttributeStatus> attributeStatuses = new ArrayList<>( );
-
-    @JsonProperty( "message" )
-    protected List<String> message = new ArrayList<>( );
 
     public IdentityMergeStatus getStatus( )
     {
@@ -64,35 +51,5 @@ public class IdentityMergeResponse
     public void setStatus( IdentityMergeStatus status )
     {
         this.status = status;
-    }
-
-    public List<String> getMessage( )
-    {
-        return message;
-    }
-
-    public void setMessage( List<String> message )
-    {
-        this.message = message;
-    }
-
-    public String getCustomerId( )
-    {
-        return customerId;
-    }
-
-    public void setCustomerId( String customerId )
-    {
-        this.customerId = customerId;
-    }
-
-    public List<AttributeStatus> getAttributeStatuses( )
-    {
-        return attributeStatuses;
-    }
-
-    public void setAttributeStatuses( List<AttributeStatus> attributeStatuses )
-    {
-        this.attributeStatuses = attributeStatuses;
     }
 }

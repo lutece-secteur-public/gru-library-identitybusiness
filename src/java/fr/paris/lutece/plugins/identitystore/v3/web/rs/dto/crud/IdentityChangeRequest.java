@@ -35,35 +35,20 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ChangeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.RequestAuthor;
 
 /**
  * DTO contenant la requête de création, modification d'une identité
  */
 @JsonRootName( "identity_change" )
-public class IdentityChangeRequest
+public class IdentityChangeRequest extends ChangeRequest
 {
-    /**
-     * Signature de l'envoi
-     */
-    @JsonProperty( "origin" )
-    protected RequestAuthor origin;
-
     /**
      * bloc identité à traiter
      */
     @JsonProperty( "identity" )
     protected Identity identity;
-
-    public RequestAuthor getOrigin( )
-    {
-        return origin;
-    }
-
-    public void setOrigin( RequestAuthor origin )
-    {
-        this.origin = origin;
-    }
 
     public Identity getIdentity( )
     {

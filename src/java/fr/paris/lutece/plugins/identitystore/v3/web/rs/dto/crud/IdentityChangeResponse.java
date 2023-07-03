@@ -35,40 +35,23 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeStatus;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ChangeResponse;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.DuplicateSearchResponse;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * DTO contenant la réponse à une requête de création d'une identité
  */
 @JsonInclude( JsonInclude.Include.NON_NULL )
-public class IdentityChangeResponse
+public class IdentityChangeResponse extends ChangeResponse
 {
 
     @JsonProperty( "status" )
     protected IdentityChangeStatus status;
 
-    @JsonProperty( "message" )
-    protected String message;
-
-    @JsonProperty( "customer_id" )
-    protected String customerId;
-
-    @JsonProperty( "connection_id" )
-    protected String connectionId;
-
     @JsonProperty( "creation_date" )
     protected Timestamp creationDate;
-
-    @JsonProperty( "last_update_date" )
-    protected Timestamp lastUpdateDate;
-
-    @JsonProperty( "attributes_status" )
-    protected List<AttributeStatus> attributeStatuses = new ArrayList<>( );
 
     @JsonProperty( "duplicates" )
     protected DuplicateSearchResponse duplicates;
@@ -83,36 +66,6 @@ public class IdentityChangeResponse
         this.status = status;
     }
 
-    public String getMessage( )
-    {
-        return message;
-    }
-
-    public void setMessage( String message )
-    {
-        this.message = message;
-    }
-
-    public String getCustomerId( )
-    {
-        return customerId;
-    }
-
-    public void setCustomerId( String customerId )
-    {
-        this.customerId = customerId;
-    }
-
-    public String getConnectionId( )
-    {
-        return connectionId;
-    }
-
-    public void setConnectionId( String connectionId )
-    {
-        this.connectionId = connectionId;
-    }
-
     public Timestamp getCreationDate( )
     {
         return creationDate;
@@ -121,26 +74,6 @@ public class IdentityChangeResponse
     public void setCreationDate( Timestamp creationDate )
     {
         this.creationDate = creationDate;
-    }
-
-    public Timestamp getLastUpdateDate( )
-    {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate( Timestamp lastUpdateDate )
-    {
-        this.lastUpdateDate = lastUpdateDate;
-    }
-
-    public List<AttributeStatus> getAttributeStatuses( )
-    {
-        return attributeStatuses;
-    }
-
-    public void setAttributeStatuses( List<AttributeStatus> attributeStatuses )
-    {
-        this.attributeStatuses = attributeStatuses;
     }
 
     public DuplicateSearchResponse getDuplicates( )

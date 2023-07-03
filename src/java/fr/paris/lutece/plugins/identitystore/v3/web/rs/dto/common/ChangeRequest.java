@@ -31,40 +31,25 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
-public enum IdentityMergeStatus
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public abstract class ChangeRequest
 {
-    SUCCESS( "SUCCESS", 201 ),
-    INCOMPLETE_SUCCESS( "INCOMPLETE_SUCCESS", 201 ),
-    FAILURE( "FAILURE", 403 );
+    /**
+     * Signature de l'envoi
+     */
+    @JsonProperty( "origin" )
+    protected RequestAuthor origin;
 
-    private String label;
-    private Integer code;
-
-    IdentityMergeStatus( String label, Integer code )
+    public RequestAuthor getOrigin( )
     {
-        this.label = label;
-        this.code = code;
+        return origin;
     }
 
-    public String getLabel( )
+    public void setOrigin( RequestAuthor origin )
     {
-        return label;
-    }
-
-    public void setLabel( String label )
-    {
-        this.label = label;
-    }
-
-    public Integer getCode( )
-    {
-        return code;
-    }
-
-    public void setCode( Integer code )
-    {
-        this.code = code;
+        this.origin = origin;
     }
 }

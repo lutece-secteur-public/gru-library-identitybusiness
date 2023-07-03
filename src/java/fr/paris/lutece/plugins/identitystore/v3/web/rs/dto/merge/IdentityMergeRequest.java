@@ -35,35 +35,49 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ChangeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.RequestAuthor;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.Identity;
 
 @JsonRootName( "identity_merge" )
-public class IdentityMergeRequest
+public class IdentityMergeRequest extends ChangeRequest
 {
+    @JsonProperty( "primary_customer_id" )
+    protected String primaryCuid;
 
-    @JsonProperty( "origin" )
-    protected RequestAuthor origin;
+    @JsonProperty( "secondary_customer_id" )
+    protected String secondaryCuid;
 
-    @JsonProperty( "identities" )
-    protected Identities identities;
+    @JsonProperty( "identity" )
+    protected Identity identity;
 
-    public RequestAuthor getOrigin( )
+    public String getPrimaryCuid( )
     {
-        return origin;
+        return primaryCuid;
     }
 
-    public void setOrigin( RequestAuthor origin )
+    public void setPrimaryCuid( String primaryCuid )
     {
-        this.origin = origin;
+        this.primaryCuid = primaryCuid;
     }
 
-    public Identities getIdentities( )
+    public String getSecondaryCuid( )
     {
-        return identities;
+        return secondaryCuid;
     }
 
-    public void setIdentities( Identities identities )
+    public void setSecondaryCuid( String secondaryCuid )
     {
-        this.identities = identities;
+        this.secondaryCuid = secondaryCuid;
+    }
+
+    public Identity getIdentity( )
+    {
+        return identity;
+    }
+
+    public void setIdentity( Identity identity )
+    {
+        this.identity = identity;
     }
 }

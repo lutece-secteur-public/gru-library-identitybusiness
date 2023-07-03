@@ -31,45 +31,78 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Identities
+public abstract class ChangeResponse
 {
-    @JsonProperty( "primary_customer_id" )
-    protected String primaryCuid;
+    @JsonProperty( "message" )
+    protected String message;
 
-    @JsonProperty( "secondary_customer_id" )
-    protected String secondaryCuid;
-    @JsonProperty( "attributes" )
-    protected List<String> attributeKeys = new ArrayList<>( );
+    @JsonProperty( "customer_id" )
+    protected String customerId;
 
-    public String getPrimaryCuid( )
+    @JsonProperty( "connection_id" )
+    protected String connectionId;
+
+    @JsonProperty( "last_update_date" )
+    protected Timestamp lastUpdateDate;
+
+    @JsonProperty( "attributes_status" )
+    protected List<AttributeStatus> attributeStatuses = new ArrayList<>( );
+
+    public String getMessage( )
     {
-        return primaryCuid;
+        return message;
     }
 
-    public void setPrimaryCuid( String primaryCuid )
+    public void setMessage( String message )
     {
-        this.primaryCuid = primaryCuid;
+        this.message = message;
     }
 
-    public String getSecondaryCuid( )
+    public String getCustomerId( )
     {
-        return secondaryCuid;
+        return customerId;
     }
 
-    public void setSecondaryCuid( String secondaryCuid )
+    public void setCustomerId( String customerId )
     {
-        this.secondaryCuid = secondaryCuid;
+        this.customerId = customerId;
     }
 
-    public List<String> getAttributeKeys( )
+    public String getConnectionId( )
     {
-        return attributeKeys;
+        return connectionId;
+    }
+
+    public void setConnectionId( String connectionId )
+    {
+        this.connectionId = connectionId;
+    }
+
+    public Timestamp getLastUpdateDate( )
+    {
+        return lastUpdateDate;
+    }
+
+    public void setLastUpdateDate( Timestamp lastUpdateDate )
+    {
+        this.lastUpdateDate = lastUpdateDate;
+    }
+
+    public List<AttributeStatus> getAttributeStatuses( )
+    {
+        return attributeStatuses;
+    }
+
+    public void setAttributeStatuses( List<AttributeStatus> attributeStatuses )
+    {
+        this.attributeStatuses = attributeStatuses;
     }
 }
