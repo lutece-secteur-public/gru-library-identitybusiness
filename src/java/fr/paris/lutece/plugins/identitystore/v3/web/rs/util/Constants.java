@@ -127,7 +127,7 @@ public final class Constants
     /** Module identity quality */
     public static final String QUALITY_PATH = "/quality";
     public static final String SUSPICIONS_PATH = "suspicions";
-    public static final String RAPPROCHEMENT_PATH = "rapprochement";
+    public static final String LOCK_PATH = "lock";
     public static final String EXCLUSION_PATH = "exclusion";
     public static final String RULES_PATH = "rules";
     public static final String DUPLICATE_PATH = "duplicate";
