@@ -60,12 +60,6 @@ public class SuspiciousIdentityExcludeRequest
     @JsonProperty( "identity_cuid_2" )
     private String identityCuid2;
 
-    /**
-     * ID of the duplicate rule
-     */
-    @JsonProperty( "rule_id" )
-    private Integer ruleId;
-
     public RequestAuthor getOrigin( )
     {
         return origin;
@@ -96,13 +90,4 @@ public class SuspiciousIdentityExcludeRequest
         this.identityCuid2 = identityCuid2;
     }
 
-    public Integer getRuleId( )
-    {
-        return ruleId;
-    }
-
-    public void setRuleId( Integer ruleId )
-    {
-        this.ruleId = ruleId;
-    }
 }
