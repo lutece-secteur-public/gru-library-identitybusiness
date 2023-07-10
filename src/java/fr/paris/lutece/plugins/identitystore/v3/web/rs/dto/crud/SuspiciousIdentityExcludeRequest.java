@@ -34,20 +34,14 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ChangeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.RequestAuthor;
 
 /**
  * DTO contenant les elements pour exclure deux identités des suspicions de doublons
  */
-public class SuspiciousIdentityExcludeRequest
+public class SuspiciousIdentityExcludeRequest extends ChangeRequest
 {
-
-    /**
-     * Signature de l'envoi
-     */
-    @JsonProperty( "origin" )
-    private RequestAuthor origin;
-
     /**
      * CUID 1
      */
@@ -59,16 +53,6 @@ public class SuspiciousIdentityExcludeRequest
      */
     @JsonProperty( "identity_cuid_2" )
     private String identityCuid2;
-
-    public RequestAuthor getOrigin( )
-    {
-        return origin;
-    }
-
-    public void setOrigin( RequestAuthor origin )
-    {
-        this.origin = origin;
-    }
 
     public String getIdentityCuid1( )
     {
