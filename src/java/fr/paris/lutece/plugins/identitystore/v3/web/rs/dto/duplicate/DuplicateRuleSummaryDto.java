@@ -38,7 +38,7 @@ public class DuplicateRuleSummaryDto
     private int _nId;
     private String _strName;
     private String _strDescription;
-
+    private int _nPriority;
     private int _nDuplicateCount;
 
     public int getId( )
@@ -79,5 +79,15 @@ public class DuplicateRuleSummaryDto
     public void setDuplicateCount( int _nDuplicateCount )
     {
         this._nDuplicateCount = _nDuplicateCount;
+    }
+
+    public int getPriority( )
+    {
+        return _nPriority;
+    }
+
+    public void setPriority( int _nPriority )
+    {
+        this._nPriority = _nPriority;
     }
 }
