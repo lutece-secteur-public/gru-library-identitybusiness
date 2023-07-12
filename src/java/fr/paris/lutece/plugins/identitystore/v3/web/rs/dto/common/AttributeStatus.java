@@ -33,8 +33,12 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
+
+@JsonInclude(NON_NULL)
 public class AttributeStatus
 {
 
@@ -43,6 +47,9 @@ public class AttributeStatus
 
     @JsonProperty( "status" )
     protected AttributeChangeStatus status;
+
+    @JsonProperty("message")
+    protected String message;
 
     public String getKey( )
     {
@@ -62,5 +69,13 @@ public class AttributeStatus
     public void setStatus( AttributeChangeStatus status )
     {
         this.status = status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
