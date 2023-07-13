@@ -136,6 +136,9 @@ public final class Constants
     public static final String PARAM_SIZE = "size";
     public static final String PARAM_PAGE = "page";
 
+    /** History */
+    public static final String HISTORY_PATH = "/history";
+
     /**
      * Default constructor
      */

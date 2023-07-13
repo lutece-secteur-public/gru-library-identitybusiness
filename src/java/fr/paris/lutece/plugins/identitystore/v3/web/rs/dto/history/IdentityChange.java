@@ -33,66 +33,89 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.RequestAuthor;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
-@JsonInclude( JsonInclude.Include.NON_NULL )
-public class IdentityHistory
+public class IdentityChange
 {
-    @JsonProperty( "connection_id" )
-    protected String connectionId;
 
-    @JsonProperty( "customer_id" )
-    protected String customerId;
+    @JsonProperty( "change_type" )
+    protected String changeType;
 
-    @JsonProperty( "identity_changes" )
-    protected List<IdentityChange> identityChanges = new ArrayList<>( );
+    @JsonProperty( "change_status" )
+    protected String changeStatus;
 
-    @JsonProperty( "attribute_histories" )
-    protected List<AttributeHistory> attributeHistories = new ArrayList<>( );
+    @JsonProperty( "author" )
+    protected RequestAuthor author;
 
-    public String getConnectionId( )
+    @JsonProperty( "change_message" )
+    protected String changeMessage;
+
+    @JsonProperty( "client_code" )
+    protected String clientCode;
+
+    @JsonProperty( "modification_date" )
+    protected Timestamp modificationDate;
+
+    public String getChangeType( )
     {
-        return connectionId;
+        return changeType;
     }
 
-    public void setConnectionId( String connectionId )
+    public void setChangeType( String changeType )
     {
-        this.connectionId = connectionId;
+        this.changeType = changeType;
     }
 
-    public String getCustomerId( )
+    public String getChangeStatus( )
     {
-        return customerId;
+        return changeStatus;
     }
 
-    public void setCustomerId( String customerId )
+    public void setChangeStatus( String changeStatus )
     {
-        this.customerId = customerId;
+        this.changeStatus = changeStatus;
     }
 
-    public List<IdentityChange> getIdentityChanges( )
+    public RequestAuthor getAuthor( )
     {
-        return identityChanges;
+        return author;
     }
 
-    public void setIdentityChanges( List<IdentityChange> identityChanges )
+    public void setAuthor( RequestAuthor author )
     {
-        this.identityChanges = identityChanges;
+        this.author = author;
     }
 
-    public List<AttributeHistory> getAttributeHistories( )
+    public String getChangeMessage( )
     {
-        return attributeHistories;
+        return changeMessage;
     }
 
-    public void setAttributeHistories( List<AttributeHistory> attributeHistories )
+    public void setChangeMessage( String changeMessage )
     {
-        this.attributeHistories = attributeHistories;
+        this.changeMessage = changeMessage;
+    }
+
+    public String getClientCode( )
+    {
+        return clientCode;
+    }
+
+    public void setClientCode( String clientCode )
+    {
+        this.clientCode = clientCode;
+    }
+
+    public Timestamp getModificationDate( )
+    {
+        return modificationDate;
+    }
+
+    public void setModificationDate( Timestamp modificationDate )
+    {
+        this.modificationDate = modificationDate;
     }
 }
