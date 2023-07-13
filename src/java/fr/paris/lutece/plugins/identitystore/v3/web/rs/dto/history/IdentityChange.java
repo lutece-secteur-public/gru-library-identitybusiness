@@ -54,6 +54,11 @@ public class IdentityChange
     protected Timestamp _dateLastUpdateDate;
     protected Timestamp _modificationDate;
     protected boolean _bIsMonParisActive;
+    protected boolean _bIsDeleted;
+    protected Timestamp _dateExpirationDate;
+    protected String _strMasterCustomerId;
+    protected boolean _bIsMerged;
+    protected Timestamp _dateMergeDate;
 
     public IdentityChange( )
     {
@@ -250,4 +255,43 @@ public class IdentityChange
         this._bIsMonParisActive = _bIsMonParisActive;
     }
 
+    public boolean isDeleted() {
+        return _bIsDeleted;
+    }
+
+    public void setDeleted(boolean _bIsDeleted) {
+        this._bIsDeleted = _bIsDeleted;
+    }
+
+    public Timestamp getExpirationDate() {
+        return _dateExpirationDate;
+    }
+
+    public void setExpirationDate(Timestamp _dateExpirationDate) {
+        this._dateExpirationDate = _dateExpirationDate;
+    }
+
+    public String getMasterCustomerId() {
+        return _strMasterCustomerId;
+    }
+
+    public void setMasterCustomerId(String _strMasterCustomerId) {
+        this._strMasterCustomerId = _strMasterCustomerId;
+    }
+
+    public boolean isMerged() {
+        return _bIsMerged;
+    }
+
+    public void setMerged(boolean _bIsMerged) {
+        this._bIsMerged = _bIsMerged;
+    }
+
+    public Timestamp getMergeDate() {
+        return _dateMergeDate;
+    }
+
+    public void setMergeDate(Timestamp _dateMergeDate) {
+        this._dateMergeDate = _dateMergeDate;
+    }
 }
