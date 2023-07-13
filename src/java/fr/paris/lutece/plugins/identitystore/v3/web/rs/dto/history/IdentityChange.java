@@ -255,43 +255,53 @@ public class IdentityChange
         this._bIsMonParisActive = _bIsMonParisActive;
     }
 
-    public boolean isDeleted() {
+    public boolean isDeleted( )
+    {
         return _bIsDeleted;
     }
 
-    public void setDeleted(boolean _bIsDeleted) {
+    public void setDeleted( boolean _bIsDeleted )
+    {
         this._bIsDeleted = _bIsDeleted;
     }
 
-    public Timestamp getExpirationDate() {
+    public Timestamp getExpirationDate( )
+    {
         return _dateExpirationDate;
     }
 
-    public void setExpirationDate(Timestamp _dateExpirationDate) {
+    public void setExpirationDate( Timestamp _dateExpirationDate )
+    {
         this._dateExpirationDate = _dateExpirationDate;
     }
 
-    public String getMasterCustomerId() {
+    public String getMasterCustomerId( )
+    {
         return _strMasterCustomerId;
     }
 
-    public void setMasterCustomerId(String _strMasterCustomerId) {
+    public void setMasterCustomerId( String _strMasterCustomerId )
+    {
         this._strMasterCustomerId = _strMasterCustomerId;
     }
 
-    public boolean isMerged() {
+    public boolean isMerged( )
+    {
         return _bIsMerged;
     }
 
-    public void setMerged(boolean _bIsMerged) {
+    public void setMerged( boolean _bIsMerged )
+    {
         this._bIsMerged = _bIsMerged;
     }
 
-    public Timestamp getMergeDate() {
+    public Timestamp getMergeDate( )
+    {
         return _dateMergeDate;
     }
 
-    public void setMergeDate(Timestamp _dateMergeDate) {
+    public void setMergeDate( Timestamp _dateMergeDate )
+    {
         this._dateMergeDate = _dateMergeDate;
     }
 }
