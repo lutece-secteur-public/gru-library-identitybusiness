@@ -51,6 +51,7 @@ public final class Constants
     public static final String IMPORT_IDENTITY_PATH = "/import";
     public static final String SEARCH_IDENTITIES_PATH = "/search";
     public static final String MERGE_IDENTITIES_PATH = "/merge";
+    public static final String CANCEL_MERGE_IDENTITIES_PATH = "/unmerge";
     public static final String APPLICATION_RIGHTS_PATH = "/apprights";
     public static final String PARAM_CLIENT_CODE = "client_code";
     public static final String PARAM_APPLICATION_CODE = "application_code";
