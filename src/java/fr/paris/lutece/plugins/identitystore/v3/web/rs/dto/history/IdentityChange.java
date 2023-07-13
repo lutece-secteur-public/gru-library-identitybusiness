@@ -33,89 +33,221 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.RequestAuthor;
 
 import java.sql.Timestamp;
 
+/**
+ * AttributeChange
+ */
 public class IdentityChange
 {
+    protected Integer id;
+    protected IdentityChangeType _identityChangeType;
+    protected RequestAuthor _author;
+    protected String _strChangeStatus;
+    protected String _strChangeMessage;
+    protected String _strClientCode;
+    protected String _strCustomerId;
+    protected String _strConnectionId;
+    protected Timestamp _dateCreationDate;
+    protected Timestamp _dateLastUpdateDate;
+    protected Timestamp _modificationDate;
+    protected boolean _bIsMonParisActive;
 
-    @JsonProperty( "change_type" )
-    protected String changeType;
-
-    @JsonProperty( "change_status" )
-    protected String changeStatus;
-
-    @JsonProperty( "author" )
-    protected RequestAuthor author;
-
-    @JsonProperty( "change_message" )
-    protected String changeMessage;
-
-    @JsonProperty( "client_code" )
-    protected String clientCode;
-
-    @JsonProperty( "modification_date" )
-    protected Timestamp modificationDate;
-
-    public String getChangeType( )
+    public IdentityChange( )
     {
-        return changeType;
     }
 
-    public void setChangeType( String changeType )
+    /**
+     * Returns the type of the IdentityChangeType
+     *
+     * @return The IdentityChangeType
+     */
+    public IdentityChangeType getChangeType( )
     {
-        this.changeType = changeType;
+        return _identityChangeType;
     }
 
-    public String getChangeStatus( )
+    /**
+     * Sets the type of the IdentityChange
+     *
+     * @param identityChangeType
+     *            The IdentityChangeType
+     */
+    public void setChangeType( IdentityChangeType identityChangeType )
     {
-        return changeStatus;
+        _identityChangeType = identityChangeType;
     }
 
-    public void setChangeStatus( String changeStatus )
-    {
-        this.changeStatus = changeStatus;
-    }
-
+    /**
+     * get author
+     * 
+     * @return the author
+     */
     public RequestAuthor getAuthor( )
     {
-        return author;
+        return _author;
     }
 
+    /**
+     * set author
+     *
+     * @param author
+     */
     public void setAuthor( RequestAuthor author )
     {
-        this.author = author;
+        this._author = author;
     }
 
+    /**
+     * get change status
+     *
+     * @return the status
+     */
+    public String getChangeStatus( )
+    {
+        return _strChangeStatus;
+    }
+
+    /**
+     * set change status
+     *
+     * @param changeStatus
+     */
+    public void setChangeStatus( String changeStatus )
+    {
+        this._strChangeStatus = changeStatus;
+    }
+
+    /**
+     * get change message
+     * 
+     * @return the message
+     */
     public String getChangeMessage( )
     {
-        return changeMessage;
+        return _strChangeMessage;
     }
 
+    /**
+     * set change message
+     *
+     * @param changeMessage
+     */
     public void setChangeMessage( String changeMessage )
     {
-        this.changeMessage = changeMessage;
+        this._strChangeMessage = changeMessage;
     }
 
+    /**
+     * get client code
+     *
+     * @return the code
+     */
     public String getClientCode( )
     {
-        return clientCode;
+        return _strClientCode;
     }
 
+    /**
+     * set client code
+     *
+     * @param clientCode
+     */
     public void setClientCode( String clientCode )
     {
-        this.clientCode = clientCode;
+        this._strClientCode = clientCode;
     }
 
+    /**
+     * get modification date
+     *
+     * @return the date
+     */
     public Timestamp getModificationDate( )
     {
-        return modificationDate;
+        return _modificationDate;
     }
 
+    /**
+     * set modification date
+     *
+     * @param modificationDate
+     */
     public void setModificationDate( Timestamp modificationDate )
     {
-        this.modificationDate = modificationDate;
+        this._modificationDate = modificationDate;
     }
+
+    /**
+     * get customer id
+     * 
+     * @return the cuid
+     */
+    public String getCustomerId( )
+    {
+        return _strCustomerId;
+    }
+
+    /**
+     * set customer id
+     *
+     * @param customerId
+     */
+    public void setCustomerId( String customerId )
+    {
+        this._strCustomerId = customerId;
+    }
+
+    public Integer getId( )
+    {
+        return id;
+    }
+
+    public void setId( Integer id )
+    {
+        this.id = id;
+    }
+
+    public String getConnectionId( )
+    {
+        return _strConnectionId;
+    }
+
+    public void setConnectionId( String _strConnectionId )
+    {
+        this._strConnectionId = _strConnectionId;
+    }
+
+    public Timestamp getCreationDate( )
+    {
+        return _dateCreationDate;
+    }
+
+    public void setCreationDate( Timestamp _dateCreationDate )
+    {
+        this._dateCreationDate = _dateCreationDate;
+    }
+
+    public Timestamp getLastUpdateDate( )
+    {
+        return _dateLastUpdateDate;
+    }
+
+    public void setLastUpdateDate( Timestamp _dateLastUpdateDate )
+    {
+        this._dateLastUpdateDate = _dateLastUpdateDate;
+    }
+
+    public boolean isMonParisActive( )
+    {
+        return _bIsMonParisActive;
+    }
+
+    public void setMonParisActive( boolean _bIsMonParisActive )
+    {
+        this._bIsMonParisActive = _bIsMonParisActive;
+    }
+
 }
