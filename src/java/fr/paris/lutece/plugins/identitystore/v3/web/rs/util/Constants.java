@@ -47,6 +47,7 @@ public final class Constants
     public static final String SERVICECONTRACT_PATH = "/contract";
     public static final String DOWNLOAD_FILE_PATH = "/file";
     public static final String UPDATE_IDENTITY_PATH = "/update";
+    public static final String UPDATED_IDENTITIES_PATH = "/updated";
     public static final String CREATE_IDENTITY_PATH = "/create";
     public static final String IMPORT_IDENTITY_PATH = "/import";
     public static final String SEARCH_IDENTITIES_PATH = "/search";
@@ -55,6 +56,7 @@ public final class Constants
     public static final String APPLICATION_RIGHTS_PATH = "/apprights";
     public static final String PARAM_CLIENT_CODE = "client_code";
     public static final String PARAM_APPLICATION_CODE = "application_code";
+    public static final String PARAM_DAYS = "days";
     public static final String PARAM_CERTIFIER_CODE = "certifier_code";
     public static final String PARAM_FILE = "file";
     public static final String PARAM_ATTRIBUTE_KEY = "attribute_key";
