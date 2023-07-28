@@ -39,14 +39,22 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ChangeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.RequestAuthor;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.Identity;
 
+import java.sql.Timestamp;
+
 @JsonRootName( "identity_merge" )
 public class IdentityMergeRequest extends ChangeRequest
 {
     @JsonProperty( "primary_customer_id" )
     protected String primaryCuid;
 
+    @JsonProperty( "primary_last_update_date" )
+    protected Timestamp primaryLastUpdateDate;
+
     @JsonProperty( "secondary_customer_id" )
     protected String secondaryCuid;
+
+    @JsonProperty( "secondary_last_update_date" )
+    protected Timestamp secondaryLastUpdateDate;
 
     @JsonProperty( "identity" )
     protected Identity identity;
@@ -61,6 +69,16 @@ public class IdentityMergeRequest extends ChangeRequest
         this.primaryCuid = primaryCuid;
     }
 
+    public Timestamp getPrimaryLastUpdateDate( )
+    {
+        return primaryLastUpdateDate;
+    }
+
+    public void setPrimaryLastUpdateDate( Timestamp primaryLastUpdateDate )
+    {
+        this.primaryLastUpdateDate = primaryLastUpdateDate;
+    }
+
     public String getSecondaryCuid( )
     {
         return secondaryCuid;
@@ -69,6 +87,16 @@ public class IdentityMergeRequest extends ChangeRequest
     public void setSecondaryCuid( String secondaryCuid )
     {
         this.secondaryCuid = secondaryCuid;
+    }
+
+    public Timestamp getSecondaryLastUpdateDate( )
+    {
+        return secondaryLastUpdateDate;
+    }
+
+    public void setSecondaryLastUpdateDate( Timestamp secondaryLastUpdateDate )
+    {
+        this.secondaryLastUpdateDate = secondaryLastUpdateDate;
     }
 
     public Identity getIdentity( )

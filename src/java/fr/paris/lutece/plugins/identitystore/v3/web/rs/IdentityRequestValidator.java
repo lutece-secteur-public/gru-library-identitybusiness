@@ -179,6 +179,11 @@ public final class IdentityRequestValidator
             throw new IdentityStoreException( "Provided Identity Change request is null or empty" );
         }
 
+        if ( identityChange.getIdentity( ).getLastUpdateDate( ) == null )
+        {
+            throw new IdentityStoreException( "The identity's last update date must be provided." );
+        }
+
         this.checkOrigin( identityChange );
 
         if ( identityChange.getIdentity( ).getAttributes( ).stream( ).anyMatch( a -> !a.isCertified( ) ) )
@@ -227,6 +232,16 @@ public final class IdentityRequestValidator
             throw new IdentityStoreException( "An Identity merge request must provide the CUID of the secondary Identity" );
         }
 
+        if ( identityMergeRequest.getPrimaryLastUpdateDate( ) == null )
+        {
+            throw new IdentityStoreException( "An Identity merge request must provide the last update date of the primary Identity" );
+        }
+
+        if ( identityMergeRequest.getSecondaryLastUpdateDate( ) == null )
+        {
+            throw new IdentityStoreException( "An Identity merge request must provide the last update date of the secondary Identity" );
+        }
+
         if ( identityMergeRequest.getIdentity( ) != null
                 && ( identityMergeRequest.getIdentity( ).getAttributes( ) == null || identityMergeRequest.getIdentity( ).getAttributes( ).isEmpty( ) ) )
         {
@@ -259,6 +274,16 @@ public final class IdentityRequestValidator
         if ( identityMergeRequest.getSecondaryCuid( ) == null )
         {
             throw new IdentityStoreException( "An Identity merge request must provide the CUID of the secondary Identity" );
+        }
+
+        if ( identityMergeRequest.getPrimaryLastUpdateDate( ) == null )
+        {
+            throw new IdentityStoreException( "An Identity merge request must provide the last update date of the primary Identity" );
+        }
+
+        if ( identityMergeRequest.getSecondaryLastUpdateDate( ) == null )
+        {
+            throw new IdentityStoreException( "An Identity merge request must provide the last update date of the secondary Identity" );
         }
 
         if ( identityMergeRequest.getIdentity( ) != null )

@@ -35,6 +35,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,6 +59,12 @@ public class Identity
      */
     @JsonProperty( "mon_paris_active" )
     protected Boolean monParisActive;
+
+    /**
+     * La date de dernière modification de l'identité.
+     */
+    @JsonProperty( "last_update_date" )
+    protected Timestamp lastUpdateDate;
 
     /**
      * Liste des attributs décrivant l'identité
@@ -103,5 +110,15 @@ public class Identity
     public void setMonParisActive( Boolean monParisActive )
     {
         this.monParisActive = monParisActive;
+    }
+
+    public Timestamp getLastUpdateDate( )
+    {
+        return lastUpdateDate;
+    }
+
+    public void setLastUpdateDate( Timestamp lastUpdateDate )
+    {
+        this.lastUpdateDate = lastUpdateDate;
     }
 }
