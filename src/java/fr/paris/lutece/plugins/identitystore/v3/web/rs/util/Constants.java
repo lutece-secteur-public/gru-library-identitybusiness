@@ -139,6 +139,7 @@ public final class Constants
     public static final String PARAM_SIZE = "size";
     public static final String PARAM_PAGE = "page";
     public static final String PARAM_RULE_PRIORITY = "priority";
+    public static final String PARAM_RULE_CODE = "code";
 
     /** History */
     public static final String HISTORY_PATH = "/history";
