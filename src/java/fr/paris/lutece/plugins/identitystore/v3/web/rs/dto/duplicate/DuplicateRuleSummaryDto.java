@@ -37,6 +37,7 @@ public class DuplicateRuleSummaryDto
 {
     private int _nId;
     private String _strName;
+    private String _strCode;
     private String _strDescription;
     private int _nPriority;
     private int _nDuplicateCount;
@@ -59,6 +60,16 @@ public class DuplicateRuleSummaryDto
     public void setName( String _strName )
     {
         this._strName = _strName;
+    }
+
+    public String getCode( )
+    {
+        return _strCode;
+    }
+
+    public void setCode( String _strCode )
+    {
+        this._strCode = _strCode;
     }
 
     public String getDescription( )
