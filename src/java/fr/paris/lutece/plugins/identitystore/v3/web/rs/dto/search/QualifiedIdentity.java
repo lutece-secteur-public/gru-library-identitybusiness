@@ -36,6 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.duplicate.IdentityDuplicateDefintion;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -90,6 +91,11 @@ public class QualifiedIdentity
      * Attributs
      */
     protected List<CertifiedAttribute> attributes = new ArrayList<>( );
+
+    /**
+     * Bloc indiquant si et comment l'identité est impliquée dans une suspicion de doublons
+     */
+    protected IdentityDuplicateDefintion duplicateDefintion;
 
     @JsonIgnore
     protected boolean merged;
@@ -214,5 +220,15 @@ public class QualifiedIdentity
     public void setExpirationDate( Timestamp expirationDate )
     {
         this.expirationDate = expirationDate;
+    }
+
+    public IdentityDuplicateDefintion getDuplicateDefintion( )
+    {
+        return duplicateDefintion;
+    }
+
+    public void setDuplicateDefintion( IdentityDuplicateDefintion duplicateDefintion )
+    {
+        this.duplicateDefintion = duplicateDefintion;
     }
 }
