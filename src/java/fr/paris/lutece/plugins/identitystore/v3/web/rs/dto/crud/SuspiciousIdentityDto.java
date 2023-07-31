@@ -43,8 +43,8 @@ public class SuspiciousIdentityDto
     /**
      * duplicate rule ID that detected this suspicious identity
      */
-    @JsonProperty( "id_duplicate_rule" )
-    protected int idDuplicateRule;
+    @JsonProperty( "duplicate_rule_code" )
+    protected String duplicationRuleCode;
 
     /**
      * customer ID
@@ -64,14 +64,14 @@ public class SuspiciousIdentityDto
     @JsonProperty( "last_update_date" )
     protected Timestamp lastUpdateDate;
 
-    public int getIdDuplicateRule( )
+    public String getDuplicationRuleCode( )
     {
-        return idDuplicateRule;
+        return duplicationRuleCode;
     }
 
-    public void setIdDuplicateRule( int idDuplicateRule )
+    public void setDuplicationRuleCode( String duplicationRuleCode )
     {
-        this.idDuplicateRule = idDuplicateRule;
+        this.duplicationRuleCode = duplicationRuleCode;
     }
 
     public String getCustomerId( )
