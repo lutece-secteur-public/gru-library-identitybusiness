@@ -35,14 +35,13 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ChangeRequest;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.RequestAuthor;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.SignedRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.Identity;
 
 import java.sql.Timestamp;
 
 @JsonRootName( "identity_merge" )
-public class IdentityMergeRequest extends ChangeRequest
+public class IdentityMergeRequest extends SignedRequest
 {
     @JsonProperty( "primary_customer_id" )
     protected String primaryCuid;

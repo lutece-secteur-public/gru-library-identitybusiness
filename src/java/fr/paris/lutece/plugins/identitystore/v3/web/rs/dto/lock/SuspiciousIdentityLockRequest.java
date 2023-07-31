@@ -34,9 +34,9 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.lock;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ChangeRequest;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.SignedRequest;
 
-public class SuspiciousIdentityLockRequest extends ChangeRequest
+public class SuspiciousIdentityLockRequest extends SignedRequest
 {
     @JsonProperty( "customer_id" )
     protected String customerId;

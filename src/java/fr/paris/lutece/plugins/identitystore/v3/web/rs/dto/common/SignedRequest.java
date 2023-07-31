@@ -35,7 +35,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public abstract class ChangeRequest
+public abstract class SignedRequest
 {
     /**
      * Signature de l'envoi

@@ -202,6 +202,7 @@ public final class IdentityRequestValidator extends RequestValidator
         {
             throw new IdentityStoreException( "Provided Identity Search request is null or empty" );
         }
+        this.checkOrigin( identitySearch.getOrigin( ) );
     }
 
     /**
