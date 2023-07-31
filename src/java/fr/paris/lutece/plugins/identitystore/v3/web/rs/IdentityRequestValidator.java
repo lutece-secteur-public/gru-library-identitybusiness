@@ -34,7 +34,6 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application.ClientApplicationDto;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ChangeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.ServiceContractDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.IdentityChangeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge.IdentityMergeRequest;
@@ -48,7 +47,7 @@ import org.apache.commons.lang3.StringUtils;
  * util class used to validate identity store request
  *
  */
-public final class IdentityRequestValidator
+public final class IdentityRequestValidator extends RequestValidator
 {
     /**
      * singleton
@@ -184,12 +183,12 @@ public final class IdentityRequestValidator
             throw new IdentityStoreException( "The identity's last update date must be provided." );
         }
 
-        this.checkOrigin( identityChange );
-
         if ( identityChange.getIdentity( ).getAttributes( ).stream( ).anyMatch( a -> !a.isCertified( ) ) )
         {
             throw new IdentityStoreException( "Provided attributes shall be fully certified (process + date)" );
         }
+
+        this.checkOrigin( identityChange.getOrigin( ) );
     }
 
     public void checkIdentitySearch( IdentitySearchRequest identitySearch ) throws IdentityStoreException
@@ -210,13 +209,11 @@ public final class IdentityRequestValidator
      *
      * @param identityMergeRequest
      *            the identity merge request
-     * @throws IdentityMergeRequest
+     * @throws IdentityStoreException
      *             if the parameters are not valid
      */
     public void checkMergeRequest( IdentityMergeRequest identityMergeRequest ) throws IdentityStoreException
     {
-        this.checkOrigin( identityMergeRequest );
-
         if ( identityMergeRequest == null )
         {
             throw new IdentityStoreException( "Provided Identity Merge request is null" );
@@ -247,6 +244,8 @@ public final class IdentityRequestValidator
         {
             throw new IdentityStoreException( "An Identity merge request that provides an Identity must provide at least one Attribute" );
         }
+
+        this.checkOrigin( identityMergeRequest.getOrigin( ) );
     }
 
     /**
@@ -254,12 +253,11 @@ public final class IdentityRequestValidator
      *
      * @param identityMergeRequest
      *            the identity merge request
-     * @throws IdentityMergeRequest
+     * @throws IdentityStoreException
      *             if the parameters are not valid
      */
     public void checkCancelMergeRequest( final IdentityMergeRequest identityMergeRequest ) throws IdentityStoreException
     {
-        this.checkOrigin( identityMergeRequest );
 
         if ( identityMergeRequest == null )
         {
@@ -290,6 +288,8 @@ public final class IdentityRequestValidator
         {
             throw new IdentityStoreException( "A cancel identity merge request cannot provide an Identity. Only primary and secondary CUIDs are authorized." );
         }
+
+        this.checkOrigin( identityMergeRequest.getOrigin( ) );
     }
 
     public void checkServiceContract( ServiceContractDto serviceContractDto ) throws IdentityStoreException
@@ -329,27 +329,6 @@ public final class IdentityRequestValidator
         {
             throw new IdentityStoreException( "Provided client must specify a client code" );
         }
-    }
-
-    /**
-     * check whether the parameters related to the origin are valid or not
-     * 
-     * @param identityChange
-     * @throws IdentityStoreException
-     */
-    public void checkOrigin( ChangeRequest identityChange ) throws IdentityStoreException
-    {
-
-        if ( identityChange.getOrigin( ) == null )
-        {
-            throw new IdentityStoreException( "Provided Author is null" );
-        }
-
-        if ( StringUtils.isEmpty( identityChange.getOrigin( ).getName( ) ) || identityChange.getOrigin( ).getType( ) == null )
-        {
-            throw new IdentityStoreException( "Author and author type fields shall be set" );
-        }
-
     }
 
 }

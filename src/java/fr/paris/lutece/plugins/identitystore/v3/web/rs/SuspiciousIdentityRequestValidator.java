@@ -31,9 +31,8 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.IdentityRequestValidator;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.SuspiciousIdentityChangeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.SuspiciousIdentityExcludeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
@@ -45,7 +44,7 @@ import org.apache.commons.lang3.StringUtils;
  * util class used to validate suspicious identity store request
  *
  */
-public final class SuspiciousIdentityRequestValidator
+public final class SuspiciousIdentityRequestValidator extends RequestValidator
 {
     /**
      * singleton
@@ -110,22 +109,17 @@ public final class SuspiciousIdentityRequestValidator
     /**
      * check whether the parameters related to the identity are valid or not
      *
-     * @param identityChange
+     * @param request
      * @throws IdentityStoreException
      */
-    public void checkSuspiciousIdentityChange( SuspiciousIdentityChangeRequest identityChange ) throws IdentityStoreException
+    public void checkSuspiciousIdentityChange( SuspiciousIdentityChangeRequest request ) throws IdentityStoreException
     {
-        if ( identityChange == null || identityChange.getSuspiciousIdentity( ) == null )
+        if ( request == null || request.getSuspiciousIdentity( ) == null )
         {
             throw new IdentityStoreException( "Provided Suspicious Identity Change request is null or empty" );
         }
 
-        if ( identityChange.getOrigin( ) == null || StringUtils.isEmpty( identityChange.getOrigin( ).getName( ) )
-                || identityChange.getOrigin( ).getType( ) == null )
-        {
-            throw new IdentityStoreException( "Provided Author is null or empty" );
-        }
-
+        this.checkOrigin( request.getOrigin( ) );
     }
 
     /**
@@ -151,7 +145,7 @@ public final class SuspiciousIdentityRequestValidator
             throw new IdentityStoreException( "Parameter identity_cuid_2 is missing." );
         }
 
-        IdentityRequestValidator.instance( ).checkOrigin( request );
+        this.checkOrigin( request.getOrigin( ) );
     }
 
     /**
