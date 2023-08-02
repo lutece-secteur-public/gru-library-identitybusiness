@@ -35,6 +35,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.SuspiciousIdentityChangeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.SuspiciousIdentityExcludeRequest;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.SuspiciousIdentitySearchRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
 import org.apache.commons.lang3.StringUtils;
@@ -103,6 +104,22 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
         if ( StringUtils.isBlank( strApplicationCode ) )
         {
             throw new IdentityStoreException( Constants.PARAM_APPLICATION_CODE + " is missing" );
+        }
+    }
+
+    /**
+     * Check whether the parameters related to the suspicious identity search request are valid.
+     * 
+     * @param request
+     *            the request
+     * @throws IdentityStoreException
+     *             if params are not valid
+     */
+    public void checkSuspiciousIdentitySearch( final SuspiciousIdentitySearchRequest request ) throws IdentityStoreException
+    {
+        if ( request == null )
+        {
+            throw new IdentityStoreException( "Provided suspicious identity search request is null" );
         }
     }
 
