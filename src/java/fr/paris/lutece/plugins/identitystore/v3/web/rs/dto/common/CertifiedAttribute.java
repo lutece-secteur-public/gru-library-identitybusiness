@@ -31,15 +31,17 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.apache.commons.lang3.StringUtils;
 
 import java.sql.Timestamp;
 import java.util.Date;
 
 /**
- * DTO contenant la réponse de recherche d'un attribut avec sa certification
+ * DTO contenant la requête de création d'un attribut avec sa certification
  */
 @JsonInclude( JsonInclude.Include.NON_NULL )
 public class CertifiedAttribute
@@ -55,6 +57,17 @@ public class CertifiedAttribute
     protected String value;
 
     /**
+     * Code du processus de certification (si existe)
+     */
+    protected String certificationProcess;
+
+    /**
+     * Date à laquelle la donnée a été certifiée (si existe)(format timestamp ?)
+     */
+    protected Date certificationDate;
+
+    
+    /**
      * Type de l'attribut
      */
     protected String type;
@@ -65,18 +78,16 @@ public class CertifiedAttribute
     protected Integer certificationLevel;
 
     /**
-     * Code de l'entité certifiante
+     * last update date & client code of the attribute
      */
-    protected String certifier;
-
-    /**
-     * Date de certification
-     */
-    protected Date certificationDate;
-
     private Timestamp lastUpdateDate;
     private String lastUpdateClientCode;
 
+    
+   
+    
+    /* Getters & setters */
+    
     public String getKey( )
     {
         return key;
@@ -97,6 +108,34 @@ public class CertifiedAttribute
         this.value = value;
     }
 
+    public String getCertificationProcess( )
+    {
+        return certificationProcess;
+    }
+
+    public void setCertificationProcess( String certificationProcess )
+    {
+        this.certificationProcess = certificationProcess;
+    }
+
+    public Date getCertificationDate( )
+    {
+        return certificationDate;
+    }
+
+    public void setCertificationDate( Date certificationDate )
+    {
+        this.certificationDate = certificationDate;
+    }
+
+    @JsonIgnore
+    public boolean isCertified( )
+    {
+        return this.certificationDate != null && StringUtils.isNotEmpty( this.certificationProcess );
+    }
+    
+    // getters & setters
+
     public String getType( )
     {
         return type;
@@ -115,26 +154,6 @@ public class CertifiedAttribute
     public void setCertificationLevel( Integer certificationLevel )
     {
         this.certificationLevel = certificationLevel;
-    }
-
-    public String getCertifier( )
-    {
-        return certifier;
-    }
-
-    public void setCertifier( String certifier )
-    {
-        this.certifier = certifier;
-    }
-
-    public Date getCertificationDate( )
-    {
-        return certificationDate;
-    }
-
-    public void setCertificationDate( Date certificationDate )
-    {
-        this.certificationDate = certificationDate;
     }
 
     public Timestamp getLastUpdateDate( )

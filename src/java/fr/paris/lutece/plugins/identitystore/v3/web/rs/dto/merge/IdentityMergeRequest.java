@@ -35,8 +35,9 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.Identity;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.SignedRequest;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.Identity;
 
 import java.sql.Timestamp;
 

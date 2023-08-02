@@ -2,7 +2,7 @@ package fr.paris.lutece.plugins.identitystore.v2.business;
 
 import java.util.List;
 
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.CertifiedAttribute;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.CertifiedAttribute;
 
 public interface IExternalAttributeSource {
 	

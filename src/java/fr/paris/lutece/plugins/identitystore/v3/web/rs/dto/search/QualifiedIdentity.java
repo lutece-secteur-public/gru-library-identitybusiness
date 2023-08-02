@@ -36,16 +36,16 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.Identity;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.duplicate.IdentityDuplicateDefintion;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
 @JsonPropertyOrder( {
         "scoring", "quality", "coverage", "connection_id", "customer_id", "attributes"
 } )
-public class QualifiedIdentity
+public class QualifiedIdentity extends Identity
 {
 
     /**
@@ -64,33 +64,10 @@ public class QualifiedIdentity
     protected Double scoring;
 
     /**
-     * GUID
-     */
-    @JsonProperty( "connection_id" )
-    protected String connectionId;
-
-    /**
-     * CUID
-     */
-    @JsonProperty( "customer_id" )
-    protected String customerId;
-
-    /**
      * Creation date
      */
     @JsonProperty( "creation_date" )
     private Timestamp creationDate;
-
-    /**
-     * Last update date
-     */
-    @JsonProperty( "last_update_date" )
-    private Timestamp lastUpdateDate;
-
-    /**
-     * Attributs
-     */
-    protected List<CertifiedAttribute> attributes = new ArrayList<>( );
 
     /**
      * Bloc indiquant si et comment l'identité est impliquée dans une suspicion de doublons
@@ -99,12 +76,6 @@ public class QualifiedIdentity
 
     @JsonIgnore
     protected boolean merged;
-
-    /**
-     * Flag pour dire si l'identité est liée à un compte MonParis actif
-     */
-    @JsonProperty( "mon_paris_active" )
-    private boolean monParisActive;
 
     /**
      * Expiration date
@@ -142,36 +113,6 @@ public class QualifiedIdentity
         this.scoring = scoring;
     }
 
-    public List<CertifiedAttribute> getAttributes( )
-    {
-        return attributes;
-    }
-
-    public void setAttributes( List<CertifiedAttribute> attributes )
-    {
-        this.attributes = attributes;
-    }
-
-    public String getConnectionId( )
-    {
-        return connectionId;
-    }
-
-    public void setConnectionId( String connectionId )
-    {
-        this.connectionId = connectionId;
-    }
-
-    public String getCustomerId( )
-    {
-        return customerId;
-    }
-
-    public void setCustomerId( String customerId )
-    {
-        this.customerId = customerId;
-    }
-
     public boolean isMerged( )
     {
         return merged;
@@ -190,26 +131,6 @@ public class QualifiedIdentity
     public void setCreationDate( Timestamp creationDate )
     {
         this.creationDate = creationDate;
-    }
-
-    public Timestamp getLastUpdateDate( )
-    {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate( Timestamp lastUpdateDate )
-    {
-        this.lastUpdateDate = lastUpdateDate;
-    }
-
-    public boolean isMonParisActive( )
-    {
-        return monParisActive;
-    }
-
-    public void setMonParisActive( boolean monParisActive )
-    {
-        this.monParisActive = monParisActive;
     }
 
     public Timestamp getExpirationDate( )

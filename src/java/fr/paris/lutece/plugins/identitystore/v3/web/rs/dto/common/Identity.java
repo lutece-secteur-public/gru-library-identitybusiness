@@ -31,7 +31,7 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -105,6 +105,11 @@ public class Identity
     public Boolean getMonParisActive( )
     {
         return monParisActive;
+    }
+    
+    public Boolean isMonParisActive( )
+    {
+    	return monParisActive;
     }
 
     public void setMonParisActive( Boolean monParisActive )
