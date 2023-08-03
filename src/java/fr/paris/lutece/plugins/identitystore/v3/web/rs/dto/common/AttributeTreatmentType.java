@@ -31,55 +31,11 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeTreatmentType;
-
-public class SearchAttributeDto
+public enum AttributeTreatmentType
 {
-    protected String key;
-    protected String value;
-    protected AttributeTreatmentType treatmentType;
-
-    public SearchAttributeDto( )
-    {
-
-    }
-
-    public SearchAttributeDto( String key, String value, AttributeTreatmentType treatmentType )
-    {
-        this.key = key;
-        this.value = value;
-        this.treatmentType = treatmentType;
-    }
-
-    public String getKey( )
-    {
-        return key;
-    }
-
-    public void setKey( String key )
-    {
-        this.key = key;
-    }
-
-    public String getValue( )
-    {
-        return value;
-    }
-
-    public void setValue( String value )
-    {
-        this.value = value;
-    }
-
-    public AttributeTreatmentType getTreatmentType( )
-    {
-        return treatmentType;
-    }
-
-    public void setTreatmentType( AttributeTreatmentType treatmentType )
-    {
-        this.treatmentType = treatmentType;
-    }
+    DIFFERENT,
+    APPROXIMATED,
+    STRICT
 }
