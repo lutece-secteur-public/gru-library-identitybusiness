@@ -48,6 +48,10 @@ public enum AttributeTreatmentType
      */
     APPROXIMATED( true ),
     /**
+     * Attribute must exist and be strictly approximated in the search response, which means it cannot be equal.
+     */
+    STRICTLY_APPROXIMATED( false ),
+    /**
      * Attribute must exist and be strictly equal in the search response.
      */
     STRICT( false ),
