@@ -33,10 +33,31 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public enum AttributeTreatmentType
 {
-    DIFFERENT,
-    APPROXIMATED,
-    STRICT,
-    ABSENT
+    DIFFERENT( true ),
+    APPROXIMATED( true ),
+    STRICT( false ),
+    ABSENT( false );
+
+    private boolean forRules;
+
+    AttributeTreatmentType( boolean forRules )
+    {
+        this.forRules = forRules;
+    }
+
+    public static List<AttributeTreatmentType> valuesForRules( )
+    {
+        return Arrays.stream( values( ) ).filter( AttributeTreatmentType::isForRules ).collect( Collectors.toList( ) );
+    }
+
+    public boolean isForRules( )
+    {
+        return forRules;
+    }
 }
