@@ -37,5 +37,6 @@ public enum AttributeTreatmentType
 {
     DIFFERENT,
     APPROXIMATED,
-    STRICT
+    STRICT,
+    ABSENT
 }
