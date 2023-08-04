@@ -39,18 +39,38 @@ import java.util.stream.Collectors;
 
 public enum AttributeTreatmentType
 {
+    /**
+     * Attribute must exist and have a different value (not APPROXIMATED) in the search response.
+     */
     DIFFERENT( true ),
+    /**
+     * Attribute must exist and be approximated in the search response.
+     */
     APPROXIMATED( true ),
+    /**
+     * Attribute must exist and be strictly equal in the search response.
+     */
     STRICT( false ),
+    /**
+     * Attribute must not exist in the search response.
+     */
     ABSENT( false );
 
-    private boolean forRules;
+    /**
+     * Defines if the treatment type can be used for rules design.
+     */
+    private final boolean forRules;
 
     AttributeTreatmentType( boolean forRules )
     {
         this.forRules = forRules;
     }
 
+    /**
+     * Gives the list of {@link AttributeTreatmentType} that can be used for rules design.
+     * 
+     * @return
+     */
     public static List<AttributeTreatmentType> valuesForRules( )
     {
         return Arrays.stream( values( ) ).filter( AttributeTreatmentType::isForRules ).collect( Collectors.toList( ) );
