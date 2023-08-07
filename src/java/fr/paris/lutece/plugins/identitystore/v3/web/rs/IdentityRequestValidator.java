@@ -170,7 +170,7 @@ public final class IdentityRequestValidator extends RequestValidator
      * @param identityChange
      * @throws IdentityStoreException
      */
-    public void checkIdentityChange( IdentityChangeRequest identityChange ) throws IdentityStoreException
+    public void checkIdentityChange( IdentityChangeRequest identityChange, final boolean isUpdate ) throws IdentityStoreException
     {
         if ( identityChange == null || identityChange.getIdentity( ) == null || ( identityChange.getIdentity( ).getMonParisActive( ) == null
                 && ( identityChange.getIdentity( ).getAttributes( ) == null || identityChange.getIdentity( ).getAttributes( ).isEmpty( ) ) ) )
@@ -178,7 +178,7 @@ public final class IdentityRequestValidator extends RequestValidator
             throw new IdentityStoreException( "Provided Identity Change request is null or empty" );
         }
 
-        if ( identityChange.getIdentity( ).getLastUpdateDate( ) == null )
+        if ( isUpdate && identityChange.getIdentity( ).getLastUpdateDate( ) == null )
         {
             throw new IdentityStoreException( "The identity's last update date must be provided." );
         }
