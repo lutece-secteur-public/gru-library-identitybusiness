@@ -46,16 +46,16 @@ import java.util.List;
 public class SearchDto implements Serializable
 {
     private static final long serialVersionUID = 2L;
-    private List<SearchAttributeDto> attributes;
+    private List<SearchAttribute> attributes;
 
     @JsonProperty( DtoFormatConstants.KEY_ATTRIBUTE_VALUES )
-    public List<SearchAttributeDto> getAttributes( )
+    public List<SearchAttribute> getAttributes( )
     {
         return attributes;
     }
 
     @JsonProperty( DtoFormatConstants.KEY_ATTRIBUTE_VALUES )
-    public void setAttributes( List<SearchAttributeDto> attributes )
+    public void setAttributes( List<SearchAttribute> attributes )
     {
         this.attributes = attributes;
     }

@@ -42,18 +42,6 @@ public class DuplicateSearchResponse
 
     protected List<QualifiedIdentity> identities = new ArrayList<>( );
 
-    protected boolean strict;
-
-    public boolean isStrict( )
-    {
-        return strict;
-    }
-
-    public void setStrict( boolean strict )
-    {
-        this.strict = strict;
-    }
-
     public String getMessage( )
     {
         return message;

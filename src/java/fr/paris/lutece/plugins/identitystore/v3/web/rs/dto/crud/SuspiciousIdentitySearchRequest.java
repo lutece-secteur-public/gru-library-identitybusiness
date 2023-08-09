@@ -36,7 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.SearchAttributeDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.SearchAttribute;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +52,7 @@ public class SuspiciousIdentitySearchRequest
     private Integer rulePriority;
 
     @JsonProperty( DtoFormatConstants.KEY_ATTRIBUTE_VALUES )
-    private List<SearchAttributeDto> attributes = new ArrayList<>( );
+    private List<SearchAttribute> attributes = new ArrayList<>( );
 
     public String getRuleCode( )
     {
@@ -74,12 +74,12 @@ public class SuspiciousIdentitySearchRequest
         this.rulePriority = rulePriority;
     }
 
-    public List<SearchAttributeDto> getAttributes( )
+    public List<SearchAttribute> getAttributes( )
     {
         return attributes;
     }
 
-    public void setAttributes( List<SearchAttributeDto> attributes )
+    public void setAttributes( List<SearchAttribute> attributes )
     {
         this.attributes = attributes;
     }

@@ -33,23 +33,36 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeTreatmentType;
 
-public class SearchAttributeDto
+import java.util.List;
+
+public class SearchAttribute implements Comparable<SearchAttribute>
 {
     protected String key;
     protected String value;
+    @JsonIgnore
+    protected List<String> outputKeys;
     protected AttributeTreatmentType treatmentType;
 
-    public SearchAttributeDto( )
+    public SearchAttribute( )
     {
 
     }
 
-    public SearchAttributeDto( String key, String value, AttributeTreatmentType treatmentType )
+    public SearchAttribute( String key, String value, AttributeTreatmentType treatmentType )
     {
         this.key = key;
         this.value = value;
+        this.treatmentType = treatmentType;
+    }
+
+    public SearchAttribute( String key, String value, List<String> outputKeys, AttributeTreatmentType treatmentType )
+    {
+        this.key = key;
+        this.value = value;
+        this.outputKeys = outputKeys;
         this.treatmentType = treatmentType;
     }
 
@@ -81,5 +94,21 @@ public class SearchAttributeDto
     public void setTreatmentType( AttributeTreatmentType treatmentType )
     {
         this.treatmentType = treatmentType;
+    }
+
+    public List<String> getOutputKeys( )
+    {
+        return outputKeys;
+    }
+
+    public void setOutputKeys( List<String> outputKeys )
+    {
+        this.outputKeys = outputKeys;
+    }
+
+    @Override
+    public int compareTo( SearchAttribute another )
+    {
+        return this.getKey( ).compareTo( another.getKey( ) );
     }
 }
