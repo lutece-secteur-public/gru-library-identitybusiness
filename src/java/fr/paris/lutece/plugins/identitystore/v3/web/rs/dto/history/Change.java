@@ -33,66 +33,23 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history;
 
-import java.util.EnumSet;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * This enum represents a type of IdentityChange
- *
- */
-public enum IdentityChangeType
+public class Change
 {
-    CREATE( 0 ),
-    UPDATE( 1 ),
-    DELETE( 2 ),
-    MERGED( 3 ),
-    CONSOLIDATED( 4 ),
-    MERGE_CANCELLED( 5 ),
-    CONSOLIDATION_CANCELLED( 6 ),
-    EXCLUDED( 6 );
+    @JsonProperty( "metadata" )
+    protected Map<String, String> metadata = new HashMap<>( );
 
-    private static Map<Integer, IdentityChangeType> _mapTypes = new HashMap<Integer, IdentityChangeType>( );
-    private int _nValue;
-
-    static
+    public Map<String, String> getMetadata( )
     {
-        for ( IdentityChangeType identityChangeType : EnumSet.allOf( IdentityChangeType.class ) )
-        {
-            _mapTypes.put( identityChangeType._nValue, identityChangeType );
-        }
+        return metadata;
     }
 
-    /**
-     * Constructor
-     * 
-     * @param nValue
-     *            the value
-     */
-    IdentityChangeType( int nValue )
+    public void setMetadata( Map<String, String> metadata )
     {
-        _nValue = nValue;
-    }
-
-    /**
-     * Gets the value
-     * 
-     * @return the value
-     */
-    public int getValue( )
-    {
-        return _nValue;
-    }
-
-    /**
-     * Gives the IdentityChangeType for the specified value
-     * 
-     * @param nValue
-     *            the value
-     * @return the IdentityChangeType
-     */
-    public static IdentityChangeType valueOf( int nValue )
-    {
-        return _mapTypes.get( Integer.valueOf( nValue ) );
+        this.metadata = metadata;
     }
 }

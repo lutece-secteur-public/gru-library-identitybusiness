@@ -40,7 +40,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AuthorType;
 import java.sql.Timestamp;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
-public class AttributeChange
+public class AttributeChange extends Change
 {
     @JsonProperty( "id" )
     protected Integer id;

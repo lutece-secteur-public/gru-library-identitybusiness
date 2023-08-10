@@ -40,7 +40,7 @@ import java.sql.Timestamp;
 /**
  * AttributeChange
  */
-public class IdentityChange
+public class IdentityChange extends Change
 {
     protected Integer id;
     protected IdentityChangeType _identityChangeType;
