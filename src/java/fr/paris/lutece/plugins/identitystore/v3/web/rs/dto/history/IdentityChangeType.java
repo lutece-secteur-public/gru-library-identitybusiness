@@ -51,9 +51,10 @@ public enum IdentityChangeType
     MERGE_CANCELLED( 5 ),
     CONSOLIDATION_CANCELLED( 6 ),
     EXCLUDED( 7 ),
-    EXCLUSION_CANCELLED( 8 );
+    EXCLUSION_CANCELLED( 8 ),
+    MARKED_SUSPICIOUS( 9 );
 
-    private static Map<Integer, IdentityChangeType> _mapTypes = new HashMap<Integer, IdentityChangeType>( );
+    private final static Map<Integer, IdentityChangeType> _mapTypes = new HashMap<>( );
     private final int _nValue;
 
     static
@@ -94,6 +95,6 @@ public enum IdentityChangeType
      */
     public static IdentityChangeType valueOf( int nValue )
     {
-        return _mapTypes.get( Integer.valueOf( nValue ) );
+        return _mapTypes.get( nValue );
     }
 }
