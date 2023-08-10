@@ -52,6 +52,9 @@ public class IdentityMergeRequest extends SignedRequest
     @JsonProperty( "secondary_customer_id" )
     protected String secondaryCuid;
 
+    @JsonProperty( "duplicate_rule_code" )
+    protected String duplicateRuleCode;
+
     @JsonProperty( "secondary_last_update_date" )
     protected Timestamp secondaryLastUpdateDate;
 
@@ -86,6 +89,16 @@ public class IdentityMergeRequest extends SignedRequest
     public void setSecondaryCuid( String secondaryCuid )
     {
         this.secondaryCuid = secondaryCuid;
+    }
+
+    public String getDuplicateRuleCode( )
+    {
+        return duplicateRuleCode;
+    }
+
+    public void setDuplicateRuleCode( String duplicateRuleCode )
+    {
+        this.duplicateRuleCode = duplicateRuleCode;
     }
 
     public Timestamp getSecondaryLastUpdateDate( )
