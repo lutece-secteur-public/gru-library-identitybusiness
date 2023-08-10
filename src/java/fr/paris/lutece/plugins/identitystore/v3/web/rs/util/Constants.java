@@ -132,6 +132,7 @@ public final class Constants
     public static final String SUSPICIONS_PATH = "suspicions";
     public static final String LOCK_PATH = "lock";
     public static final String EXCLUSION_PATH = "exclusion";
+    public static final String CANCEL_IDENTITIES_EXCLUSION_PATH = "/unexclude";
     public static final String RULES_PATH = "rules";
     public static final String DUPLICATE_PATH = "duplicate";
     public static final int MANUAL_SUSPICIOUS_RULE_ID = 0;

@@ -50,10 +50,11 @@ public enum IdentityChangeType
     CONSOLIDATED( 4 ),
     MERGE_CANCELLED( 5 ),
     CONSOLIDATION_CANCELLED( 6 ),
-    EXCLUDED( 6 );
+    EXCLUDED( 7 ),
+    EXCLUSION_CANCELLED( 8 );
 
     private static Map<Integer, IdentityChangeType> _mapTypes = new HashMap<Integer, IdentityChangeType>( );
-    private int _nValue;
+    private final int _nValue;
 
     static
     {

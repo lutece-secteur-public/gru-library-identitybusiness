@@ -36,9 +36,9 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 public enum SuspiciousIdentityExcludeStatus
 {
 
-    EXCLUDE_SUCCESS( "SUCCESS", 201 ),
-    EXCLUDE_CONFLICT( "CONFLICT", 409 ),
-    EXCLUDE_FAILURE( "FAILURE", 403 );
+    SUCCESS( "SUCCESS", 201 ),
+    CONFLICT( "CONFLICT", 409 ),
+    FAILURE( "FAILURE", 403 );
 
     private final String label;
     private final Integer code;
