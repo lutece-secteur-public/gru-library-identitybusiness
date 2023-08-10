@@ -33,6 +33,8 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.duplicate;
 
+import java.sql.Timestamp;
+
 public class DuplicateRuleSummaryDto
 {
     private int _nId;
@@ -41,6 +43,7 @@ public class DuplicateRuleSummaryDto
     private String _strDescription;
     private int _nPriority;
     private int _nDuplicateCount;
+    private Timestamp _dateDaemonLastExecDate;
 
     public int getId( )
     {
@@ -100,5 +103,15 @@ public class DuplicateRuleSummaryDto
     public void setPriority( int _nPriority )
     {
         this._nPriority = _nPriority;
+    }
+
+    public Timestamp getDaemonLastExecDate( )
+    {
+        return _dateDaemonLastExecDate;
+    }
+
+    public void setDaemonLastExecDate( Timestamp _dateDaemonLastExecDate )
+    {
+        this._dateDaemonLastExecDate = _dateDaemonLastExecDate;
     }
 }
