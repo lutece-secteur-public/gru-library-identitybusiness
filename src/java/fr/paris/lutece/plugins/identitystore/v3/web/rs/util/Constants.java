@@ -141,8 +141,9 @@ public final class Constants
     public static final String PARAM_RULE_PRIORITY = "priority";
     public static final String PARAM_RULE_CODE = "code";
 
-    /** History */
+    /** History and metadata */
     public static final String HISTORY_PATH = "/history";
+    public static final String METADATA_EXCLUDED_CUID_KEY = "excluded_cuid";
 
     /**
      * Default constructor

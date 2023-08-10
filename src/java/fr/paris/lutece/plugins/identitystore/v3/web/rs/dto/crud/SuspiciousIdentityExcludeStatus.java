@@ -37,6 +37,7 @@ public enum SuspiciousIdentityExcludeStatus
 {
 
     EXCLUDE_SUCCESS( "SUCCESS", 201 ),
+    EXCLUDE_CONFLICT( "CONFLICT", 409 ),
     EXCLUDE_FAILURE( "FAILURE", 403 );
 
     private final String label;
