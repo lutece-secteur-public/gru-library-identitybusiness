@@ -121,7 +121,7 @@ public final class IdentityRequestValidator extends RequestValidator
     {
         if ( StringUtils.isBlank( strCustomerId ) )
         {
-            throw new IdentityStoreException( Constants.PARAM_ID_CONNECTION + "is missing." );
+            throw new IdentityStoreException( Constants.PARAM_ID_CUSTOMER + " is missing." );
         }
     }
 

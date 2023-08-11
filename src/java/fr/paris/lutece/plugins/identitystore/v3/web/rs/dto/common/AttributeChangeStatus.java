@@ -65,7 +65,8 @@ public enum AttributeChangeStatus
     OVERRIDDEN_GEOCODES_LABEL( "overridden_geocodes_label",
             "The provided label was not corresponding to the provided code, and has been overridden with the correct Geocodes label." ),
     INVALID_VALUE( "invalid_value", "This attribute value doesn't match its validation pattern." ),
-    FORMATTED_VALUE( "formatted_value", "This attribute value has been formatted before treatment." );
+    FORMATTED_VALUE( "formatted_value", "This attribute value has been formatted before treatment." ),
+    UNCERTIFIED( "uncertified", null );
 
     @JsonProperty( "code" )
     protected String code;

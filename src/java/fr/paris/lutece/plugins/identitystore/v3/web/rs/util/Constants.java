@@ -67,6 +67,7 @@ public final class Constants
     public static final String ERROR_FIELD_PERMISSION = "FIELD_PERMISION_ERROR";
     public static final String PARAMETER_NAME = "name";
     public static final String CERTIFY_ATTRIBUTES_PATH = "/certify";
+    public static final String UNCERTIFY_ATTRIBUTES_PATH = "/uncertify";
 
     /** Geocodes */
     public static final String SEARCH_PATH = "/search/{" + Constants.SEARCHED_STRING + "}";
