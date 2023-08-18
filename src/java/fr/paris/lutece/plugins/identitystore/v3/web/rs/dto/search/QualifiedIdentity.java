@@ -97,6 +97,9 @@ public class QualifiedIdentity
      */
     protected IdentityDuplicateDefintion duplicateDefintion;
 
+    /**
+     * Flag indiquant si l'identité est rapprochée
+     */
     @JsonIgnore
     protected boolean merged;
 
@@ -111,6 +114,36 @@ public class QualifiedIdentity
      */
     @JsonProperty( "expiration_date" )
     private Timestamp expirationDate;
+
+    /**
+     * Flag indiquant que l'identité est "soft delete" (désactivée)
+     */
+    @JsonProperty( "deleted" )
+    private boolean deleted;
+
+    /**
+     * Customer ID de l'identité maitresse (après rapprochement)
+     */
+    @JsonProperty( "master_customer_id" )
+    private String masterCustomerId;
+
+    /**
+     * Merge date
+     */
+    @JsonProperty( "merge_date" )
+    private Timestamp mergeDate;
+
+    /**
+     * Flag indiquant si l'identité figure dans les doublons suspectés
+     */
+    @JsonProperty( "suspicious" )
+    private boolean suspicious;
+
+    /**
+     * Delete date
+     */
+    @JsonProperty( "delete_date" )
+    private Timestamp deleteDate;
 
     public Double getQuality( )
     {
@@ -230,5 +263,55 @@ public class QualifiedIdentity
     public void setDuplicateDefintion( IdentityDuplicateDefintion duplicateDefintion )
     {
         this.duplicateDefintion = duplicateDefintion;
+    }
+
+    public boolean isDeleted( )
+    {
+        return deleted;
+    }
+
+    public void setDeleted( boolean deleted )
+    {
+        this.deleted = deleted;
+    }
+
+    public String getMasterCustomerId( )
+    {
+        return masterCustomerId;
+    }
+
+    public void setMasterCustomerId( String masterCustomerId )
+    {
+        this.masterCustomerId = masterCustomerId;
+    }
+
+    public Timestamp getMergeDate( )
+    {
+        return mergeDate;
+    }
+
+    public void setMergeDate( Timestamp mergeDate )
+    {
+        this.mergeDate = mergeDate;
+    }
+
+    public boolean isSuspicious( )
+    {
+        return suspicious;
+    }
+
+    public void setSuspicious( boolean suspicious )
+    {
+        this.suspicious = suspicious;
+    }
+
+    public Timestamp getDeleteDate( )
+    {
+        return deleteDate;
+    }
+
+    public void setDeleteDate( Timestamp deleteDate )
+    {
+        this.deleteDate = deleteDate;
     }
 }
