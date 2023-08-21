@@ -33,15 +33,10 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonInclude;
-
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
-@JsonInclude( JsonInclude.Include.NON_NULL )
-@JsonFormat( shape = JsonFormat.Shape.OBJECT )
 public enum AttributeChangeType
 {
     CREATE( 0 ),
