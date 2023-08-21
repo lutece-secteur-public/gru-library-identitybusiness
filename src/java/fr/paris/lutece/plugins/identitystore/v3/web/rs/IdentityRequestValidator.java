@@ -36,6 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application.ClientApplicationDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.ServiceContractDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.IdentityChangeRequest;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history.IdentityHistorySearchRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge.IdentityMergeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.IdentitySearchRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
@@ -203,6 +204,16 @@ public final class IdentityRequestValidator extends RequestValidator
             throw new IdentityStoreException( "Provided Identity Search request is null or empty" );
         }
         this.checkOrigin( identitySearch.getOrigin( ) );
+    }
+
+    public void checkIdentityHistory( IdentityHistorySearchRequest request ) throws IdentityStoreException
+    {
+        if ( StringUtils.isAllEmpty( request.getCustomerId( ), request.getAuthorName( ), request.getClientCode( ) ) && request.getMetadata( ).isEmpty( )
+                && request.getIdentityChangeType( ) == null )
+        {
+            throw new IdentityStoreException( "Provided Identity history Search request is null or empty" );
+        }
+        this.checkOrigin( request.getOrigin( ) );
     }
 
     /**

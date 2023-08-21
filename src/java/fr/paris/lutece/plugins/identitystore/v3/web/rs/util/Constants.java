@@ -145,6 +145,7 @@ public final class Constants
 
     /** History and metadata */
     public static final String HISTORY_PATH = "/history";
+    public static final String SEARCH_HISTORY_PATH = "/search";
     public static final String METADATA_EXCLUDED_CUID_KEY = "excluded_cuid";
     public static final String METADATA_DUPLICATE_RULE_CODE = "duplicate_rule_code";
     public static final String METADATA_MERGED_MASTER_IDENTITY_CUID = "merged_master_identity_cuid";
