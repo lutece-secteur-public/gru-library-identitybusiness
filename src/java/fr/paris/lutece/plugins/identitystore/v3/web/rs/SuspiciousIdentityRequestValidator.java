@@ -83,7 +83,7 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
      * @throws IdentityStoreException
      *             if the parameters are not valid
      */
-    public void checkClientApplication( String strClientCode ) throws IdentityStoreException
+    public void checkClientCode( String strClientCode ) throws IdentityStoreException
     {
         if ( StringUtils.isBlank( strClientCode ) )
         {
