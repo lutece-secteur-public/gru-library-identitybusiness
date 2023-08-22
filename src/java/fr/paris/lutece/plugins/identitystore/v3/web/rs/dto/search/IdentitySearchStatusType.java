@@ -37,9 +37,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
@@ -50,10 +50,10 @@ public enum IdentitySearchStatusType
     NOT_FOUND( 404, "Aucune resource n'a été trouvée" );
 
     @JsonProperty( "code" )
-    protected Integer code;
+    private Integer code;
 
     @JsonProperty( "message" )
-    protected String message;
+    private String message;
 
     IdentitySearchStatusType( Integer code, String message )
     {
@@ -64,8 +64,10 @@ public enum IdentitySearchStatusType
     @JsonCreator
     public static IdentitySearchStatusType forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
     {
-        return Arrays.stream( IdentitySearchStatusType.values( ) ).filter( identitySearchStatusType -> code == identitySearchStatusType.getCode( )
-                && StringUtils.equals( message, identitySearchStatusType.getMessage( ) ) ).findFirst( ).orElse( null );
+        return Arrays.stream( IdentitySearchStatusType.values( ) )
+                .filter( identitySearchStatusType -> Objects.equals( code, identitySearchStatusType.getCode( ) )
+                        && Objects.equals( message, identitySearchStatusType.getMessage( ) ) )
+                .findFirst( ).orElse( null );
     }
 
     public Integer getCode( )

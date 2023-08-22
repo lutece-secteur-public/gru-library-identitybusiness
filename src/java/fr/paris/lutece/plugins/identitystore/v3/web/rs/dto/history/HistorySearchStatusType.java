@@ -37,9 +37,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
@@ -50,10 +50,10 @@ public enum HistorySearchStatusType
     NOT_FOUND( 404, "Aucune resource n'a été trouvée" );
 
     @JsonProperty( "code" )
-    protected Integer code;
+    private Integer code;
 
     @JsonProperty( "message" )
-    protected String message;
+    private String message;
 
     HistorySearchStatusType( Integer code, String message )
     {
@@ -64,8 +64,8 @@ public enum HistorySearchStatusType
     @JsonCreator
     public static HistorySearchStatusType forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
     {
-        return Arrays.stream( HistorySearchStatusType.values( ) ).filter( identitySearchStatusType -> code == identitySearchStatusType.getCode( )
-                && StringUtils.equals( message, identitySearchStatusType.getMessage( ) ) ).findFirst( ).orElse( null );
+        return Arrays.stream( HistorySearchStatusType.values( ) )
+                .filter( status -> Objects.equals( code, status.getCode( ) ) && Objects.equals( message, status.getMessage( ) ) ).findFirst( ).orElse( null );
     }
 
     public Integer getCode( )

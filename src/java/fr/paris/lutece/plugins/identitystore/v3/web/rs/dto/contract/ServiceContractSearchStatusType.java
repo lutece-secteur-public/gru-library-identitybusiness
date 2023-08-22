@@ -40,6 +40,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
@@ -50,10 +51,10 @@ public enum ServiceContractSearchStatusType
     NOT_FOUND( 404, "Aucune resource n'a été trouvée" );
 
     @JsonProperty( "code" )
-    protected Integer code;
+    private Integer code;
 
     @JsonProperty( "message" )
-    protected String message;
+    private String message;
 
     ServiceContractSearchStatusType( Integer code, String message )
     {
@@ -65,7 +66,8 @@ public enum ServiceContractSearchStatusType
     public static ServiceContractSearchStatusType forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
     {
         return Arrays.stream( ServiceContractSearchStatusType.values( ) )
-                .filter( statusType -> code == statusType.getCode( ) && StringUtils.equals( message, statusType.getMessage( ) ) ).findFirst( ).orElse( null );
+                .filter( statusType -> Objects.equals( code, statusType.getCode( ) ) && Objects.equals( message, statusType.getMessage( ) ) ).findFirst( )
+                .orElse( null );
     }
 
     public Integer getCode( )

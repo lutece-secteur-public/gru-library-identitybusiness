@@ -37,7 +37,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -51,10 +50,10 @@ public enum SuspiciousIdentitySearchStatusType
     NOT_FOUND( 404, "Aucune resource n'a été trouvée" );
 
     @JsonProperty( "code" )
-    protected Integer code;
+    private Integer code;
 
     @JsonProperty( "message" )
-    protected String message;
+    private String message;
 
     SuspiciousIdentitySearchStatusType( Integer code, String message )
     {
@@ -67,7 +66,7 @@ public enum SuspiciousIdentitySearchStatusType
     {
         return Arrays.stream( SuspiciousIdentitySearchStatusType.values( ) )
                 .filter( SuspiciousIdentitySearchStatusType -> Objects.equals( code, SuspiciousIdentitySearchStatusType.getCode( ) )
-                        && StringUtils.equals( message, SuspiciousIdentitySearchStatusType.getMessage( ) ) )
+                        && Objects.equals( message, SuspiciousIdentitySearchStatusType.getMessage( ) ) )
                 .findFirst( ).orElse( null );
     }
 

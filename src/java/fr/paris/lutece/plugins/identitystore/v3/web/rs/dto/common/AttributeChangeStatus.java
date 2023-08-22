@@ -37,9 +37,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
@@ -69,10 +69,10 @@ public enum AttributeChangeStatus
     UNCERTIFIED( "uncertified", null );
 
     @JsonProperty( "code" )
-    protected String code;
+    private String code;
 
     @JsonProperty( "message" )
-    protected String message;
+    private String message;
 
     AttributeChangeStatus( String status, String message )
     {
@@ -83,8 +83,8 @@ public enum AttributeChangeStatus
     @JsonCreator
     public static AttributeChangeStatus forValues( @JsonProperty( "code" ) String code, @JsonProperty( "message" ) String message )
     {
-        return Arrays.stream( AttributeChangeStatus.values( ) ).filter( attributeChangeStatus -> StringUtils.equals( code, attributeChangeStatus.getCode( ) )
-                && StringUtils.equals( message, attributeChangeStatus.getMessage( ) ) ).findFirst( ).orElse( null );
+        return Arrays.stream( AttributeChangeStatus.values( ) ).filter( attributeChangeStatus -> Objects.equals( code, attributeChangeStatus.getCode( ) )
+                && Objects.equals( message, attributeChangeStatus.getMessage( ) ) ).findFirst( ).orElse( null );
     }
 
     public String getCode( )

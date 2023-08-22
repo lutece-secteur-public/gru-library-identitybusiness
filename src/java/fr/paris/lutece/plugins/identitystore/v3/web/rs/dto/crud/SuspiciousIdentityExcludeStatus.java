@@ -33,6 +33,16 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Arrays;
+import java.util.Objects;
+
+@JsonInclude( JsonInclude.Include.NON_NULL )
+@JsonFormat( shape = JsonFormat.Shape.OBJECT )
 public enum SuspiciousIdentityExcludeStatus
 {
 
@@ -40,18 +50,25 @@ public enum SuspiciousIdentityExcludeStatus
     CONFLICT( "CONFLICT", 409 ),
     FAILURE( "FAILURE", 403 );
 
-    private final String label;
+    private final String message;
     private final Integer code;
 
-    SuspiciousIdentityExcludeStatus( String label, Integer code )
+    SuspiciousIdentityExcludeStatus( String message, Integer code )
     {
-        this.label = label;
+        this.message = message;
         this.code = code;
     }
 
-    public String getLabel( )
+    @JsonCreator
+    public static SuspiciousIdentityExcludeStatus forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
     {
-        return label;
+        return Arrays.stream( SuspiciousIdentityExcludeStatus.values( ) )
+                .filter( status -> Objects.equals( code, status.getCode( ) ) && Objects.equals( message, status.getMessage( ) ) ).findFirst( ).orElse( null );
+    }
+
+    public String getMessage( )
+    {
+        return message;
     }
 
     public Integer getCode( )

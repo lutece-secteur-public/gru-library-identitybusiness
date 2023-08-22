@@ -33,29 +33,46 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Arrays;
+import java.util.Objects;
+
+@JsonInclude( JsonInclude.Include.NON_NULL )
+@JsonFormat( shape = JsonFormat.Shape.OBJECT )
 public enum IdentityMergeStatus
 {
     SUCCESS( "SUCCESS", 201 ),
     INCOMPLETE_SUCCESS( "INCOMPLETE_SUCCESS", 201 ),
     FAILURE( "FAILURE", 403 );
 
-    private String label;
+    private String message;
     private Integer code;
 
-    IdentityMergeStatus( String label, Integer code )
+    IdentityMergeStatus( String message, Integer code )
     {
-        this.label = label;
+        this.message = message;
         this.code = code;
     }
 
-    public String getLabel( )
+    @JsonCreator
+    public static IdentityMergeStatus forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
     {
-        return label;
+        return Arrays.stream( IdentityMergeStatus.values( ) )
+                .filter( status -> Objects.equals( code, status.getCode( ) ) && Objects.equals( message, status.getMessage( ) ) ).findFirst( ).orElse( null );
     }
 
-    public void setLabel( String label )
+    public String getMessage( )
     {
-        this.label = label;
+        return message;
+    }
+
+    public void setMessage( String message )
+    {
+        this.message = message;
     }
 
     public Integer getCode( )

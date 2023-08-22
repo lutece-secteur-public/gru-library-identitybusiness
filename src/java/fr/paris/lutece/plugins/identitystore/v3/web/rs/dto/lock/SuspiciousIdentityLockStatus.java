@@ -33,6 +33,16 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.lock;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Arrays;
+import java.util.Objects;
+
+@JsonInclude( JsonInclude.Include.NON_NULL )
+@JsonFormat( shape = JsonFormat.Shape.OBJECT )
 public enum SuspiciousIdentityLockStatus
 {
     SUCCESS( "SUCCESS", 200 ),
@@ -40,23 +50,30 @@ public enum SuspiciousIdentityLockStatus
     NOT_FOUND( "NOT_FOUND", 404 ),
     FAILURE( "FAILURE", 403 );
 
-    protected String label;
+    protected String message;
     protected Integer code;
 
-    SuspiciousIdentityLockStatus( String label, Integer code )
+    SuspiciousIdentityLockStatus( String message, Integer code )
     {
-        this.label = label;
+        this.message = message;
         this.code = code;
     }
 
-    public String getLabel( )
+    @JsonCreator
+    public static SuspiciousIdentityLockStatus forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
     {
-        return label;
+        return Arrays.stream( SuspiciousIdentityLockStatus.values( ) )
+                .filter( status -> Objects.equals( code, status.getCode( ) ) && Objects.equals( message, status.getMessage( ) ) ).findFirst( ).orElse( null );
     }
 
-    public void setLabel( String label )
+    public String getMessage( )
     {
-        this.label = label;
+        return message;
+    }
+
+    public void setMessage( String message )
+    {
+        this.message = message;
     }
 
     public Integer getCode( )

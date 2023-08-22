@@ -33,6 +33,16 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Arrays;
+import java.util.Objects;
+
+@JsonInclude( JsonInclude.Include.NON_NULL )
+@JsonFormat( shape = JsonFormat.Shape.OBJECT )
 public enum UpdatedIdentitySearchStatus
 {
     SUCCESS( 200 ),
@@ -44,6 +54,13 @@ public enum UpdatedIdentitySearchStatus
     UpdatedIdentitySearchStatus( final int code )
     {
         this.code = code;
+    }
+
+    @JsonCreator
+    public static UpdatedIdentitySearchStatus forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
+    {
+        return Arrays.stream( UpdatedIdentitySearchStatus.values( ) )
+                .filter( status -> Objects.equals( code, status.getCode( ) ) && Objects.equals( message, status.getMessage( ) ) ).findFirst( ).orElse( null );
     }
 
     public int getCode( )
