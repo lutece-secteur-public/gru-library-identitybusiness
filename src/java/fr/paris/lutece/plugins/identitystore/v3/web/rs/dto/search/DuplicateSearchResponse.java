@@ -46,16 +46,6 @@ public class DuplicateSearchResponse extends ResponseDto<DuplicateSearchResponse
 
     protected Map<String, String> metadata = new HashMap<>( );
 
-    public String getMessage( )
-    {
-        return message;
-    }
-
-    public void setMessage( String message )
-    {
-        this.message = message;
-    }
-
     public List<QualifiedIdentity> getIdentities( )
     {
         return identities;
