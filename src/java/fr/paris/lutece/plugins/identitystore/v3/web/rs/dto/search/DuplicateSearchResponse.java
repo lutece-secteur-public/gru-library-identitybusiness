@@ -36,11 +36,25 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DuplicateSearchResponse extends ResponseDto<DuplicateSearchResponseStatusType>
 {
     protected List<QualifiedIdentity> identities = new ArrayList<>( );
+
+    protected Map<String, String> metadata = new HashMap<>( );
+
+    public String getMessage( )
+    {
+        return message;
+    }
+
+    public void setMessage( String message )
+    {
+        this.message = message;
+    }
 
     public List<QualifiedIdentity> getIdentities( )
     {
@@ -50,5 +64,15 @@ public class DuplicateSearchResponse extends ResponseDto<DuplicateSearchResponse
     public void setIdentities( List<QualifiedIdentity> identities )
     {
         this.identities = identities;
+    }
+
+    public Map<String, String> getMetadata( )
+    {
+        return metadata;
+    }
+
+    public void setMetadata( Map<String, String> metadata )
+    {
+        this.metadata = metadata;
     }
 }

@@ -31,85 +31,42 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class SuspiciousIdentityDto
+public class QualifiedIdentitySearchResult
 {
+    protected List<QualifiedIdentity> qualifiedIdentities = new ArrayList<>( );
 
-    /**
-     * duplicate rule ID that detected this suspicious identity
-     */
-    @JsonProperty( "duplicate_rule_code" )
-    protected String duplicationRuleCode;
-
-    /**
-     * customer ID
-     */
-    @JsonProperty( "customer_id" )
-    protected String customerId;
-
-    /**
-     * Creation date
-     */
-    @JsonProperty( "creation_date" )
-    protected Timestamp creationDate;
-
-    /**
-     * Last update date
-     */
-    @JsonProperty( "last_update_date" )
-    protected Timestamp lastUpdateDate;
-
-    /**
-     * Metadata
-     */
-    @JsonProperty( "metadata" )
     protected Map<String, String> metadata = new HashMap<>( );
 
-    public String getDuplicationRuleCode( )
+    public QualifiedIdentitySearchResult( )
     {
-        return duplicationRuleCode;
     }
 
-    public void setDuplicationRuleCode( String duplicationRuleCode )
+    public QualifiedIdentitySearchResult( List<QualifiedIdentity> qualifiedIdentities )
     {
-        this.duplicationRuleCode = duplicationRuleCode;
+        this.qualifiedIdentities.addAll( qualifiedIdentities );
     }
 
-    public String getCustomerId( )
+    public QualifiedIdentitySearchResult( List<QualifiedIdentity> qualifiedIdentities, Map<String, String> metadata )
     {
-        return customerId;
+        this.qualifiedIdentities.addAll( qualifiedIdentities );
+        this.metadata.putAll( metadata );
     }
 
-    public void setCustomerId( String customerId )
+    public List<QualifiedIdentity> getQualifiedIdentities( )
     {
-        this.customerId = customerId;
+        return qualifiedIdentities;
     }
 
-    public Timestamp getCreationDate( )
+    public void setQualifiedIdentities( List<QualifiedIdentity> qualifiedIdentities )
     {
-        return creationDate;
-    }
-
-    public void setCreationDate( Timestamp creationDate )
-    {
-        this.creationDate = creationDate;
-    }
-
-    public Timestamp getLastUpdateDate( )
-    {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate( Timestamp lastUpdateDate )
-    {
-        this.lastUpdateDate = lastUpdateDate;
+        this.qualifiedIdentities = qualifiedIdentities;
     }
 
     public Map<String, String> getMetadata( )
