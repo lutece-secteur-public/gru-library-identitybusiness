@@ -31,24 +31,21 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.referentiel;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class LevelSearchResponse extends ResponseDto<ReferentielSearchStatusType>
+public class IdentityHistoryGetResponse extends ResponseDto<HistorySearchStatusType>
 {
-    protected List<LevelDto> levels = new ArrayList<>( );
+    private IdentityHistory history;
 
-    public List<LevelDto> getLevels( )
+    public IdentityHistory getHistory( )
     {
-        return levels;
+        return history;
     }
 
-    public void setLevels( List<LevelDto> levels )
+    public void setHistory( IdentityHistory history )
     {
-        this.levels = levels;
+        this.history = history;
     }
 }

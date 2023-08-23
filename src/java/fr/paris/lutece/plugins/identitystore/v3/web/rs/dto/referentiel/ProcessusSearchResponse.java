@@ -33,14 +33,14 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.referentiel;
 
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProcessusSearchResponse
+public class ProcessusSearchResponse extends ResponseDto<ReferentielSearchStatusType>
 {
     protected List<AttributeCertificationProcessusDto> processus = new ArrayList<>( );
-
-    protected ReferentielSearchStatusType status;
 
     public List<AttributeCertificationProcessusDto> getProcessus( )
     {
@@ -50,15 +50,5 @@ public class ProcessusSearchResponse
     public void setProcessus( List<AttributeCertificationProcessusDto> processus )
     {
         this.processus = processus;
-    }
-
-    public ReferentielSearchStatusType getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( ReferentielSearchStatusType status )
-    {
-        this.status = status;
     }
 }

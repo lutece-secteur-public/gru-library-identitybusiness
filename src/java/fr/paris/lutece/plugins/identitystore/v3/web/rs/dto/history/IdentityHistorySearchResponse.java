@@ -33,14 +33,14 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history;
 
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class IdentityHistorySearchResponse
+public class IdentityHistorySearchResponse extends ResponseDto<HistorySearchStatusType>
 {
     protected List<IdentityHistory> histories = new ArrayList<>( );
-
-    protected HistorySearchStatusType status;
 
     public List<IdentityHistory> getHistories( )
     {
@@ -50,15 +50,5 @@ public class IdentityHistorySearchResponse
     public void setHistories( List<IdentityHistory> histories )
     {
         this.histories = histories;
-    }
-
-    public HistorySearchStatusType getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( HistorySearchStatusType status )
-    {
-        this.status = status;
     }
 }

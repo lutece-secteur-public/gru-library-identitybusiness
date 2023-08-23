@@ -31,24 +31,56 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.referentiel;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.error;
 
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IStatusType;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Objects;
 
-public class LevelSearchResponse extends ResponseDto<ReferentielSearchStatusType>
+@JsonInclude( JsonInclude.Include.NON_NULL )
+@JsonFormat( shape = JsonFormat.Shape.OBJECT )
+public enum ErrorStatusType implements IStatusType
 {
-    protected List<LevelDto> levels = new ArrayList<>( );
 
-    public List<LevelDto> getLevels( )
+    NOT_FOUND( 404, "Not found" ),
+    INTERNAL_SERVER_ERROR( 500, "Internal server error" );
+
+    private final int code;
+    private final String message;
+
+    ErrorStatusType( final int code )
     {
-        return levels;
+        this.code = code;
+        this.message = this.name( );
     }
 
-    public void setLevels( List<LevelDto> levels )
+    ErrorStatusType( final int code, final String message )
     {
-        this.levels = levels;
+        this.code = code;
+        this.message = message;
+    }
+
+    @JsonCreator
+    public static ErrorStatusType forValues( @JsonProperty( "code" ) int code, @JsonProperty( "message" ) String message )
+    {
+        return Arrays.stream( ErrorStatusType.values( ) )
+                .filter( status -> Objects.equals( code, status.getCode( ) ) && Objects.equals( message, status.getMessage( ) ) ).findFirst( ).orElse( null );
+    }
+
+    @Override
+    public int getCode( )
+    {
+        return code;
+    }
+
+    @Override
+    public String getMessage( )
+    {
+        return message;
     }
 }

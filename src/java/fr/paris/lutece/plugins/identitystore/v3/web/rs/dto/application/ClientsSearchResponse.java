@@ -33,15 +33,14 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application;
 
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientsSearchResponse
+public class ClientsSearchResponse extends ResponseDto<ClientSearchStatusType>
 {
-
     protected List<ClientApplicationDto> clientApplications = new ArrayList<>( );
-
-    protected ClientSearchStatusType status;
 
     public List<ClientApplicationDto> getClientApplications( )
     {
@@ -52,15 +51,4 @@ public class ClientsSearchResponse
     {
         this.clientApplications = clientApplications;
     }
-
-    public ClientSearchStatusType getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( ClientSearchStatusType status )
-    {
-        this.status = status;
-    }
-
 }

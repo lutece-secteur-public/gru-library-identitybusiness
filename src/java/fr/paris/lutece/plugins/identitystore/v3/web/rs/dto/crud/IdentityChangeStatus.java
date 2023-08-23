@@ -37,40 +37,48 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IStatusType;
 
 import java.util.Arrays;
 import java.util.Objects;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
-public enum IdentityChangeStatus
+public enum IdentityChangeStatus implements IStatusType
 {
     CREATE_SUCCESS( "SUCCESS", 201 ),
     CREATE_INCOMPLETE_SUCCESS( "INCOMPLETE_SUCCESS", 201 ),
     UPDATE_SUCCESS( "SUCCESS", 200 ),
     UPDATE_INCOMPLETE_SUCCESS( "INCOMPLETE_SUCCESS", 200 ),
     DELETE_SUCCESS( "SUCCESS", 200 ),
-    UNCERTIFY_SUCCESS( "UNCERTIFY_SUCCESS", 200 ),
-    CONFLICT( "CONFLICT", 409 ),
-    NOT_FOUND( "NOT_FOUND", 404 ),
-    FAILURE( "FAILURE", 403 );
+    UNCERTIFY_SUCCESS( 200 ),
+    CONFLICT( 409 ),
+    NOT_FOUND( 404 ),
+    FAILURE( 403 );
 
     private String message;
-    private Integer code;
+    private int code;
 
-    IdentityChangeStatus( String message, Integer code )
+    IdentityChangeStatus( final int code )
+    {
+        this.code = code;
+        this.message = this.name( );
+    }
+
+    IdentityChangeStatus( String message, int code )
     {
         this.message = message;
         this.code = code;
     }
 
     @JsonCreator
-    public static IdentityChangeStatus forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
+    public static IdentityChangeStatus forValues( @JsonProperty( "code" ) int code, @JsonProperty( "message" ) String message )
     {
         return Arrays.stream( IdentityChangeStatus.values( ) )
                 .filter( status -> Objects.equals( code, status.getCode( ) ) && Objects.equals( message, status.getMessage( ) ) ).findFirst( ).orElse( null );
     }
 
+    @Override
     public String getMessage( )
     {
         return message;
@@ -81,12 +89,13 @@ public enum IdentityChangeStatus
         this.message = message;
     }
 
-    public Integer getCode( )
+    @Override
+    public int getCode( )
     {
         return code;
     }
 
-    public void setCode( Integer code )
+    public void setCode( int code )
     {
         this.code = code;
     }

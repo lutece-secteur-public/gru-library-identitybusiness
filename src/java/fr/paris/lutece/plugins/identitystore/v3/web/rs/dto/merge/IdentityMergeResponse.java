@@ -34,22 +34,9 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ChangeResponse;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
-public class IdentityMergeResponse extends ChangeResponse
+public class IdentityMergeResponse extends ChangeResponse<IdentityMergeStatus>
 {
-    @JsonProperty( "status" )
-    protected IdentityMergeStatus status;
-
-    public IdentityMergeStatus getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( IdentityMergeStatus status )
-    {
-        this.status = status;
-    }
 }

@@ -35,42 +35,16 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
 /**
  * DTO contenant la réponse à une requête de création d'un suspicion identité
  */
 @JsonInclude( JsonInclude.Include.NON_NULL )
-public class SuspiciousIdentityChangeResponse
+public class SuspiciousIdentityChangeResponse extends ResponseDto<IdentityChangeStatus>
 {
-
-    @JsonProperty( "status" )
-    protected IdentityChangeStatus status;
-
-    @JsonProperty( "message" )
-    protected String message;
-
     @JsonProperty( "suspicious_identity" )
     protected SuspiciousIdentityDto suspiciousIdentity;
-
-    public IdentityChangeStatus getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( IdentityChangeStatus status )
-    {
-        this.status = status;
-    }
-
-    public String getMessage( )
-    {
-        return message;
-    }
-
-    public void setMessage( String message )
-    {
-        this.message = message;
-    }
 
     public SuspiciousIdentityDto getSuspiciousIdentity( )
     {

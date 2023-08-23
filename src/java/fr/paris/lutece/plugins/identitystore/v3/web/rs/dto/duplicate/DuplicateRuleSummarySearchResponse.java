@@ -33,12 +33,13 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.duplicate;
 
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+
 import java.util.List;
 
-public class DuplicateRuleSummarySearchResponse
+public class DuplicateRuleSummarySearchResponse extends ResponseDto<DuplicateRuleSummarySearchStatusType>
 {
     protected List<DuplicateRuleSummaryDto> duplicateRuleSummaries;
-    protected DuplicateRuleSummarySearchStatusType status;
 
     public List<DuplicateRuleSummaryDto> getDuplicateRuleSummaries( )
     {
@@ -48,15 +49,5 @@ public class DuplicateRuleSummarySearchResponse
     public void setDuplicateRuleSummaries( List<DuplicateRuleSummaryDto> duplicateRuleSummaries )
     {
         this.duplicateRuleSummaries = duplicateRuleSummaries;
-    }
-
-    public DuplicateRuleSummarySearchStatusType getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( DuplicateRuleSummarySearchStatusType status )
-    {
-        this.status = status;
     }
 }

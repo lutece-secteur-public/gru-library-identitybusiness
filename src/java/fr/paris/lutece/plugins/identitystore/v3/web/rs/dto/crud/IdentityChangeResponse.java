@@ -44,27 +44,13 @@ import java.sql.Timestamp;
  * DTO contenant la réponse à une requête de création d'une identité
  */
 @JsonInclude( JsonInclude.Include.NON_NULL )
-public class IdentityChangeResponse extends ChangeResponse
+public class IdentityChangeResponse extends ChangeResponse<IdentityChangeStatus>
 {
-
-    @JsonProperty( "status" )
-    protected IdentityChangeStatus status;
-
     @JsonProperty( "creation_date" )
     protected Timestamp creationDate;
 
     @JsonProperty( "duplicates" )
     protected DuplicateSearchResponse duplicates;
-
-    public IdentityChangeStatus getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( IdentityChangeStatus status )
-    {
-        this.status = status;
-    }
 
     public Timestamp getCreationDate( )
     {

@@ -37,48 +37,57 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IStatusType;
 
 import java.util.Arrays;
 import java.util.Objects;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
-public enum ServiceContractChangeStatusType
+public enum ServiceContractChangeStatusType implements IStatusType
 {
-    SUCCESS( 200, null ),
-    FAILURE( 403, null ),
+    SUCCESS( 200 ),
+    FAILURE( 403 ),
     NOT_FOUND( 404, "Aucune resource n'a été trouvée" );
 
     @JsonProperty( "code" )
-    private Integer code;
+    private int code;
 
     @JsonProperty( "message" )
     private String message;
 
-    ServiceContractChangeStatusType( Integer code, String message )
+    ServiceContractChangeStatusType( final int code )
+    {
+        this.code = code;
+        this.message = this.name( );
+    }
+
+    ServiceContractChangeStatusType( int code, String message )
     {
         this.code = code;
         this.message = message;
     }
 
     @JsonCreator
-    public static ServiceContractChangeStatusType forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
+    public static ServiceContractChangeStatusType forValues( @JsonProperty( "code" ) int code, @JsonProperty( "message" ) String message )
     {
         return Arrays.stream( ServiceContractChangeStatusType.values( ) )
                 .filter( statusType -> Objects.equals( code, statusType.getCode( ) ) && Objects.equals( message, statusType.getMessage( ) ) ).findFirst( )
                 .orElse( null );
     }
 
-    public Integer getCode( )
+    @Override
+    public int getCode( )
     {
         return code;
     }
 
-    public void setCode( Integer code )
+    public void setCode( int code )
     {
         this.code = code;
     }
 
+    @Override
     public String getMessage( )
     {
         return message;

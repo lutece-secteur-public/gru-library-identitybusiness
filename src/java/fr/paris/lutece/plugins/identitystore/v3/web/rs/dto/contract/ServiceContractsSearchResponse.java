@@ -33,15 +33,14 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
 
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceContractsSearchResponse
+public class ServiceContractsSearchResponse extends ResponseDto<ServiceContractSearchStatusType>
 {
-
     protected List<ServiceContractDto> serviceContracts = new ArrayList<>( );
-
-    protected ServiceContractSearchStatusType status;
 
     public List<ServiceContractDto> getServiceContracts( )
     {
@@ -52,15 +51,4 @@ public class ServiceContractsSearchResponse
     {
         this.serviceContracts = serviceContracts;
     }
-
-    public ServiceContractSearchStatusType getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( ServiceContractSearchStatusType status )
-    {
-        this.status = status;
-    }
-
 }

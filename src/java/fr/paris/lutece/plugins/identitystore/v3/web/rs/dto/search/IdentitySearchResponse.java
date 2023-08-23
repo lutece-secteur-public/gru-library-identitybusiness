@@ -33,15 +33,15 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class IdentitySearchResponse
+public class IdentitySearchResponse extends ResponseDto<IdentitySearchStatusType>
 {
 
     protected List<QualifiedIdentity> identities = new ArrayList<>( );
-
-    protected IdentitySearchStatusType status;
     protected List<IdentitySearchMessage> alerts = new ArrayList<>( );
 
     public List<QualifiedIdentity> getIdentities( )
@@ -52,16 +52,6 @@ public class IdentitySearchResponse
     public void setIdentities( List<QualifiedIdentity> identities )
     {
         this.identities = identities;
-    }
-
-    public IdentitySearchStatusType getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( IdentitySearchStatusType status )
-    {
-        this.status = status;
     }
 
     public List<IdentitySearchMessage> getAlerts( )

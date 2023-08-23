@@ -31,24 +31,11 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.referentiel;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class LevelSearchResponse extends ResponseDto<ReferentielSearchStatusType>
+public interface IStatusType
 {
-    protected List<LevelDto> levels = new ArrayList<>( );
+    int getCode( );
 
-    public List<LevelDto> getLevels( )
-    {
-        return levels;
-    }
-
-    public void setLevels( List<LevelDto> levels )
-    {
-        this.levels = levels;
-    }
+    String getMessage( );
 }

@@ -31,45 +31,59 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IStatusType;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
-public enum IdentityMergeStatus implements IStatusType
+public enum DuplicateSearchResponseStatusType implements IStatusType
 {
-    SUCCESS( 201 ),
-    INCOMPLETE_SUCCESS( 201 ),
-    FAILURE( 403 );
+    SUCCESS( 200 ),
+    FAILURE( 403 ),
+    NOT_FOUND( 404, "Aucune resource n'a été trouvée" );
 
-    private String message;
+    @JsonProperty( "code" )
     private int code;
 
-    IdentityMergeStatus( final int code )
+    @JsonProperty( "message" )
+    private String message;
+
+    DuplicateSearchResponseStatusType( final int code )
     {
         this.code = code;
         this.message = this.name( );
     }
 
-    IdentityMergeStatus( String message, Integer code )
+    DuplicateSearchResponseStatusType( int code, String message )
     {
-        this.message = message;
         this.code = code;
+        this.message = message;
     }
 
     @JsonCreator
-    public static IdentityMergeStatus forValues( @JsonProperty( "code" ) int code, @JsonProperty( "message" ) String message )
+    public static DuplicateSearchResponseStatusType forValues( @JsonProperty( "code" ) int code, @JsonProperty( "message" ) String message )
     {
-        return Arrays.stream( IdentityMergeStatus.values( ) )
-                .filter( status -> Objects.equals( code, status.getCode( ) ) && Objects.equals( message, status.getMessage( ) ) ).findFirst( ).orElse( null );
+        return Arrays.stream( DuplicateSearchResponseStatusType.values( ) )
+                .filter( statusType -> code == statusType.getCode( ) && StringUtils.equals( message, statusType.getMessage( ) ) ).findFirst( ).orElse( null );
+    }
+
+    @Override
+    public int getCode( )
+    {
+        return code;
+    }
+
+    public void setCode( int code )
+    {
+        this.code = code;
     }
 
     @Override
@@ -83,14 +97,4 @@ public enum IdentityMergeStatus implements IStatusType
         this.message = message;
     }
 
-    @Override
-    public int getCode( )
-    {
-        return code;
-    }
-
-    public void setCode( int code )
-    {
-        this.code = code;
-    }
 }

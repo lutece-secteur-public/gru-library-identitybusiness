@@ -37,35 +37,43 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IStatusType;
 
 import java.util.Arrays;
 import java.util.Objects;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
-public enum SuspiciousIdentityLockStatus
+public enum SuspiciousIdentityLockStatus implements IStatusType
 {
-    SUCCESS( "SUCCESS", 200 ),
-    CONFLICT( "CONFLICT", 409 ),
-    NOT_FOUND( "NOT_FOUND", 404 ),
-    FAILURE( "FAILURE", 403 );
+    SUCCESS( 200 ),
+    CONFLICT( 409 ),
+    NOT_FOUND( 404 ),
+    FAILURE( 403 );
 
-    protected String message;
-    protected Integer code;
+    private String message;
+    private int code;
 
-    SuspiciousIdentityLockStatus( String message, Integer code )
+    SuspiciousIdentityLockStatus( final int code )
+    {
+        this.code = code;
+        this.message = this.name( );
+    }
+
+    SuspiciousIdentityLockStatus( String message, int code )
     {
         this.message = message;
         this.code = code;
     }
 
     @JsonCreator
-    public static SuspiciousIdentityLockStatus forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
+    public static SuspiciousIdentityLockStatus forValues( @JsonProperty( "code" ) int code, @JsonProperty( "message" ) String message )
     {
         return Arrays.stream( SuspiciousIdentityLockStatus.values( ) )
                 .filter( status -> Objects.equals( code, status.getCode( ) ) && Objects.equals( message, status.getMessage( ) ) ).findFirst( ).orElse( null );
     }
 
+    @Override
     public String getMessage( )
     {
         return message;
@@ -76,12 +84,13 @@ public enum SuspiciousIdentityLockStatus
         this.message = message;
     }
 
-    public Integer getCode( )
+    @Override
+    public int getCode( )
     {
         return code;
     }
 
-    public void setCode( Integer code )
+    public void setCode( int code )
     {
         this.code = code;
     }

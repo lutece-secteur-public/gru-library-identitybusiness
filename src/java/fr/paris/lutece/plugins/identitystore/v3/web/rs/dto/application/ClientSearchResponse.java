@@ -33,12 +33,11 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application;
 
-public class ClientSearchResponse
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+
+public class ClientSearchResponse extends ResponseDto<ClientSearchStatusType>
 {
-
     protected ClientApplicationDto clientApplication;
-
-    protected ClientSearchStatusType status;
 
     public ClientApplicationDto getClientApplication( )
     {
@@ -49,15 +48,4 @@ public class ClientSearchResponse
     {
         this.clientApplication = clientApplication;
     }
-
-    public ClientSearchStatusType getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( ClientSearchStatusType status )
-    {
-        this.status = status;
-    }
-
 }

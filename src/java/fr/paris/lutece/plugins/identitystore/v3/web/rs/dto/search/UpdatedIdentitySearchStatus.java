@@ -37,23 +37,31 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IStatusType;
 
 import java.util.Arrays;
 import java.util.Objects;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
-public enum UpdatedIdentitySearchStatus
+public enum UpdatedIdentitySearchStatus implements IStatusType
 {
     SUCCESS( 200 ),
     NOT_FOUND( 404 );
 
-    private final int code;
-    private final String message = this.name( );
+    private int code;
+    private String message;
 
     UpdatedIdentitySearchStatus( final int code )
     {
         this.code = code;
+        this.message = this.name( );
+    }
+
+    UpdatedIdentitySearchStatus( final int code, final String message )
+    {
+        this.code = code;
+        this.message = message;
     }
 
     @JsonCreator
@@ -63,11 +71,13 @@ public enum UpdatedIdentitySearchStatus
                 .filter( status -> Objects.equals( code, status.getCode( ) ) && Objects.equals( message, status.getMessage( ) ) ).findFirst( ).orElse( null );
     }
 
+    @Override
     public int getCode( )
     {
         return code;
     }
 
+    @Override
     public String getMessage( )
     {
         return message;

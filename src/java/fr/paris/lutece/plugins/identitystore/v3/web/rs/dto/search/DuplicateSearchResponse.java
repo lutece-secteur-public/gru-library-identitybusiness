@@ -33,24 +33,14 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class DuplicateSearchResponse
+public class DuplicateSearchResponse extends ResponseDto<DuplicateSearchResponseStatusType>
 {
-    protected String message;
-
     protected List<QualifiedIdentity> identities = new ArrayList<>( );
-
-    public String getMessage( )
-    {
-        return message;
-    }
-
-    public void setMessage( String message )
-    {
-        this.message = message;
-    }
 
     public List<QualifiedIdentity> getIdentities( )
     {

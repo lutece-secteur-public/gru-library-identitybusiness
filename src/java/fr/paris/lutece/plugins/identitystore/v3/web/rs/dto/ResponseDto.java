@@ -33,43 +33,83 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IStatusType;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatus;
+
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_I18N_MESSAGE_KEY;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_MESSAGE;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_RESPONSE;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_STATUS;
 
 /**
  *
  * Response Dto
  *
  */
-@JsonRootName( value = DtoFormatConstants.KEY_RESPONSE )
-public class ResponseDto
+@JsonRootName( value = KEY_RESPONSE )
+@JsonPropertyOrder( {
+        KEY_STATUS, KEY_MESSAGE, KEY_I18N_MESSAGE_KEY
+} )
+@JsonFormat( shape = JsonFormat.Shape.OBJECT )
+@JsonInclude( JsonInclude.Include.NON_NULL )
+public class ResponseDto<S extends IStatusType>
 {
-    private String _strStatus;
-    private String _strMessage;
+    @JsonIgnore
+    protected S _status;
+
+    protected ResponseStatus _responseStatus;
+    protected String _strMessage;
+    protected String _strI18nMessageKey;
 
     /**
-     * @return the _strStatus
+     * @return the _status
      */
-    @JsonProperty( value = DtoFormatConstants.KEY_STATUS )
-    public String getStatus( )
+    @JsonIgnore
+    public S getStatus( )
     {
-        return _strStatus;
+        return _status;
     }
 
     /**
-     * @param strStatus
-     *            the _strStatus to set
+     * @param status
+     *            the _status to set
      */
-    @JsonProperty( value = DtoFormatConstants.KEY_STATUS )
-    public void setStatus( String strStatus )
+    @JsonIgnore
+    public void setStatus( S status )
     {
-        this._strStatus = strStatus;
+        this._status = status;
+        this._responseStatus = ResponseStatus.from( status );
+    }
+
+    /**
+     * @return the _responseStatus
+     */
+    @JsonProperty( value = KEY_STATUS )
+    public ResponseStatus getResponseStatus( )
+    {
+        return _responseStatus;
+    }
+
+    /**
+     * @param _responseStatus
+     *            the _responseStatus to set
+     */
+    @JsonProperty( value = KEY_STATUS )
+    public void setResponseStatus( ResponseStatus _responseStatus )
+    {
+        this._responseStatus = _responseStatus;
     }
 
     /**
      * @return the _strMessage
      */
-    @JsonProperty( value = DtoFormatConstants.KEY_MESSAGE )
+    @JsonProperty( value = KEY_MESSAGE )
     public String getMessage( )
     {
         return _strMessage;
@@ -79,9 +119,28 @@ public class ResponseDto
      * @param strMessage
      *            the strMessage to set
      */
-    @JsonProperty( value = DtoFormatConstants.KEY_MESSAGE )
+    @JsonProperty( value = KEY_MESSAGE )
     public void setMessage( String strMessage )
     {
         this._strMessage = strMessage;
+    }
+
+    /**
+     * @return the _strI18nMessageKey
+     */
+    @JsonProperty( value = KEY_I18N_MESSAGE_KEY )
+    public String getI18nMessageKey( )
+    {
+        return _strI18nMessageKey;
+    }
+
+    /**
+     * @param _strI18nMessageKey
+     *            the _strI18nMessageKey to set
+     */
+    @JsonProperty( value = KEY_I18N_MESSAGE_KEY )
+    public void setI18nMessageKey( String _strI18nMessageKey )
+    {
+        this._strI18nMessageKey = _strI18nMessageKey;
     }
 }

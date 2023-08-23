@@ -34,16 +34,14 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ChangeResponse
+public abstract class ChangeResponse<S extends IStatusType> extends ResponseDto<S>
 {
-    @JsonProperty( "message" )
-    protected String message;
-
     @JsonProperty( "customer_id" )
     protected String customerId;
 
@@ -55,16 +53,6 @@ public abstract class ChangeResponse
 
     @JsonProperty( "attributes_status" )
     protected List<AttributeStatus> attributeStatuses = new ArrayList<>( );
-
-    public String getMessage( )
-    {
-        return message;
-    }
-
-    public void setMessage( String message )
-    {
-        this.message = message;
-    }
 
     public String getCustomerId( )
     {

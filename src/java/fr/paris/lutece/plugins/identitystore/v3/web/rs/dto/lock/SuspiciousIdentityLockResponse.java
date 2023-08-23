@@ -34,18 +34,14 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.lock;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
-public class SuspiciousIdentityLockResponse
+public class SuspiciousIdentityLockResponse extends ResponseDto<SuspiciousIdentityLockStatus>
 {
     @JsonProperty( "customer_id" )
     protected String customerId;
     @JsonProperty( "locked" )
     protected boolean locked;
-
-    @JsonProperty( "status" )
-    protected SuspiciousIdentityLockStatus status;
-    @JsonProperty( "message" )
-    protected String message;
 
     public String getCustomerId( )
     {
@@ -57,16 +53,6 @@ public class SuspiciousIdentityLockResponse
         this.customerId = customerId;
     }
 
-    public SuspiciousIdentityLockStatus getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( SuspiciousIdentityLockStatus status )
-    {
-        this.status = status;
-    }
-
     public boolean isLocked( )
     {
         return locked;
@@ -75,15 +61,5 @@ public class SuspiciousIdentityLockResponse
     public void setLocked( boolean locked )
     {
         this.locked = locked;
-    }
-
-    public String getMessage( )
-    {
-        return message;
-    }
-
-    public void setMessage( String message )
-    {
-        this.message = message;
     }
 }

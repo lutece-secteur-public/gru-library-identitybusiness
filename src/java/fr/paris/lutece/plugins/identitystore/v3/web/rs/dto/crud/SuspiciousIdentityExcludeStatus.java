@@ -37,41 +37,49 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IStatusType;
 
 import java.util.Arrays;
 import java.util.Objects;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
-public enum SuspiciousIdentityExcludeStatus
+public enum SuspiciousIdentityExcludeStatus implements IStatusType
 {
-
-    SUCCESS( "SUCCESS", 201 ),
-    CONFLICT( "CONFLICT", 409 ),
-    FAILURE( "FAILURE", 403 );
+    SUCCESS( 201 ),
+    CONFLICT( 409 ),
+    FAILURE( 403 );
 
     private final String message;
-    private final Integer code;
+    private final int code;
 
-    SuspiciousIdentityExcludeStatus( String message, Integer code )
+    SuspiciousIdentityExcludeStatus( final int code )
+    {
+        this.code = code;
+        this.message = this.name( );
+    }
+
+    SuspiciousIdentityExcludeStatus( String message, int code )
     {
         this.message = message;
         this.code = code;
     }
 
     @JsonCreator
-    public static SuspiciousIdentityExcludeStatus forValues( @JsonProperty( "code" ) Integer code, @JsonProperty( "message" ) String message )
+    public static SuspiciousIdentityExcludeStatus forValues( @JsonProperty( "code" ) int code, @JsonProperty( "message" ) String message )
     {
         return Arrays.stream( SuspiciousIdentityExcludeStatus.values( ) )
                 .filter( status -> Objects.equals( code, status.getCode( ) ) && Objects.equals( message, status.getMessage( ) ) ).findFirst( ).orElse( null );
     }
 
+    @Override
     public String getMessage( )
     {
         return message;
     }
 
-    public Integer getCode( )
+    @Override
+    public int getCode( )
     {
         return code;
     }

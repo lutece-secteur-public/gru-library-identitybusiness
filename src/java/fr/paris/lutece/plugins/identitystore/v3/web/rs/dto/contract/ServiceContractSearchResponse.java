@@ -33,12 +33,11 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
 
-public class ServiceContractSearchResponse
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+
+public class ServiceContractSearchResponse extends ResponseDto<ServiceContractSearchStatusType>
 {
-
     protected ServiceContractDto serviceContract;
-
-    protected ServiceContractSearchStatusType status;
 
     public ServiceContractDto getServiceContract( )
     {
@@ -49,15 +48,4 @@ public class ServiceContractSearchResponse
     {
         this.serviceContract = serviceContract;
     }
-
-    public ServiceContractSearchStatusType getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( ServiceContractSearchStatusType status )
-    {
-        this.status = status;
-    }
-
 }

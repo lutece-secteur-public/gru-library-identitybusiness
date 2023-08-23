@@ -33,14 +33,11 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application;
 
-public class ClientChangeResponse
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+
+public class ClientChangeResponse extends ResponseDto<ClientChangeStatusType>
 {
-
     protected ClientApplicationDto clientApplication;
-
-    protected ClientChangeStatusType status;
-
-    protected String message;
 
     public ClientApplicationDto getClientApplication( )
     {
@@ -50,25 +47,5 @@ public class ClientChangeResponse
     public void setClientApplication( ClientApplicationDto clientApplication )
     {
         this.clientApplication = clientApplication;
-    }
-
-    public ClientChangeStatusType getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( ClientChangeStatusType status )
-    {
-        this.status = status;
-    }
-
-    public String getMessage( )
-    {
-        return message;
-    }
-
-    public void setMessage( String message )
-    {
-        this.message = message;
     }
 }

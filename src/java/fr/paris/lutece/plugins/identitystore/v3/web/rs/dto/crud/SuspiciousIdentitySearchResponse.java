@@ -34,17 +34,14 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
 import java.util.List;
 
-public class SuspiciousIdentitySearchResponse
+public class SuspiciousIdentitySearchResponse extends ResponseDto<SuspiciousIdentitySearchStatusType>
 {
-
     @JsonProperty( "suspicious_identities" )
     private List<SuspiciousIdentityDto> suspiciousIdentities;
-
-    @JsonProperty( "status" )
-    private SuspiciousIdentitySearchStatusType status;
 
     public List<SuspiciousIdentityDto> getSuspiciousIdentities( )
     {
@@ -54,15 +51,5 @@ public class SuspiciousIdentitySearchResponse
     public void setSuspiciousIdentities( List<SuspiciousIdentityDto> suspiciousIdentities )
     {
         this.suspiciousIdentities = suspiciousIdentities;
-    }
-
-    public SuspiciousIdentitySearchStatusType getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( SuspiciousIdentitySearchStatusType status )
-    {
-        this.status = status;
     }
 }

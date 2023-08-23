@@ -31,24 +31,46 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.referentiel;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class LevelSearchResponse extends ResponseDto<ReferentielSearchStatusType>
+public class ResponseStatus
 {
-    protected List<LevelDto> levels = new ArrayList<>( );
 
-    public List<LevelDto> getLevels( )
+    @JsonProperty( "code" )
+    private int code;
+
+    @JsonProperty( "message" )
+    private String message;
+
+    public int getCode( )
     {
-        return levels;
+        return code;
     }
 
-    public void setLevels( List<LevelDto> levels )
+    public void setCode( int code )
     {
-        this.levels = levels;
+        this.code = code;
+    }
+
+    public String getMessage( )
+    {
+        return message;
+    }
+
+    public void setMessage( String message )
+    {
+        this.message = message;
+    }
+
+    @JsonIgnore
+    public static ResponseStatus from( final IStatusType statusType )
+    {
+        final ResponseStatus responseStatus = new ResponseStatus( );
+        responseStatus.setMessage( statusType.getMessage( ) );
+        responseStatus.setCode( statusType.getCode( ) );
+        return responseStatus;
     }
 }

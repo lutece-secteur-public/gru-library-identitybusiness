@@ -33,14 +33,11 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
 
-public class ServiceContractChangeResponse
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+
+public class ServiceContractChangeResponse extends ResponseDto<ServiceContractChangeStatusType>
 {
-
     protected ServiceContractDto serviceContract;
-
-    protected ServiceContractChangeStatusType status;
-
-    protected String message;
 
     public ServiceContractDto getServiceContract( )
     {
@@ -50,25 +47,5 @@ public class ServiceContractChangeResponse
     public void setServiceContract( ServiceContractDto serviceContract )
     {
         this.serviceContract = serviceContract;
-    }
-
-    public ServiceContractChangeStatusType getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( ServiceContractChangeStatusType status )
-    {
-        this.status = status;
-    }
-
-    public String getMessage( )
-    {
-        return message;
-    }
-
-    public void setMessage( String message )
-    {
-        this.message = message;
     }
 }
