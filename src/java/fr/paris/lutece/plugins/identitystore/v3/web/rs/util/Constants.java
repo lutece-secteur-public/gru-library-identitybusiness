@@ -39,7 +39,6 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.util;
  */
 public final class Constants
 {
-    public static final String PROPERTY_APPLICATION_VERSION = "identitystore.version";
     public static final String VERSION_PATH_V1 = "/v1";
     public static final String VERSION_PATH_V2 = "/v2";
     public static final String VERSION_PATH_V3 = "/v3";
@@ -152,6 +151,60 @@ public final class Constants
     public static final String METADATA_MERGED_CHILD_IDENTITY_CUID = "merged_child_identity_cuid";
     public static final String METADATA_UNMERGED_MASTER_CUID = "unmerged_master_cuid";
     public static final String METADATA_UNMERGED_CHILD_CUID = "unmerged_child_cuid";
+
+    /** Global Properties */
+    public static final String PROPERTY_APPLICATION_VERSION = "identitystore.version";
+
+    /** REST message properties */
+    public static final String PROPERTY_REST_ERROR_DURING_TREATMENT = "identitystore.rest.error.during.treatment";
+    public static final String PROPERTY_REST_ERROR_NO_IDENTITY_FOUND = "identitystore.rest.error.no.identity.found";
+    public static final String PROPERTY_REST_ERROR_NO_SERVICE_CONTRACT_FOUND = "identitystore.rest.error.no.service.contract.found";
+    public static final String PROPERTY_REST_ERROR_DAYS_NUMERIC_FORMAT = "identitystore.rest.error.days.numeric.format";
+    public static final String PROPERTY_REST_ERROR_CLIENT_ALREADY_EXISTS = "identitystore.rest.error.client.already.exists";
+    public static final String PROPERTY_REST_ERROR_NO_CLIENT_FOUND = "identitystore.rest.error.no.client.found";
+    public static final String PROPERTY_REST_ERROR_FAIL_ATTRIBUTE_VALIDATION = "identitystore.rest.error.fail.attribute.validation";
+    public static final String PROPERTY_REST_ERROR_SERVICE_CONTRACT_VIOLATION = "identitystore.rest.error.service.contract.violation";
+    public static final String PROPERTY_REST_ERROR_MERGE_UNAUTHORIZED = "identitystore.rest.error.merge.unauthorized";
+    public static final String PROPERTY_REST_ERROR_IMPORT_UNAUTHORIZED = "identitystore.rest.error.import.unauthorized";
+    public static final String PROPERTY_REST_ERROR_NO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.error.no.potential.duplicate.found";
+    public static final String PROPERTY_REST_ERROR_CREATE_UNAUTHORIZED = "identitystore.rest.error.create.unauthorized";
+    public static final String PROPERTY_REST_ERROR_MISSING_MANDATORY_ATTRIBUTES = "identitystore.rest.error.missing.mandatory.attributes";
+    public static final String PROPERTY_REST_ERROR_UPDATE_UNAUTHORIZED = "identitystore.rest.error.update.unauthorized";
+    public static final String PROPERTY_REST_ERROR_NO_MATCHING_IDENTITY = "identitystore.rest.error.no.matching.identity";
+    public static final String PROPERTY_REST_ERROR_UPDATE_CONFLICT = "identitystore.rest.error.update.conflict";
+    public static final String PROPERTY_REST_ERROR_FORBIDDEN_UPDATE_ON_MERGED_IDENTITY = "identitystore.rest.error.forbidden.update.on.merged.identity";
+    public static final String PROPERTY_REST_ERROR_FORBIDDEN_UPDATE_ON_DELETED_IDENTITY = "identitystore.rest.error.forbidden.update.on.deleted.identity";
+    public static final String PROPERTY_REST_ERROR_FORBIDDEN_MON_PARIS_ACTIVE_UPDATE = "identitystore.rest.error.forbidden.mon.paris.active.update";
+    public static final String PROPERTY_REST_ERROR_CONFLICT_CONNECTION_ID = "identitystore.rest.error.conflict.connection.id";
+    public static final String PROPERTY_REST_ERROR_PRIMARY_IDENTITY_NOT_FOUND = "identitystore.rest.error.primary.identity.not.found";
+    public static final String PROPERTY_REST_ERROR_PRIMARY_IDENTITY_DELETED = "identitystore.rest.error.primary.identity.deleted";
+    public static final String PROPERTY_REST_ERROR_PRIMARY_IDENTITY_MERGED = "identitystore.rest.error.primary.identity.merged";
+    public static final String PROPERTY_REST_ERROR_PRIMARY_IDENTITY_UPDATE_CONFLICT = "identitystore.rest.error.primary.identity.update.conflict";
+    public static final String PROPERTY_REST_ERROR_SECONDARY_IDENTITY_NOT_FOUND = "identitystore.rest.error.secondary.identity.not.found";
+    public static final String PROPERTY_REST_ERROR_SECONDARY_IDENTITY_DELETED = "identitystore.rest.error.secondary.identity.deleted";
+    public static final String PROPERTY_REST_ERROR_SECONDARY_IDENTITY_MERGED = "identitystore.rest.error.secondary.identity.merged";
+    public static final String PROPERTY_REST_ERROR_SECONDARY_IDENTITY_UPDATE_CONFLICT = "identitystore.rest.error.secondary.identity.update.conflict";
+    public static final String PROPERTY_REST_ERROR_SECONDARY_IDENTITY_NOT_MERGED = "identitystore.rest.error.secondary.identity.not.merged";
+    public static final String PROPERTY_REST_ERROR_IDENTITIES_NOT_MERGED_TOGETHER = "identitystore.rest.error.identities.not.merged.together";
+    public static final String PROPERTY_REST_ERROR_DELETE_UNAUTHORIZED = "identitystore.rest.error.delete.unauthorized";
+    public static final String PROPERTY_REST_ERROR_IDENTITY_NOT_FOUND = "identitystore.rest.error.identity.not.found";
+    public static final String PROPERTY_REST_ERROR_IDENTITY_ALREADY_DELETED = "identitystore.rest.error.identity.already.deleted";
+    public static final String PROPERTY_REST_ERROR_FORBIDDEN_DELETE_ON_MERGED_IDENTITY = "identitystore.rest.error.forbidden.delete.on.merged.identity";
+    public static final String PROPERTY_REST_ERROR_APPLICATION_NOT_FOUND = "identitystore.rest.error.application.not.found";
+    public static final String PROPERTY_REST_ERROR_SERVICE_CONTRACT_NOT_FOUND = "identitystore.rest.error.service.contract.not.found";
+    public static final String PROPERTY_REST_ERROR_UNAUTHORIZED_OPERATION = "identitystore.rest.error.unauthorized.operation";
+    public static final String PROPERTY_REST_ERROR_SEARCH_UNAUTHORIZED = "identitystore.rest.error.search.unauthorized";
+    public static final String PROPERTY_REST_ERROR_NO_HISTORY_FOUND = "identitystore.rest.error.no.history.found";
+    public static final String PROPERTY_REST_ERROR_NO_DUPLICATE_RULE_FOUND = "identitystore.rest.error.no.duplicate.rule.found";
+    public static final String PROPERTY_REST_ERROR_NO_CERTIFICATION_LEVEL_FOUND = "identitystore.rest.error.no.certification.level.found";
+    public static final String PROPERTY_REST_ERROR_NO_CERTIFICATION_PROCESSUS_FOUND = "identitystore.rest.error.no.certification.processus.found";
+    public static final String PROPERTY_REST_ERROR_NO_UPDATED_IDENTITY_FOUND = "identitystore.rest.error.no.updated.identity.found";
+    public static final String PROPERTY_REST_ERROR_ALREADY_EXCLUDED = "identitystore.rest.error.already.excluded";
+    public static final String PROPERTY_REST_ERROR_NOT_EXCLUDED = "identitystore.rest.error.not.excluded";
+    public static final String PROPERTY_REST_ERROR_IDENTITY_ALREADY_SUSPICIOUS = "identitystore.rest.error.identity.already.suspicious";
+    public static final String PROPERTY_REST_ERROR_NO_SUSPICIOUS_IDENTITY_FOUND = "identitystore.rest.error.no.suspicious.identity.found";
+    public static final String PROPERTY_REST_INFO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.potential.duplicate.found";
+    public static final String PROPERTY_REST_INFO_SUCCESSFUL_OPERATION = "identitystore.rest.info.successful.operation";
 
     /**
      * Default constructor
