@@ -31,87 +31,61 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.apache.commons.lang3.StringUtils;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
-/**
- * DTO contenant la requête de création d'un attribut avec sa certification
- */
-@JsonInclude( JsonInclude.Include.NON_NULL )
-public class CertifiedAttribute
+public class MergeDefinition
 {
-    /**
-     * Clef de l'attribut en base
-     */
-    protected String key;
 
     /**
-     * Valeur de l'attribut
+     * Flag indiquant si l'identité est rapprochée
      */
-    protected String value;
-
-    /**
-     * Code du processus de certification (si existe)
-     */
-    @JsonProperty( "certProcess" )
-    protected String certificationProcess;
-
-    /**
-     * Date à laquelle la donnée a été certifiée (si existe)(format timestamp ?)
-     */
-
-    @JsonProperty( "certDate" )
-    protected Date certificationDate;
-
-    public String getKey( )
-    {
-        return key;
-    }
-
-    public void setKey( String key )
-    {
-        this.key = key;
-    }
-
-    public String getValue( )
-    {
-        return value;
-    }
-
-    public void setValue( String value )
-    {
-        this.value = value;
-    }
-
-    public String getCertificationProcess( )
-    {
-        return certificationProcess;
-    }
-
-    public void setCertificationProcess( String certificationProcess )
-    {
-        this.certificationProcess = certificationProcess;
-    }
-
-    public Date getCertificationDate( )
-    {
-        return certificationDate;
-    }
-
-    public void setCertificationDate( Date certificationDate )
-    {
-        this.certificationDate = certificationDate;
-    }
-
     @JsonIgnore
-    public boolean isCertified( )
+    protected boolean merged;
+
+    /**
+     * Customer ID de l'identité maitresse (après rapprochement)
+     */
+    @JsonProperty( "master_customer_id" )
+    protected String masterCustomerId;
+
+    /**
+     * Merge date
+     */
+    @JsonProperty( "merge_date" )
+    protected Timestamp mergeDate;
+
+    public boolean isMerged( )
     {
-        return this.certificationDate != null && StringUtils.isNotEmpty( this.certificationProcess );
+        return merged;
+    }
+
+    public void setMerged( boolean merged )
+    {
+        this.merged = merged;
+    }
+
+    public String getMasterCustomerId( )
+    {
+        return masterCustomerId;
+    }
+
+    public void setMasterCustomerId( String masterCustomerId )
+    {
+        this.masterCustomerId = masterCustomerId;
+    }
+
+    public Timestamp getMergeDate( )
+    {
+        return mergeDate;
+    }
+
+    public void setMergeDate( Timestamp mergeDate )
+    {
+        this.mergeDate = mergeDate;
     }
 }

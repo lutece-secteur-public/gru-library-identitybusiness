@@ -35,7 +35,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.UpdatedIdentity;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.UpdatedIdentityDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,9 +43,9 @@ import java.util.List;
 public class UpdatedIdentitySearchResponse extends ResponseDto<UpdatedIdentitySearchStatus>
 {
     @JsonProperty( "updated_identity_list" )
-    protected List<UpdatedIdentity> updatedIdentityList = new ArrayList<>( );
+    protected List<UpdatedIdentityDto> updatedIdentityList = new ArrayList<>( );
 
-    public List<UpdatedIdentity> getUpdatedIdentityList( )
+    public List<UpdatedIdentityDto> getUpdatedIdentityList( )
     {
         return updatedIdentityList;
     }

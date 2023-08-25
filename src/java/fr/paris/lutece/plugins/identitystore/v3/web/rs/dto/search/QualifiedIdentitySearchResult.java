@@ -33,6 +33,8 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IdentityDto;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +42,7 @@ import java.util.Map;
 
 public class QualifiedIdentitySearchResult
 {
-    protected List<QualifiedIdentity> qualifiedIdentities = new ArrayList<>( );
+    protected List<IdentityDto> qualifiedIdentities = new ArrayList<>( );
 
     protected Map<String, String> metadata = new HashMap<>( );
 
@@ -48,23 +50,23 @@ public class QualifiedIdentitySearchResult
     {
     }
 
-    public QualifiedIdentitySearchResult( List<QualifiedIdentity> qualifiedIdentities )
+    public QualifiedIdentitySearchResult( List<IdentityDto> qualifiedIdentities )
     {
         this.qualifiedIdentities.addAll( qualifiedIdentities );
     }
 
-    public QualifiedIdentitySearchResult( List<QualifiedIdentity> qualifiedIdentities, Map<String, String> metadata )
+    public QualifiedIdentitySearchResult( List<IdentityDto> qualifiedIdentities, Map<String, String> metadata )
     {
         this.qualifiedIdentities.addAll( qualifiedIdentities );
         this.metadata.putAll( metadata );
     }
 
-    public List<QualifiedIdentity> getQualifiedIdentities( )
+    public List<IdentityDto> getQualifiedIdentities( )
     {
         return qualifiedIdentities;
     }
 
-    public void setQualifiedIdentities( List<QualifiedIdentity> qualifiedIdentities )
+    public void setQualifiedIdentities( List<IdentityDto> qualifiedIdentities )
     {
         this.qualifiedIdentities = qualifiedIdentities;
     }

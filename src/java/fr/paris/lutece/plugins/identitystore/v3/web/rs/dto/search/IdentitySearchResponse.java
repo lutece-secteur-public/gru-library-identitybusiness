@@ -34,22 +34,22 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IdentityDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class IdentitySearchResponse extends ResponseDto<IdentitySearchStatusType>
 {
-
-    protected List<QualifiedIdentity> identities = new ArrayList<>( );
+    protected List<IdentityDto> identities = new ArrayList<>( );
     protected List<IdentitySearchMessage> alerts = new ArrayList<>( );
 
-    public List<QualifiedIdentity> getIdentities( )
+    public List<IdentityDto> getIdentities( )
     {
         return identities;
     }
 
-    public void setIdentities( List<QualifiedIdentity> identities )
+    public void setIdentities( List<IdentityDto> identities )
     {
         this.identities = identities;
     }

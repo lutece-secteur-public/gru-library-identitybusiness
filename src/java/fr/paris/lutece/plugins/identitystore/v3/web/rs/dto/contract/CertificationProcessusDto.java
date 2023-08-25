@@ -31,38 +31,42 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.sql.Timestamp;
-
-public class UpdatedIdentity
+public class CertificationProcessusDto
 {
+    private String _strLabel;
+    private String _strCode;
 
-    @JsonProperty( "customer_id" )
-    protected String customerId;
+    private String _strLevel;
 
-    @JsonProperty( "modification_date" )
-    protected Timestamp modificationDate;
-
-    public String getCustomerId( )
+    public String getLabel( )
     {
-        return customerId;
+        return _strLabel;
     }
 
-    public void setCustomerId( String customerId )
+    public void setLabel( String _strLabel )
     {
-        this.customerId = customerId;
+        this._strLabel = _strLabel;
     }
 
-    public Timestamp getModificationDate( )
+    public String getCode( )
     {
-        return modificationDate;
+        return _strCode;
     }
 
-    public void setModificationDate( Timestamp modificationDate )
+    public void setCode( String _strCode )
     {
-        this.modificationDate = modificationDate;
+        this._strCode = _strCode;
+    }
+
+    public String getLevel( )
+    {
+        return _strLevel;
+    }
+
+    public void setLevel( String _strLevel )
+    {
+        this._strLevel = _strLevel;
     }
 }

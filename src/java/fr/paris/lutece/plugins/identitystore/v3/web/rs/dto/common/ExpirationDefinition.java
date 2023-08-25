@@ -31,71 +31,59 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * This enum represents a type of IdentityChange
- *
- */
-public enum IdentityChangeType
+import java.sql.Timestamp;
+
+public class ExpirationDefinition
 {
-    CREATE( 0 ),
-    UPDATE( 1 ),
-    DELETE( 2 ),
-    MERGED( 3 ),
-    CONSOLIDATED( 4 ),
-    MERGE_CANCELLED( 5 ),
-    CONSOLIDATION_CANCELLED( 6 ),
-    EXCLUDED( 7 ),
-    EXCLUSION_CANCELLED( 8 ),
-    MARKED_SUSPICIOUS( 9 ),
-    READ( 10 );
-
-    private final static Map<Integer, IdentityChangeType> _mapTypes = new HashMap<>( );
-    private final int _nValue;
-
-    static
-    {
-        for ( IdentityChangeType identityChangeType : EnumSet.allOf( IdentityChangeType.class ) )
-        {
-            _mapTypes.put( identityChangeType._nValue, identityChangeType );
-        }
-    }
+    /**
+     * Flag indiquant que l'identité est "soft delete" (désactivée)
+     */
+    @JsonProperty( "deleted" )
+    protected boolean deleted;
 
     /**
-     * Constructor
-     * 
-     * @param nValue
-     *            the value
+     * Expiration date
      */
-    IdentityChangeType( int nValue )
-    {
-        _nValue = nValue;
-    }
+    @JsonProperty( "expiration_date" )
+    protected Timestamp expirationDate;
 
     /**
-     * Gets the value
-     * 
-     * @return the value
+     * Delete date
      */
-    public int getValue( )
+    @JsonProperty( "delete_date" )
+    protected Timestamp deleteDate;
+
+    public boolean isDeleted( )
     {
-        return _nValue;
+        return deleted;
     }
 
-    /**
-     * Gives the IdentityChangeType for the specified value
-     * 
-     * @param nValue
-     *            the value
-     * @return the IdentityChangeType
-     */
-    public static IdentityChangeType valueOf( int nValue )
+    public void setDeleted( boolean deleted )
     {
-        return _mapTypes.get( nValue );
+        this.deleted = deleted;
+    }
+
+    public Timestamp getExpirationDate( )
+    {
+        return expirationDate;
+    }
+
+    public void setExpirationDate( Timestamp expirationDate )
+    {
+        this.expirationDate = expirationDate;
+    }
+
+    public Timestamp getDeleteDate( )
+    {
+        return deleteDate;
+    }
+
+    public void setDeleteDate( Timestamp deleteDate )
+    {
+        this.deleteDate = deleteDate;
     }
 }

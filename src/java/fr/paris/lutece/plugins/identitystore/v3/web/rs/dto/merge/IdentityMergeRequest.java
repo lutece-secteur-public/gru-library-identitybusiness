@@ -36,7 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.SignedRequest;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.Identity;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IdentityDto;
 
 import java.sql.Timestamp;
 
@@ -59,7 +59,7 @@ public class IdentityMergeRequest extends SignedRequest
     protected Timestamp secondaryLastUpdateDate;
 
     @JsonProperty( "identity" )
-    protected Identity identity;
+    protected IdentityDto identity;
 
     public String getPrimaryCuid( )
     {
@@ -111,12 +111,12 @@ public class IdentityMergeRequest extends SignedRequest
         this.secondaryLastUpdateDate = secondaryLastUpdateDate;
     }
 
-    public Identity getIdentity( )
+    public IdentityDto getIdentity( )
     {
         return identity;
     }
 
-    public void setIdentity( Identity identity )
+    public void setIdentity( IdentityDto identity )
     {
         this.identity = identity;
     }

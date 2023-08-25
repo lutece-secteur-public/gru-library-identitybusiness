@@ -31,71 +31,52 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
 
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Map;
-
-/**
- * This enum represents a type of IdentityChange
- *
- */
-public enum IdentityChangeType
+public class AttributeRightDto
 {
-    CREATE( 0 ),
-    UPDATE( 1 ),
-    DELETE( 2 ),
-    MERGED( 3 ),
-    CONSOLIDATED( 4 ),
-    MERGE_CANCELLED( 5 ),
-    CONSOLIDATION_CANCELLED( 6 ),
-    EXCLUDED( 7 ),
-    EXCLUSION_CANCELLED( 8 ),
-    MARKED_SUSPICIOUS( 9 ),
-    READ( 10 );
+    private boolean _bMandatory;
+    private boolean _bSearchable;
+    private boolean _bReadable;
+    private boolean _bWritable;
 
-    private final static Map<Integer, IdentityChangeType> _mapTypes = new HashMap<>( );
-    private final int _nValue;
-
-    static
+    public boolean isMandatory( )
     {
-        for ( IdentityChangeType identityChangeType : EnumSet.allOf( IdentityChangeType.class ) )
-        {
-            _mapTypes.put( identityChangeType._nValue, identityChangeType );
-        }
+        return _bMandatory;
     }
 
-    /**
-     * Constructor
-     * 
-     * @param nValue
-     *            the value
-     */
-    IdentityChangeType( int nValue )
+    public void setMandatory( boolean _bMandatory )
     {
-        _nValue = nValue;
+        this._bMandatory = _bMandatory;
     }
 
-    /**
-     * Gets the value
-     * 
-     * @return the value
-     */
-    public int getValue( )
+    public boolean isSearchable( )
     {
-        return _nValue;
+        return _bSearchable;
     }
 
-    /**
-     * Gives the IdentityChangeType for the specified value
-     * 
-     * @param nValue
-     *            the value
-     * @return the IdentityChangeType
-     */
-    public static IdentityChangeType valueOf( int nValue )
+    public void setSearchable( boolean _bSearchable )
     {
-        return _mapTypes.get( nValue );
+        this._bSearchable = _bSearchable;
+    }
+
+    public boolean isReadable( )
+    {
+        return _bReadable;
+    }
+
+    public void setReadable( boolean _bReadable )
+    {
+        this._bReadable = _bReadable;
+    }
+
+    public boolean isWritable( )
+    {
+        return _bWritable;
+    }
+
+    public void setWritable( boolean _bWritable )
+    {
+        this._bWritable = _bWritable;
     }
 }

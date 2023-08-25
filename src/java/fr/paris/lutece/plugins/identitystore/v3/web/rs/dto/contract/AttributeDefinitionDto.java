@@ -45,9 +45,9 @@ public class AttributeDefinitionDto
     private boolean _bCertifiable;
     private boolean _bPivot;
     private int _nKeyWeight;
-    private AttributeRequirement attributeRequirement;
-    private AttributeRight attributeRight;
-    private List<CertificationProcessus> attributeCertifications = new ArrayList<>( );
+    private AttributeRequirementDto attributeRequirement;
+    private AttributeRightDto attributeRight;
+    private List<CertificationProcessusDto> attributeCertifications = new ArrayList<>( );
 
     public String getName( )
     {
@@ -119,32 +119,32 @@ public class AttributeDefinitionDto
         this._nKeyWeight = nKeyWeight;
     }
 
-    public AttributeRequirement getAttributeRequirement( )
+    public AttributeRequirementDto getAttributeRequirement( )
     {
         return attributeRequirement;
     }
 
-    public void setAttributeRequirement( AttributeRequirement attributeRequirement )
+    public void setAttributeRequirement( AttributeRequirementDto attributeRequirement )
     {
         this.attributeRequirement = attributeRequirement;
     }
 
-    public AttributeRight getAttributeRight( )
+    public AttributeRightDto getAttributeRight( )
     {
         return attributeRight;
     }
 
-    public void setAttributeRight( AttributeRight attributeRight )
+    public void setAttributeRight( AttributeRightDto attributeRight )
     {
         this.attributeRight = attributeRight;
     }
 
-    public List<CertificationProcessus> getAttributeCertifications( )
+    public List<CertificationProcessusDto> getAttributeCertifications( )
     {
         return attributeCertifications;
     }
 
-    public void setAttributeCertifications( List<CertificationProcessus> attributeCertifications )
+    public void setAttributeCertifications( List<CertificationProcessusDto> attributeCertifications )
     {
         this.attributeCertifications = attributeCertifications;
     }

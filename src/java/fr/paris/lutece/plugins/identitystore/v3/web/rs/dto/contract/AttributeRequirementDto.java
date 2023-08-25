@@ -33,40 +33,39 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
 
-public class CertificationProcessus
+public class AttributeRequirementDto
 {
-    private String _strLabel;
-    private String _strCode;
-
-    private String _strLevel;
-
-    public String getLabel( )
-    {
-        return _strLabel;
-    }
-
-    public void setLabel( String _strLabel )
-    {
-        this._strLabel = _strLabel;
-    }
-
-    public String getCode( )
-    {
-        return _strCode;
-    }
-
-    public void setCode( String _strCode )
-    {
-        this._strCode = _strCode;
-    }
+    private String level;
+    private String name;
+    private String description;
 
     public String getLevel( )
     {
-        return _strLevel;
+        return level;
     }
 
-    public void setLevel( String _strLevel )
+    public void setLevel( String level )
     {
-        this._strLevel = _strLevel;
+        this.level = level;
+    }
+
+    public String getName( )
+    {
+        return name;
+    }
+
+    public void setName( String name )
+    {
+        this.name = name;
+    }
+
+    public String getDescription( )
+    {
+        return description;
+    }
+
+    public void setDescription( String description )
+    {
+        this.description = description;
     }
 }

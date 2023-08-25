@@ -31,18 +31,21 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.commons.lang3.StringUtils;
 
 import java.sql.Timestamp;
 import java.util.Date;
 
 /**
- * DTO contenant la réponse de recherche d'un attribut avec sa certification
+ * DTO contenant la requête de création d'un attribut avec sa certification
  */
 @JsonInclude( JsonInclude.Include.NON_NULL )
-public class CertifiedAttribute
+public class AttributeDto
 {
     /**
      * Clef de l'attribut en base
@@ -65,13 +68,15 @@ public class CertifiedAttribute
     protected Integer certificationLevel;
 
     /**
-     * Code de l'entité certifiante
+     * Code du processus de certification (si existe)
      */
+    @JsonProperty( "certProcess" )
     protected String certifier;
 
     /**
-     * Date de certification
+     * Date à laquelle la donnée a été certifiée (si existe)(format timestamp ?)
      */
+    @JsonProperty( "certDate" )
     protected Date certificationDate;
 
     private Timestamp lastUpdateDate;
@@ -155,5 +160,11 @@ public class CertifiedAttribute
     public void setLastUpdateClientCode( String lastUpdateClientCode )
     {
         this.lastUpdateClientCode = lastUpdateClientCode;
+    }
+
+    @JsonIgnore
+    public boolean isCertified( )
+    {
+        return this.certificationDate != null && StringUtils.isNotEmpty( this.certifier );
     }
 }

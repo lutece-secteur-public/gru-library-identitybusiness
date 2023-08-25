@@ -31,52 +31,52 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
-public class AttributeRight
+public class QualityDefinition
 {
-    private boolean _bMandatory;
-    private boolean _bSearchable;
-    private boolean _bReadable;
-    private boolean _bWritable;
+    /**
+     * Niveau de qualité de l'identité
+     */
+    protected Double quality;
 
-    public boolean isMandatory( )
+    /**
+     * Couverture des exigences du contract de service
+     */
+    protected Integer coverage;
+
+    /**
+     * Score
+     */
+    protected Double scoring;
+
+    public Double getQuality( )
     {
-        return _bMandatory;
+        return quality;
     }
 
-    public void setMandatory( boolean _bMandatory )
+    public void setQuality( Double quality )
     {
-        this._bMandatory = _bMandatory;
+        this.quality = quality;
     }
 
-    public boolean isSearchable( )
+    public Integer getCoverage( )
     {
-        return _bSearchable;
+        return coverage;
     }
 
-    public void setSearchable( boolean _bSearchable )
+    public void setCoverage( Integer coverage )
     {
-        this._bSearchable = _bSearchable;
+        this.coverage = coverage;
     }
 
-    public boolean isReadable( )
+    public Double getScoring( )
     {
-        return _bReadable;
+        return scoring;
     }
 
-    public void setReadable( boolean _bReadable )
+    public void setScoring( Double scoring )
     {
-        this._bReadable = _bReadable;
-    }
-
-    public boolean isWritable( )
-    {
-        return _bWritable;
-    }
-
-    public void setWritable( boolean _bWritable )
-    {
-        this._bWritable = _bWritable;
+        this.scoring = scoring;
     }
 }

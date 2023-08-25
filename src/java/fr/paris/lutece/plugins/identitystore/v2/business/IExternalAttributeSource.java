@@ -33,9 +33,9 @@
  */
 package fr.paris.lutece.plugins.identitystore.v2.business;
 
-import java.util.List;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeDto;
 
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.CertifiedAttribute;
+import java.util.List;
 
 public interface IExternalAttributeSource
 {
@@ -47,5 +47,5 @@ public interface IExternalAttributeSource
      * @param cuid
      * @return the list of external attributes
      */
-    List<CertifiedAttribute> getAdditionnalAttributes( String cuid );
+    List<AttributeDto> getAdditionnalAttributes( String cuid );
 }
