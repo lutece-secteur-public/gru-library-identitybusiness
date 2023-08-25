@@ -43,7 +43,6 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IStatusType;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatus;
 
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_I18N_MESSAGE_KEY;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_LOCALIZED_MESSAGE;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_MESSAGE;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_RESPONSE;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_STATUS;
@@ -67,7 +66,6 @@ public class ResponseDto<S extends IStatusType>
     protected ResponseStatus _responseStatus;
     protected String _strMessage;
     protected String _strI18nMessageKey;
-    protected String _strLocalizedMessage;
 
     /**
      * @return the _status
@@ -146,22 +144,4 @@ public class ResponseDto<S extends IStatusType>
         this._strI18nMessageKey = _strI18nMessageKey;
     }
 
-    /**
-     * @return the _strLocalizedMessage
-     */
-    @JsonProperty( value = KEY_LOCALIZED_MESSAGE )
-    public String getLocalizedMessage( )
-    {
-        return _strLocalizedMessage;
-    }
-
-    /**
-     * @param _strLocalizedMessage
-     *            the _strLocalizedMessage to set
-     */
-    @JsonProperty( value = KEY_LOCALIZED_MESSAGE )
-    public void setLocalizedMessage( String _strLocalizedMessage )
-    {
-        this._strLocalizedMessage = _strLocalizedMessage;
-    }
 }
