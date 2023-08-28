@@ -43,6 +43,16 @@ public class RequestAuthor
     @JsonProperty( "author_type" )
     protected AuthorType type;
 
+    public RequestAuthor( )
+    {
+    }
+
+    public RequestAuthor( String name, String type )
+    {
+        this.name = name;
+        this.type = AuthorType.valueOf( type );
+    }
+
     public String getName( )
     {
         return name;
