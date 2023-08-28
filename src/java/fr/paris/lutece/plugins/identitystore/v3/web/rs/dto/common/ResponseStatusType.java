@@ -31,59 +31,48 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IStatusType;
 
 import java.util.Arrays;
 import java.util.Objects;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
-public enum IdentityMergeStatus implements IStatusType
+public enum ResponseStatusType
 {
-    SUCCESS( 201 ),
-    INCOMPLETE_SUCCESS( 201 ),
-    FAILURE( 403 );
 
-    private String message;
+    SUCCESS( 200 ),
+    INCOMPLETE_SUCCESS( 201 ),
+    FAILURE( 403 ),
+    NOT_FOUND( 404 ),
+    CONFLICT( 409 ),
+    INTERNAL_SERVER_ERROR( 500 );
+
+    @JsonProperty( "code" )
     private int code;
 
-    IdentityMergeStatus( final int code )
-    {
-        this.code = code;
-        this.message = this.name( );
-    }
+    @JsonProperty( "name" )
+    private String name;
 
-    IdentityMergeStatus( String message, Integer code )
+    ResponseStatusType( final int code )
     {
-        this.message = message;
         this.code = code;
+        this.name = this.name( );
     }
 
     @JsonCreator
-    public static IdentityMergeStatus forValues( @JsonProperty( "code" ) int code, @JsonProperty( "message" ) String message )
+    public static ResponseStatusType forValues( @JsonProperty( "code" ) int code, @JsonProperty( "name" ) String name )
     {
-        return Arrays.stream( IdentityMergeStatus.values( ) )
-                .filter( status -> Objects.equals( code, status.getCode( ) ) && Objects.equals( message, status.getMessage( ) ) ).findFirst( ).orElse( null );
+        return Arrays.stream( ResponseStatusType.values( ) )
+                .filter( statusType -> Objects.equals( code, statusType.getCode( ) ) && Objects.equals( name, statusType.getName( ) ) ).findFirst( )
+                .orElse( null );
     }
 
-    @Override
-    public String getMessage( )
-    {
-        return message;
-    }
-
-    public void setMessage( String message )
-    {
-        this.message = message;
-    }
-
-    @Override
     public int getCode( )
     {
         return code;
@@ -93,4 +82,15 @@ public enum IdentityMergeStatus implements IStatusType
     {
         this.code = code;
     }
+
+    public String getName( )
+    {
+        return name;
+    }
+
+    public void setName( String name )
+    {
+        this.name = name;
+    }
+
 }

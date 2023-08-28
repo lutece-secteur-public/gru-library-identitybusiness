@@ -35,7 +35,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
-public class IdentityHistoryGetResponse extends ResponseDto<HistorySearchStatusType>
+public class IdentityHistoryGetResponse extends ResponseDto
 {
     private IdentityHistory history;
 

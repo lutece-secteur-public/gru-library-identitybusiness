@@ -38,7 +38,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IdentityHistorySearchResponse extends ResponseDto<HistorySearchStatusType>
+public class IdentityHistorySearchResponse extends ResponseDto
 {
     protected List<IdentityHistory> histories = new ArrayList<>( );
 

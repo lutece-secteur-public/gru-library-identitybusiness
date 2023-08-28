@@ -38,7 +38,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProcessusSearchResponse extends ResponseDto<ReferentielSearchStatusType>
+public class ProcessusSearchResponse extends ResponseDto
 {
     protected List<AttributeCertificationProcessusDto> processus = new ArrayList<>( );
 

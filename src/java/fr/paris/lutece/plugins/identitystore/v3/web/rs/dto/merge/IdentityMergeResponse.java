@@ -37,6 +37,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ChangeResponse;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
-public class IdentityMergeResponse extends ChangeResponse<IdentityMergeStatus>
+public class IdentityMergeResponse extends ChangeResponse
 {
 }

@@ -34,13 +34,11 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IStatusType;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatus;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType;
 
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_I18N_MESSAGE_KEY;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_MESSAGE;
@@ -58,20 +56,17 @@ import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConst
 } )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
 @JsonInclude( JsonInclude.Include.NON_NULL )
-public class ResponseDto<S extends IStatusType>
+public class ResponseDto
 {
-    @JsonIgnore
-    protected S _status;
-
-    protected ResponseStatus _responseStatus;
+    protected ResponseStatusType _status;
     protected String _strMessage;
     protected String _strI18nMessageKey;
 
     /**
      * @return the _status
      */
-    @JsonIgnore
-    public S getStatus( )
+    @JsonProperty( value = KEY_STATUS )
+    public ResponseStatusType getStatus( )
     {
         return _status;
     }
@@ -80,30 +75,10 @@ public class ResponseDto<S extends IStatusType>
      * @param status
      *            the _status to set
      */
-    @JsonIgnore
-    public void setStatus( S status )
+    @JsonProperty( value = KEY_STATUS )
+    public void setStatus( ResponseStatusType status )
     {
         this._status = status;
-        this._responseStatus = ResponseStatus.from( status );
-    }
-
-    /**
-     * @return the _responseStatus
-     */
-    @JsonProperty( value = KEY_STATUS )
-    public ResponseStatus getResponseStatus( )
-    {
-        return _responseStatus;
-    }
-
-    /**
-     * @param _responseStatus
-     *            the _responseStatus to set
-     */
-    @JsonProperty( value = KEY_STATUS )
-    public void setResponseStatus( ResponseStatus _responseStatus )
-    {
-        this._responseStatus = _responseStatus;
     }
 
     /**

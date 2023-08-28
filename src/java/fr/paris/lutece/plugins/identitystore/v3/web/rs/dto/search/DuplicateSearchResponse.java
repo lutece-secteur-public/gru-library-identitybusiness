@@ -41,7 +41,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DuplicateSearchResponse extends ResponseDto<DuplicateSearchResponseStatusType>
+public class DuplicateSearchResponse extends ResponseDto
 {
     protected List<IdentityDto> identities = new ArrayList<>( );
 

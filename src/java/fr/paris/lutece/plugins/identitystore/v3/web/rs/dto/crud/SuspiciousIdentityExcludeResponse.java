@@ -35,6 +35,6 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
-public class SuspiciousIdentityExcludeResponse extends ResponseDto<SuspiciousIdentityExcludeStatus>
+public class SuspiciousIdentityExcludeResponse extends ResponseDto
 {
 }

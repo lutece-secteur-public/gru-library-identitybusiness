@@ -37,7 +37,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
 import java.util.List;
 
-public class DuplicateRuleSummarySearchResponse extends ResponseDto<DuplicateRuleSummarySearchStatusType>
+public class DuplicateRuleSummarySearchResponse extends ResponseDto
 {
     protected List<DuplicateRuleSummaryDto> duplicateRuleSummaries;
 

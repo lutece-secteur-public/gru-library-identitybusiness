@@ -44,7 +44,7 @@ import java.sql.Timestamp;
  * DTO contenant la réponse à une requête de création d'une identité
  */
 @JsonInclude( JsonInclude.Include.NON_NULL )
-public class IdentityChangeResponse extends ChangeResponse<IdentityChangeStatus>
+public class IdentityChangeResponse extends ChangeResponse
 {
     @JsonProperty( "creation_date" )
     protected Timestamp creationDate;

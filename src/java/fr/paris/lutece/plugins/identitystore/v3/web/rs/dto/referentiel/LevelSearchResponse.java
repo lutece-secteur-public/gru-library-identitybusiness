@@ -38,7 +38,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LevelSearchResponse extends ResponseDto<ReferentielSearchStatusType>
+public class LevelSearchResponse extends ResponseDto
 {
     protected List<LevelDto> levels = new ArrayList<>( );
 

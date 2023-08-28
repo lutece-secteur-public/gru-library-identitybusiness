@@ -35,7 +35,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
-public class ServiceContractChangeResponse extends ResponseDto<ServiceContractChangeStatusType>
+public class ServiceContractChangeResponse extends ResponseDto
 {
     protected ServiceContractDto serviceContract;
 

@@ -35,7 +35,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
-public class ClientSearchResponse extends ResponseDto<ClientSearchStatusType>
+public class ClientSearchResponse extends ResponseDto
 {
     protected ClientApplicationDto clientApplication;
 

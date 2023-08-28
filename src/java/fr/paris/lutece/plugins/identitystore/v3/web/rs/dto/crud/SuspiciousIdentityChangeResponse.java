@@ -41,7 +41,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
  * DTO contenant la réponse à une requête de création d'un suspicion identité
  */
 @JsonInclude( JsonInclude.Include.NON_NULL )
-public class SuspiciousIdentityChangeResponse extends ResponseDto<IdentityChangeStatus>
+public class SuspiciousIdentityChangeResponse extends ResponseDto
 {
     @JsonProperty( "suspicious_identity" )
     protected SuspiciousIdentityDto suspiciousIdentity;

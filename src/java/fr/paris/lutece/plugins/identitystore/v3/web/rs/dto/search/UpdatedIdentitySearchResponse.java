@@ -40,7 +40,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.UpdatedIdentityD
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpdatedIdentitySearchResponse extends ResponseDto<UpdatedIdentitySearchStatus>
+public class UpdatedIdentitySearchResponse extends ResponseDto
 {
     @JsonProperty( "updated_identity_list" )
     protected List<UpdatedIdentityDto> updatedIdentityList = new ArrayList<>( );

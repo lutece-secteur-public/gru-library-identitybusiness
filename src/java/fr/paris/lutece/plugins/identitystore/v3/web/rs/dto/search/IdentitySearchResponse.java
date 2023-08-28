@@ -39,7 +39,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IdentityDto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IdentitySearchResponse extends ResponseDto<IdentitySearchStatusType>
+public class IdentitySearchResponse extends ResponseDto
 {
     protected List<IdentityDto> identities = new ArrayList<>( );
     protected List<IdentitySearchMessage> alerts = new ArrayList<>( );

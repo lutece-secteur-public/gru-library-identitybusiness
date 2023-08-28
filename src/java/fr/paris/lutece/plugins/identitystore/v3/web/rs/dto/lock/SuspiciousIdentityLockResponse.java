@@ -36,7 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.lock;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
-public class SuspiciousIdentityLockResponse extends ResponseDto<SuspiciousIdentityLockStatus>
+public class SuspiciousIdentityLockResponse extends ResponseDto
 {
     @JsonProperty( "customer_id" )
     protected String customerId;

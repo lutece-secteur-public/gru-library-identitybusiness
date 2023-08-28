@@ -38,7 +38,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
 import java.util.List;
 
-public class SuspiciousIdentitySearchResponse extends ResponseDto<SuspiciousIdentitySearchStatusType>
+public class SuspiciousIdentitySearchResponse extends ResponseDto
 {
     @JsonProperty( "suspicious_identities" )
     private List<SuspiciousIdentityDto> suspiciousIdentities;

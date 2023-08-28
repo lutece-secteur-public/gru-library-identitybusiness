@@ -40,7 +40,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ChangeResponse<S extends IStatusType> extends ResponseDto<S>
+public abstract class ChangeResponse extends ResponseDto
 {
     @JsonProperty( "customer_id" )
     protected String customerId;

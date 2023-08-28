@@ -35,7 +35,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.error;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 
-public class ErrorResponse extends ResponseDto<ErrorStatusType>
+public class ErrorResponse extends ResponseDto
 {
 
 }

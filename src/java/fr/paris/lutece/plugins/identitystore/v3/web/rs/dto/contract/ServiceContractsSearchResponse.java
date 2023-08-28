@@ -38,7 +38,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceContractsSearchResponse extends ResponseDto<ServiceContractSearchStatusType>
+public class ServiceContractsSearchResponse extends ResponseDto
 {
     protected List<ServiceContractDto> serviceContracts = new ArrayList<>( );
 
