@@ -45,8 +45,8 @@ import java.util.Objects;
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
 public enum ResponseStatusType
 {
-
-    SUCCESS( 200 ),
+    OK( 200 ),
+    SUCCESS( 201 ),
     INCOMPLETE_SUCCESS( 201 ),
     FAILURE( 403 ),
     NOT_FOUND( 404 ),
