@@ -67,6 +67,12 @@ public class SuspiciousIdentityDto
     protected Timestamp lastUpdateDate;
 
     /**
+     * Lock
+     */
+    @JsonProperty( "lock" )
+    protected SuspiciousIdentityLockDto lock;
+
+    /**
      * Metadata
      */
     @JsonProperty( "metadata" )
@@ -110,6 +116,16 @@ public class SuspiciousIdentityDto
     public void setLastUpdateDate( Timestamp lastUpdateDate )
     {
         this.lastUpdateDate = lastUpdateDate;
+    }
+
+    public SuspiciousIdentityLockDto getLock( )
+    {
+        return lock;
+    }
+
+    public void setLock( SuspiciousIdentityLockDto lock )
+    {
+        this.lock = lock;
     }
 
     public Map<String, String> getMetadata( )
