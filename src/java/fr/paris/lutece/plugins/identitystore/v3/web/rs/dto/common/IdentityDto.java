@@ -36,6 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.duplicate.IdentityDuplicateDefintion;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -55,6 +56,12 @@ public class IdentityDto
      */
     @JsonProperty( "customer_id" )
     protected String customerId;
+
+    /**
+     * L'identifiant de l'identité dans le référentiel du client
+     */
+    @JsonProperty( Constants.PARAM_EXTERNAL_ID_CUSTOMER )
+    protected String externalCustomerId;
 
     /**
      * Flag indiquant que cette identité est lié à un compte MonParis actif
@@ -127,6 +134,16 @@ public class IdentityDto
     public void setCustomerId( String customerId )
     {
         this.customerId = customerId;
+    }
+
+    public String getExternalCustomerId( )
+    {
+        return externalCustomerId;
+    }
+
+    public void setExternalCustomerId( String externalCustomerId )
+    {
+        this.externalCustomerId = externalCustomerId;
     }
 
     public Boolean getMonParisActive( )

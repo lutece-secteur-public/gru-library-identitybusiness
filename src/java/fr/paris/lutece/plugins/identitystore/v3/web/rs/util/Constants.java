@@ -91,6 +91,7 @@ public final class Constants
 
     /** Attribute keys */
     public static final String PARAM_ID_CONNECTION = "connection_id";
+
     public static final String PARAM_ID_CUSTOMER = "customer_id";
     public static final String PARAM_GENDER = "gender";
     public static final String PARAM_FAMILY_NAME = "family_name";
@@ -111,6 +112,47 @@ public final class Constants
     public static final String PARAM_ADDRESS_CITY = "address_city";
     public static final String PARAM_FC_KEY = "fc_key";
 
+    /** CSV */
+    private static final String CERTIFIER_SUFFIX = "_certifier";
+    private static final String CERTIFICATION_DATE_SUFFIX = "_certification_date";
+    public static final String CSV_DATE_FORMAT = "dd/MM/yyyy";
+    public static final char CSV_SEPARATOR = ';';
+    public static final String PARAM_CERTIFIER_GENDER = PARAM_GENDER + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_GENDER = PARAM_GENDER + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_FAMILY_NAME = PARAM_FAMILY_NAME + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_FAMILY_NAME = PARAM_FAMILY_NAME + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_PREFERRED_USERNAME = PARAM_PREFERRED_USERNAME + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_PREFERRED_USERNAME = PARAM_PREFERRED_USERNAME + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_FIRST_NAME = PARAM_FIRST_NAME + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_FIRST_NAME = PARAM_FIRST_NAME + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_BIRTH_DATE = PARAM_BIRTH_DATE + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_BIRTH_DATE = PARAM_BIRTH_DATE + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_BIRTH_PLACE_CODE = PARAM_BIRTH_PLACE_CODE + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_BIRTH_PLACE_CODE = PARAM_BIRTH_PLACE_CODE + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_BIRTH_COUNTRY_CODE = PARAM_BIRTH_COUNTRY_CODE + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_BIRTH_COUNTRY_CODE = PARAM_BIRTH_COUNTRY_CODE + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_BIRTH_PLACE = PARAM_BIRTH_PLACE + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_BIRTH_PLACE = PARAM_BIRTH_PLACE + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_BIRTH_COUNTRY = PARAM_BIRTH_COUNTRY + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_BIRTH_COUNTRY = PARAM_BIRTH_COUNTRY + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_EMAIL = PARAM_EMAIL + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_EMAIL = PARAM_EMAIL + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_LOGIN = PARAM_LOGIN + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_LOGIN = PARAM_LOGIN + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_MOBILE_PHONE = PARAM_MOBILE_PHONE + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_MOBILE_PHONE = PARAM_MOBILE_PHONE + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_FIXED_PHONE = PARAM_FIXED_PHONE + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_FIXED_PHONE = PARAM_FIXED_PHONE + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_ADDRESS = PARAM_ADDRESS + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_ADDRESS = PARAM_ADDRESS + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_ADDRESS_COMPLEMENT = PARAM_ADDRESS_COMPLEMENT + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_ADDRESS_COMPLEMENT = PARAM_ADDRESS_COMPLEMENT + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_ADDRESS_POSTAL_CODE = PARAM_ADDRESS_POSTAL_CODE + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_ADDRESS_POSTAL_CODE = PARAM_ADDRESS_POSTAL_CODE + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_CERTIFIER_ADDRESS_CITY = PARAM_ADDRESS_CITY + CERTIFIER_SUFFIX;
+    public static final String PARAM_CERTIFICATION_DATE_ADDRESS_CITY = PARAM_ADDRESS_CITY + CERTIFICATION_DATE_SUFFIX;
+    public static final String PARAM_EXTERNAL_ID_CUSTOMER = "external_customer_id";
+
     /** Service Contract */
     public static final String SERVICECONTRACTS_PATH = "/contracts";
     public static final String SERVICECONTRACT_END_DATE_PATH = "/enddate";
@@ -124,6 +166,9 @@ public final class Constants
     public static final String REFERENTIAL_PATH = "/referential";
     public static final String REFERENTIAL_LEVEL_PATH = "/level";
     public static final String REFERENTIAL_PROCESSUS_PATH = "/processus";
+
+    /** Import */
+    public static final String BATCH_PATH = "/batch";
 
     /** Attribute keys for user search */
     public static final String PARAM_COMMON_EMAIL = "common_email";
