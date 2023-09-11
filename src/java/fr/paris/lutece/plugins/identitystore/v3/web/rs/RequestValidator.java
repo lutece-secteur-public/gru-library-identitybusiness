@@ -34,6 +34,7 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.RequestAuthor;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
 import org.apache.commons.lang3.StringUtils;
 
@@ -60,5 +61,37 @@ public abstract class RequestValidator
             throw new IdentityStoreException( "Author and author type fields shall be set" );
         }
 
+    }
+
+    /**
+     * check whether the parameters related to the application are valid or not
+     *
+     * @param strClientCode
+     *            client application code
+     * @throws IdentityStoreException
+     *             if the parameters are not valid
+     */
+    public void checkClientApplication( String strClientCode ) throws IdentityStoreException
+    {
+        if ( StringUtils.isBlank( strClientCode ) )
+        {
+            throw new IdentityStoreException( Constants.PARAM_CLIENT_CODE + " is missing" );
+        }
+    }
+
+    /**
+     * check whether the parameters related to the application are valid or not
+     *
+     * @param strApplicationCode
+     *            client application code
+     * @throws IdentityStoreException
+     *             if the parameters are not valid
+     */
+    public void checkClientApplicationCode( String strApplicationCode ) throws IdentityStoreException
+    {
+        if ( StringUtils.isBlank( strApplicationCode ) )
+        {
+            throw new IdentityStoreException( Constants.PARAM_APPLICATION_CODE + " is missing" );
+        }
     }
 }

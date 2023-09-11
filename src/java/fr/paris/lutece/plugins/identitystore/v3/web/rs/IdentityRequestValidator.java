@@ -79,38 +79,6 @@ public final class IdentityRequestValidator extends RequestValidator
     }
 
     /**
-     * check whether the parameters related to the application are valid or not
-     *
-     * @param strClientCode
-     *            client application code
-     * @throws IdentityStoreException
-     *             if the parameters are not valid
-     */
-    public void checkClientApplication( String strClientCode ) throws IdentityStoreException
-    {
-        if ( StringUtils.isBlank( strClientCode ) )
-        {
-            throw new IdentityStoreException( Constants.PARAM_CLIENT_CODE + " is missing" );
-        }
-    }
-
-    /**
-     * check whether the parameters related to the application are valid or not
-     *
-     * @param strApplicationCode
-     *            client application code
-     * @throws IdentityStoreException
-     *             if the parameters are not valid
-     */
-    public void checkClientApplicationCode( String strApplicationCode ) throws IdentityStoreException
-    {
-        if ( StringUtils.isBlank( strApplicationCode ) )
-        {
-            throw new IdentityStoreException( Constants.PARAM_APPLICATION_CODE + " is missing" );
-        }
-    }
-
-    /**
      * check whether the parameters related to the identity are valid or not
      *
      * @param strCustomerId
