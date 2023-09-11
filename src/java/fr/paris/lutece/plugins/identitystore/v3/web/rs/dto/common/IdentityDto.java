@@ -34,6 +34,7 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.duplicate.IdentityDuplicateDefintion;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
@@ -43,6 +44,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@JsonInclude( JsonInclude.Include.NON_NULL )
 public class IdentityDto
 {
     /**

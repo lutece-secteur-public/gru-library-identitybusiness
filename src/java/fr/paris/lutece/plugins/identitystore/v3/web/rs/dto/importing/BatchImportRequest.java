@@ -33,9 +33,11 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.importing;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.BatchDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.SignedRequest;
 
+@JsonInclude( JsonInclude.Include.NON_NULL )
 public class BatchImportRequest extends SignedRequest
 {
 

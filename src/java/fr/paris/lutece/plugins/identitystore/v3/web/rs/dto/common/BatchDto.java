@@ -34,11 +34,13 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonInclude( JsonInclude.Include.NON_NULL )
 public class BatchDto
 {
     protected String reference;
