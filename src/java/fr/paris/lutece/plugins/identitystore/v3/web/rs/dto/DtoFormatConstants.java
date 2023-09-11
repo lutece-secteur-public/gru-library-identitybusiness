@@ -83,7 +83,10 @@ public final class DtoFormatConstants
     public static final String KEY_ERROR = "error";
     public static final String KEY_STATUS = "status";
     public static final String KEY_MESSAGE = "message";
-    public static final String KEY_I18N_MESSAGE_KEY = "i18n_message_key";
+    public static final String KEY_MESSAGE_KEY = "message_key";
+    public static final String KEY_CODE = "code";
+    public static final String KEY_NAME = "name";
+
     public static final String KEY_RESPONSE = "response";
     public static final String KEY_ATTRIBUTE_VALUES = "attribute_values";
     public static final String KEY_ATTRIBUTE_KEY_NAMES = "attribute_key_names";

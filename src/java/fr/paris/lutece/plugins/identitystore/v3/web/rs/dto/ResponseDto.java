@@ -38,10 +38,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatus;
 
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_I18N_MESSAGE_KEY;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_MESSAGE;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_RESPONSE;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_STATUS;
 
@@ -52,21 +50,19 @@ import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConst
  */
 @JsonRootName( value = KEY_RESPONSE )
 @JsonPropertyOrder( {
-        KEY_STATUS, KEY_MESSAGE, KEY_I18N_MESSAGE_KEY
+        KEY_STATUS
 } )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
 @JsonInclude( JsonInclude.Include.NON_NULL )
 public class ResponseDto
 {
-    protected ResponseStatusType _status;
-    protected String _strMessage;
-    protected String _strI18nMessageKey;
+    protected ResponseStatus _status;
 
     /**
      * @return the _status
      */
     @JsonProperty( value = KEY_STATUS )
-    public ResponseStatusType getStatus( )
+    public ResponseStatus getStatus( )
     {
         return _status;
     }
@@ -76,47 +72,9 @@ public class ResponseDto
      *            the _status to set
      */
     @JsonProperty( value = KEY_STATUS )
-    public void setStatus( ResponseStatusType status )
+    public void setStatus( final ResponseStatus status )
     {
         this._status = status;
-    }
-
-    /**
-     * @return the _strMessage
-     */
-    @JsonProperty( value = KEY_MESSAGE )
-    public String getMessage( )
-    {
-        return _strMessage;
-    }
-
-    /**
-     * @param strMessage
-     *            the strMessage to set
-     */
-    @JsonProperty( value = KEY_MESSAGE )
-    public void setMessage( String strMessage )
-    {
-        this._strMessage = strMessage;
-    }
-
-    /**
-     * @return the _strI18nMessageKey
-     */
-    @JsonProperty( value = KEY_I18N_MESSAGE_KEY )
-    public String getI18nMessageKey( )
-    {
-        return _strI18nMessageKey;
-    }
-
-    /**
-     * @param _strI18nMessageKey
-     *            the _strI18nMessageKey to set
-     */
-    @JsonProperty( value = KEY_I18N_MESSAGE_KEY )
-    public void setI18nMessageKey( String _strI18nMessageKey )
-    {
-        this._strI18nMessageKey = _strI18nMessageKey;
     }
 
 }
