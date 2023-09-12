@@ -209,11 +209,6 @@ public final class IdentityRequestValidator extends RequestValidator
             throw new IdentityStoreException( "An Identity merge request must provide the CUID of the secondary Identity" );
         }
 
-        if ( identityMergeRequest.getDuplicateRuleCode( ) == null )
-        {
-            throw new IdentityStoreException( "An Identity merge request must provide the rule code that identified the duplicate" );
-        }
-
         if ( identityMergeRequest.getPrimaryLastUpdateDate( ) == null )
         {
             throw new IdentityStoreException( "An Identity merge request must provide the last update date of the primary Identity" );
