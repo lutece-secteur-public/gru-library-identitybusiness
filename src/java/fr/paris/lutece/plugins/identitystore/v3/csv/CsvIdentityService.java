@@ -74,19 +74,18 @@ public class CsvIdentityService
 
     public List<IdentityDto> read( final InputStream inputStream ) throws IdentityStoreException
     {
-        final List<CsvIdentity> csvIdentities = new ArrayList<>( );
         try
         {
             final InputStreamReader inputStreamReader = new InputStreamReader( inputStream );
             final CsvToBean<CsvIdentity> identitiesParser = new CsvToBeanBuilder<CsvIdentity>( inputStreamReader ).withSeparator( Constants.CSV_SEPARATOR )
                     .withType( CsvIdentity.class ).withSkipLines( 1 ).build( );
-            csvIdentities.addAll( identitiesParser.parse( ) );
+            return this.extractIdentityDtos( identitiesParser.parse( ) );
         }
         catch( Exception e )
         {
             throw new IdentityStoreException( "An error occurred while processing file " + e );
         }
-        return this.extractIdentityDtos( csvIdentities );
+
     }
 
     public byte [ ] write( final List<IdentityDto> identities ) throws IdentityStoreException
@@ -114,6 +113,7 @@ public class CsvIdentityService
         return csvIdentities.stream( ).map( csvIdentity -> {
             final IdentityDto identityDto = new IdentityDto( );
             identityDto.setExternalCustomerId( csvIdentity.getExternalCustomerId( ) );
+            identityDto.setCustomerId( csvIdentity.getCustomerId( ) );
             if ( StringUtils.isNotEmpty( csvIdentity.getGenderValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getGenderCertifier( ) )
                     || csvIdentity.getGenderCertificationDate( ) != null )
             {
@@ -295,7 +295,8 @@ public class CsvIdentityService
     {
         return identities.stream( ).map( identityDto -> {
             final CsvIdentity csvIdentity = new CsvIdentity( );
-            csvIdentity.setExternalCustomerId( identityDto.getExternalCustomerId( ) );
+            csvIdentity.setExternalCustomerId( identityDto.getCustomerId( ) );
+            csvIdentity.setCustomerId( identityDto.getCustomerId( ) );
             identityDto.getAttributes( ).forEach( attributeDto -> {
                 switch( attributeDto.getKey( ) )
                 {

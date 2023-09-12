@@ -110,7 +110,7 @@ public class IdentityDto
      * Flag indiquant si l'identité figure dans les doublons suspectés
      */
     @JsonProperty( "suspicious" )
-    protected boolean suspicious;
+    protected Boolean suspicious;
 
     /**
      * Liste des attributs décrivant l'identité
@@ -224,12 +224,12 @@ public class IdentityDto
         this.duplicateDefintion = duplicateDefintion;
     }
 
-    public boolean isSuspicious( )
+    public Boolean isSuspicious( )
     {
         return suspicious;
     }
 
-    public void setSuspicious( boolean suspicious )
+    public void setSuspicious( Boolean suspicious )
     {
         this.suspicious = suspicious;
     }

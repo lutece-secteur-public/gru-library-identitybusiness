@@ -322,6 +322,13 @@ public class CsvIdentity
     @CsvDate( Constants.CSV_DATE_FORMAT )
     private Date _dateAddressCityCertificationDate;
 
+    /**
+     * Internal Customer ID
+     */
+    @CsvBindByName( column = Constants.PARAM_ID_CUSTOMER )
+    @CsvBindByPosition( position = 52 )
+    private String _strCustomerId;
+
     public String getExternalCustomerId( )
     {
         return _strExternalCustomerId;
@@ -330,6 +337,16 @@ public class CsvIdentity
     public void setExternalCustomerId( String _strExternalCustomerId )
     {
         this._strExternalCustomerId = _strExternalCustomerId;
+    }
+
+    public String getCustomerId( )
+    {
+        return _strCustomerId;
+    }
+
+    public void setCustomerId( String _strCustomerId )
+    {
+        this._strCustomerId = _strCustomerId;
     }
 
     public String getGenderValue( )
