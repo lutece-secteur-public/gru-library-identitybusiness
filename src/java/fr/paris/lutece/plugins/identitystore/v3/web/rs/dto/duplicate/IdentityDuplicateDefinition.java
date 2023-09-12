@@ -36,7 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.duplicate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IdentityDuplicateDefintion
+public class IdentityDuplicateDefinition
 {
     /**
      * Identités exclues des suspicions de doublons

@@ -36,7 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.duplicate.IdentityDuplicateDefintion;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.duplicate.IdentityDuplicateDefinition;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 
 import java.sql.Timestamp;
@@ -104,7 +104,7 @@ public class IdentityDto
     /**
      * Bloc optionnel indiquant si et comment l'identité est impliquée dans une suspicion de doublons
      */
-    protected IdentityDuplicateDefintion duplicateDefintion;
+    protected IdentityDuplicateDefinition duplicateDefinition;
 
     /**
      * Flag indiquant si l'identité figure dans les doublons suspectés
@@ -214,14 +214,14 @@ public class IdentityDto
         this.merge = merge;
     }
 
-    public IdentityDuplicateDefintion getDuplicateDefintion( )
+    public IdentityDuplicateDefinition getDuplicateDefinition( )
     {
-        return duplicateDefintion;
+        return duplicateDefinition;
     }
 
-    public void setDuplicateDefintion( IdentityDuplicateDefintion duplicateDefintion )
+    public void setDuplicateDefinition(IdentityDuplicateDefinition duplicateDefinition)
     {
-        this.duplicateDefintion = duplicateDefintion;
+        this.duplicateDefinition = duplicateDefinition;
     }
 
     public Boolean isSuspicious( )
