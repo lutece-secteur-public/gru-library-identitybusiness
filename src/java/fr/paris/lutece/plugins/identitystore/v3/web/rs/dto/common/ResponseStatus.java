@@ -89,6 +89,12 @@ public class ResponseStatus
     }
 
     @JsonIgnore
+    public static ResponseStatus unauthorized( )
+    {
+        return new ResponseStatus( 401, "UNAUTHORIZED" );
+    }
+
+    @JsonIgnore
     public static ResponseStatus failure( )
     {
         return new ResponseStatus( 403, "FAILURE" );

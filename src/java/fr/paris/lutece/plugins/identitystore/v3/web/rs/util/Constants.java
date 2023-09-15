@@ -58,6 +58,7 @@ public final class Constants
 
     public static final String PARAM_CLIENT_CODE = "client_code";
     public static final String PARAM_APPLICATION_CODE = "application_code";
+    public static final String PARAM_CLIENT_TOKEN = "client_token";
     public static final String PARAM_DAYS = "days";
     public static final String PARAM_CERTIFIER_CODE = "certifier_code";
     public static final String PARAM_FILE = "file";
@@ -251,6 +252,9 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_NOT_EXCLUDED = "identitystore.rest.error.not.excluded";
     public static final String PROPERTY_REST_ERROR_IDENTITY_ALREADY_SUSPICIOUS = "identitystore.rest.error.identity.already.suspicious";
     public static final String PROPERTY_REST_ERROR_NO_SUSPICIOUS_IDENTITY_FOUND = "identitystore.rest.error.no.suspicious.identity.found";
+    public static final String PROPERTY_REST_ERROR_NO_CLIENT_FOUND_WITH_TOKEN = "identitystore.rest.error.no.client.found.with.token";
+    public static final String PROPERTY_REST_ERROR_MUST_PROVIDE_CLIENT_CODE_OR_TOKEN = "identitystore.rest.error.must.provide.client.code.or.token";
+
     public static final String PROPERTY_REST_INFO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.potential.duplicate.found";
     public static final String PROPERTY_REST_INFO_SUCCESSFUL_OPERATION = "identitystore.rest.info.successful.operation";
 
