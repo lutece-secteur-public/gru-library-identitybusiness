@@ -219,7 +219,7 @@ public class IdentityDto
         return duplicateDefinition;
     }
 
-    public void setDuplicateDefinition(IdentityDuplicateDefinition duplicateDefinition)
+    public void setDuplicateDefinition( IdentityDuplicateDefinition duplicateDefinition )
     {
         this.duplicateDefinition = duplicateDefinition;
     }

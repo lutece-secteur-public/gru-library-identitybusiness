@@ -39,95 +39,103 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.beans.ConstructorProperties;
 
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_CODE;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_HTTP_CODE;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_MESSAGE;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_MESSAGE_KEY;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_NAME;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_STATUS;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.BAD_REQUEST;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.CONFLICT;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.FAILURE;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.INCOMPLETE_SUCCESS;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.INTERNAL_SERVER_ERROR;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.NOT_FOUND;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.OK;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.SUCCESS;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.UNAUTHORIZED;
 
 @JsonPropertyOrder( {
-        KEY_CODE, KEY_NAME, KEY_MESSAGE, KEY_MESSAGE_KEY
+        KEY_HTTP_CODE, KEY_STATUS, KEY_MESSAGE, KEY_MESSAGE_KEY
 } )
 public class ResponseStatus
 {
-
-    private final int code;
-    private final String name;
+    private final int httpCode;
+    private final ResponseStatusType status;
     private String message;
     private String messageKey;
 
     @ConstructorProperties( {
-            "code", "name"
+            "httpCode", "status"
     } )
-    private ResponseStatus( final int code, final String name )
+    private ResponseStatus( final int httpCode, final ResponseStatusType status )
     {
-        this.code = code;
-        this.name = name;
+        this.httpCode = httpCode;
+        this.status = status;
     }
 
     @JsonIgnore
     public static ResponseStatus ok( )
     {
-        return new ResponseStatus( 200, "OK" );
+        return new ResponseStatus( 200, OK );
     }
 
     @JsonIgnore
     public static ResponseStatus success( )
     {
-        return new ResponseStatus( 201, "SUCCESS" );
+        return new ResponseStatus( 201, SUCCESS );
     }
 
     @JsonIgnore
     public static ResponseStatus incompleteSuccess( )
     {
-        return new ResponseStatus( 201, "INCOMPLETE_SUCCESS" );
+        return new ResponseStatus( 201, INCOMPLETE_SUCCESS );
     }
 
     @JsonIgnore
     public static ResponseStatus badRequest( )
     {
-        return new ResponseStatus( 400, "BAD_REQUEST" );
+        return new ResponseStatus( 400, BAD_REQUEST );
     }
 
     @JsonIgnore
     public static ResponseStatus unauthorized( )
     {
-        return new ResponseStatus( 401, "UNAUTHORIZED" );
+        return new ResponseStatus( 401, UNAUTHORIZED );
     }
 
     @JsonIgnore
     public static ResponseStatus failure( )
     {
-        return new ResponseStatus( 403, "FAILURE" );
+        return new ResponseStatus( 403, FAILURE );
     }
 
     @JsonIgnore
     public static ResponseStatus notFound( )
     {
-        return new ResponseStatus( 404, "NOT_FOUND" );
+        return new ResponseStatus( 404, NOT_FOUND );
     }
 
     @JsonIgnore
     public static ResponseStatus conflict( )
     {
-        return new ResponseStatus( 409, "CONFLICT" );
+        return new ResponseStatus( 409, CONFLICT );
     }
 
     @JsonIgnore
     public static ResponseStatus internalServerError( )
     {
-        return new ResponseStatus( 500, "INTERNAL_SERVER_ERROR" );
+        return new ResponseStatus( 500, INTERNAL_SERVER_ERROR );
     }
 
-    @JsonProperty( value = KEY_CODE )
-    public int getCode( )
+    @JsonProperty( value = KEY_HTTP_CODE )
+    public int getHttpCode( )
     {
-        return code;
+        return httpCode;
     }
 
-    @JsonProperty( value = KEY_NAME )
-    public String getName( )
+    @JsonProperty( value = KEY_STATUS )
+    public ResponseStatusType getStatus( )
     {
-        return name;
+        return status;
     }
 
     @JsonProperty( value = KEY_MESSAGE )
@@ -164,6 +172,6 @@ public class ResponseStatus
             return false;
         }
         final ResponseStatus other = (ResponseStatus) o;
-        return this.code == other.code && this.name.equals( other.name );
+        return this.httpCode == other.httpCode && this.status == other.status;
     }
 }
