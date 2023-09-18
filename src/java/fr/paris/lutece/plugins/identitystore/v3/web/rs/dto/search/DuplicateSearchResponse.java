@@ -33,7 +33,7 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IdentityDto;
 
 import java.util.ArrayList;

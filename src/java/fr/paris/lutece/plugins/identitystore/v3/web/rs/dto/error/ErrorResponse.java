@@ -33,7 +33,7 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.error;
 
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
 
 public class ErrorResponse extends ResponseDto
 {

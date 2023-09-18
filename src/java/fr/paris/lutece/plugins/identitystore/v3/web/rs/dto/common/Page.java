@@ -31,50 +31,74 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonRootName;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatus;
 
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_RESPONSE;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_STATUS;
-
-/**
- *
- * Response Dto
- *
- */
-@JsonRootName( value = KEY_RESPONSE )
-@JsonPropertyOrder( {
-        KEY_STATUS
-} )
-@JsonFormat( shape = JsonFormat.Shape.OBJECT )
-@JsonInclude( JsonInclude.Include.NON_NULL )
-public class ResponseDto
+public class Page
 {
-    protected ResponseStatus _status;
+    @JsonProperty( "total_records" )
+    private Integer totalRecords;
 
-    /**
-     * @return the _status
-     */
-    @JsonProperty( value = KEY_STATUS )
-    public ResponseStatus getStatus( )
+    @JsonProperty( "current_page" )
+    private Integer currentPage;
+
+    @JsonProperty( "total_pages" )
+    private Integer totalPages;
+
+    @JsonProperty( "next_page" )
+    private Integer nextPage;
+
+    @JsonProperty( "prev_page" )
+    private Integer previousPage;
+
+    public Integer getTotalRecords( )
     {
-        return _status;
+        return totalRecords;
     }
 
-    /**
-     * @param status
-     *            the _status to set
-     */
-    @JsonProperty( value = KEY_STATUS )
-    public void setStatus( final ResponseStatus status )
+    public void setTotalRecords( Integer totalRecords )
     {
-        this._status = status;
+        this.totalRecords = totalRecords;
     }
 
+    public Integer getCurrentPage( )
+    {
+        return currentPage;
+    }
+
+    public void setCurrentPage( Integer currentPage )
+    {
+        this.currentPage = currentPage;
+    }
+
+    public Integer getTotalPages( )
+    {
+        return totalPages;
+    }
+
+    public void setTotalPages( Integer totalPages )
+    {
+        this.totalPages = totalPages;
+    }
+
+    public Integer getNextPage( )
+    {
+        return nextPage;
+    }
+
+    public void setNextPage( Integer nextPage )
+    {
+        this.nextPage = nextPage;
+    }
+
+    public Integer getPreviousPage( )
+    {
+        return previousPage;
+    }
+
+    public void setPreviousPage( Integer previousPage )
+    {
+        this.previousPage = previousPage;
+    }
 }

@@ -35,61 +35,18 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-
-public abstract class ChangeResponse extends ResponseDto
+public class PagedResponseDto extends ResponseDto
 {
-    @JsonProperty( "customer_id" )
-    protected String customerId;
+    @JsonProperty( "pagination" )
+    private Page pagination;
 
-    @JsonProperty( "connection_id" )
-    protected String connectionId;
-
-    @JsonProperty( "last_update_date" )
-    protected Timestamp lastUpdateDate;
-
-    @JsonProperty( "attributes_status" )
-    protected List<AttributeStatus> attributeStatuses = new ArrayList<>( );
-
-    public String getCustomerId( )
+    public Page getPagination( )
     {
-        return customerId;
+        return pagination;
     }
 
-    public void setCustomerId( String customerId )
+    public void setPagination( Page pagination )
     {
-        this.customerId = customerId;
-    }
-
-    public String getConnectionId( )
-    {
-        return connectionId;
-    }
-
-    public void setConnectionId( String connectionId )
-    {
-        this.connectionId = connectionId;
-    }
-
-    public Timestamp getLastUpdateDate( )
-    {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate( Timestamp lastUpdateDate )
-    {
-        this.lastUpdateDate = lastUpdateDate;
-    }
-
-    public List<AttributeStatus> getAttributeStatuses( )
-    {
-        return attributeStatuses;
-    }
-
-    public void setAttributeStatuses( List<AttributeStatus> attributeStatuses )
-    {
-        this.attributeStatuses = attributeStatuses;
+        this.pagination = pagination;
     }
 }

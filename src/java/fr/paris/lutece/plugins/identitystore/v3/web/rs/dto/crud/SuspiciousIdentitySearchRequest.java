@@ -51,6 +51,15 @@ public class SuspiciousIdentitySearchRequest
     @JsonProperty( "rule_priority" )
     private Integer rulePriority;
 
+    @JsonProperty( "size" )
+    private Integer size;
+
+    @JsonProperty( "page" )
+    private Integer page;
+
+    @JsonProperty( "max" )
+    private Integer max;
+
     @JsonProperty( DtoFormatConstants.KEY_ATTRIBUTE_VALUES )
     private List<SearchAttribute> attributes = new ArrayList<>( );
 
@@ -72,6 +81,36 @@ public class SuspiciousIdentitySearchRequest
     public void setRulePriority( Integer rulePriority )
     {
         this.rulePriority = rulePriority;
+    }
+
+    public Integer getSize( )
+    {
+        return size;
+    }
+
+    public void setSize( Integer size )
+    {
+        this.size = size;
+    }
+
+    public Integer getPage( )
+    {
+        return page;
+    }
+
+    public void setPage( Integer page )
+    {
+        this.page = page;
+    }
+
+    public Integer getMax( )
+    {
+        return max;
+    }
+
+    public void setMax( Integer max )
+    {
+        this.max = max;
     }
 
     public List<SearchAttribute> getAttributes( )

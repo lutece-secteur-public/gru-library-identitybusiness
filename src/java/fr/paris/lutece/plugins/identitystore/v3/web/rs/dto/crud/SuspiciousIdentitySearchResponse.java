@@ -34,11 +34,11 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.PagedResponseDto;
 
 import java.util.List;
 
-public class SuspiciousIdentitySearchResponse extends ResponseDto
+public class SuspiciousIdentitySearchResponse extends PagedResponseDto
 {
     @JsonProperty( "suspicious_identities" )
     private List<SuspiciousIdentityDto> suspiciousIdentities;

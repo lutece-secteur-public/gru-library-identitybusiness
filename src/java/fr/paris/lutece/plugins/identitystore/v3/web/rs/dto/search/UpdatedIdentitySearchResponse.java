@@ -34,7 +34,7 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.ResponseDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.UpdatedIdentityDto;
 
 import java.util.ArrayList;

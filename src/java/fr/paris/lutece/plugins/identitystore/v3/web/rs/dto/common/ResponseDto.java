@@ -33,63 +33,48 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatus;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_RESPONSE;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_STATUS;
 
-public abstract class ChangeResponse extends ResponseDto
+/**
+ *
+ * Response Dto
+ *
+ */
+@JsonRootName( value = KEY_RESPONSE )
+@JsonPropertyOrder( {
+        KEY_STATUS
+} )
+@JsonFormat( shape = JsonFormat.Shape.OBJECT )
+@JsonInclude( JsonInclude.Include.NON_NULL )
+public class ResponseDto
 {
-    @JsonProperty( "customer_id" )
-    protected String customerId;
+    protected ResponseStatus _status;
 
-    @JsonProperty( "connection_id" )
-    protected String connectionId;
-
-    @JsonProperty( "last_update_date" )
-    protected Timestamp lastUpdateDate;
-
-    @JsonProperty( "attributes_status" )
-    protected List<AttributeStatus> attributeStatuses = new ArrayList<>( );
-
-    public String getCustomerId( )
+    /**
+     * @return the _status
+     */
+    @JsonProperty( value = KEY_STATUS )
+    public ResponseStatus getStatus( )
     {
-        return customerId;
+        return _status;
     }
 
-    public void setCustomerId( String customerId )
+    /**
+     * @param status
+     *            the _status to set
+     */
+    @JsonProperty( value = KEY_STATUS )
+    public void setStatus( final ResponseStatus status )
     {
-        this.customerId = customerId;
+        this._status = status;
     }
 
-    public String getConnectionId( )
-    {
-        return connectionId;
-    }
-
-    public void setConnectionId( String connectionId )
-    {
-        this.connectionId = connectionId;
-    }
-
-    public Timestamp getLastUpdateDate( )
-    {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate( Timestamp lastUpdateDate )
-    {
-        this.lastUpdateDate = lastUpdateDate;
-    }
-
-    public List<AttributeStatus> getAttributeStatuses( )
-    {
-        return attributeStatuses;
-    }
-
-    public void setAttributeStatuses( List<AttributeStatus> attributeStatuses )
-    {
-        this.attributeStatuses = attributeStatuses;
-    }
 }
