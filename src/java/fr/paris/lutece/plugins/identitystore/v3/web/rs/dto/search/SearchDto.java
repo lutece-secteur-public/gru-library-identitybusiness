@@ -37,6 +37,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -46,7 +47,7 @@ import java.util.List;
 public class SearchDto implements Serializable
 {
     private static final long serialVersionUID = 2L;
-    private List<SearchAttribute> attributes;
+    private List<SearchAttribute> attributes = new ArrayList<>( );
 
     @JsonProperty( DtoFormatConstants.KEY_ATTRIBUTE_VALUES )
     public List<SearchAttribute> getAttributes( )
