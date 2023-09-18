@@ -33,7 +33,6 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -43,15 +42,6 @@ import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConst
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_MESSAGE;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_MESSAGE_KEY;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_STATUS;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.BAD_REQUEST;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.CONFLICT;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.FAILURE;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.INCOMPLETE_SUCCESS;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.INTERNAL_SERVER_ERROR;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.NOT_FOUND;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.OK;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.SUCCESS;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.UNAUTHORIZED;
 
 @JsonPropertyOrder( {
         KEY_HTTP_CODE, KEY_STATUS, KEY_MESSAGE, KEY_MESSAGE_KEY
@@ -66,64 +56,10 @@ public class ResponseStatus
     @ConstructorProperties( {
             "httpCode", "status"
     } )
-    private ResponseStatus( final int httpCode, final ResponseStatusType status )
+    public ResponseStatus( final int httpCode, final ResponseStatusType status )
     {
         this.httpCode = httpCode;
         this.status = status;
-    }
-
-    @JsonIgnore
-    public static ResponseStatus ok( )
-    {
-        return new ResponseStatus( 200, OK );
-    }
-
-    @JsonIgnore
-    public static ResponseStatus success( )
-    {
-        return new ResponseStatus( 201, SUCCESS );
-    }
-
-    @JsonIgnore
-    public static ResponseStatus incompleteSuccess( )
-    {
-        return new ResponseStatus( 201, INCOMPLETE_SUCCESS );
-    }
-
-    @JsonIgnore
-    public static ResponseStatus badRequest( )
-    {
-        return new ResponseStatus( 400, BAD_REQUEST );
-    }
-
-    @JsonIgnore
-    public static ResponseStatus unauthorized( )
-    {
-        return new ResponseStatus( 401, UNAUTHORIZED );
-    }
-
-    @JsonIgnore
-    public static ResponseStatus failure( )
-    {
-        return new ResponseStatus( 403, FAILURE );
-    }
-
-    @JsonIgnore
-    public static ResponseStatus notFound( )
-    {
-        return new ResponseStatus( 404, NOT_FOUND );
-    }
-
-    @JsonIgnore
-    public static ResponseStatus conflict( )
-    {
-        return new ResponseStatus( 409, CONFLICT );
-    }
-
-    @JsonIgnore
-    public static ResponseStatus internalServerError( )
-    {
-        return new ResponseStatus( 500, INTERNAL_SERVER_ERROR );
     }
 
     @JsonProperty( value = KEY_HTTP_CODE )
