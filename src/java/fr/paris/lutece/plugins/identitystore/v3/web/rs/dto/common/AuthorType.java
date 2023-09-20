@@ -33,6 +33,9 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  * Request origin
  */
@@ -56,5 +59,10 @@ public enum AuthorType
     /**
      * Batch automatique
      */
-    application
+    application;
+
+    public static boolean valid( final String strValue )
+    {
+        return Arrays.stream( values( ) ).anyMatch( value -> Objects.equals( value.name( ), strValue ) );
+    }
 }

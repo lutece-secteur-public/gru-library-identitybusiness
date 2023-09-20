@@ -36,6 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.SuspiciousIdentityChangeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.SuspiciousIdentityExcludeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.SuspiciousIdentitySearchRequest;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.lock.SuspiciousIdentityLockRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
 import org.apache.commons.lang3.StringUtils;
@@ -76,38 +77,6 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
     }
 
     /**
-     * check whether the parameters related to the application are valid or not
-     *
-     * @param strClientCode
-     *            client application code
-     * @throws IdentityStoreException
-     *             if the parameters are not valid
-     */
-    public void checkClientCode( String strClientCode ) throws IdentityStoreException
-    {
-        if ( StringUtils.isBlank( strClientCode ) )
-        {
-            throw new IdentityStoreException( Constants.PARAM_CLIENT_CODE + " is missing" );
-        }
-    }
-
-    /**
-     * check whether the parameters related to the application are valid or not
-     *
-     * @param strApplicationCode
-     *            client application code
-     * @throws IdentityStoreException
-     *             if the parameters are not valid
-     */
-    public void checkClientApplicationCode( String strApplicationCode ) throws IdentityStoreException
-    {
-        if ( StringUtils.isBlank( strApplicationCode ) )
-        {
-            throw new IdentityStoreException( Constants.PARAM_APPLICATION_CODE + " is missing" );
-        }
-    }
-
-    /**
      * Check whether the parameters related to the suspicious identity search request are valid.
      * 
      * @param request
@@ -135,8 +104,20 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
         {
             throw new IdentityStoreException( "Provided Suspicious Identity Change request is null or empty" );
         }
+    }
 
-        this.checkOrigin( request.getOrigin( ) );
+    /**
+     * check whether the parameters related to the identity are valid or not
+     *
+     * @param request
+     * @throws IdentityStoreException
+     */
+    public void checkLockRequest( SuspiciousIdentityLockRequest request ) throws IdentityStoreException
+    {
+        if ( request == null || request.getCustomerId( ) == null )
+        {
+            throw new IdentityStoreException( "Provided Suspicious Lock request is null or empty" );
+        }
     }
 
     /**
@@ -161,8 +142,6 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
         {
             throw new IdentityStoreException( "Parameter identity_cuid_2 is missing." );
         }
-
-        this.checkOrigin( request.getOrigin( ) );
     }
 
     /**
@@ -177,8 +156,23 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
     {
         if ( StringUtils.isBlank( strCustomerId ) )
         {
-            throw new IdentityStoreException( Constants.PARAM_ID_CUSTOMER + "is missing." );
+            throw new IdentityStoreException( Constants.PARAM_ID_CUSTOMER + " is missing." );
         }
     }
 
+    /**
+     * check whether the parameters related to the identity are valid or not
+     *
+     * @param strRuleCode
+     *            the rule code
+     * @throws IdentityStoreException
+     *             if the parameters are not valid
+     */
+    public void checkRuleCode( String strRuleCode ) throws IdentityStoreException
+    {
+        if ( StringUtils.isBlank( strRuleCode ) )
+        {
+            throw new IdentityStoreException( Constants.PARAM_RULE_CODE + " is missing." );
+        }
+    }
 }

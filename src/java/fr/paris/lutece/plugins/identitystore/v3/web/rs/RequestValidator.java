@@ -48,7 +48,7 @@ public abstract class RequestValidator
      * @throws IdentityStoreException
      *             in case of error
      */
-    public void checkOrigin( RequestAuthor origin ) throws IdentityStoreException
+    public void checkAuthor( RequestAuthor origin ) throws IdentityStoreException
     {
 
         if ( origin == null )
@@ -71,11 +71,27 @@ public abstract class RequestValidator
      * @throws IdentityStoreException
      *             if the parameters are not valid
      */
-    public void checkClientApplication( String strClientCode ) throws IdentityStoreException
+    public void checkClientCode( String strClientCode ) throws IdentityStoreException
     {
         if ( StringUtils.isBlank( strClientCode ) )
         {
             throw new IdentityStoreException( Constants.PARAM_CLIENT_CODE + " is missing" );
+        }
+    }
+
+    /**
+     * check whether the parameters related to the application are valid or not
+     *
+     * @param strTargetClientCode
+     *            target client application code
+     * @throws IdentityStoreException
+     *             if the parameters are not valid
+     */
+    public void checkTargetClientCode( String strTargetClientCode ) throws IdentityStoreException
+    {
+        if ( StringUtils.isBlank( strTargetClientCode ) )
+        {
+            throw new IdentityStoreException( Constants.PARAM_TARGET_CLIENT_CODE + " is missing" );
         }
     }
 
@@ -87,7 +103,7 @@ public abstract class RequestValidator
      * @throws IdentityStoreException
      *             if the parameters are not valid
      */
-    public void checkClientApplicationCode( String strApplicationCode ) throws IdentityStoreException
+    public void checkApplicationCode( String strApplicationCode ) throws IdentityStoreException
     {
         if ( StringUtils.isBlank( strApplicationCode ) )
         {

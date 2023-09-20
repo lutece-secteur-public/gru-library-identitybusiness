@@ -40,40 +40,26 @@ import java.util.List;
 public class ServiceContractDto
 {
     private int _nId;
+    private String _strClientCode;
     private String _strName;
-
     private String _strMoaEntityName;
-
     private String _strMoeEntityName;
-
     private String _strMoeResponsibleName;
-
     private String _strMoaContactName;
-
     private String _strServiceType;
-
     private Date _dateStartingDate;
     private Date _dateEndingDate;
-
     private boolean _bAuthorizedCreation;
     private boolean _bAuthorizedUpdate;
     private boolean _bAuthorizedSearch;
     private boolean _bAuthorizedMerge;
-
     private boolean _bAuthorizedAccountUpdate;
-
     private boolean _bAuthorizedDeletion;
-
     private boolean _bAuthorizedImport;
-
     private boolean _bAuthorizedExport;
-
     private boolean _bAuthorizedDecertification;
-
     private boolean _bAuthorizedAgentHistoryRead;
-
     private int _nDataRetentionPeriodInMonths;
-
     private List<AttributeDefinitionDto> attributeDefinitions = new ArrayList<>( );
 
     public int getId( )
@@ -84,6 +70,16 @@ public class ServiceContractDto
     public void setId( int _nId )
     {
         this._nId = _nId;
+    }
+
+    public String getClientCode( )
+    {
+        return _strClientCode;
+    }
+
+    public void setClientCode( String _strClientCode )
+    {
+        this._strClientCode = _strClientCode;
     }
 
     public String getName( )

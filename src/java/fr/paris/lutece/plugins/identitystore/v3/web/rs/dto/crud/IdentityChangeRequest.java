@@ -36,13 +36,12 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IdentityDto;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.SignedRequest;
 
 /**
  * DTO contenant la requête de création, modification d'une identité
  */
 @JsonRootName( "identity_change" )
-public class IdentityChangeRequest extends SignedRequest
+public class IdentityChangeRequest
 {
     /**
      * bloc identité à traiter

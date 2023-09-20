@@ -34,12 +34,11 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.SignedRequest;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class IdentityHistorySearchRequest extends SignedRequest
+public class IdentityHistorySearchRequest
 {
     @JsonProperty( "client_code" )
     protected String _strClientCode;

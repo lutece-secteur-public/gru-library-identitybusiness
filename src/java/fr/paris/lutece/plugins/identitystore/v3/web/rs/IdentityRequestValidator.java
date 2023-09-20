@@ -37,6 +37,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application.ClientApp
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.ServiceContractDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.IdentityChangeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history.IdentityHistorySearchRequest;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.lock.SuspiciousIdentityLockRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge.IdentityMergeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.IdentitySearchRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
@@ -156,8 +157,6 @@ public final class IdentityRequestValidator extends RequestValidator
         {
             throw new IdentityStoreException( "Provided attributes shall be fully certified (process + date)" );
         }
-
-        this.checkOrigin( identityChange.getOrigin( ) );
     }
 
     public void checkIdentitySearch( IdentitySearchRequest identitySearch ) throws IdentityStoreException
@@ -171,7 +170,6 @@ public final class IdentityRequestValidator extends RequestValidator
         {
             throw new IdentityStoreException( "Provided Identity Search request is null or empty" );
         }
-        this.checkOrigin( identitySearch.getOrigin( ) );
     }
 
     public void checkIdentityHistory( IdentityHistorySearchRequest request ) throws IdentityStoreException
@@ -181,7 +179,6 @@ public final class IdentityRequestValidator extends RequestValidator
         {
             throw new IdentityStoreException( "Provided Identity history Search request is null or empty" );
         }
-        this.checkOrigin( request.getOrigin( ) );
     }
 
     /**
@@ -224,8 +221,6 @@ public final class IdentityRequestValidator extends RequestValidator
         {
             throw new IdentityStoreException( "An Identity merge request that provides an Identity must provide at least one Attribute" );
         }
-
-        this.checkOrigin( identityMergeRequest.getOrigin( ) );
     }
 
     /**
@@ -268,8 +263,6 @@ public final class IdentityRequestValidator extends RequestValidator
         {
             throw new IdentityStoreException( "A cancel identity merge request cannot provide an Identity. Only primary and secondary CUIDs are authorized." );
         }
-
-        this.checkOrigin( identityMergeRequest.getOrigin( ) );
     }
 
     public void checkServiceContract( ServiceContractDto serviceContractDto ) throws IdentityStoreException
@@ -277,6 +270,11 @@ public final class IdentityRequestValidator extends RequestValidator
         if ( serviceContractDto == null )
         {
             throw new IdentityStoreException( "Provided service contract is null" );
+        }
+
+        if ( StringUtils.isEmpty( serviceContractDto.getClientCode( ) ) )
+        {
+            throw new IdentityStoreException( "Provided ServiceContractDto must specify a target client code" );
         }
 
         if ( serviceContractDto.getStartingDate( ) == null )
@@ -311,4 +309,11 @@ public final class IdentityRequestValidator extends RequestValidator
         }
     }
 
+    public void checkDays( String strDays ) throws IdentityStoreException
+    {
+        if ( StringUtils.isBlank( strDays ) || !StringUtils.isNumeric( strDays ) )
+        {
+            throw new IdentityStoreException( "You must provide the 'days' parameter in numeric format." );
+        }
+    }
 }

@@ -34,10 +34,9 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.SignedRequest;
 
 @JsonRootName( "identity_search" )
-public class IdentitySearchRequest extends SignedRequest
+public class IdentitySearchRequest
 {
     /**
      * Nombre max d'identités à retourner

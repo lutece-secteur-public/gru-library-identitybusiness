@@ -34,12 +34,11 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.SignedRequest;
 
 /**
  * DTO contenant les elements pour exclure deux identités des suspicions de doublons
  */
-public class SuspiciousIdentityExcludeRequest extends SignedRequest
+public class SuspiciousIdentityExcludeRequest
 {
     /**
      * CUID 1

@@ -44,6 +44,7 @@ public final class Constants
     public static final String VERSION_PATH_V3 = "/v3";
     public static final String IDENTITY_PATH = "/identity";
     public static final String SERVICECONTRACT_PATH = "/contract";
+    public static final String ACTIVE_SERVICE_CONTRACT_PATH = SERVICECONTRACT_PATH + "/active";
     public static final String DOWNLOAD_FILE_PATH = "/file";
     public static final String UPDATE_IDENTITY_PATH = "/update";
     public static final String UPDATED_IDENTITIES_PATH = "/updated";
@@ -57,6 +58,7 @@ public final class Constants
     public static final String PARAM_AUTHOR_TYPE = "author_type";
 
     public static final String PARAM_CLIENT_CODE = "client_code";
+    public static final String PARAM_TARGET_CLIENT_CODE = "target_client_code";
     public static final String PARAM_APPLICATION_CODE = "application_code";
     public static final String PARAM_CLIENT_TOKEN = "client_token";
     public static final String PARAM_DAYS = "days";
