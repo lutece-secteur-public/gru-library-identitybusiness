@@ -50,9 +50,6 @@ public abstract class ChangeResponse extends ResponseDto
     @JsonProperty( "last_update_date" )
     protected Timestamp lastUpdateDate;
 
-    @JsonProperty( "attributes_status" )
-    protected List<AttributeStatus> attributeStatuses = new ArrayList<>( );
-
     public String getCustomerId( )
     {
         return customerId;
@@ -81,15 +78,5 @@ public abstract class ChangeResponse extends ResponseDto
     public void setLastUpdateDate( Timestamp lastUpdateDate )
     {
         this.lastUpdateDate = lastUpdateDate;
-    }
-
-    public List<AttributeStatus> getAttributeStatuses( )
-    {
-        return attributeStatuses;
-    }
-
-    public void setAttributeStatuses( List<AttributeStatus> attributeStatuses )
-    {
-        this.attributeStatuses = attributeStatuses;
     }
 }

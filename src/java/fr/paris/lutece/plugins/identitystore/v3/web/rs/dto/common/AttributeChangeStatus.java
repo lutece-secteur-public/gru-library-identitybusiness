@@ -54,7 +54,7 @@ public enum AttributeChangeStatus
     MERGED( "merged", null ),
     NOT_FOUND( "not_found", "This attribute does not exist in the repository." ),
     INSUFFICIENT_CERTIFICATION_LEVEL( "insufficient_certification_level",
-            "This attribute cannot be updated because the existing certification level is higher than in the service contract definition for the process provided in the request." ),
+            "This attribute cannot be updated because the existing certification level is higher than the level of the process provided in the request." ),
     INSUFFICIENT_RIGHTS( "insufficient_rights",
             "This attribute cannot be written because the associated process in the request does not match the contract definition." ),
     UNAUTHORIZED( "unauthorized", "This attribute is not writable in service contract definition" ),

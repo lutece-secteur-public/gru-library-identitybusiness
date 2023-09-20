@@ -264,6 +264,22 @@ public final class Constants
     public static final String PROPERTY_REST_INFO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.potential.duplicate.found";
     public static final String PROPERTY_REST_INFO_SUCCESSFUL_OPERATION = "identitystore.rest.info.successful.operation";
 
+    public static final String PROPERTY_ATTRIBUTE_STATUS_VALIDATION_ERROR_UNKNOWN_GEOCODES_CODE = "identitystore.attribute.status.validation.error.unknown.geocodes.code";
+    public static final String PROPERTY_ATTRIBUTE_STATUS_VALIDATION_ERROR_UNKNOWN_GEOCODES_LABEL = "identitystore.attribute.status.validation.error.unknown.geocodes.label";
+    public static final String PROPERTY_ATTRIBUTE_STATUS_VALIDATION_ERROR_GEOCODES_LABEL_MULTIPLE_RESULTS = "identitystore.attribute.status.validation.error.geocodes.label.multiple.results";
+
+    public static final String PROPERTY_ATTRIBUTE_STATUS_NOT_CREATED = "identitystore.attribute.status.not.created";
+    public static final String PROPERTY_ATTRIBUTE_STATUS_CREATED = "identitystore.attribute.status.created";
+    public static final String PROPERTY_ATTRIBUTE_STATUS_GEOCODES_LABEL_OVERRIDDEN = "identitystore.attribute.status.geocodes.label.overridden";
+    public static final String PROPERTY_ATTRIBUTE_STATUS_NOT_UPDATED = "identitystore.attribute.status.not.updated";
+    public static final String PROPERTY_ATTRIBUTE_STATUS_UPDATED = "identitystore.attribute.status.updated";
+    public static final String PROPERTY_ATTRIBUTE_STATUS_NOT_REMOVED = "identitystore.attribute.status.not.removed";
+    public static final String PROPERTY_ATTRIBUTE_STATUS_REMOVED = "identitystore.attribute.status.removed";
+    public static final String PROPERTY_ATTRIBUTE_STATUS_UNCERTIFIED = "identitystore.attribute.status.uncertified";
+    public static final String PROPERTY_ATTRIBUTE_STATUS_FORMATTED_VALUE = "identitystore.attribute.status.formatted.value";
+
+    public static final String PROPERTY_ATTRIBUTE_STATUS_INSUFFICIENT_CERTIFICATION_LEVEL = "identitystore.attribute.status.insufficient.certification.level";
+
     /**
      * Default constructor
      */

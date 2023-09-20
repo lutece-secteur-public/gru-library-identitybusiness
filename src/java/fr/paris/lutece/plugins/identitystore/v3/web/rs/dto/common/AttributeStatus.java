@@ -51,6 +51,9 @@ public class AttributeStatus
     @JsonProperty( "message" )
     protected String message;
 
+    @JsonProperty( "message_key" )
+    protected String messageKey;
+
     public String getKey( )
     {
         return key;
@@ -79,5 +82,15 @@ public class AttributeStatus
     public void setMessage( String message )
     {
         this.message = message;
+    }
+
+    public String getMessageKey( )
+    {
+        return messageKey;
+    }
+
+    public void setMessageKey( final String messageKey )
+    {
+        this.messageKey = messageKey;
     }
 }

@@ -85,6 +85,7 @@ public final class DtoFormatConstants
     public static final String KEY_MESSAGE = "message";
     public static final String KEY_MESSAGE_KEY = "message_key";
     public static final String KEY_HTTP_CODE = "http_code";
+    public static final String KEY_ATTRIBUTES_STATUS = "attributes_status";
 
     public static final String KEY_RESPONSE = "response";
     public static final String KEY_ATTRIBUTE_VALUES = "attribute_values";

@@ -33,11 +33,15 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.beans.ConstructorProperties;
+import java.util.ArrayList;
+import java.util.List;
 
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_ATTRIBUTES_STATUS;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_HTTP_CODE;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_MESSAGE;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_MESSAGE_KEY;
@@ -46,12 +50,14 @@ import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConst
 @JsonPropertyOrder( {
         KEY_HTTP_CODE, KEY_STATUS, KEY_MESSAGE, KEY_MESSAGE_KEY
 } )
+@JsonInclude( JsonInclude.Include.NON_EMPTY )
 public class ResponseStatus
 {
     private final int httpCode;
     private final ResponseStatusType status;
     private String message;
     private String messageKey;
+    private List<AttributeStatus> attributeStatuses = new ArrayList<>( );
 
     @ConstructorProperties( {
             "httpCode", "status"
@@ -97,6 +103,19 @@ public class ResponseStatus
     public ResponseStatus setMessageKey( final String messageKey )
     {
         this.messageKey = messageKey;
+        return this;
+    }
+
+    @JsonProperty( value = KEY_ATTRIBUTES_STATUS )
+    public List<AttributeStatus> getAttributeStatuses( )
+    {
+        return attributeStatuses;
+    }
+
+    @JsonProperty( value = KEY_ATTRIBUTES_STATUS )
+    public ResponseStatus setAttributeStatuses( final List<AttributeStatus> attributeStatuses )
+    {
+        this.attributeStatuses = attributeStatuses;
         return this;
     }
 
