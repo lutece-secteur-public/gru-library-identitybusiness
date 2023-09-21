@@ -37,7 +37,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
- * Request origin
+ * Request author
  */
 public enum AuthorType
 {

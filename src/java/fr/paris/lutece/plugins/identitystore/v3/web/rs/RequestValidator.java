@@ -41,22 +41,22 @@ import org.apache.commons.lang3.StringUtils;
 public abstract class RequestValidator
 {
     /**
-     * Check whether the parameters related to the origin are valid or not
+     * Check whether the parameters related to the author are valid or not
      *
-     * @param origin
+     * @param author
      *            the request author to validate
      * @throws IdentityStoreException
      *             in case of error
      */
-    public void checkAuthor( RequestAuthor origin ) throws IdentityStoreException
+    public void checkAuthor( RequestAuthor author ) throws IdentityStoreException
     {
 
-        if ( origin == null )
+        if ( author == null )
         {
             throw new IdentityStoreException( "Provided Author is null" );
         }
 
-        if ( StringUtils.isEmpty( origin.getName( ) ) || origin.getType( ) == null )
+        if ( StringUtils.isEmpty( author.getName( ) ) || author.getType( ) == null )
         {
             throw new IdentityStoreException( "Author and author type fields shall be set" );
         }

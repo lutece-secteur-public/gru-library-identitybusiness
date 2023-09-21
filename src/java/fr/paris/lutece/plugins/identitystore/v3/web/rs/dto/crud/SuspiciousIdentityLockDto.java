@@ -56,8 +56,8 @@ public class SuspiciousIdentityLockDto
     /**
      * Lock author
      */
-    @JsonProperty( "origin" )
-    protected RequestAuthor origin;
+    @JsonProperty( "author" )
+    protected RequestAuthor author;
 
     public boolean isLocked( )
     {
@@ -79,13 +79,13 @@ public class SuspiciousIdentityLockDto
         this.lockEndDate = lockEndDate;
     }
 
-    public RequestAuthor getOrigin( )
+    public RequestAuthor getAuthor( )
     {
-        return origin;
+        return author;
     }
 
-    public void setOrigin( RequestAuthor origin )
+    public void setAuthor( RequestAuthor author )
     {
-        this.origin = origin;
+        this.author = author;
     }
 }
