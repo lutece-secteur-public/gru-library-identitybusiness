@@ -54,7 +54,7 @@ import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConst
 public class ResponseStatus
 {
     private final int httpCode;
-    private final ResponseStatusType status;
+    private final ResponseStatusType type;
     private String message;
     private String messageKey;
     private List<AttributeStatus> attributeStatuses = new ArrayList<>( );
@@ -62,10 +62,10 @@ public class ResponseStatus
     @ConstructorProperties( {
             "httpCode", "status"
     } )
-    public ResponseStatus( final int httpCode, final ResponseStatusType status )
+    public ResponseStatus( final int httpCode, final ResponseStatusType type)
     {
         this.httpCode = httpCode;
-        this.status = status;
+        this.type = type;
     }
 
     @JsonProperty( value = KEY_HTTP_CODE )
@@ -75,9 +75,9 @@ public class ResponseStatus
     }
 
     @JsonProperty( value = KEY_STATUS )
-    public ResponseStatusType getStatus( )
+    public ResponseStatusType getType( )
     {
-        return status;
+        return type;
     }
 
     @JsonProperty( value = KEY_MESSAGE )
@@ -127,6 +127,6 @@ public class ResponseStatus
             return false;
         }
         final ResponseStatus other = (ResponseStatus) o;
-        return this.httpCode == other.httpCode && this.status == other.status;
+        return this.httpCode == other.httpCode && this.type == other.type;
     }
 }
