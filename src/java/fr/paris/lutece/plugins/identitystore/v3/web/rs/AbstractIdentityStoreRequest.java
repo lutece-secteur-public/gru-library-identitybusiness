@@ -46,7 +46,12 @@ public abstract class AbstractIdentityStoreRequest
 
     protected AbstractIdentityStoreRequest( final String strClientCode, final String authorName, final String authorType ) throws IdentityStoreException
     {
-        if ( StringUtils.isNotEmpty( authorType ) && !AuthorType.valid( authorType ) )
+        if ( StringUtils.isEmpty( authorName ) || StringUtils.isEmpty( authorType ) )
+        {
+            throw new IdentityStoreException( "Author_name and author_type must be provided in request header" );
+        }
+
+        if ( !AuthorType.valid( authorType ) )
         {
             throw new IdentityStoreException( "The provided author type value is not valid: " + authorType );
         }

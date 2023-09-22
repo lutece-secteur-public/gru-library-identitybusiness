@@ -62,7 +62,7 @@ public class ResponseStatus
     @ConstructorProperties( {
             "httpCode", "status"
     } )
-    public ResponseStatus( final int httpCode, final ResponseStatusType type)
+    public ResponseStatus( final int httpCode, final ResponseStatusType type )
     {
         this.httpCode = httpCode;
         this.type = type;
