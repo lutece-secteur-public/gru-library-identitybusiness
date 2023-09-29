@@ -33,6 +33,11 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.importing.BatchImportRequest;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.IdentitySearchRequest;
+import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
+import org.apache.commons.lang3.StringUtils;
+
 public class BatchRequestValidator extends RequestValidator
 {
 
@@ -56,4 +61,15 @@ public class BatchRequestValidator extends RequestValidator
         return _singleton;
     }
 
+    public void checkImportRequest( final BatchImportRequest request ) throws IdentityStoreException
+    {
+        if ( request.getBatch( ) == null )
+        {
+            throw new IdentityStoreException( "Provided batch is null." );
+        }
+        if ( request.getBatch( ).getIdentities( ).isEmpty( ) )
+        {
+            throw new IdentityStoreException( "Provided batch is empty, it should contain at least one Identity." );
+        }
+    }
 }
