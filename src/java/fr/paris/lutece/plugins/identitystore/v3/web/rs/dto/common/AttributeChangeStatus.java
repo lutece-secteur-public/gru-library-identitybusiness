@@ -51,7 +51,6 @@ public enum AttributeChangeStatus
     REMOVED( "removed", null ),
     NOT_REMOVED( "not_removed", "This mandatory attribute cannot be removed." ),
     NOT_UPDATED( "not_updated", "This attribute already exists with the same value and certificate." ),
-    MERGED( "merged", null ),
     NOT_FOUND( "not_found", "This attribute does not exist in the repository." ),
     INSUFFICIENT_CERTIFICATION_LEVEL( "insufficient_certification_level",
             "This attribute cannot be updated because the existing certification level is higher than the level of the process provided in the request." ),

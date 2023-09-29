@@ -49,9 +49,6 @@ public class IdentityChangeResponse extends ChangeResponse
     @JsonProperty( "creation_date" )
     protected Timestamp creationDate;
 
-    @JsonProperty( "duplicates" )
-    protected DuplicateSearchResponse duplicates;
-
     public Timestamp getCreationDate( )
     {
         return creationDate;
@@ -61,15 +58,4 @@ public class IdentityChangeResponse extends ChangeResponse
     {
         this.creationDate = creationDate;
     }
-
-    public DuplicateSearchResponse getDuplicates( )
-    {
-        return duplicates;
-    }
-
-    public void setDuplicates( DuplicateSearchResponse duplicates )
-    {
-        this.duplicates = duplicates;
-    }
-
 }
