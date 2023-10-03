@@ -35,10 +35,12 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
@@ -66,6 +68,9 @@ public enum AttributeChangeStatus
     INVALID_VALUE( "invalid_value", "This attribute value doesn't match its validation pattern." ),
     FORMATTED_VALUE( "formatted_value", "This attribute value has been formatted before treatment." ),
     UNCERTIFIED( "uncertified", null );
+
+    @JsonIgnore
+    private static final List<AttributeChangeStatus> SUCCESS_STATUSES = Arrays.asList( CREATED, UPDATED, REMOVED, OVERRIDDEN_GEOCODES_LABEL, UNCERTIFIED );
 
     @JsonProperty( "code" )
     private String code;
@@ -104,6 +109,12 @@ public enum AttributeChangeStatus
     public void setMessage( String message )
     {
         this.message = message;
+    }
+
+    @JsonIgnore
+    public static List<AttributeChangeStatus> getSuccessStatuses( )
+    {
+        return SUCCESS_STATUSES;
     }
 
 }
