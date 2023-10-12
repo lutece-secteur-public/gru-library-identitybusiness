@@ -97,4 +97,10 @@ public class IdentitySearchRequest
     {
         this.connectionId = connectionId;
     }
+
+    @Override
+    public String toString( )
+    {
+        return "IdentitySearchRequest{" + "max=" + max + ", connected=" + connected + ", connectionId='" + connectionId + '\'' + ", search=" + search + '}';
+    }
 }

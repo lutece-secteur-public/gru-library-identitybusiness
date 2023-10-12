@@ -111,4 +111,11 @@ public class SearchAttribute implements Comparable<SearchAttribute>
     {
         return this.getKey( ).compareTo( another.getKey( ) );
     }
+
+    @Override
+    public String toString( )
+    {
+        return "SearchAttribute{" + "key='" + key + '\'' + ", value='" + value + '\'' + ", outputKeys=" + String.join( ", ", outputKeys ) + ", treatmentType="
+                + treatmentType + '}';
+    }
 }

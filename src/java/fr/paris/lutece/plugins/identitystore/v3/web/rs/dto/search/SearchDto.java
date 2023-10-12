@@ -39,6 +39,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -59,5 +60,11 @@ public class SearchDto implements Serializable
     public void setAttributes( List<SearchAttribute> attributes )
     {
         this.attributes = attributes;
+    }
+
+    @Override
+    public String toString( )
+    {
+        return "SearchDto{" + "attributes=" + attributes.stream( ).map( SearchAttribute::toString ).collect( Collectors.joining( ", " ) ) + '}';
     }
 }
