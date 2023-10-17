@@ -115,7 +115,7 @@ public class SearchAttribute implements Comparable<SearchAttribute>
     @Override
     public String toString( )
     {
-        return "SearchAttribute{" + "key='" + key + '\'' + ", value='" + value + '\'' + ", outputKeys=" + String.join( ", ", outputKeys ) + ", treatmentType="
-                + treatmentType + '}';
+        return "SearchAttribute{" + "key='" + key + '\'' + ", value='" + value + '\'' + ", outputKeys="
+                + ( outputKeys != null ? String.join( ", ", outputKeys ) : "null" ) + ", treatmentType=" + treatmentType + '}';
     }
 }
