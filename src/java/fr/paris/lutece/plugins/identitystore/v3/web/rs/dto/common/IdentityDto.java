@@ -102,6 +102,12 @@ public class IdentityDto
     protected MergeDefinition merge;
 
     /**
+     * Bloc optionnel indiquant les identités ayant été rapprochées de celle-ci.
+     */
+    @JsonProperty( "consolidate" )
+    protected ConsolidateDefinition consolidate;
+
+    /**
      * Bloc optionnel indiquant si et comment l'identité est impliquée dans une suspicion de doublons
      */
     protected IdentityDuplicateDefinition duplicateDefinition;
@@ -212,6 +218,16 @@ public class IdentityDto
     public void setMerge( MergeDefinition merge )
     {
         this.merge = merge;
+    }
+
+    public ConsolidateDefinition getConsolidate( )
+    {
+        return consolidate;
+    }
+
+    public void setConsolidate( final ConsolidateDefinition consolidate )
+    {
+        this.consolidate = consolidate;
     }
 
     public IdentityDuplicateDefinition getDuplicateDefinition( )
