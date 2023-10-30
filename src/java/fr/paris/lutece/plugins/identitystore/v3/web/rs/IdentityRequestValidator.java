@@ -37,9 +37,9 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application.ClientApp
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.ServiceContractDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.IdentityChangeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history.IdentityHistorySearchRequest;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.lock.SuspiciousIdentityLockRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge.IdentityMergeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.IdentitySearchRequest;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.UpdatedIdentitySearchRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
 import org.apache.commons.lang3.StringUtils;
@@ -309,11 +309,12 @@ public final class IdentityRequestValidator extends RequestValidator
         }
     }
 
-    public void checkDays( String strDays ) throws IdentityStoreException
+    public void checkUpdatedIdentitySearchRequest( final UpdatedIdentitySearchRequest updatedIdentitySearchRequest ) throws IdentityStoreException
     {
-        if ( StringUtils.isBlank( strDays ) || !StringUtils.isNumeric( strDays ) )
+        if ( updatedIdentitySearchRequest == null || ( updatedIdentitySearchRequest.getDays( ) == null
+                && updatedIdentitySearchRequest.getUpdatedAttributes( ).isEmpty( ) && updatedIdentitySearchRequest.getIdentityChangeTypes( ).isEmpty( ) ) )
         {
-            throw new IdentityStoreException( "You must provide the 'days' parameter in numeric format." );
+            throw new IdentityStoreException( "Provided Updated Identity Search request is null or empty" );
         }
     }
 }
