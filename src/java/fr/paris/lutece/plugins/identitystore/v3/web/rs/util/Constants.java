@@ -172,6 +172,9 @@ public final class Constants
 
     /** Import */
     public static final String BATCH_PATH = "/batch";
+    public static final String BATCH_STATUS_PATH = "/status";
+    public static final String PARAM_BATCH_REFERENCE = "batch_reference";
+    public static final String PARAM_BATCH_STATUS_MODE = "mode";
 
     /** Attribute keys for user search */
     public static final String PARAM_COMMON_EMAIL = "common_email";

@@ -72,4 +72,22 @@ public class BatchRequestValidator extends RequestValidator
             throw new IdentityStoreException( "Provided batch is empty, it should contain at least one Identity." );
         }
     }
+
+    public void checkBatchReference( final String strBatchReference ) throws IdentityStoreException
+    {
+        if ( strBatchReference == null || strBatchReference.isEmpty( ) )
+        {
+            throw new IdentityStoreException( "Provided batch reference is null or empty." );
+        }
+
+    }
+
+    public void checkBatchStatusMode( final String strMode ) throws IdentityStoreException
+    {
+        if ( strMode != null )
+        {
+            throw new IdentityStoreException( "Provided batch reference is null or empty." );
+        }
+
+    }
 }
