@@ -37,6 +37,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.SuspiciousIdenti
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.SuspiciousIdentityExcludeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.SuspiciousIdentitySearchRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.lock.SuspiciousIdentityLockRequest;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.DuplicateSearchRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
 import org.apache.commons.lang3.StringUtils;
@@ -77,8 +78,34 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
     }
 
     /**
-     * Check whether the parameters related to the suspicious identity search request are valid.
+     * Check whether the parameters related to the duplicate search request are valid.
      * 
+     * @param request
+     *            the request
+     * @throws IdentityStoreException
+     *             if params are not valid
+     */
+    public void checkDuplicateSearch( final DuplicateSearchRequest request ) throws IdentityStoreException
+    {
+        if ( request == null )
+        {
+            throw new IdentityStoreException( "Provided duplicate search request is null" );
+        }
+
+        if ( request.getRuleCodes( ) == null || request.getRuleCodes( ).isEmpty( ) )
+        {
+            throw new IdentityStoreException( "Provided duplicate search request must define at least one rule code" );
+        }
+
+        if ( request.getAttributes( ) == null || request.getAttributes( ).isEmpty( ) )
+        {
+            throw new IdentityStoreException( "Provided duplicate search request must define at least one attribute" );
+        }
+    }
+
+    /**
+     * Check whether the parameters related to the suspicious identity search request are valid.
+     *
      * @param request
      *            the request
      * @throws IdentityStoreException
