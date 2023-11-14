@@ -36,37 +36,69 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.importing;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class BatchStatusDto
+public class CandidateIdentityDto
 {
-    @JsonProperty( "reference" )
-    protected String reference;
+    @JsonProperty( "connection_id" )
+    protected String connectionId;
+
+    @JsonProperty( "customer_id" )
+    protected String customerId;
+
+    @JsonProperty( "external_customer_id" )
+    protected String externalCustomerId;
+
+    @JsonProperty( "client_app_code" )
+    protected String clientAppCode;
 
     @JsonProperty( "status" )
     protected String status;
 
-    @JsonProperty( "status_description" )
-    protected String statusDescription;
+    @JsonProperty( "identity_history" )
+    protected List<ImportingHistoryDto> identityHistory = new ArrayList<>( );
 
-    @JsonProperty( "launch_date" )
-    protected Date launchDate;
+    @JsonProperty( "attributes" )
+    protected List<CandidateIdentityAttributeDto> attributes = new ArrayList<>( );
 
-    @JsonProperty( "batch_history" )
-    protected List<ImportingHistoryDto> batchHistory = new ArrayList<>( );
-
-    @JsonProperty( "identities" )
-    protected List<CandidateIdentityDto> identities = new ArrayList<>( );
-
-    public String getReference( )
+    public String getConnectionId( )
     {
-        return reference;
+        return connectionId;
     }
 
-    public void setReference( final String reference )
+    public void setConnectionId( final String connectionId )
     {
-        this.reference = reference;
+        this.connectionId = connectionId;
+    }
+
+    public String getCustomerId( )
+    {
+        return customerId;
+    }
+
+    public void setCustomerId( final String customerId )
+    {
+        this.customerId = customerId;
+    }
+
+    public String getExternalCustomerId( )
+    {
+        return externalCustomerId;
+    }
+
+    public void setExternalCustomerId( final String externalCustomerId )
+    {
+        this.externalCustomerId = externalCustomerId;
+    }
+
+    public String getClientAppCode( )
+    {
+        return clientAppCode;
+    }
+
+    public void setClientAppCode( final String clientAppCode )
+    {
+        this.clientAppCode = clientAppCode;
     }
 
     public String getStatus( )
@@ -79,33 +111,13 @@ public class BatchStatusDto
         this.status = status;
     }
 
-    public String getStatusDescription( )
+    public List<ImportingHistoryDto> getIdentityHistory( )
     {
-        return statusDescription;
+        return identityHistory;
     }
 
-    public void setStatusDescription( final String statusDescription )
+    public List<CandidateIdentityAttributeDto> getAttributes( )
     {
-        this.statusDescription = statusDescription;
-    }
-
-    public Date getLaunchDate( )
-    {
-        return launchDate;
-    }
-
-    public void setLaunchDate( final Date launchDate )
-    {
-        this.launchDate = launchDate;
-    }
-
-    public List<ImportingHistoryDto> getBatchHistory( )
-    {
-        return batchHistory;
-    }
-
-    public List<CandidateIdentityDto> getIdentities( )
-    {
-        return identities;
+        return attributes;
     }
 }

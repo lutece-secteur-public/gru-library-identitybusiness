@@ -265,6 +265,8 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_CONNECTED_IDENTITY_FORBIDDEN_PIVOT_SELF_DECLARE = "identitystore.rest.error.connected.identity.forbidden.pivot.self.declare";
     public static final String PROPERTY_REST_ERROR_CONNECTED_IDENTITY_FORBIDDEN_UPDATE_PIVOT_LESSER_CERTIFICATION = "identitystore.rest.error.connected.identity.forbidden.update.pivot.lesser.certification";
     public static final String PROPERTY_REST_ERROR_CONNECTED_IDENTITY_FORBIDDEN_PIVOT_CERTIFICATION_UNDER_THRESHOLD = "identitystore.rest.error.connected.identity.forbidden.pivot.certification.under.threshold";
+    public static final String PROPERTY_REST_ERROR_BATCH_NOT_FOUND = "identityimport.rest.error.batch.not.found";
+    public static final String PROPERTY_REST_ERROR_BATCH_STATE_NOT_FOUND = "identityimport.rest.error.batch.state.not.found";
 
     public static final String PROPERTY_REST_INFO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.potential.duplicate.found";
     public static final String PROPERTY_REST_INFO_SUCCESSFUL_OPERATION = "identitystore.rest.info.successful.operation";

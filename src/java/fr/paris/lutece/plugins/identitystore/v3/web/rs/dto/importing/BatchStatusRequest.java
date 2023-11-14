@@ -33,9 +33,34 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.importing;
 
-public enum BatchStatusMode
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class BatchStatusRequest
 {
-    FULL,
-    IDENTITIES_ONLY,
-    BATCH_ONLY
+
+    @JsonProperty( "batch_reference" )
+    protected String batchReference;
+
+    @JsonProperty( "mode" )
+    protected BatchStatusMode mode;
+
+    public String getBatchReference( )
+    {
+        return batchReference;
+    }
+
+    public void setBatchReference( final String batchReference )
+    {
+        this.batchReference = batchReference;
+    }
+
+    public BatchStatusMode getMode( )
+    {
+        return mode;
+    }
+
+    public void setMode( final BatchStatusMode mode )
+    {
+        this.mode = mode;
+    }
 }

@@ -33,9 +33,61 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.importing;
 
-public enum BatchStatusMode
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.sql.Date;
+
+public class CandidateIdentityAttributeDto
 {
-    FULL,
-    IDENTITIES_ONLY,
-    BATCH_ONLY
+    @JsonProperty( "key" )
+    private String key;
+
+    @JsonProperty( "value" )
+    private String value;
+
+    @JsonProperty( "cert_process" )
+    private String certProcess;
+
+    @JsonProperty( "cert_date" )
+    private Date certDate;
+
+    public String getKey( )
+    {
+        return key;
+    }
+
+    public void setKey( final String key )
+    {
+        this.key = key;
+    }
+
+    public String getValue( )
+    {
+        return value;
+    }
+
+    public void setValue( final String value )
+    {
+        this.value = value;
+    }
+
+    public String getCertProcess( )
+    {
+        return certProcess;
+    }
+
+    public void setCertProcess( final String certProcess )
+    {
+        this.certProcess = certProcess;
+    }
+
+    public Date getCertDate( )
+    {
+        return certDate;
+    }
+
+    public void setCertDate( final Date certDate )
+    {
+        this.certDate = certDate;
+    }
 }

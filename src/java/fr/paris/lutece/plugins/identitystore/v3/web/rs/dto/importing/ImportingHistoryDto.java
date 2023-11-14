@@ -33,40 +33,71 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.importing;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-public class BatchStatusDto
+@JsonInclude( JsonInclude.Include.NON_NULL )
+public class ImportingHistoryDto
 {
-    @JsonProperty( "reference" )
-    protected String reference;
+
+    @JsonProperty( "action_name" )
+    protected String actionName;
+
+    @JsonProperty( "action_description" )
+    protected String actionDescription;
+
+    @JsonProperty( "date" )
+    protected Date date;
+
+    @JsonProperty( "user_access_code" )
+    protected String userAccessCode;
 
     @JsonProperty( "status" )
     protected String status;
 
-    @JsonProperty( "status_description" )
-    protected String statusDescription;
+    @JsonProperty( "comment" )
+    protected String comment;
 
-    @JsonProperty( "launch_date" )
-    protected Date launchDate;
-
-    @JsonProperty( "batch_history" )
-    protected List<ImportingHistoryDto> batchHistory = new ArrayList<>( );
-
-    @JsonProperty( "identities" )
-    protected List<CandidateIdentityDto> identities = new ArrayList<>( );
-
-    public String getReference( )
+    public String getActionName( )
     {
-        return reference;
+        return actionName;
     }
 
-    public void setReference( final String reference )
+    public void setActionName( final String actionName )
     {
-        this.reference = reference;
+        this.actionName = actionName;
+    }
+
+    public String getActionDescription( )
+    {
+        return actionDescription;
+    }
+
+    public void setActionDescription( final String actionDescription )
+    {
+        this.actionDescription = actionDescription;
+    }
+
+    public Date getDate( )
+    {
+        return date;
+    }
+
+    public void setDate( final Date date )
+    {
+        this.date = date;
+    }
+
+    public String getUserAccessCode( )
+    {
+        return userAccessCode;
+    }
+
+    public void setUserAccessCode( final String userAccessCode )
+    {
+        this.userAccessCode = userAccessCode;
     }
 
     public String getStatus( )
@@ -79,33 +110,13 @@ public class BatchStatusDto
         this.status = status;
     }
 
-    public String getStatusDescription( )
+    public String getComment( )
     {
-        return statusDescription;
+        return comment;
     }
 
-    public void setStatusDescription( final String statusDescription )
+    public void setComment( final String comment )
     {
-        this.statusDescription = statusDescription;
-    }
-
-    public Date getLaunchDate( )
-    {
-        return launchDate;
-    }
-
-    public void setLaunchDate( final Date launchDate )
-    {
-        this.launchDate = launchDate;
-    }
-
-    public List<ImportingHistoryDto> getBatchHistory( )
-    {
-        return batchHistory;
-    }
-
-    public List<CandidateIdentityDto> getIdentities( )
-    {
-        return identities;
+        this.comment = comment;
     }
 }

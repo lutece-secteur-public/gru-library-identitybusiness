@@ -33,19 +33,21 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.importing;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
 
 public class BatchStatusResponse extends ResponseDto
 {
-    protected String reference;
+    @JsonProperty( "batch_status" )
+    protected BatchStatusDto batchStatus;
 
-    public String getReference( )
+    public BatchStatusDto getBatchStatus( )
     {
-        return reference;
+        return batchStatus;
     }
 
-    public void setReference( String reference )
+    public void setBatchStatus( final BatchStatusDto batchStatus )
     {
-        this.reference = reference;
+        this.batchStatus = batchStatus;
     }
 }

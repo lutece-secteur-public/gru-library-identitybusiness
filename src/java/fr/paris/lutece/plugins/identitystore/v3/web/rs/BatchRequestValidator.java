@@ -34,6 +34,7 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.importing.BatchImportRequest;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.importing.BatchStatusRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.IdentitySearchRequest;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
 import org.apache.commons.lang3.StringUtils;
@@ -73,21 +74,11 @@ public class BatchRequestValidator extends RequestValidator
         }
     }
 
-    public void checkBatchReference( final String strBatchReference ) throws IdentityStoreException
+    public void checkBatchStatusRequest( final BatchStatusRequest request ) throws IdentityStoreException
     {
-        if ( strBatchReference == null || strBatchReference.isEmpty( ) )
+        if ( request == null || StringUtils.isBlank( request.getBatchReference( ) ) || request.getMode( ) == null )
         {
-            throw new IdentityStoreException( "Provided batch reference is null or empty." );
+            throw new IdentityStoreException( "Invalid batch status request. All fields must be provided." );
         }
-
-    }
-
-    public void checkBatchStatusMode( final String strMode ) throws IdentityStoreException
-    {
-        if ( strMode != null )
-        {
-            throw new IdentityStoreException( "Provided batch reference is null or empty." );
-        }
-
     }
 }
