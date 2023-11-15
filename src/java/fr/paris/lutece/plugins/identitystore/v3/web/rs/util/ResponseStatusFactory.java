@@ -92,4 +92,9 @@ public class ResponseStatusFactory
     {
         return new ResponseStatus( 500, INTERNAL_SERVER_ERROR );
     }
+
+    public static ResponseStatus noResult( )
+    {
+        return new ResponseStatus( 200, NOT_FOUND );
+    }
 }
