@@ -291,13 +291,16 @@ public class CsvIdentityService
         } ).collect( Collectors.toList( ) );
     }
 
-    public List<CsvIdentity> extractCsvIdentities( final List<IdentityDto> identities )
+    public List<CsvIdentity> extractCsvIdentities( final List<IdentityDto> identities ) throws IdentityStoreException
     {
-        return identities.stream( ).map( identityDto -> {
+        final List<CsvIdentity> list = new ArrayList<>( );
+        for ( final IdentityDto identity : identities )
+        {
             final CsvIdentity csvIdentity = new CsvIdentity( );
-            csvIdentity.setExternalCustomerId( identityDto.getCustomerId( ) );
-            csvIdentity.setCustomerId( identityDto.getCustomerId( ) );
-            identityDto.getAttributes( ).forEach( attributeDto -> {
+            csvIdentity.setExternalCustomerId( identity.getCustomerId( ) );
+            csvIdentity.setCustomerId( identity.getCustomerId( ) );
+            for ( final AttributeDto attributeDto : identity.getAttributes( ) )
+            {
                 switch( attributeDto.getKey( ) )
                 {
                     case Constants.PARAM_GENDER:
@@ -336,7 +339,7 @@ public class CsvIdentityService
                         }
                         catch( ParseException e )
                         {
-                            throw new RuntimeException( e );
+                            throw new IdentityStoreException( e.getMessage( ), e );
                         }
 
                         break;
@@ -403,8 +406,9 @@ public class CsvIdentityService
                     default:
                         break;
                 }
-            } );
-            return csvIdentity;
-        } ).collect( Collectors.toList( ) );
+            }
+            list.add( csvIdentity );
+        }
+        return list;
     }
 }
