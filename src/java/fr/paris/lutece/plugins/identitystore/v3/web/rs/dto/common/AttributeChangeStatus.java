@@ -42,35 +42,42 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
+
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeChangeStatusType.ERROR;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeChangeStatusType.SUCCESS;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeChangeStatusType.WARNING;
 
 @JsonInclude( JsonInclude.Include.NON_NULL )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
 public enum AttributeChangeStatus
 {
-    CREATED( "created", null ),
-    NOT_CREATED( "not_created", "This attribute was not created because of an invalid provided value." ),
-    UPDATED( "updated", null ),
-    REMOVED( "removed", null ),
-    NOT_REMOVED( "not_removed", "This mandatory attribute cannot be removed." ),
-    NOT_UPDATED( "not_updated", "This attribute already exists with the same value and certificate." ),
-    NOT_FOUND( "not_found", "This attribute does not exist in the repository." ),
+    CREATED( "created", null, SUCCESS ),
+    NOT_CREATED( "not_created", "This attribute was not created because of an invalid provided value.", ERROR ),
+    UPDATED( "updated", null, SUCCESS ),
+    REMOVED( "removed", null, SUCCESS ),
+    NOT_REMOVED( "not_removed", "This mandatory attribute cannot be removed.", ERROR ),
+    NOT_UPDATED( "not_updated", "This attribute already exists with the same value and certificate.", WARNING ),
+    NOT_FOUND( "not_found", "This attribute does not exist in the repository.", ERROR ),
     INSUFFICIENT_CERTIFICATION_LEVEL( "insufficient_certification_level",
-            "This attribute cannot be updated because the existing certification level is higher than the level of the process provided in the request." ),
+            "This attribute cannot be updated because the existing certification level is higher than the level of the process provided in the request.",
+            ERROR ),
     INSUFFICIENT_RIGHTS( "insufficient_rights",
-            "This attribute cannot be written because the associated process in the request does not match the contract definition." ),
-    UNAUTHORIZED( "unauthorized", "This attribute is not writable in service contract definition" ),
-    UNKNOWN_GEOCODES_CODE( "unknown_geocodes_code", "The provided code was not found in the Geocodes repository." ),
-    UNKNOWN_GEOCODES_LABEL( "unknown_geocodes_label", "The provided label was not found in the Geocodes repository." ),
+            "This attribute cannot be written because the associated process in the request does not match the contract definition.", ERROR ),
+    UNAUTHORIZED( "unauthorized", "This attribute is not writable in service contract definition", ERROR ),
+    UNKNOWN_GEOCODES_CODE( "unknown_geocodes_code", "The provided code was not found in the Geocodes repository.", ERROR ),
+    UNKNOWN_GEOCODES_LABEL( "unknown_geocodes_label", "The provided label was not found in the Geocodes repository.", ERROR ),
     MULTIPLE_GEOCODES_RESULTS_FOR_LABEL( "multiple_geocodes_results_for_label",
-            "The provided label correspond to multiple results in Geocodes. Please specify by providing the code." ),
+            "The provided label correspond to multiple results in Geocodes. Please specify by providing the code.", ERROR ),
     OVERRIDDEN_GEOCODES_LABEL( "overridden_geocodes_label",
-            "The provided label was not corresponding to the provided code, and has been overridden with the correct Geocodes label." ),
-    INVALID_VALUE( "invalid_value", "This attribute value doesn't match its validation pattern." ),
-    FORMATTED_VALUE( "formatted_value", "This attribute value has been formatted before treatment." ),
-    UNCERTIFIED( "uncertified", null );
+            "The provided label was not corresponding to the provided code, and has been overridden with the correct Geocodes label.", SUCCESS ),
+    INVALID_VALUE( "invalid_value", "This attribute value doesn't match its validation pattern.", ERROR ),
+    FORMATTED_VALUE( "formatted_value", "This attribute value has been formatted before treatment.", WARNING ),
+    UNCERTIFIED( "uncertified", null, SUCCESS );
 
     @JsonIgnore
-    private static final List<AttributeChangeStatus> SUCCESS_STATUSES = Arrays.asList( CREATED, UPDATED, REMOVED, OVERRIDDEN_GEOCODES_LABEL, UNCERTIFIED );
+    private static final List<AttributeChangeStatus> SUCCESS_STATUSES = Arrays.stream( values( ) ).filter( s -> s.type == SUCCESS )
+            .collect( Collectors.toList( ) );
 
     @JsonProperty( "code" )
     private String code;
@@ -78,10 +85,14 @@ public enum AttributeChangeStatus
     @JsonProperty( "message" )
     private String message;
 
-    AttributeChangeStatus( String status, String message )
+    @JsonProperty( "type" )
+    private AttributeChangeStatusType type;
+
+    AttributeChangeStatus( final String status, final String message, final AttributeChangeStatusType type )
     {
         this.code = status;
         this.message = message;
+        this.type = type;
     }
 
     @JsonCreator
@@ -109,6 +120,16 @@ public enum AttributeChangeStatus
     public void setMessage( String message )
     {
         this.message = message;
+    }
+
+    public AttributeChangeStatusType getType( )
+    {
+        return type;
+    }
+
+    public void setType( final AttributeChangeStatusType type )
+    {
+        this.type = type;
     }
 
     @JsonIgnore
