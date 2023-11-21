@@ -125,12 +125,14 @@ public class IdentityDto
     protected List<AttributeDto> attributes = new ArrayList<>( );
 
     @JsonIgnore
-    public boolean isMerged() {
+    public boolean isMerged( )
+    {
         return this.getMerge( ) != null && this.getMerge( ).isMerged( );
     }
 
     @JsonIgnore
-    public boolean isNotMerged() {
+    public boolean isNotMerged( )
+    {
         return this.getMerge( ) == null || !this.getMerge( ).isMerged( );
     }
 
