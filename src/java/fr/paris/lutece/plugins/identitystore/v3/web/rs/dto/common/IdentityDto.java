@@ -124,6 +124,16 @@ public class IdentityDto
     @JsonProperty( "attributes" )
     protected List<AttributeDto> attributes = new ArrayList<>( );
 
+    @JsonIgnore
+    public boolean isMerged() {
+        return this.getMerge( ) != null && this.getMerge( ).isMerged( );
+    }
+
+    @JsonIgnore
+    public boolean isNotMerged() {
+        return this.getMerge( ) == null || !this.getMerge( ).isMerged( );
+    }
+
     public String getConnectionId( )
     {
         return connectionId;
