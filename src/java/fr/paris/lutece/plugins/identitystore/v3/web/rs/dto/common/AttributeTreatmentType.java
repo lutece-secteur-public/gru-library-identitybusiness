@@ -90,4 +90,9 @@ public enum AttributeTreatmentType
     {
         return "AttributeTreatmentType{" + ", name='" + this.name( ) + '\'' + "forRules=" + forRules + '}';
     }
+
+    public String getLabel( )
+    {
+        return this.name( );
+    }
 }
