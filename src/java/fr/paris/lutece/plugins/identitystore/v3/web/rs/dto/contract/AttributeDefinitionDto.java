@@ -45,6 +45,10 @@ public class AttributeDefinitionDto
     private boolean _bCertifiable;
     private boolean _bPivot;
     private int _nKeyWeight;
+    private boolean _bMandatoryForCreation;
+    private String _strValidationRegex;
+    private String _strValidationErrorMessage;
+    private String _strValidationErrorMessageKey;
     private AttributeRequirementDto attributeRequirement;
     private AttributeRightDto attributeRight;
     private List<CertificationProcessusDto> attributeCertifications = new ArrayList<>( );
@@ -117,6 +121,46 @@ public class AttributeDefinitionDto
     public void setKeyWeight( int nKeyWeight )
     {
         this._nKeyWeight = nKeyWeight;
+    }
+
+    public boolean isMandatoryForCreation( )
+    {
+        return _bMandatoryForCreation;
+    }
+
+    public void setMandatoryForCreation( boolean _bMandatoryForCreation )
+    {
+        this._bMandatoryForCreation = _bMandatoryForCreation;
+    }
+
+    public String getValidationRegex( )
+    {
+        return _strValidationRegex;
+    }
+
+    public void setValidationRegex( String _strValidationRegex )
+    {
+        this._strValidationRegex = _strValidationRegex;
+    }
+
+    public String getValidationErrorMessage( )
+    {
+        return _strValidationErrorMessage;
+    }
+
+    public void setValidationErrorMessage( String _strValidationErrorMessage )
+    {
+        this._strValidationErrorMessage = _strValidationErrorMessage;
+    }
+
+    public String getValidationErrorMessageKey( )
+    {
+        return _strValidationErrorMessageKey;
+    }
+
+    public void setValidationErrorMessageKey( String _strValidationErrorMessageKey )
+    {
+        this._strValidationErrorMessageKey = _strValidationErrorMessageKey;
     }
 
     public AttributeRequirementDto getAttributeRequirement( )
