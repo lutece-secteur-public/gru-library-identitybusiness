@@ -140,7 +140,7 @@ public final class IdentityRequestValidator extends RequestValidator
      * @param identityChange
      * @throws IdentityStoreException
      */
-    public void checkIdentityChange( IdentityChangeRequest identityChange, final boolean isUpdate ) throws IdentityStoreException
+    public void checkIdentityChange( final IdentityChangeRequest identityChange, final boolean isUpdate ) throws IdentityStoreException
     {
         if ( identityChange == null || identityChange.getIdentity( ) == null || identityChange.getIdentity( ).getAttributes( ) == null
                 || identityChange.getIdentity( ).getAttributes( ).isEmpty( ) )
@@ -157,9 +157,14 @@ public final class IdentityRequestValidator extends RequestValidator
         {
             throw new IdentityStoreException( "Provided attributes shall be fully certified (process + date)" );
         }
+
+        if ( !isUpdate && identityChange.getIdentity( ).getAttributes( ).stream( ).anyMatch( a -> a.getValue( ) == null || a.getValue( ).isEmpty( ) ) )
+        {
+            throw new IdentityStoreException( "You cannot provide empty attribute values for creating an identity." );
+        }
     }
 
-    public void checkIdentitySearch( IdentitySearchRequest identitySearch ) throws IdentityStoreException
+    public void checkIdentitySearch( final IdentitySearchRequest identitySearch ) throws IdentityStoreException
     {
         if ( StringUtils.isNotEmpty( identitySearch.getConnectionId( ) ) && identitySearch.getSearch( ) != null )
         {
@@ -169,6 +174,11 @@ public final class IdentityRequestValidator extends RequestValidator
                 || identitySearch.getSearch( ).getAttributes( ) == null || identitySearch.getSearch( ).getAttributes( ).isEmpty( ) ) )
         {
             throw new IdentityStoreException( "Provided Identity Search request is null or empty" );
+        }
+        if ( identitySearch.getSearch( ) != null && identitySearch.getSearch( ).getAttributes( ) != null
+                && identitySearch.getSearch( ).getAttributes( ).stream( ).anyMatch( a -> a.getValue( ) == null || a.getValue( ).isEmpty( ) ) )
+        {
+            throw new IdentityStoreException( "You cannot provide empty attribute values for searching identities." );
         }
     }
 
