@@ -114,7 +114,7 @@ public class CsvIdentityService
             final IdentityDto identityDto = new IdentityDto( );
             identityDto.setExternalCustomerId( csvIdentity.getExternalCustomerId( ) );
             identityDto.setCustomerId( csvIdentity.getCustomerId( ) );
-            if ( StringUtils.isNotEmpty( csvIdentity.getGenderValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getGenderCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getGenderValue( ) ) || StringUtils.isNotBlank( csvIdentity.getGenderCertifier( ) )
                     || csvIdentity.getGenderCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -124,7 +124,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getGenderCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getFamilyNameValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getFamilyNameCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getFamilyNameValue( ) ) || StringUtils.isNotBlank( csvIdentity.getFamilyNameCertifier( ) )
                     || csvIdentity.getFamilyNameCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -134,7 +134,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getGenderCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getPreferredUsernameValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getPreferredUsernameCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getPreferredUsernameValue( ) ) || StringUtils.isNotBlank( csvIdentity.getPreferredUsernameCertifier( ) )
                     || csvIdentity.getPreferredUsernameCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -144,7 +144,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getPreferredUsernameCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getFirstNameValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getFirstNameCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getFirstNameValue( ) ) || StringUtils.isNotBlank( csvIdentity.getFirstNameCertifier( ) )
                     || csvIdentity.getFirstNameCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -154,7 +154,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getFirstNameCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( csvIdentity.getBirthdateValue( ) != null || StringUtils.isNotEmpty( csvIdentity.getBirthdateCertifier( ) )
+            if ( csvIdentity.getBirthdateValue( ) != null || StringUtils.isNotBlank( csvIdentity.getBirthdateCertifier( ) )
                     || csvIdentity.getBirthdateCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -167,7 +167,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getBirthdateCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getBirthplaceCodeValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getBirthplaceCodeCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getBirthplaceCodeValue( ) ) || StringUtils.isNotBlank( csvIdentity.getBirthplaceCodeCertifier( ) )
                     || csvIdentity.getBirthplaceCodeCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -177,7 +177,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getBirthplaceCodeCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getBirthCountryCodeValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getBirthCountryCodeCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getBirthCountryCodeValue( ) ) || StringUtils.isNotBlank( csvIdentity.getBirthCountryCodeCertifier( ) )
                     || csvIdentity.getBirthCountryCodeCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -187,7 +187,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getBirthCountryCodeCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getBirthplaceValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getBirthplaceCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getBirthplaceValue( ) ) || StringUtils.isNotBlank( csvIdentity.getBirthplaceCertifier( ) )
                     || csvIdentity.getBirthplaceCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -197,7 +197,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getBirthplaceCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getBirthCountryValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getBirthCountryCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getBirthCountryValue( ) ) || StringUtils.isNotBlank( csvIdentity.getBirthCountryCertifier( ) )
                     || csvIdentity.getBirthCountryCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -207,7 +207,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getBirthCountryCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getEmailValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getEmailCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getEmailValue( ) ) || StringUtils.isNotBlank( csvIdentity.getEmailCertifier( ) )
                     || csvIdentity.getEmailCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -217,7 +217,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getEmailCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getLoginValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getLoginCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getLoginValue( ) ) || StringUtils.isNotBlank( csvIdentity.getLoginCertifier( ) )
                     || csvIdentity.getLoginCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -227,7 +227,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getLoginCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getMobilePhoneValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getMobilePhoneCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getMobilePhoneValue( ) ) || StringUtils.isNotBlank( csvIdentity.getMobilePhoneCertifier( ) )
                     || csvIdentity.getMobilePhoneCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -237,7 +237,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getMobilePhoneCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getFixedPhoneValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getFixedPhoneValue( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getFixedPhoneValue( ) ) || StringUtils.isNotBlank( csvIdentity.getFixedPhoneValue( ) )
                     || csvIdentity.getFixedPhoneCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -247,7 +247,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getFixedPhoneCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getAddressValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getAddressCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getAddressValue( ) ) || StringUtils.isNotBlank( csvIdentity.getAddressCertifier( ) )
                     || csvIdentity.getAddressCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -257,7 +257,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getAddressCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getAddressComplementValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getAddressComplementCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getAddressComplementValue( ) ) || StringUtils.isNotBlank( csvIdentity.getAddressComplementCertifier( ) )
                     || csvIdentity.getAddressComplementCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -267,7 +267,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getAddressComplementCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getAddressPostalCodeValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getAddressPostalCodeCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getAddressPostalCodeValue( ) ) || StringUtils.isNotBlank( csvIdentity.getAddressPostalCodeCertifier( ) )
                     || csvIdentity.getAddressPostalCodeCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -277,7 +277,7 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getAddressPostalCodeCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotEmpty( csvIdentity.getAddressCityValue( ) ) || StringUtils.isNotEmpty( csvIdentity.getAddressCityCertifier( ) )
+            if ( StringUtils.isNotBlank( csvIdentity.getAddressCityValue( ) ) || StringUtils.isNotBlank( csvIdentity.getAddressCityCertifier( ) )
                     || csvIdentity.getAddressCityCertificationDate( ) != null )
             {
                 final AttributeDto attributeDto = new AttributeDto( );
@@ -297,9 +297,11 @@ public class CsvIdentityService
         for ( final IdentityDto identity : identities )
         {
             final CsvIdentity csvIdentity = new CsvIdentity( );
-            csvIdentity.setExternalCustomerId( identity.getCustomerId( ) );
+            csvIdentity.setExternalCustomerId( identity.getExternalCustomerId( ) );
             csvIdentity.setCustomerId( identity.getCustomerId( ) );
-            for ( final AttributeDto attributeDto : identity.getAttributes( ) )
+            final List<AttributeDto> filledAttributes = identity.getAttributes( ).stream( )
+                    .filter( attributeDto -> StringUtils.isNotBlank( attributeDto.getValue( ) ) ).collect( Collectors.toList( ) );
+            for ( final AttributeDto attributeDto : filledAttributes )
             {
                 switch( attributeDto.getKey( ) )
                 {
@@ -326,7 +328,7 @@ public class CsvIdentityService
                     case Constants.PARAM_BIRTH_DATE:
                         try
                         {
-                            if ( StringUtils.isNotEmpty( attributeDto.getValue( ) ) )
+                            if ( StringUtils.isNotBlank( attributeDto.getValue( ) ) )
                             {
                                 csvIdentity.setBirthdateValue( DateUtils.parseDate( attributeDto.getValue( ), Constants.CSV_DATE_FORMAT ) );
                             }
