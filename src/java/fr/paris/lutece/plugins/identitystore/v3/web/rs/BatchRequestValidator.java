@@ -72,6 +72,10 @@ public class BatchRequestValidator extends RequestValidator
         {
             throw new IdentityStoreException( "Provided batch is empty, it should contain at least one Identity." );
         }
+        if ( StringUtils.isNotBlank( request.getBatch( ).getReference( ) ) )
+        {
+            throw new IdentityStoreException( "Providing a reference when creating a batch is forbidden." );
+        }
     }
 
     public void checkBatchStatusRequest( final BatchStatusRequest request ) throws IdentityStoreException
