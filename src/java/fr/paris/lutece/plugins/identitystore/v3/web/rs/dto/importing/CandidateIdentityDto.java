@@ -55,21 +55,14 @@ public class CandidateIdentityDto
     @JsonProperty( "status" )
     protected String status;
 
+    @JsonProperty( "status_description" )
+    protected String statusDescription;
+
+    @JsonProperty( "api_status" )
+    protected String apiStatus;
+
     @JsonProperty( "identity_history" )
     protected List<ImportingHistoryDto> identityHistory = new ArrayList<>( );
-
-    @JsonProperty( "attributes" )
-    protected List<CandidateIdentityAttributeDto> attributes = new ArrayList<>( );
-
-    public String getConnectionId( )
-    {
-        return connectionId;
-    }
-
-    public void setConnectionId( final String connectionId )
-    {
-        this.connectionId = connectionId;
-    }
 
     public String getCustomerId( )
     {
@@ -111,13 +104,29 @@ public class CandidateIdentityDto
         this.status = status;
     }
 
+    public String getStatusDescription( )
+    {
+        return statusDescription;
+    }
+
+    public void setStatusDescription( String statusDescription )
+    {
+        this.statusDescription = statusDescription;
+    }
+
+    public String getApiStatus( )
+    {
+        return apiStatus;
+    }
+
+    public void setApiStatus( String apiStatus )
+    {
+        this.apiStatus = apiStatus;
+    }
+
     public List<ImportingHistoryDto> getIdentityHistory( )
     {
         return identityHistory;
     }
 
-    public List<CandidateIdentityAttributeDto> getAttributes( )
-    {
-        return attributes;
-    }
 }

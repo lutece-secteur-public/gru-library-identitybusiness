@@ -44,14 +44,26 @@ public class BatchStatusDto
     @JsonProperty( "reference" )
     protected String reference;
 
+    @JsonProperty( "client_code" )
+    protected String clientCode;
+
+    @JsonProperty( "user" )
+    protected String user;
+
+    @JsonProperty( "comment" )
+    protected String comment;
+
+    @JsonProperty( "creation_date" )
+    protected Date creationDate;
+
     @JsonProperty( "status" )
     protected String status;
 
     @JsonProperty( "status_description" )
     protected String statusDescription;
 
-    @JsonProperty( "launch_date" )
-    protected Date launchDate;
+    @JsonProperty( "statistics" )
+    protected BatchStatisticsDto statistics;
 
     @JsonProperty( "batch_history" )
     protected List<ImportingHistoryDto> batchHistory = new ArrayList<>( );
@@ -79,6 +91,36 @@ public class BatchStatusDto
         this.status = status;
     }
 
+    public String getUser( )
+    {
+        return user;
+    }
+
+    public void setUser( String user )
+    {
+        this.user = user;
+    }
+
+    public String getComment( )
+    {
+        return comment;
+    }
+
+    public void setComment( String comment )
+    {
+        this.comment = comment;
+    }
+
+    public String getClientCode( )
+    {
+        return clientCode;
+    }
+
+    public void setClientCode( String clientCode )
+    {
+        this.clientCode = clientCode;
+    }
+
     public String getStatusDescription( )
     {
         return statusDescription;
@@ -89,14 +131,24 @@ public class BatchStatusDto
         this.statusDescription = statusDescription;
     }
 
-    public Date getLaunchDate( )
+    public BatchStatisticsDto getStatistics( )
     {
-        return launchDate;
+        return statistics;
     }
 
-    public void setLaunchDate( final Date launchDate )
+    public void setStatistics( BatchStatisticsDto statistics )
     {
-        this.launchDate = launchDate;
+        this.statistics = statistics;
+    }
+
+    public Date getCreationDate( )
+    {
+        return creationDate;
+    }
+
+    public void setCreationDate( Date creationDate )
+    {
+        this.creationDate = creationDate;
     }
 
     public List<ImportingHistoryDto> getBatchHistory( )
