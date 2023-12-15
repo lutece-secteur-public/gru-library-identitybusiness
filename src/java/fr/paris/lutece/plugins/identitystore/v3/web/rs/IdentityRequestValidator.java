@@ -34,6 +34,7 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application.ClientApplicationDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.AttributeDefinitionDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.ServiceContractDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.IdentityChangeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history.IdentityHistorySearchRequest;
@@ -43,6 +44,9 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.UpdatedIdentit
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  *
@@ -290,6 +294,18 @@ public final class IdentityRequestValidator extends RequestValidator
         if ( serviceContractDto.getStartingDate( ) == null )
         {
             throw new IdentityStoreException( "Provided ServiceContractDto must specify a starting date" );
+        }
+
+        if ( serviceContractDto.getAttributeDefinitions( ) != null && !serviceContractDto.getAttributeDefinitions( ).isEmpty( ) )
+        {
+            final Optional<AttributeDefinitionDto> malformedAttributeRequirement = serviceContractDto.getAttributeDefinitions( ).stream( )
+                    .filter( def -> def.getAttributeRight( ) != null && def.getAttributeRight( ).isMandatory( )
+                            && ( def.getAttributeRequirement( ) == null || def.getAttributeRequirement( ).getLevel( ) == null ) )
+                    .findAny( );
+            if ( malformedAttributeRequirement.isPresent( ) )
+            {
+                throw new IdentityStoreException( "Provided mandatory attributes must specify a minimum certification level" );
+            }
         }
     }
 
