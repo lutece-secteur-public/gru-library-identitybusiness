@@ -157,9 +157,19 @@ public final class IdentityRequestValidator extends RequestValidator
             throw new IdentityStoreException( "The identity's last update date must be provided." );
         }
 
+        if ( identityChange.getIdentity( ).getAttributes( ).stream( ).anyMatch( a -> a.getKey( ) == null || a.getKey( ).isEmpty( ) ) )
+        {
+            throw new IdentityStoreException( "Provided attributes shall specify their key." );
+        }
+
         if ( identityChange.getIdentity( ).getAttributes( ).stream( ).anyMatch( a -> !a.isCertified( ) ) )
         {
             throw new IdentityStoreException( "Provided attributes shall be fully certified (process + date)" );
+        }
+
+        if ( identityChange.getIdentity( ).getAttributes( ).stream( ).anyMatch( a -> a.getValue( ) == null ) )
+        {
+            throw new IdentityStoreException( "Provided attributes shall specify a value" );
         }
 
         if ( !isUpdate && identityChange.getIdentity( ).getAttributes( ).stream( ).anyMatch( a -> a.getValue( ) == null || a.getValue( ).isEmpty( ) ) )
