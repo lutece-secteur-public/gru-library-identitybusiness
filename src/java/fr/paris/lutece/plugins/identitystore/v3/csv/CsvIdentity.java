@@ -211,34 +211,18 @@ public class CsvIdentity
     private Date _dateEmailCertificationDate;
 
     /**
-     * LOGIN
-     */
-    @CsvBindByName( column = Constants.PARAM_LOGIN )
-    @CsvBindByPosition( position = 31 )
-    private String _strLoginValue;
-
-    @CsvBindByName( column = Constants.PARAM_CERTIFIER_LOGIN )
-    @CsvBindByPosition( position = 32 )
-    private String _strLoginCertifier;
-
-    @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_LOGIN )
-    @CsvBindByPosition( position = 33 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateLoginCertificationDate;
-
-    /**
      * MOBILE PHONE
      */
     @CsvBindByName( column = Constants.PARAM_MOBILE_PHONE )
-    @CsvBindByPosition( position = 34 )
+    @CsvBindByPosition( position = 31 )
     private String _strMobilePhoneValue;
 
     @CsvBindByName( column = Constants.PARAM_CERTIFIER_MOBILE_PHONE )
-    @CsvBindByPosition( position = 35 )
+    @CsvBindByPosition( position = 32 )
     private String _strMobilePhoneCertifier;
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_MOBILE_PHONE )
-    @CsvBindByPosition( position = 36 )
+    @CsvBindByPosition( position = 33 )
     @CsvDate( Constants.CSV_DATE_FORMAT )
     private Date _dateMobilePhoneCertificationDate;
 
@@ -246,15 +230,15 @@ public class CsvIdentity
      * FIXED PHONE
      */
     @CsvBindByName( column = Constants.PARAM_FIXED_PHONE )
-    @CsvBindByPosition( position = 37 )
+    @CsvBindByPosition( position = 34 )
     private String _strFixedPhoneValue;
 
     @CsvBindByName( column = Constants.PARAM_CERTIFIER_FIXED_PHONE )
-    @CsvBindByPosition( position = 38 )
+    @CsvBindByPosition( position = 35 )
     private String _strFixedPhoneCertifier;
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_FIXED_PHONE )
-    @CsvBindByPosition( position = 39 )
+    @CsvBindByPosition( position = 36 )
     @CsvDate( Constants.CSV_DATE_FORMAT )
     private Date _dateFixedPhoneCertificationDate;
 
@@ -262,15 +246,15 @@ public class CsvIdentity
      * ADDRESS
      */
     @CsvBindByName( column = Constants.PARAM_ADDRESS )
-    @CsvBindByPosition( position = 40 )
+    @CsvBindByPosition( position = 37 )
     private String _strAddressValue;
 
     @CsvBindByName( column = Constants.PARAM_CERTIFIER_ADDRESS )
-    @CsvBindByPosition( position = 41 )
+    @CsvBindByPosition( position = 38 )
     private String _strAddressCertifier;
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_ADDRESS )
-    @CsvBindByPosition( position = 42 )
+    @CsvBindByPosition( position = 39 )
     @CsvDate( Constants.CSV_DATE_FORMAT )
     private Date _dateAddressCertificationDate;
 
@@ -278,15 +262,15 @@ public class CsvIdentity
      * ADDRESS COMPLEMENT
      */
     @CsvBindByName( column = Constants.PARAM_ADDRESS_COMPLEMENT )
-    @CsvBindByPosition( position = 43 )
+    @CsvBindByPosition( position = 40 )
     private String _strAddressComplementValue;
 
     @CsvBindByName( column = Constants.PARAM_CERTIFIER_ADDRESS_COMPLEMENT )
-    @CsvBindByPosition( position = 44 )
+    @CsvBindByPosition( position = 41 )
     private String _strAddressComplementCertifier;
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_ADDRESS_COMPLEMENT )
-    @CsvBindByPosition( position = 45 )
+    @CsvBindByPosition( position = 42 )
     @CsvDate( Constants.CSV_DATE_FORMAT )
     private Date _dateAddressComplementCertificationDate;
 
@@ -294,15 +278,15 @@ public class CsvIdentity
      * ADDRESS POSTAL CODE
      */
     @CsvBindByName( column = Constants.PARAM_ADDRESS_POSTAL_CODE )
-    @CsvBindByPosition( position = 46 )
+    @CsvBindByPosition( position = 43 )
     private String _strAddressPostalCodeValue;
 
     @CsvBindByName( column = Constants.PARAM_CERTIFIER_ADDRESS_POSTAL_CODE )
-    @CsvBindByPosition( position = 47 )
+    @CsvBindByPosition( position = 44 )
     private String _strAddressPostalCodeCertifier;
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_ADDRESS_POSTAL_CODE )
-    @CsvBindByPosition( position = 48 )
+    @CsvBindByPosition( position = 45 )
     @CsvDate( Constants.CSV_DATE_FORMAT )
     private Date _dateAddressPostalCodeCertificationDate;
 
@@ -310,15 +294,15 @@ public class CsvIdentity
      * ADDRESS CITY
      */
     @CsvBindByName( column = Constants.PARAM_ADDRESS_CITY )
-    @CsvBindByPosition( position = 49 )
+    @CsvBindByPosition( position = 46 )
     private String _strAddressCityValue;
 
     @CsvBindByName( column = Constants.PARAM_CERTIFIER_ADDRESS_CITY )
-    @CsvBindByPosition( position = 50 )
+    @CsvBindByPosition( position = 47 )
     private String _strAddressCityCertifier;
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_ADDRESS_CITY )
-    @CsvBindByPosition( position = 51 )
+    @CsvBindByPosition( position = 48 )
     @CsvDate( Constants.CSV_DATE_FORMAT )
     private Date _dateAddressCityCertificationDate;
 
@@ -326,7 +310,7 @@ public class CsvIdentity
      * Internal Customer ID
      */
     @CsvBindByName( column = Constants.PARAM_ID_CUSTOMER )
-    @CsvBindByPosition( position = 52 )
+    @CsvBindByPosition( position = 49 )
     private String _strCustomerId;
 
     public String getExternalCustomerId( )
@@ -647,36 +631,6 @@ public class CsvIdentity
     public void setEmailCertificationDate( Date _dateEmailCertificationDate )
     {
         this._dateEmailCertificationDate = _dateEmailCertificationDate;
-    }
-
-    public String getLoginValue( )
-    {
-        return _strLoginValue;
-    }
-
-    public void setLoginValue( String _strLoginValue )
-    {
-        this._strLoginValue = _strLoginValue;
-    }
-
-    public String getLoginCertifier( )
-    {
-        return _strLoginCertifier;
-    }
-
-    public void setLoginCertifier( String _strLoginCertifier )
-    {
-        this._strLoginCertifier = _strLoginCertifier;
-    }
-
-    public Date getLoginCertificationDate( )
-    {
-        return _dateLoginCertificationDate;
-    }
-
-    public void setLoginCertificationDate( Date _dateLoginCertificationDate )
-    {
-        this._dateLoginCertificationDate = _dateLoginCertificationDate;
     }
 
     public String getMobilePhoneValue( )

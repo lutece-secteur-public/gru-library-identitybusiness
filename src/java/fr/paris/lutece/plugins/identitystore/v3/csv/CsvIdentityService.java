@@ -217,16 +217,6 @@ public class CsvIdentityService
                 attributeDto.setCertificationDate( csvIdentity.getEmailCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
-            if ( StringUtils.isNotBlank( csvIdentity.getLoginValue( ) ) || StringUtils.isNotBlank( csvIdentity.getLoginCertifier( ) )
-                    || csvIdentity.getLoginCertificationDate( ) != null )
-            {
-                final AttributeDto attributeDto = new AttributeDto( );
-                attributeDto.setKey( Constants.PARAM_LOGIN );
-                attributeDto.setValue( csvIdentity.getLoginValue( ) );
-                attributeDto.setCertifier( csvIdentity.getLoginCertifier( ) );
-                attributeDto.setCertificationDate( csvIdentity.getLoginCertificationDate( ) );
-                identityDto.getAttributes( ).add( attributeDto );
-            }
             if ( StringUtils.isNotBlank( csvIdentity.getMobilePhoneValue( ) ) || StringUtils.isNotBlank( csvIdentity.getMobilePhoneCertifier( ) )
                     || csvIdentity.getMobilePhoneCertificationDate( ) != null )
             {
@@ -369,11 +359,6 @@ public class CsvIdentityService
                         csvIdentity.setEmailValue( attributeDto.getValue( ) );
                         csvIdentity.setEmailCertifier( attributeDto.getCertifier( ) );
                         csvIdentity.setEmailCertificationDate( attributeDto.getCertificationDate( ) );
-                        break;
-                    case Constants.PARAM_LOGIN:
-                        csvIdentity.setLoginValue( attributeDto.getValue( ) );
-                        csvIdentity.setLoginCertifier( attributeDto.getCertifier( ) );
-                        csvIdentity.setLoginCertificationDate( attributeDto.getCertificationDate( ) );
                         break;
                     case Constants.PARAM_MOBILE_PHONE:
                         csvIdentity.setMobilePhoneValue( attributeDto.getValue( ) );
