@@ -168,6 +168,7 @@ public final class Constants
     /** Referential */
     public static final String REFERENTIAL_PATH = "/referential";
     public static final String REFERENTIAL_LEVEL_PATH = "/level";
+    public static final String REFERENTIAL_ATTRIBUTE_KEYS_PATH = "/attributes";
     public static final String REFERENTIAL_PROCESSUS_PATH = "/processus";
 
     /** Import */
@@ -253,6 +254,7 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_NO_HISTORY_FOUND = "identitystore.rest.error.no.history.found";
     public static final String PROPERTY_REST_ERROR_NO_DUPLICATE_RULE_FOUND = "identitystore.rest.error.no.duplicate.rule.found";
     public static final String PROPERTY_REST_ERROR_NO_CERTIFICATION_LEVEL_FOUND = "identitystore.rest.error.no.certification.level.found";
+    public static final String PROPERTY_REST_ERROR_NO_ATTRIBUTE_KEYS_FOUND = "identitystore.rest.error.no.atribute.key.found";
     public static final String PROPERTY_REST_ERROR_NO_CERTIFICATION_PROCESSUS_FOUND = "identitystore.rest.error.no.certification.processus.found";
     public static final String PROPERTY_REST_ERROR_NO_UPDATED_IDENTITY_FOUND = "identitystore.rest.error.no.updated.identity.found";
     public static final String PROPERTY_REST_ERROR_ALREADY_EXCLUDED = "identitystore.rest.error.already.excluded";

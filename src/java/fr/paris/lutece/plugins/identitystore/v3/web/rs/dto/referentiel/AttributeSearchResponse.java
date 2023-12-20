@@ -31,46 +31,25 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.referentiel;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeKeyDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AttributeDefinitionDto extends AttributeKeyDto
+public class AttributeSearchResponse extends ResponseDto
 {
-    private AttributeRequirementDto attributeRequirement;
-    private AttributeRightDto attributeRight;
-    private List<CertificationProcessusDto> attributeCertifications = new ArrayList<>( );
+    protected List<AttributeKeyDto> _listAttributeKeys = new ArrayList<>( );
 
-    public AttributeRequirementDto getAttributeRequirement( )
+    public List<AttributeKeyDto> getAttributeKeys( )
     {
-        return attributeRequirement;
+        return _listAttributeKeys;
     }
 
-    public void setAttributeRequirement( AttributeRequirementDto attributeRequirement )
+    public void setAttributeKeys( List<AttributeKeyDto> attributeKeys )
     {
-        this.attributeRequirement = attributeRequirement;
-    }
-
-    public AttributeRightDto getAttributeRight( )
-    {
-        return attributeRight;
-    }
-
-    public void setAttributeRight( AttributeRightDto attributeRight )
-    {
-        this.attributeRight = attributeRight;
-    }
-
-    public List<CertificationProcessusDto> getAttributeCertifications( )
-    {
-        return attributeCertifications;
-    }
-
-    public void setAttributeCertifications( List<CertificationProcessusDto> attributeCertifications )
-    {
-        this.attributeCertifications = attributeCertifications;
+        this._listAttributeKeys = attributeKeys;
     }
 }
