@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2023, City of Paris
+ * Copyright (c) 2002-2024, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -215,6 +215,7 @@ public final class Constants
     public static final String PROPERTY_REST_PAGINATION_START_ERROR = "identitystore.rest.error.pagination.start";
     public static final String PROPERTY_REST_PAGINATION_END_ERROR = "identitystore.rest.error.pagination.end";
     public static final String PROPERTY_REST_ERROR_NO_IDENTITY_FOUND = "identitystore.rest.error.no.identity.found";
+    public static final String PROPERTY_REST_ERROR_IDENTITY_DELETED = "identitystore.rest.error.identity.deleted";
     public static final String PROPERTY_REST_ERROR_NO_SERVICE_CONTRACT_FOUND = "identitystore.rest.error.no.service.contract.found";
     public static final String PROPERTY_REST_ERROR_DAYS_NUMERIC_FORMAT = "identitystore.rest.error.days.numeric.format";
     public static final String PROPERTY_REST_ERROR_CLIENT_ALREADY_EXISTS = "identitystore.rest.error.client.already.exists";
