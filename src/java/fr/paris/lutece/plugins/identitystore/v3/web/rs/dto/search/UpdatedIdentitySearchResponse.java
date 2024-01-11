@@ -34,13 +34,13 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.PagedResponseDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.UpdatedIdentityDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpdatedIdentitySearchResponse extends ResponseDto
+public class UpdatedIdentitySearchResponse extends PagedResponseDto
 {
     @JsonProperty( "updated_identity_list" )
     protected List<UpdatedIdentityDto> updatedIdentityList = new ArrayList<>( );

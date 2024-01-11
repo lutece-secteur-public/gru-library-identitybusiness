@@ -59,6 +59,24 @@ public class UpdatedIdentitySearchRequest
     @JsonProperty( "updated_attributes" )
     protected List<SearchUpdatedAttribute> updatedAttributes = new ArrayList<>( );
 
+    /**
+     * Size of each page
+     */
+    @JsonProperty( "size" )
+    private Integer size;
+
+    /**
+     * Desired page number
+     */
+    @JsonProperty( "page" )
+    private Integer page;
+
+    /**
+     * Query result limit
+     */
+    @JsonProperty( "max" )
+    private Integer max;
+
     public Integer getDays( )
     {
         return days;
@@ -77,5 +95,35 @@ public class UpdatedIdentitySearchRequest
     public List<SearchUpdatedAttribute> getUpdatedAttributes( )
     {
         return updatedAttributes;
+    }
+
+    public Integer getSize( )
+    {
+        return size;
+    }
+
+    public void setSize( final Integer size )
+    {
+        this.size = size;
+    }
+
+    public Integer getPage( )
+    {
+        return page;
+    }
+
+    public void setPage( final Integer page )
+    {
+        this.page = page;
+    }
+
+    public Integer getMax( )
+    {
+        return max;
+    }
+
+    public void setMax( final Integer max )
+    {
+        this.max = max;
     }
 }
