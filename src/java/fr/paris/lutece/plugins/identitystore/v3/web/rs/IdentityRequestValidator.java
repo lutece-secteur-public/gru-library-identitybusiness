@@ -37,6 +37,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application.ClientApp
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.AttributeDefinitionDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.ServiceContractDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.IdentityChangeRequest;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.exporting.IdentityExportRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history.IdentityHistorySearchRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.merge.IdentityMergeRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.IdentitySearchRequest;
@@ -351,6 +352,22 @@ public final class IdentityRequestValidator extends RequestValidator
                 && updatedIdentitySearchRequest.getUpdatedAttributes( ).isEmpty( ) && updatedIdentitySearchRequest.getIdentityChangeTypes( ).isEmpty( ) ) )
         {
             throw new IdentityStoreException( "Provided Updated Identity Search request is null or empty" );
+        }
+    }
+
+    /**
+     * Check whether the Identity Export Request is valid or not
+     *
+     * @param request
+     *            the request
+     * @throws IdentityStoreException
+     *             if the request is null or contains an empty or null CUID list
+     */
+    public void checkExportRequest( final IdentityExportRequest request ) throws IdentityStoreException
+    {
+        if ( request == null || request.getCuidList( ) == null || request.getCuidList( ).isEmpty( ) )
+        {
+            throw new IdentityStoreException( "Provided request is null or contains an empty CUID list" );
         }
     }
 }

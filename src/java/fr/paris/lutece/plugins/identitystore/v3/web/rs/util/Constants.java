@@ -54,6 +54,7 @@ public final class Constants
     public static final String MERGE_IDENTITIES_PATH = "/merge";
     public static final String CANCEL_MERGE_IDENTITIES_PATH = "/unmerge";
     public static final String APPLICATION_RIGHTS_PATH = "/apprights";
+    public static final String EXPORT_IDENTITIES_PATH = "/export";
     public static final String PARAM_AUTHOR_NAME = "author_name";
     public static final String PARAM_AUTHOR_TYPE = "author_type";
 
