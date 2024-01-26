@@ -214,6 +214,7 @@ public final class Constants
     /** REST message properties */
     public static final String PROPERTY_REST_ERROR_DURING_TREATMENT = "identitystore.rest.error.during.treatment";
     public static final String PROPERTY_REST_PAGINATION_START_ERROR = "identitystore.rest.error.pagination.start";
+    public static final String PROPERTY_REST_PAGE_SIZE_ERROR = "identitystore.rest.error.page.size";
     public static final String PROPERTY_REST_PAGINATION_END_ERROR = "identitystore.rest.error.pagination.end";
     public static final String PROPERTY_REST_ERROR_NO_IDENTITY_FOUND = "identitystore.rest.error.no.identity.found";
     public static final String PROPERTY_REST_ERROR_IDENTITY_DELETED = "identitystore.rest.error.identity.deleted";
