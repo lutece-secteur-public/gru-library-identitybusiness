@@ -129,9 +129,9 @@ public class CsvIdentityService
             {
                 final AttributeDto attributeDto = new AttributeDto( );
                 attributeDto.setKey( Constants.PARAM_FAMILY_NAME );
-                attributeDto.setValue( csvIdentity.getGenderValue( ) );
-                attributeDto.setCertifier( csvIdentity.getGenderCertifier( ) );
-                attributeDto.setCertificationDate( csvIdentity.getGenderCertificationDate( ) );
+                attributeDto.setValue( csvIdentity.getFamilyNameValue( ) );
+                attributeDto.setCertifier( csvIdentity.getFamilyNameCertifier( ) );
+                attributeDto.setCertificationDate( csvIdentity.getFamilyNameCertificationDate( ) );
                 identityDto.getAttributes( ).add( attributeDto );
             }
             if ( StringUtils.isNotBlank( csvIdentity.getPreferredUsernameValue( ) ) || StringUtils.isNotBlank( csvIdentity.getPreferredUsernameCertifier( ) )
