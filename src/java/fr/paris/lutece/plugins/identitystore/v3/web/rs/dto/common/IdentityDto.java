@@ -113,6 +113,13 @@ public class IdentityDto
     protected IdentityDuplicateDefinition duplicateDefinition;
 
     /**
+     * Propriété renseignée lors d'une recherche de doublons potentiels. Si cette identité fait partie des résultats de la recherche, ce champ contiendra le
+     * code de la règle de détection de doublon ayant matché.
+     */
+    @JsonProperty( "matched_duplicate_rule_code" )
+    protected String matchedDuplicateRuleCode;
+
+    /**
      * Flag indiquant si l'identité figure dans les doublons suspectés
      */
     @JsonProperty( "suspicious" )
@@ -250,6 +257,16 @@ public class IdentityDto
     public void setDuplicateDefinition( IdentityDuplicateDefinition duplicateDefinition )
     {
         this.duplicateDefinition = duplicateDefinition;
+    }
+
+    public String getMatchedDuplicateRuleCode( )
+    {
+        return matchedDuplicateRuleCode;
+    }
+
+    public void setMatchedDuplicateRuleCode( final String matchedDuplicateRuleCode )
+    {
+        this.matchedDuplicateRuleCode = matchedDuplicateRuleCode;
     }
 
     public Boolean isSuspicious( )
