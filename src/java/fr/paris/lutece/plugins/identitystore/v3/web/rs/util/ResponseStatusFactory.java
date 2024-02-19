@@ -97,4 +97,27 @@ public class ResponseStatusFactory
     {
         return new ResponseStatus( 200, NOT_FOUND );
     }
+
+    public static ResponseStatus fromHttpCode( final int httpCode )
+    {
+        switch( httpCode )
+        {
+            case 200:
+                return ok( );
+            case 201:
+                return success( );
+            case 400:
+                return badRequest( );
+            case 401:
+                return unauthorized( );
+            case 403:
+                return failure( );
+            case 404:
+                return notFound( );
+            case 409:
+                return conflict( );
+            default:
+                return internalServerError( );
+        }
+    }
 }
