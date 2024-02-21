@@ -229,6 +229,11 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_MERGE_UNAUTHORIZED = "identitystore.rest.error.merge.unauthorized";
     public static final String PROPERTY_REST_ERROR_IMPORT_UNAUTHORIZED = "identitystore.rest.error.import.unauthorized";
     public static final String PROPERTY_REST_ERROR_NO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.error.no.potential.duplicate.found";
+    public static final String PROPERTY_REST_ERROR_NO_DUPLICATE_RULE_CODE_SENT = "identitystore.rest.error.no.duplicate.rule.code.sent";
+    public static final String PROPERTY_REST_ERROR_NO_ATTRIBUTE_SENT = "identitystore.rest.error.no.attribute.sent";
+    public static final String PROPERTY_REST_ERROR_UNKNOWN_DUPLICATE_RULE_CODE = "identitystore.rest.error.unknown.duplicate.rule.code";
+    public static final String PROPERTY_REST_ERROR_INACTIVE_DUPLICATE_RULE = "identitystore.rest.error.inactive.duplicate.rule";
+    public static final String PROPERTY_REST_ERROR_UNKNOWN_ATTRIBUTE_KEY = "identitystore.rest.error.unknown.attribute.key";
     public static final String PROPERTY_REST_ERROR_CREATE_UNAUTHORIZED = "identitystore.rest.error.create.unauthorized";
     public static final String PROPERTY_REST_ERROR_MISSING_MANDATORY_ATTRIBUTES = "identitystore.rest.error.missing.mandatory.attributes";
     public static final String PROPERTY_REST_ERROR_UPDATE_UNAUTHORIZED = "identitystore.rest.error.update.unauthorized";
