@@ -199,10 +199,17 @@ public final class IdentityRequestValidator extends RequestValidator
 
     public void checkIdentityHistory( IdentityHistorySearchRequest request ) throws IdentityStoreException
     {
-        if ( StringUtils.isAllEmpty( request.getCustomerId( ), request.getAuthorName( ), request.getClientCode( ) ) && request.getMetadata( ).isEmpty( )
-                && request.getIdentityChangeType( ) == null )
+        if ( StringUtils.isAllEmpty( request.getCustomerId( ), request.getAuthorName( ), request.getClientCode( ), request.getChangeStatus( ) )
+                && request.getMetadata( ).isEmpty( ) && request.getIdentityChangeType( ) == null && request.getModificationDateIntervalStart( ) == null
+                && request.getModificationDateIntervalEnd( ) == null )
         {
             throw new IdentityStoreException( "Provided Identity history Search request is null or empty" );
+        }
+        if ( request.getNbDaysFrom( ) != null && request.getNbDaysFrom( ) != 0
+                && ( request.getModificationDateIntervalStart( ) != null || request.getModificationDateIntervalEnd( ) != null ) )
+        {
+            throw new IdentityStoreException(
+                    "Provided Identity history Search request is invalid : providing both 'nb_days_from' and a date interval is forbidden." );
         }
     }
 

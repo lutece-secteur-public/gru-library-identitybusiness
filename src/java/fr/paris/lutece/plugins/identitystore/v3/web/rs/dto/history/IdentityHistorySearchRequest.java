@@ -35,6 +35,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,11 +53,20 @@ public class IdentityHistorySearchRequest
     @JsonProperty( "change_type" )
     protected IdentityChangeType _identityChangeType;
 
+    @JsonProperty( "change_status" )
+    protected String _strChangeStatus;
+
     @JsonProperty( "metadata" )
     protected Map<String, String> metadata = new HashMap<>( );
 
     @JsonProperty( "nb_days_from" )
     protected Integer _nbDaysFrom;
+
+    @JsonProperty( "modification_date_interval_start" )
+    protected Date _dateModificationDateIntervalStart;
+
+    @JsonProperty( "modification_date_interval_end" )
+    protected Date _dateModificationDateIntervalEnd;
 
     public String getClientCode( )
     {
@@ -98,6 +108,16 @@ public class IdentityHistorySearchRequest
         this._identityChangeType = _identityChangeType;
     }
 
+    public String getChangeStatus( )
+    {
+        return _strChangeStatus;
+    }
+
+    public void setChangeStatus( final String changeStatus )
+    {
+        this._strChangeStatus = changeStatus;
+    }
+
     public Map<String, String> getMetadata( )
     {
         return metadata;
@@ -116,5 +136,25 @@ public class IdentityHistorySearchRequest
     public void setNbDaysFrom( Integer _nbDaysFrom )
     {
         this._nbDaysFrom = _nbDaysFrom;
+    }
+
+    public Date getModificationDateIntervalStart( )
+    {
+        return _dateModificationDateIntervalStart;
+    }
+
+    public void setModificationDateIntervalStart( final Date modificationDateIntervalStart )
+    {
+        this._dateModificationDateIntervalStart = modificationDateIntervalStart;
+    }
+
+    public Date getModificationDateIntervalEnd( )
+    {
+        return _dateModificationDateIntervalEnd;
+    }
+
+    public void setModificationDateIntervalEnd( final Date modificationDateIntervalEnd )
+    {
+        this._dateModificationDateIntervalEnd = modificationDateIntervalEnd;
     }
 }
