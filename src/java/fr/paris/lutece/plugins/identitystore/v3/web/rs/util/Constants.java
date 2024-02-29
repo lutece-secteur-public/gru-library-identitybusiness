@@ -85,6 +85,7 @@ public final class Constants
     public static final String ID = "id";
     public static final String ID_PATH = "/{" + Constants.ID + "}";
     public static final String EMPTY_OBJECT = "{}";
+    public static final String GEOCODE_MAIN_COUNTRY_CODE = "99100";
 
     /** The Constant CONTENT_FORMAT. */
     public static final String CONTENT_FORMAT_CHARSET = "application/json; charset=utf-8";
