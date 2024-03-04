@@ -10,7 +10,7 @@
 	<groupId>fr.paris.lutece.plugins</groupId>
 	<artifactId>library-identitybusiness</artifactId>
 	<packaging>jar</packaging>
-	<version>3.1.4</version>
+	<version>3.1.5-SNAPSHOT</version>
 	<name>Lutece identity business library</name>
 
 	<properties>
