@@ -40,13 +40,15 @@ public class IdentityStoreException extends Exception
 {
     private static final long serialVersionUID = -7405725124800547672L;
 
+    private final String localeMessageKey;
+
     /**
      * @param strError
      *            error message
      */
-    public IdentityStoreException( String strError )
+    public IdentityStoreException( final String strError )
     {
-        super( strError );
+        this( strError, (String) null );
     }
 
     /**
@@ -55,8 +57,37 @@ public class IdentityStoreException extends Exception
      * @param error
      *            error exception
      */
-    public IdentityStoreException( String strError, Exception error )
+    public IdentityStoreException( final String strError, final Exception error )
+    {
+        this( strError, error, null );
+    }
+
+    /**
+     * @param strError
+     *            error message
+     * @param localeMessageKey
+     *            local message key
+     */
+    public IdentityStoreException( final String strError, final String localeMessageKey )
+    {
+        super( strError );
+        this.localeMessageKey = localeMessageKey;
+    }
+
+    /**
+     * @param strError
+     *            error message
+     * @param error
+     *            error exception
+     */
+    public IdentityStoreException( final String strError, final Exception error, final String localeMessageKey )
     {
         super( strError, error );
+        this.localeMessageKey = localeMessageKey;
+    }
+
+    public String getLocaleMessageKey( )
+    {
+        return localeMessageKey;
     }
 }
