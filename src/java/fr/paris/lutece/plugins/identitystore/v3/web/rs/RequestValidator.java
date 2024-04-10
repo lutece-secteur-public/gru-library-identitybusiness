@@ -36,6 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.RequestAuthor;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
+import fr.paris.lutece.plugins.identitystore.web.exception.RequestFormatException;
 import org.apache.commons.lang3.StringUtils;
 
 public abstract class RequestValidator
@@ -45,20 +46,21 @@ public abstract class RequestValidator
      *
      * @param author
      *            the request author to validate
-     * @throws IdentityStoreException
+     * @throws RequestFormatException
      *             in case of error
      */
-    public void checkAuthor( RequestAuthor author ) throws IdentityStoreException
+    public void checkAuthor( RequestAuthor author ) throws RequestFormatException
     {
 
         if ( author == null )
         {
-            throw new IdentityStoreException( "Provided Author is null" );
+            throw new RequestFormatException( "Provided Author is null", Constants.PROPERTY_REST_ERROR_MISSING_AUTHOR_NAME_AND_TYPE_HEADERS );
         }
 
         if ( StringUtils.isEmpty( author.getName( ) ) || author.getType( ) == null )
         {
-            throw new IdentityStoreException( "Author and author type fields shall be set" );
+            throw new RequestFormatException( "Author and author type fields shall be set",
+                    Constants.PROPERTY_REST_ERROR_MISSING_AUTHOR_NAME_AND_TYPE_HEADERS );
         }
 
     }
@@ -68,14 +70,14 @@ public abstract class RequestValidator
      *
      * @param strClientCode
      *            client application code
-     * @throws IdentityStoreException
+     * @throws RequestFormatException
      *             if the parameters are not valid
      */
-    public void checkClientCode( String strClientCode ) throws IdentityStoreException
+    public void checkClientCode( String strClientCode ) throws RequestFormatException
     {
         if ( StringUtils.isBlank( strClientCode ) )
         {
-            throw new IdentityStoreException( Constants.PARAM_CLIENT_CODE + " is missing" );
+            throw new RequestFormatException( Constants.PARAM_CLIENT_CODE + " is missing", Constants.PROPERTY_REST_ERROR_MISSING_CLIENT_CODE );
         }
     }
 
@@ -84,14 +86,14 @@ public abstract class RequestValidator
      *
      * @param strTargetClientCode
      *            target client application code
-     * @throws IdentityStoreException
+     * @throws RequestFormatException
      *             if the parameters are not valid
      */
-    public void checkTargetClientCode( String strTargetClientCode ) throws IdentityStoreException
+    public void checkTargetClientCode( final String strTargetClientCode ) throws RequestFormatException
     {
         if ( StringUtils.isBlank( strTargetClientCode ) )
         {
-            throw new IdentityStoreException( Constants.PARAM_TARGET_CLIENT_CODE + " is missing" );
+            throw new RequestFormatException( "target_client_code is missing", Constants.PROPERTY_REST_ERROR_MISSING_TARGET_CLIENT_CODE );
         }
     }
 
@@ -100,14 +102,14 @@ public abstract class RequestValidator
      *
      * @param strApplicationCode
      *            client application code
-     * @throws IdentityStoreException
+     * @throws RequestFormatException
      *             if the parameters are not valid
      */
-    public void checkApplicationCode( String strApplicationCode ) throws IdentityStoreException
+    public void checkApplicationCode( String strApplicationCode ) throws RequestFormatException
     {
         if ( StringUtils.isBlank( strApplicationCode ) )
         {
-            throw new IdentityStoreException( Constants.PARAM_APPLICATION_CODE + " is missing" );
+            throw new RequestFormatException( "application_code is missing", Constants.PROPERTY_REST_ERROR_MISSING_APPLICATION_CODE );
         }
     }
 }
