@@ -33,18 +33,38 @@
  */
 package fr.paris.lutece.plugins.identitystore.web.exception;
 
-public class IdentityDeletedException extends IdentityStoreException
-{
-    private static final long serialVersionUID = 1L;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.IdentitySearchResponse;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.ResponseStatusFactory;
 
-    /**
-     * constructor
-     * 
-     * @param strError
-     */
-    public IdentityDeletedException( String strError )
+public class ResourceConsistencyException extends IdentityStoreException
+{
+
+    private final ResponseDto response;
+
+    public ResourceConsistencyException( final String strErrorMsg, final String strErrorMsgKey )
     {
-        super( strError );
+        super( strErrorMsg, strErrorMsgKey );
+        response = new ResponseDto( );
+        response.setStatus( ResponseStatusFactory.conflict( ).setMessage( strErrorMsg ).setMessageKey( strErrorMsgKey ) );
     }
 
+    public ResourceConsistencyException( final String strErrorMsg, final String strErrorMsgKey, final Class<? extends ResponseDto> responseClass )
+    {
+        super( strErrorMsg, strErrorMsgKey );
+        try
+        {
+            response = responseClass.newInstance( );
+        }
+        catch( final Exception e )
+        {
+            throw new RuntimeException( e );
+        }
+        this.response.setStatus( ResponseStatusFactory.conflict( ).setMessage( strErrorMsg ).setMessageKey( strErrorMsgKey ) );
+    }
+
+    public ResponseDto getResponse( )
+    {
+        return response;
+    }
 }

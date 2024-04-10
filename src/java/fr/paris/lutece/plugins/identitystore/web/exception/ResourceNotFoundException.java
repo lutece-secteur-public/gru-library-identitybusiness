@@ -31,17 +31,24 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
+package fr.paris.lutece.plugins.identitystore.web.exception;
 
-public enum ResponseStatusType
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.ResponseStatusFactory;
+
+public class ResourceNotFoundException extends IdentityStoreException
 {
-    OK,
-    SUCCESS,
-    INCOMPLETE_SUCCESS,
-    BAD_REQUEST,
-    UNAUTHORIZED,
-    FORBIDDEN,
-    NOT_FOUND,
-    CONFLICT,
-    INTERNAL_SERVER_ERROR
+
+    private final ResponseDto response = new ResponseDto( );
+
+    public ResourceNotFoundException( final String strErrorMsg, final String strErrorMsgKey )
+    {
+        super( strErrorMsg, strErrorMsgKey );
+        this.response.setStatus( ResponseStatusFactory.notFound( ).setMessage( strErrorMsg ).setMessageKey( strErrorMsgKey ) );
+    }
+
+    public ResponseDto getResponse( )
+    {
+        return response;
+    }
 }

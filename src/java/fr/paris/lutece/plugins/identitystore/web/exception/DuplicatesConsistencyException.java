@@ -33,34 +33,36 @@
  */
 package fr.paris.lutece.plugins.identitystore.web.exception;
 
-/**
- *
- * Exception thrown when no identity is found during a query
- *
- */
-public class IdentityNotFoundException extends IdentityStoreException
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.ResponseStatusFactory;
+
+public class DuplicatesConsistencyException extends IdentityStoreException
 {
-    private static final long serialVersionUID = 1L;
+    private final ResponseDto response;
 
-    /**
-     * constructor
-     * 
-     * @param strError
-     */
-    public IdentityNotFoundException( String strError )
+    public DuplicatesConsistencyException( final String strErrorMsg, final String strErrorMsgKey )
     {
-        super( strError );
+        super( strErrorMsg, strErrorMsgKey );
+        response = new ResponseDto( );
+        this.response.setStatus( ResponseStatusFactory.conflict( ).setMessage( strErrorMsg ).setMessageKey( strErrorMsgKey ) );
     }
 
-    /**
-     * @param strError
-     *            error message
-     * @param error
-     *            error exception
-     */
-    public IdentityNotFoundException( String strError, Exception error )
+    public DuplicatesConsistencyException( final String strErrorMsg, final String strErrorMsgKey, final Class<? extends ResponseDto> responseClass )
     {
-        super( strError, error );
+        super( strErrorMsg, strErrorMsgKey );
+        try
+        {
+            response = responseClass.newInstance( );
+        }
+        catch( final Exception e )
+        {
+            throw new RuntimeException( e );
+        }
+        this.response.setStatus( ResponseStatusFactory.conflict( ).setMessage( strErrorMsg ).setMessageKey( strErrorMsgKey ) );
     }
 
+    public ResponseDto getResponse( )
+    {
+        return response;
+    }
 }

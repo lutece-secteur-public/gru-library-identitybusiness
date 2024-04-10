@@ -37,7 +37,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatus
 
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.BAD_REQUEST;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.CONFLICT;
-import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.FAILURE;
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.FORBIDDEN;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.INCOMPLETE_SUCCESS;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.INTERNAL_SERVER_ERROR;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatusType.NOT_FOUND;
@@ -73,9 +73,9 @@ public class ResponseStatusFactory
         return new ResponseStatus( 401, UNAUTHORIZED );
     }
 
-    public static ResponseStatus failure( )
+    public static ResponseStatus forbidden( )
     {
-        return new ResponseStatus( 403, FAILURE );
+        return new ResponseStatus( 403, FORBIDDEN );
     }
 
     public static ResponseStatus notFound( )
@@ -111,7 +111,7 @@ public class ResponseStatusFactory
             case 401:
                 return unauthorized( );
             case 403:
-                return failure( );
+                return forbidden( );
             case 404:
                 return notFound( );
             case 409:

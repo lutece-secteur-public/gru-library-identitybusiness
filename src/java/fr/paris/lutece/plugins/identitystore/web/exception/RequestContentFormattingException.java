@@ -31,17 +31,39 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
+package fr.paris.lutece.plugins.identitystore.web.exception;
 
-public enum ResponseStatusType
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.ResponseStatusFactory;
+
+public class RequestContentFormattingException extends IdentityStoreException
 {
-    OK,
-    SUCCESS,
-    INCOMPLETE_SUCCESS,
-    BAD_REQUEST,
-    UNAUTHORIZED,
-    FORBIDDEN,
-    NOT_FOUND,
-    CONFLICT,
-    INTERNAL_SERVER_ERROR
+
+    private final ResponseDto response;
+
+    public RequestContentFormattingException( final String strErrorMsg, final String strErrorMsgKey )
+    {
+        super( strErrorMsg, strErrorMsgKey );
+        response = new ResponseDto( );
+        this.response.setStatus( ResponseStatusFactory.conflict( ).setMessage( strErrorMsg ).setMessageKey( strErrorMsgKey ) );
+    }
+
+    public RequestContentFormattingException( final String strErrorMsg, final String strErrorMsgKey, final Class<? extends ResponseDto> responseClass )
+    {
+        super( strErrorMsg, strErrorMsgKey );
+        try
+        {
+            response = responseClass.newInstance( );
+        }
+        catch( final Exception e )
+        {
+            throw new RuntimeException( e );
+        }
+        this.response.setStatus( ResponseStatusFactory.conflict( ).setMessage( strErrorMsg ).setMessageKey( strErrorMsgKey ) );
+    }
+
+    public ResponseDto getResponse( )
+    {
+        return response;
+    }
 }

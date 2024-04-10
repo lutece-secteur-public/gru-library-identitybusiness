@@ -143,6 +143,12 @@ public class IdentityDto
         return this.getMerge( ) == null || !this.getMerge( ).isMerged( );
     }
 
+    @JsonIgnore
+    public boolean isDeleted( )
+    {
+        return this.getExpiration( ) != null && this.getExpiration( ).isDeleted( );
+    }
+
     public String getConnectionId( )
     {
         return connectionId;

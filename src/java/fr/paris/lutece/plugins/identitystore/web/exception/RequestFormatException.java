@@ -31,17 +31,37 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
+package fr.paris.lutece.plugins.identitystore.web.exception;
 
-public enum ResponseStatusType
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.IdentitySearchMessage;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.IdentitySearchResponse;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.ResponseStatusFactory;
+
+import java.util.List;
+
+public class RequestFormatException extends IdentityStoreException
 {
-    OK,
-    SUCCESS,
-    INCOMPLETE_SUCCESS,
-    BAD_REQUEST,
-    UNAUTHORIZED,
-    FORBIDDEN,
-    NOT_FOUND,
-    CONFLICT,
-    INTERNAL_SERVER_ERROR
+
+    private final ResponseDto response;
+
+    public RequestFormatException( final String strErrorMsg, final String strErrorMsgKey )
+    {
+        super( strErrorMsg, strErrorMsgKey );
+        this.response = new ResponseDto( );
+        this.response.setStatus( ResponseStatusFactory.badRequest( ).setMessage( strErrorMsg ).setMessageKey( strErrorMsgKey ) );
+    }
+
+    public RequestFormatException( final String strErrorMsg, final String strErrorMsgKey, final List<IdentitySearchMessage> alerts )
+    {
+        super( strErrorMsg, strErrorMsgKey );
+        this.response = new IdentitySearchResponse( );
+        this.response.setStatus( ResponseStatusFactory.badRequest( ).setMessage( strErrorMsg ).setMessageKey( strErrorMsgKey ) );
+        ( (IdentitySearchResponse) this.response ).getAlerts( ).addAll( alerts );
+    }
+
+    public ResponseDto getResponse( )
+    {
+        return response;
+    }
 }

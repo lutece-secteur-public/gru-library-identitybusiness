@@ -40,6 +40,7 @@ import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.lock.SuspiciousIdenti
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.search.DuplicateSearchRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
+import fr.paris.lutece.plugins.identitystore.web.exception.RequestFormatException;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -82,24 +83,24 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
      * 
      * @param request
      *            the request
-     * @throws IdentityStoreException
+     * @throws RequestFormatException
      *             if params are not valid
      */
-    public void checkDuplicateSearch( final DuplicateSearchRequest request ) throws IdentityStoreException
+    public void checkDuplicateSearch( final DuplicateSearchRequest request ) throws RequestFormatException
     {
         if ( request == null )
         {
-            throw new IdentityStoreException( "Provided duplicate search request is null" );
+            throw new RequestFormatException( "Provided duplicate search request is null", Constants.PROPERTY_REST_ERROR_DUPLICATE_SEARCH_REQUEST_NULL );
         }
 
         if ( request.getRuleCodes( ) == null || request.getRuleCodes( ).isEmpty( ) )
         {
-            throw new IdentityStoreException( "Provided duplicate search request must define at least one rule code" );
+            throw new RequestFormatException( "Provided duplicate search request must define at least one rule code", Constants.PROPERTY_REST_ERROR_NO_DUPLICATE_RULE_CODE_SENT );
         }
 
         if ( request.getAttributes( ) == null || request.getAttributes( ).isEmpty( ) )
         {
-            throw new IdentityStoreException( "Provided duplicate search request must define at least one attribute" );
+            throw new RequestFormatException( "Provided duplicate search request must define at least one attribute", Constants.PROPERTY_REST_ERROR_NO_ATTRIBUTE_SENT );
         }
     }
 
@@ -108,14 +109,22 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
      *
      * @param request
      *            the request
-     * @throws IdentityStoreException
+     * @throws RequestFormatException
      *             if params are not valid
      */
-    public void checkSuspiciousIdentitySearch( final SuspiciousIdentitySearchRequest request ) throws IdentityStoreException
+    public void checkSuspiciousIdentitySearch( final SuspiciousIdentitySearchRequest request ) throws RequestFormatException
     {
         if ( request == null )
         {
-            throw new IdentityStoreException( "Provided suspicious identity search request is null" );
+            throw new RequestFormatException("Provided suspicious identity search request is null", Constants.PROPERTY_REST_ERROR_SUSPICIOUS_SEARCH_REQUEST_NULL);
+        }
+        if ( request.getPage( ) != null && request.getPage( ) < 1 )
+        {
+            throw new RequestFormatException( "Pagination should start at index 1", Constants.PROPERTY_REST_PAGINATION_START_ERROR );
+        }
+        if ( request.getSize( ) != null && request.getSize( ) < 1 )
+        {
+            throw new RequestFormatException( "Page size should be of at least 1", Constants.PROPERTY_REST_PAGE_SIZE_ERROR );
         }
     }
 
@@ -125,11 +134,11 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
      * @param request
      * @throws IdentityStoreException
      */
-    public void checkSuspiciousIdentityChange( SuspiciousIdentityChangeRequest request ) throws IdentityStoreException
+    public void checkSuspiciousIdentityChange( SuspiciousIdentityChangeRequest request ) throws RequestFormatException
     {
         if ( request == null || request.getSuspiciousIdentity( ) == null )
         {
-            throw new IdentityStoreException( "Provided Suspicious Identity Change request is null or empty" );
+            throw new RequestFormatException( "Provided Suspicious Identity Change request is null or empty", Constants.PROPERTY_REST_ERROR_SUSPICIOUS_CHANGE_REQUEST_NULL_OR_EMPTY );
         }
     }
 
@@ -139,11 +148,11 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
      * @param request
      * @throws IdentityStoreException
      */
-    public void checkLockRequest( SuspiciousIdentityLockRequest request ) throws IdentityStoreException
+    public void checkLockRequest( final SuspiciousIdentityLockRequest request ) throws RequestFormatException
     {
         if ( request == null || request.getCustomerId( ) == null )
         {
-            throw new IdentityStoreException( "Provided Suspicious Lock request is null or empty" );
+            throw new RequestFormatException( "Provided Suspicious Lock request is null or empty", Constants.PROPERTY_REST_ERROR_SUSPICIOUS_LOCK_REQUEST_NULL_OR_EMPTY );
         }
     }
 
@@ -153,21 +162,21 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
      * @param request
      * @throws IdentityStoreException
      */
-    public void checkSuspiciousIdentityChange( SuspiciousIdentityExcludeRequest request ) throws IdentityStoreException
+    public void checkSuspiciousIdentityExclude( final SuspiciousIdentityExcludeRequest request ) throws RequestFormatException
     {
         if ( request == null )
         {
-            throw new IdentityStoreException( "The provided request is null or empty." );
+            throw new RequestFormatException( "The provided request is null or empty.", Constants.PROPERTY_REST_ERROR_SUSPICIOUS_EXCLUDE_REQUEST_NULL_OR_EMPTY );
         }
 
         if ( StringUtils.isEmpty( request.getIdentityCuid1( ) ) )
         {
-            throw new IdentityStoreException( "Parameter identity_cuid_1 is missing." );
+            throw new RequestFormatException( "Parameter identity_cuid_1 is missing.", Constants.PROPERTY_REST_ERROR_MISSING_FIRST_CUID );
         }
 
         if ( StringUtils.isEmpty( request.getIdentityCuid2( ) ) )
         {
-            throw new IdentityStoreException( "Parameter identity_cuid_2 is missing." );
+            throw new RequestFormatException( "Parameter identity_cuid_2 is missing.", Constants.PROPERTY_REST_ERROR_MISSING_SECOND_CUID );
         }
     }
 
@@ -179,11 +188,11 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
      * @throws IdentityStoreException
      *             if the parameters are not valid
      */
-    public void checkCustomerId( String strCustomerId ) throws IdentityStoreException
+    public void checkCustomerId( String strCustomerId ) throws RequestFormatException
     {
         if ( StringUtils.isBlank( strCustomerId ) )
         {
-            throw new IdentityStoreException( Constants.PARAM_ID_CUSTOMER + " is missing." );
+            throw new RequestFormatException( Constants.PARAM_ID_CUSTOMER + " is missing.", Constants.PROPERTY_REST_ERROR_MISSING_CUSTOMER_ID );
         }
     }
 
@@ -195,11 +204,11 @@ public final class SuspiciousIdentityRequestValidator extends RequestValidator
      * @throws IdentityStoreException
      *             if the parameters are not valid
      */
-    public void checkRuleCode( String strRuleCode ) throws IdentityStoreException
+    public void checkRuleCode( final String strRuleCode ) throws RequestFormatException
     {
         if ( StringUtils.isBlank( strRuleCode ) )
         {
-            throw new IdentityStoreException( Constants.PARAM_RULE_CODE + " is missing." );
+            throw new RequestFormatException( Constants.PARAM_RULE_CODE + " is missing.", Constants.PROPERTY_REST_ERROR_MISSING_RULE_CODE );
         }
     }
 }
