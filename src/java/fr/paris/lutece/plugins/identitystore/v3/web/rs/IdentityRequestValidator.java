@@ -251,11 +251,11 @@ public final class IdentityRequestValidator extends RequestValidator
         }
     }
 
-    public void checkIdentityHistory( IdentityHistorySearchRequest request ) throws RequestFormatException
+    public void checkIdentityHistory( final IdentityHistorySearchRequest request ) throws RequestFormatException
     {
-        if ( StringUtils.isAllEmpty( request.getCustomerId( ), request.getAuthorName( ), request.getClientCode( ), request.getChangeStatus( ) )
-                && request.getMetadata( ).isEmpty( ) && request.getIdentityChangeType( ) == null && request.getModificationDateIntervalStart( ) == null
-                && request.getModificationDateIntervalEnd( ) == null )
+        if (StringUtils.isAllEmpty( request.getCustomerId( ), request.getAuthorName( ), request.getClientCode( ), request.getChangeStatus( ) )
+            && (request.getMetadata() == null || request.getMetadata().isEmpty()) && request.getIdentityChangeType() == null && request.getModificationDateIntervalStart() == null
+                        && request.getModificationDateIntervalEnd( ) == null && (request.getNbDaysFrom() == null || request.getNbDaysFrom() == 0 ) )
         {
             throw new RequestFormatException( "Provided Identity history Search request is null or empty", Constants.PROPERTY_REST_ERROR_HISTORY_SEARCH_EMPTY );
         }
@@ -369,16 +369,11 @@ public final class IdentityRequestValidator extends RequestValidator
             throw new RequestFormatException( "Provided service contract is null", Constants.PROPERTY_REST_ERROR_PROVIDED_SERVICE_CONTRACT_NULL );
         }
 
-        if ( StringUtils.isEmpty( serviceContractDto.getClientCode( ) ) )
-        {
-            throw new RequestFormatException( "Provided ServiceContractDto must specify a target client code",
-                    Constants.PROPERTY_REST_ERROR_SERVICE_CONTRACT_WITHOUT_CLIENT_CODE );
-        }
-
-        if ( serviceContractDto.getStartingDate( ) == null )
-        {
-            throw new RequestFormatException( "Provided ServiceContractDto must specify a starting date",
-                    Constants.PROPERTY_REST_ERROR_SERVICE_CONTRACT_WITHOUT_START_DATE );
+        if(serviceContractDto.getStartingDate() == null || StringUtils.isEmpty( serviceContractDto.getClientCode( ) ) ||
+           serviceContractDto.getName() == null || serviceContractDto.getMoaContactName() == null || serviceContractDto.getMoaEntityName() == null ||
+           serviceContractDto.getMoeEntityName() == null || serviceContractDto.getMoeResponsibleName() == null || serviceContractDto.getServiceType() == null){
+            throw new RequestFormatException("Provided ServiceContractDto must specify those fields : clientCode, startingDate, name, moaEntityName, moaContactName, moeResponsibleName, moeEntityName, serviceType",
+                                             Constants.PROPERTY_REST_ERROR_SERVICE_CONTRACT_WITHOUT_MANDATORY_FIELDS);
         }
 
         if ( serviceContractDto.getAttributeDefinitions( ) != null && !serviceContractDto.getAttributeDefinitions( ).isEmpty( ) )

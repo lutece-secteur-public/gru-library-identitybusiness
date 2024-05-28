@@ -328,6 +328,7 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_MISSING_SERVICE_CONTRACT_ID = "identitystore.rest.error.missing.service.contract.id";
     public static final String PROPERTY_REST_ERROR_PROVIDED_SERVICE_CONTRACT_NULL = "identitystore.rest.error.provided.service.contract.null";
     public static final String PROPERTY_REST_ERROR_SERVICE_CONTRACT_WITHOUT_CLIENT_CODE = "identitystore.rest.error.service.contract.without.client.code";
+    public static final String PROPERTY_REST_ERROR_SERVICE_CONTRACT_WITHOUT_MANDATORY_FIELDS = "identitystore.rest.error.service.contract.without.mandatory.fields";
     public static final String PROPERTY_REST_ERROR_SERVICE_CONTRACT_WITHOUT_START_DATE = "identitystore.rest.error.service.contract.without.start.date";
     public static final String PROPERTY_REST_ERROR_SERVICE_CONTRACT_WITHOUT_END_DATE = "identitystore.rest.error.service.contract.without.end.date";
     public static final String PROPERTY_REST_ERROR_SERVICE_CONTRACT_MANDATORY_ATTRIBUTES_MINIMUM_CERTIFICATION = "identitystore.rest.error.service.contract.mandatory.attributes.minimum.certification";
