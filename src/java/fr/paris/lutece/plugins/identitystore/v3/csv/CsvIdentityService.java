@@ -39,6 +39,7 @@ import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IdentityDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history.IdentityChange;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
 import org.apache.commons.lang3.StringUtils;
@@ -99,6 +100,26 @@ public class CsvIdentityService
             final StatefulBeanToCsv<CsvIdentity> identitiesWriter = new StatefulBeanToCsvBuilder<CsvIdentity>( writer ).withMappingStrategy( mappingStrategy )
                     .withOrderedResults( true ).withSeparator( Constants.CSV_SEPARATOR ).withApplyQuotesToAll( false ).build( );
             identitiesWriter.write( this.extractCsvIdentities( identities ) );
+            writer.close( );
+            return out.toByteArray( );
+        }
+        catch( Exception e )
+        {
+            throw new IdentityStoreException( "An error occurred while exporting csv identities. ", e );
+        }
+    }
+
+    public byte [ ] writeChange( final List<IdentityChange> identities ) throws IdentityStoreException
+    {
+        try
+        {
+            final ByteArrayOutputStream out = new ByteArrayOutputStream( );
+            final Writer writer = new OutputStreamWriter( out );
+            final CustomMappingStrategy<CsvIdentityChange> mappingStrategy = new CustomMappingStrategy<>( );
+            mappingStrategy.setType( CsvIdentityChange.class );
+            final StatefulBeanToCsv<CsvIdentityChange> identitiesWriter = new StatefulBeanToCsvBuilder<CsvIdentityChange>( writer ).withMappingStrategy( mappingStrategy )
+                    .withOrderedResults( true ).withSeparator( Constants.CSV_SEPARATOR ).withApplyQuotesToAll( false ).build( );
+            identitiesWriter.write( this.extractCsvIdentitiesChange( identities ) );
             writer.close( );
             return out.toByteArray( );
         }
@@ -394,6 +415,25 @@ public class CsvIdentityService
                         break;
                 }
             }
+            list.add( csvIdentity );
+        }
+        return list;
+    }
+
+    public List<CsvIdentityChange> extractCsvIdentitiesChange( final List<IdentityChange> identities ) throws IdentityStoreException
+    {
+        final List<CsvIdentityChange> list = new ArrayList<>( );
+        for ( final IdentityChange identity : identities )
+        {
+            final CsvIdentityChange csvIdentity = new CsvIdentityChange( );
+            csvIdentity.setCustomerId( identity.getCustomerId( ) );
+            csvIdentity.setChangeType( identity.getChangeType( ).name() );
+            csvIdentity.setStatus( identity.getChangeStatus( ) );
+            csvIdentity.setModificationDate( identity.getModificationDate( ).toString() );
+            csvIdentity.setAuthorType( identity.getAuthor( ).getType().name() );
+            csvIdentity.setAuthorName( identity.getAuthor().getName() );
+            csvIdentity.setClientCode( identity.getClientCode( ) );
+
             list.add( csvIdentity );
         }
         return list;

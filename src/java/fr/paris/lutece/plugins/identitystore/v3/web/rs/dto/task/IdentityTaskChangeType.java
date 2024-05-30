@@ -31,76 +31,12 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
-
-@JsonInclude( NON_NULL )
-public class AttributeStatus
+public enum IdentityTaskChangeType
 {
-
-    @JsonProperty( "key" )
-    protected String key;
-
-    @JsonProperty( "status" )
-    protected AttributeChangeStatus status;
-
-    @JsonProperty( "message" )
-    protected String message;
-
-    @JsonProperty( "message_key" )
-    protected String messageKey;
-
-    public String getKey( )
-    {
-        return key;
-    }
-
-    public void setKey( String key )
-    {
-        this.key = key;
-    }
-
-    public AttributeChangeStatus getStatus( )
-    {
-        return status;
-    }
-
-    public void setStatus( AttributeChangeStatus status )
-    {
-        this.status = status;
-    }
-
-    public String getMessage( )
-    {
-        return message;
-    }
-
-    public void setMessage( String message )
-    {
-        this.message = message;
-    }
-
-    public String getMessageKey( )
-    {
-        return messageKey;
-    }
-
-    public void setMessageKey( final String messageKey )
-    {
-        this.messageKey = messageKey;
-    }
-
-    @Override
-    public String toString() {
-        return "AttributeStatus{" +
-                "key='" + key + '\'' +
-                ", status=" + status +
-                ", message='" + message + '\'' +
-                ", messageKey='" + messageKey + '\'' +
-                '}';
-    }
+    CREATED,
+    UPDATED,
+    DELETED,
+    REFUSED
 }

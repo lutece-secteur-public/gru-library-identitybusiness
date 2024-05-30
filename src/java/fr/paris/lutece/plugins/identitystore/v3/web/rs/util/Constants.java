@@ -57,6 +57,7 @@ public final class Constants
     public static final String EXPORT_IDENTITIES_PATH = "/export";
     public static final String PARAM_AUTHOR_NAME = "author_name";
     public static final String PARAM_AUTHOR_TYPE = "author_type";
+    public static final String PARAM_MODIFICATION_DATE = "modification_date";
 
     public static final String PARAM_CLIENT_CODE = "client_code";
     public static final String PARAM_TARGET_CLIENT_CODE = "target_client_code";
@@ -74,6 +75,21 @@ public final class Constants
     public static final String PARAMETER_NAME = "name";
     public static final String CERTIFY_ATTRIBUTES_PATH = "/certify";
     public static final String UNCERTIFY_ATTRIBUTES_PATH = "/uncertify";
+
+    public static final String CONSTANT_DEFAULT_IDENTITY_PATH = "/identity";
+    public static final String CONSTANT_DEFAULT_TASKSTACK_PATH = "/taskstack";
+
+    /**
+     * Tasks
+     */
+    public static final String TASK_PATH = "/task";
+    public static final String TASK_STATUS_PATH = "/status";
+    public static final String SEARCH_TASK_PATH = "/search";
+    public static final String PARAM_RESOURCE_ID = "resource_id";
+    public static final String PARAM_RESOURCE_TYPE = "resource_type";
+    public static final String PARAM_CHANGE_TYPE = "change_type";
+    public static final String PARAM_CHANGE_STATUS = "status";
+
 
     /** Geocodes */
     public static final String SEARCH_PATH = "/search/{" + Constants.SEARCHED_STRING + "}";
@@ -351,6 +367,7 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_DUPLICATE_SEARCH_REQUEST_NULL = "identitystore.rest.error.duplicate.search.request.null";
     public static final String PROPERTY_REST_ERROR_SUSPICIOUS_LOCK_REQUEST_NULL_OR_EMPTY = "identitystore.rest.error.suspicious.lock.request.null.or.empty";
     public static final String PROPERTY_REST_ERROR_END_DATE_BEFORE_START_DATE = "identitystore.rest.error.end.date.before.start.date";
+    public static final String PROPERTY_REST_ERROR_EXPORT_UNAUTHORIZED = "identitystore.rest.error.export.unauthorized";
 
     public static final String PROPERTY_REST_INFO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.potential.duplicate.found";
     public static final String PROPERTY_REST_INFO_SUCCESSFUL_OPERATION = "identitystore.rest.info.successful.operation";
