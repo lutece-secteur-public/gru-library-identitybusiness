@@ -72,4 +72,12 @@ public class RequestAuthor
     {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "RequestAuthor{" +
+                "name='" + name + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }

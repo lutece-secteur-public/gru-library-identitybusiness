@@ -88,7 +88,7 @@ public enum AttributeTreatmentType
     @Override
     public String toString( )
     {
-        return "AttributeTreatmentType{" + ", name='" + this.name( ) + '\'' + "forRules=" + forRules + '}';
+        return "AttributeTreatmentType{" + " name='" + this.name( ) + '\'' + "forRules=" + forRules + '}';
     }
 
     public String getLabel( )

@@ -31,76 +31,79 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.RequestAuthor;
 
-import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
+import java.sql.Timestamp;
 
-@JsonInclude( NON_NULL )
-public class AttributeStatus
+public class IdentityTaskChangeDto
 {
+    @JsonProperty("task_code")
+    private String taskCode;
 
-    @JsonProperty( "key" )
-    protected String key;
+    @JsonProperty("request_author")
+    private RequestAuthor author;
 
-    @JsonProperty( "status" )
-    protected AttributeChangeStatus status;
+    @JsonProperty("client_code")
+    private String clientCode;
 
-    @JsonProperty( "message" )
-    protected String message;
+    @JsonProperty("task_status")
+    private IdentityTaskStatusType taskStatus;
 
-    @JsonProperty( "message_key" )
-    protected String messageKey;
+    @JsonProperty("task_change_type")
+    private IdentityTaskChangeType taskChangeType;
 
-    public String getKey( )
-    {
-        return key;
+    @JsonProperty("task_change_date")
+    private Timestamp taskChangeDate;
+
+    public String getTaskCode() {
+        return taskCode;
     }
 
-    public void setKey( String key )
-    {
-        this.key = key;
+    public void setTaskCode(String taskCode) {
+        this.taskCode = taskCode;
     }
 
-    public AttributeChangeStatus getStatus( )
-    {
-        return status;
+    public RequestAuthor getAuthor() {
+        return author;
     }
 
-    public void setStatus( AttributeChangeStatus status )
-    {
-        this.status = status;
+    public void setAuthor(RequestAuthor author) {
+        this.author = author;
     }
 
-    public String getMessage( )
-    {
-        return message;
+    public String getClientCode() {
+        return clientCode;
     }
 
-    public void setMessage( String message )
-    {
-        this.message = message;
+    public void setClientCode(String clientCode) {
+        this.clientCode = clientCode;
     }
 
-    public String getMessageKey( )
-    {
-        return messageKey;
+    public IdentityTaskStatusType getTaskStatus() {
+        return taskStatus;
     }
 
-    public void setMessageKey( final String messageKey )
-    {
-        this.messageKey = messageKey;
+    public void setTaskStatus(IdentityTaskStatusType taskStatus) {
+        this.taskStatus = taskStatus;
     }
 
-    @Override
-    public String toString() {
-        return "AttributeStatus{" +
-                "key='" + key + '\'' +
-                ", status=" + status +
-                ", message='" + message + '\'' +
-                ", messageKey='" + messageKey + '\'' +
-                '}';
+    public IdentityTaskChangeType getTaskChangeType() {
+        return taskChangeType;
+    }
+
+    public void setTaskChangeType(IdentityTaskChangeType taskChangeType) {
+        this.taskChangeType = taskChangeType;
+    }
+
+    public Timestamp getTaskChangeDate() {
+        return taskChangeDate;
+    }
+
+    public void setTaskChangeDate(Timestamp taskChangeDate) {
+        this.taskChangeDate = taskChangeDate;
     }
 }

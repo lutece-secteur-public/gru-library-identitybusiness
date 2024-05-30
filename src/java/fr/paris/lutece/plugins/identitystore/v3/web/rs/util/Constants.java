@@ -57,6 +57,7 @@ public final class Constants
     public static final String EXPORT_IDENTITIES_PATH = "/export";
     public static final String PARAM_AUTHOR_NAME = "author_name";
     public static final String PARAM_AUTHOR_TYPE = "author_type";
+    public static final String PARAM_MODIFICATION_DATE = "modification_date";
 
     public static final String PARAM_CLIENT_CODE = "client_code";
     public static final String PARAM_TARGET_CLIENT_CODE = "target_client_code";
@@ -74,6 +75,21 @@ public final class Constants
     public static final String PARAMETER_NAME = "name";
     public static final String CERTIFY_ATTRIBUTES_PATH = "/certify";
     public static final String UNCERTIFY_ATTRIBUTES_PATH = "/uncertify";
+    
+    public static final String CONSTANT_DEFAULT_IDENTITY_PATH = "/identity";
+    public static final String CONSTANT_DEFAULT_TASKSTACK_PATH = "/taskstack";
+
+    /**
+     * Tasks
+     */
+    public static final String TASK_PATH = "/task";
+    public static final String TASK_STATUS_PATH = "/status";
+    public static final String SEARCH_TASK_PATH = "/search";
+    public static final String PARAM_RESOURCE_ID = "resource_id";
+    public static final String PARAM_RESOURCE_TYPE = "resource_type";
+    public static final String PARAM_CHANGE_TYPE = "change_type";
+    public static final String PARAM_CHANGE_STATUS = "status";
+
 
     /** Geocodes */
     public static final String SEARCH_PATH = "/search/{" + Constants.SEARCHED_STRING + "}";
@@ -211,6 +227,7 @@ public final class Constants
     public static final String METADATA_MERGED_CHILD_IDENTITY_CUID = "merged_child_identity_cuid";
     public static final String METADATA_UNMERGED_MASTER_CUID = "unmerged_master_cuid";
     public static final String METADATA_UNMERGED_CHILD_CUID = "unmerged_child_cuid";
+    public static final String METADATA_ACCOUNT_MERGE_SECOND_CUID = "account_merge_second_cuid";
 
     /** Global Properties */
     public static final String PROPERTY_APPLICATION_VERSION = "identitystore.version";
@@ -285,6 +302,7 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_IDENTITY_ALL_PIVOT_ATTRIBUTE_SAME_CERTIFICATION = "identitystore.rest.error.identity.all.pivot.attribute.same.certification";
     public static final String PROPERTY_REST_ERROR_IDENTITY_FORBIDDEN_PIVOT_ATTRIBUTE_DELETION = "identitystore.rest.error.identity.forbidden.pivot.attribute.deletion";
     public static final String PROPERTY_REST_ERROR_EXPORT_LIMIT_EXCEEDED = "identitystore.rest.error.export.limit.exceeded";
+    public static final String PROPERTY_REST_ERROR_EXPORT_UNAUTHORIZED = "identitystore.rest.error.export.unauthorized";
 
     public static final String PROPERTY_REST_INFO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.potential.duplicate.found";
     public static final String PROPERTY_REST_INFO_SUCCESSFUL_OPERATION = "identitystore.rest.info.successful.operation";
