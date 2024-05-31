@@ -350,6 +350,7 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_MISSING_RULE_CODE = "identitystore.rest.error.missing.rule.code";
     public static final String PROPERTY_REST_ERROR_DUPLICATE_SEARCH_REQUEST_NULL = "identitystore.rest.error.duplicate.search.request.null";
     public static final String PROPERTY_REST_ERROR_SUSPICIOUS_LOCK_REQUEST_NULL_OR_EMPTY = "identitystore.rest.error.suspicious.lock.request.null.or.empty";
+    public static final String PROPERTY_REST_ERROR_END_DATE_BEFORE_START_DATE = "identitystore.rest.error.end.date.before.start.date";
 
     public static final String PROPERTY_REST_INFO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.potential.duplicate.found";
     public static final String PROPERTY_REST_INFO_SUCCESSFUL_OPERATION = "identitystore.rest.info.successful.operation";
