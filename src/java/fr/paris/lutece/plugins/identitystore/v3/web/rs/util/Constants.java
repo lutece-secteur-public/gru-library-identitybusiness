@@ -285,6 +285,7 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_IDENTITY_ALL_PIVOT_ATTRIBUTE_SAME_CERTIFICATION = "identitystore.rest.error.identity.all.pivot.attribute.same.certification";
     public static final String PROPERTY_REST_ERROR_IDENTITY_FORBIDDEN_PIVOT_ATTRIBUTE_DELETION = "identitystore.rest.error.identity.forbidden.pivot.attribute.deletion";
     public static final String PROPERTY_REST_ERROR_EXPORT_LIMIT_EXCEEDED = "identitystore.rest.error.export.limit.exceeded";
+    public static final String PROPERTY_REST_ERROR_EXPORT_UNAUTHORIZED = "identitystore.rest.error.export.unauthorized";
 
     public static final String PROPERTY_REST_INFO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.potential.duplicate.found";
     public static final String PROPERTY_REST_INFO_SUCCESSFUL_OPERATION = "identitystore.rest.info.successful.operation";
