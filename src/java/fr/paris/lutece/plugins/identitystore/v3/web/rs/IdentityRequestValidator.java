@@ -211,8 +211,7 @@ public final class IdentityRequestValidator extends RequestValidator
             for ( final List<AttributeDto> duplicateAttrList : duplicateAttrLists )
             {
                 final long diffValueDuplicateCount = duplicateAttrList.stream( ).map( AttributeDto::getValue )
-                        .collect( Collectors.groupingBy( Function.identity( ), Collectors.counting( ) ) ).entrySet( ).stream( )
-                        .filter( entry -> entry.getValue( ) > 1 ).count( );
+                        .collect( Collectors.groupingBy( Function.identity( ), Collectors.counting( ) ) ).size();
                 if ( diffValueDuplicateCount > 1 )
                 {
                     throw new RequestFormatException( "You cannot provide the same attribute multiple times with different values",
@@ -253,9 +252,9 @@ public final class IdentityRequestValidator extends RequestValidator
 
     public void checkIdentityHistory( final IdentityHistorySearchRequest request ) throws RequestFormatException
     {
-        if (StringUtils.isAllEmpty( request.getCustomerId( ), request.getAuthorName( ), request.getClientCode( ), request.getChangeStatus( ) )
+        if (request == null || (StringUtils.isAllEmpty( request.getCustomerId( ), request.getAuthorName( ), request.getClientCode( ), request.getChangeStatus( ) )
             && (request.getMetadata() == null || request.getMetadata().isEmpty()) && request.getIdentityChangeType() == null && request.getModificationDateIntervalStart() == null
-                        && request.getModificationDateIntervalEnd( ) == null && (request.getNbDaysFrom() == null || request.getNbDaysFrom() == 0 ) )
+                        && request.getModificationDateIntervalEnd( ) == null && (request.getNbDaysFrom() == null || request.getNbDaysFrom() == 0 ) ))
         {
             throw new RequestFormatException( "Provided Identity history Search request is null or empty", Constants.PROPERTY_REST_ERROR_HISTORY_SEARCH_EMPTY );
         }
@@ -265,6 +264,12 @@ public final class IdentityRequestValidator extends RequestValidator
             throw new RequestFormatException(
                     "Provided Identity history Search request is invalid : providing both 'nb_days_from' and a date interval is forbidden.",
                     Constants.PROPERTY_REST_ERROR_HISTORY_SEARCH_INVALID );
+        }
+        if (request.getModificationDateIntervalStart() != null && request.getModificationDateIntervalEnd() != null &&
+            request.getModificationDateIntervalEnd().before(request.getModificationDateIntervalStart())) {
+            throw new RequestFormatException(
+                    "Provided Identity history Search request is invalid : end date is before start date",
+                    Constants.PROPERTY_REST_ERROR_END_DATE_BEFORE_START_DATE);
         }
     }
 
