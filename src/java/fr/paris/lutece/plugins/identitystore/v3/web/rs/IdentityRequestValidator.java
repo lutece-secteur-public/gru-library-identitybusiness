@@ -232,15 +232,16 @@ public final class IdentityRequestValidator extends RequestValidator
      */
     public void checkIdentitySearch( final IdentitySearchRequest identitySearch ) throws RequestFormatException
     {
+        if ( identitySearch == null || ( StringUtils.isEmpty( identitySearch.getConnectionId( ) ) && ( identitySearch.getSearch( ) == null
+                || identitySearch.getSearch( ).getAttributes( ) == null || identitySearch.getSearch( ).getAttributes( ).isEmpty( ) ) ) )
+        {
+            throw new RequestFormatException( "Provided Identity Search request is null or empty", Constants.PROPERTY_REST_ERROR_EMPTY_SEARCH_CRITERIAS );
+        }
+
         if ( StringUtils.isNotEmpty( identitySearch.getConnectionId( ) ) && identitySearch.getSearch( ) != null )
         {
             throw new RequestFormatException( "You cannot provide a connection_id and a Search at the same time.",
                     Constants.PROPERTY_REST_ERROR_SEARCH_IDENTITY_CONNECTION_ID_OR_CRITERIAS );
-        }
-        if ( StringUtils.isEmpty( identitySearch.getConnectionId( ) ) && ( identitySearch.getSearch( ) == null
-                || identitySearch.getSearch( ).getAttributes( ) == null || identitySearch.getSearch( ).getAttributes( ).isEmpty( ) ) )
-        {
-            throw new RequestFormatException( "Provided Identity Search request is null or empty", Constants.PROPERTY_REST_ERROR_EMPTY_SEARCH_CRITERIAS );
         }
         if ( identitySearch.getSearch( ) != null && identitySearch.getSearch( ).getAttributes( ) != null
                 && identitySearch.getSearch( ).getAttributes( ).stream( ).anyMatch( a -> a.getValue( ) == null || a.getValue( ).isEmpty( ) ) )
