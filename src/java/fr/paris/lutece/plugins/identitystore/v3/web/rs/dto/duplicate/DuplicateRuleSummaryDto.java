@@ -44,6 +44,8 @@ public class DuplicateRuleSummaryDto
     private int _nPriority;
     private int _nDuplicateCount;
     private Timestamp _dateDaemonLastExecDate;
+    private boolean _bActive;
+    private boolean _bDaemon;
 
     public int getId( )
     {
@@ -113,5 +115,21 @@ public class DuplicateRuleSummaryDto
     public void setDaemonLastExecDate( Timestamp _dateDaemonLastExecDate )
     {
         this._dateDaemonLastExecDate = _dateDaemonLastExecDate;
+    }
+
+    public boolean isActive() {
+        return _bActive;
+    }
+
+    public void setActive(final boolean _bActive) {
+        this._bActive = _bActive;
+    }
+
+    public boolean isDaemon() {
+        return _bDaemon;
+    }
+
+    public void setDaemon(final boolean _bDaemon) {
+        this._bDaemon = _bDaemon;
     }
 }
