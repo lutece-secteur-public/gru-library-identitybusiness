@@ -26,10 +26,6 @@ public class TaskRequestValidator extends RequestValidator {
             throw new IdentityStoreException( "Provided request is null or empty" );
         }
 
-        if(request.getTask().getTaskStatus() == null) {
-            throw new IdentityStoreException( "Provided task must have a status" );
-        }
-
         if(StringUtils.isBlank(request.getTask().getTaskType())){
             throw new IdentityStoreException( "Provided task must have a type" );
         } else if (Arrays.stream(TaskType.values()).noneMatch(t -> t.name().equals(request.getTask().getTaskType()))) {
