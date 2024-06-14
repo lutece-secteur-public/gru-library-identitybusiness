@@ -3,22 +3,23 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task.IdentityTaskCreateRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task.IdentityTaskSearchRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task.IdentityTaskType;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task.IdentityTaskUpdateStatusRequest;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 
-public class TaskRequestValidator extends RequestValidator {
+public class IdentityTaskRequestValidator extends RequestValidator {
 
-    private static TaskRequestValidator instance;
+    private static IdentityTaskRequestValidator instance;
 
-    private TaskRequestValidator() {
+    private IdentityTaskRequestValidator() {
     }
 
-    public static TaskRequestValidator instance() {
+    public static IdentityTaskRequestValidator instance() {
         if (instance == null) {
-            instance = new TaskRequestValidator();
+            instance = new IdentityTaskRequestValidator();
         }
         return instance;
     }
@@ -40,6 +41,12 @@ public class TaskRequestValidator extends RequestValidator {
 
         if(!"CUID".equals(request.getTask().getResourceType())){
             throw new IdentityStoreException("Provided task resource type is invalid. Only 'CUID' is allowed");
+        }
+    }
+
+    public void validateTaskStatusUpdateRequest( final IdentityTaskUpdateStatusRequest request ) throws IdentityStoreException {
+        if(request == null || request.getStatus() == null) {
+            throw new IdentityStoreException( "Provided request is null or empty" );
         }
     }
 
