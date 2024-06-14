@@ -78,10 +78,8 @@ public final class Constants
     /**
      * Tasks
      */
-    public static final String TASKSTACK_PATH = "/taskstack";
     public static final String TASK_PATH = "/task";
-    public static final String TASK_CODE_PARAM = "task_code";
-    public static final String TASK_STATUS_PATH = "/status" + "/{" + TASK_CODE_PARAM + "}";
+    public static final String TASK_STATUS_PATH = "/status";
     public static final String SEARCH_TASK_PATH = "/search";
 
     /** Geocodes */
