@@ -1,8 +1,10 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task.TaskCreateRequest;
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task.TaskType;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task.IdentityTaskCreateRequest;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task.IdentityTaskSearchRequest;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task.IdentityTaskType;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
@@ -21,15 +23,15 @@ public class TaskRequestValidator extends RequestValidator {
         return instance;
     }
 
-    public void validateTaskCreateRequest(final TaskCreateRequest request) throws IdentityStoreException {
+    public void validateTaskCreateRequest(final IdentityTaskCreateRequest request) throws IdentityStoreException {
         if(request == null || request.getTask() == null) {
             throw new IdentityStoreException( "Provided request is null or empty" );
         }
 
         if(StringUtils.isBlank(request.getTask().getTaskType())){
             throw new IdentityStoreException( "Provided task must have a type" );
-        } else if (Arrays.stream(TaskType.values()).noneMatch(t -> t.name().equals(request.getTask().getTaskType()))) {
-            throw new IdentityStoreException( "Provided task type is invalid. Authorized values : " + Arrays.toString( TaskType.values() ) );
+        } else if (Arrays.stream(IdentityTaskType.values()).noneMatch(t -> t.name().equals(request.getTask().getTaskType()))) {
+            throw new IdentityStoreException( "Provided task type is invalid. Authorized values : " + Arrays.toString( IdentityTaskType.values() ) );
         }
 
         if(StringUtils.isBlank(request.getTask().getResourceId())) {
@@ -38,6 +40,12 @@ public class TaskRequestValidator extends RequestValidator {
 
         if(!"CUID".equals(request.getTask().getResourceType())){
             throw new IdentityStoreException("Provided task resource type is invalid. Only 'CUID' is allowed");
+        }
+    }
+
+    public void validateTaskSearchRequest(final IdentityTaskSearchRequest request) throws IdentityStoreException {
+        if(request == null || (CollectionUtils.isEmpty(request.getTaskStatus()) && request.getCreationDateOrdering() == null && request.getNbDaysSinceCreated() == null && request.getTaskType() == null )) {
+            throw new IdentityStoreException( "Provided request is null or empty" );
         }
     }
 

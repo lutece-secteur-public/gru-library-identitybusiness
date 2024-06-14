@@ -4,16 +4,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName( "task_create" )
-public class TaskCreateRequest {
+public class IdentityTaskCreateRequest {
 
     @JsonProperty("task")
-    private TaskDto task;
+    private IdentityTaskDto task;
 
-    public TaskDto getTask() {
+    public IdentityTaskDto getTask() {
         return task;
     }
 
-    public void setTask(final TaskDto task) {
+    public void setTask(final IdentityTaskDto task) {
         this.task = task;
     }
 }

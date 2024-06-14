@@ -55,8 +55,6 @@ public final class Constants
     public static final String CANCEL_MERGE_IDENTITIES_PATH = "/unmerge";
     public static final String APPLICATION_RIGHTS_PATH = "/apprights";
     public static final String EXPORT_IDENTITIES_PATH = "/export";
-    public static final String TASKSTACK_PATH = "/taskstack";
-    public static final String TASK_PATH = "/task";
     public static final String PARAM_AUTHOR_NAME = "author_name";
     public static final String PARAM_AUTHOR_TYPE = "author_type";
 
@@ -76,6 +74,13 @@ public final class Constants
     public static final String PARAMETER_NAME = "name";
     public static final String CERTIFY_ATTRIBUTES_PATH = "/certify";
     public static final String UNCERTIFY_ATTRIBUTES_PATH = "/uncertify";
+
+    /**
+     * Tasks
+     */
+    public static final String TASKSTACK_PATH = "/taskstack";
+    public static final String TASK_PATH = "/task";
+    public static final String SEARCH_TASK_PATH = "/search";
 
     /** Geocodes */
     public static final String SEARCH_PATH = "/search/{" + Constants.SEARCHED_STRING + "}";

@@ -39,7 +39,7 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TaskDto
+public class IdentityTaskDto
 {
     /**
      * Code of the task, generated at creation time.
@@ -89,7 +89,7 @@ public class TaskDto
      * Status of the task
      */
     @JsonProperty("task_status")
-    protected TaskStatusType _enumTaskStatus;
+    protected IdentityTaskStatusType _enumTaskStatus;
 
     /**
      * Additional data that must be provided as key:value strings.
@@ -167,12 +167,12 @@ public class TaskDto
         this._strLastUpdateClientCode = _strLastUpdateClientCode;
     }
 
-    public TaskStatusType getTaskStatus( )
+    public IdentityTaskStatusType getTaskStatus( )
     {
         return _enumTaskStatus;
     }
 
-    public void setTaskStatus( TaskStatusType _enumTaskStatus )
+    public void setTaskStatus( IdentityTaskStatusType _enumTaskStatus )
     {
         this._enumTaskStatus = _enumTaskStatus;
     }
