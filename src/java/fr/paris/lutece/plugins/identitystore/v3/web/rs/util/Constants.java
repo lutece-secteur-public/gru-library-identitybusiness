@@ -74,6 +74,9 @@ public final class Constants
     public static final String PARAMETER_NAME = "name";
     public static final String CERTIFY_ATTRIBUTES_PATH = "/certify";
     public static final String UNCERTIFY_ATTRIBUTES_PATH = "/uncertify";
+    
+    public static final String CONSTANT_DEFAULT_IDENTITY_PATH = "/identity";
+    public static final String CONSTANT_DEFAULT_TASKSTACK_PATH = "/taskstack";
 
     /**
      * Tasks
