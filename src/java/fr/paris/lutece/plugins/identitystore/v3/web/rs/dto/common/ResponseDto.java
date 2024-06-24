@@ -77,4 +77,10 @@ public class ResponseDto
         this._status = status;
     }
 
+    @Override
+    public String toString() {
+        return "ResponseDto{" +
+                "_status=" + _status +
+                '}';
+    }
 }

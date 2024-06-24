@@ -129,4 +129,15 @@ public class ResponseStatus
         final ResponseStatus other = (ResponseStatus) o;
         return this.httpCode == other.httpCode && this.type == other.type;
     }
+
+    @Override
+    public String toString() {
+        return "ResponseStatus{" +
+                "httpCode=" + httpCode +
+                ", type=" + type +
+                ", message='" + message + '\'' +
+                ", messageKey='" + messageKey + '\'' +
+                ", attributeStatuses=" + attributeStatuses +
+                '}';
+    }
 }

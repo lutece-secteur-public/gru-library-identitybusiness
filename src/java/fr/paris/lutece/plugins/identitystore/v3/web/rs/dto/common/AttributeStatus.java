@@ -93,4 +93,14 @@ public class AttributeStatus
     {
         this.messageKey = messageKey;
     }
+
+    @Override
+    public String toString() {
+        return "AttributeStatus{" +
+                "key='" + key + '\'' +
+                ", status=" + status +
+                ", message='" + message + '\'' +
+                ", messageKey='" + messageKey + '\'' +
+                '}';
+    }
 }
