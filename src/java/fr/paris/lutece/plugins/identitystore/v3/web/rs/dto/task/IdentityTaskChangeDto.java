@@ -34,76 +34,76 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.RequestAuthor;
 
 import java.sql.Timestamp;
 
 public class IdentityTaskChangeDto
 {
-    private String _strTaskCode;
+    @JsonProperty("task_code")
+    private String taskCode;
+
+    @JsonProperty("request_author")
     private RequestAuthor author;
-    private String _strClientCode;
-    private IdentityTaskStatusType _enumTaskStatus;
-    private IdentityTaskChangeType _enumTaskChangeType;
-    private Timestamp _dateTaskChangeDate;
 
-    public String getTaskCode( )
-    {
-        return _strTaskCode;
+    @JsonProperty("client_code")
+    private String clientCode;
+
+    @JsonProperty("task_status")
+    private IdentityTaskStatusType taskStatus;
+
+    @JsonProperty("task_change_type")
+    private IdentityTaskChangeType taskChangeType;
+
+    @JsonProperty("task_change_date")
+    private Timestamp taskChangeDate;
+
+    public String getTaskCode() {
+        return taskCode;
     }
 
-    public void setTaskCode( String _strTaskCode )
-    {
-        this._strTaskCode = _strTaskCode;
+    public void setTaskCode(String taskCode) {
+        this.taskCode = taskCode;
     }
 
-    public RequestAuthor getAuthor( )
-    {
+    public RequestAuthor getAuthor() {
         return author;
     }
 
-    public void setAuthor( RequestAuthor author )
-    {
+    public void setAuthor(RequestAuthor author) {
         this.author = author;
     }
 
-    public String getClientCode( )
-    {
-        return _strClientCode;
+    public String getClientCode() {
+        return clientCode;
     }
 
-    public void setClientCode( String _strClientCode )
-    {
-        this._strClientCode = _strClientCode;
+    public void setClientCode(String clientCode) {
+        this.clientCode = clientCode;
     }
 
-    public IdentityTaskStatusType getTaskStatus( )
-    {
-        return _enumTaskStatus;
+    public IdentityTaskStatusType getTaskStatus() {
+        return taskStatus;
     }
 
-    public void setTaskStatus( IdentityTaskStatusType _enumTaskStatus )
-    {
-        this._enumTaskStatus = _enumTaskStatus;
+    public void setTaskStatus(IdentityTaskStatusType taskStatus) {
+        this.taskStatus = taskStatus;
     }
 
-    public IdentityTaskChangeType getTaskChangeType( )
-    {
-        return _enumTaskChangeType;
+    public IdentityTaskChangeType getTaskChangeType() {
+        return taskChangeType;
     }
 
-    public void setTaskChangeType( IdentityTaskChangeType _enumTaskChangeType )
-    {
-        this._enumTaskChangeType = _enumTaskChangeType;
+    public void setTaskChangeType(IdentityTaskChangeType taskChangeType) {
+        this.taskChangeType = taskChangeType;
     }
 
-    public Timestamp getTaskChangeDate( )
-    {
-        return _dateTaskChangeDate;
+    public Timestamp getTaskChangeDate() {
+        return taskChangeDate;
     }
 
-    public void setTaskChangeDate( Timestamp _dateTaskChangeDate )
-    {
-        this._dateTaskChangeDate = _dateTaskChangeDate;
+    public void setTaskChangeDate(Timestamp taskChangeDate) {
+        this.taskChangeDate = taskChangeDate;
     }
 }
