@@ -36,7 +36,9 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class IdentityTaskDto
@@ -90,6 +92,12 @@ public class IdentityTaskDto
      */
     @JsonProperty( "task_status" )
     protected IdentityTaskStatusType taskStatus;
+
+    /**
+     * Change history of the task
+     */
+    @JsonProperty( "task_history" )
+    protected List<IdentityTaskChangeDto> taskChanges = new ArrayList<>( );
 
     /**
      * Additional data that must be provided as key:value strings.
@@ -159,6 +167,14 @@ public class IdentityTaskDto
 
     public void setTaskStatus(IdentityTaskStatusType taskStatus) {
         this.taskStatus = taskStatus;
+    }
+
+    public List<IdentityTaskChangeDto> getTaskChanges() {
+        return taskChanges;
+    }
+
+    public void setTaskChanges(List<IdentityTaskChangeDto> taskChanges) {
+        this.taskChanges = taskChanges;
     }
 
     public Map<String, String> getMetadata() {

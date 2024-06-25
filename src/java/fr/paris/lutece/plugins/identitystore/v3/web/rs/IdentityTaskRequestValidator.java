@@ -1,5 +1,6 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task.IdentityResourceType;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task.IdentityTaskCreateRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task.IdentityTaskSearchRequest;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task.IdentityTaskType;
@@ -35,13 +36,8 @@ public class IdentityTaskRequestValidator extends RequestValidator {
             throw new IdentityStoreException( "Provided task type is invalid. Authorized values : " + Arrays.toString( IdentityTaskType.values() ) );
         }
 
-        if(StringUtils.isBlank(request.getTask().getResourceId())) {
-            throw new IdentityStoreException("Provided task must have a resource id");
-        }
-
-        if(!"CUID".equals(request.getTask().getResourceType())){
-            throw new IdentityStoreException("Provided task resource type is invalid. Only 'CUID' is allowed");
-        }
+        this.validateTaskResourceId( request.getTask().getResourceId() );
+        this.validateTaskResourceType( request.getTask().getResourceType() );
     }
 
     public void validateTaskStatusUpdateRequest( final IdentityTaskUpdateStatusRequest request ) throws IdentityStoreException {
@@ -59,6 +55,27 @@ public class IdentityTaskRequestValidator extends RequestValidator {
     public void validateTaskCode(final String taskCode) throws IdentityStoreException {
         if(StringUtils.isBlank(taskCode)) {
             throw new IdentityStoreException("Provided task code is null or empty");
+        }
+    }
+
+    public void validateTaskResourceId( final String taskResourceId ) throws IdentityStoreException
+    {
+        if ( StringUtils.isBlank( taskResourceId ) )
+        {
+            throw new IdentityStoreException( "Provided task resource id is null or empty" );
+        }
+    }
+
+    public void validateTaskResourceType( final String taskResourceType ) throws IdentityStoreException
+    {
+        if ( StringUtils.isBlank( taskResourceType ) )
+        {
+            throw new IdentityStoreException( "Provided task resource type is null or empty" );
+        }
+
+        if ( Arrays.stream(IdentityResourceType.values()).noneMatch(t -> t.name().equals( taskResourceType ) ) )
+        {
+            throw new IdentityStoreException( "Provided task resource type is invalid. Authorized values : " + Arrays.toString( IdentityResourceType.values() ) );
         }
     }
 }

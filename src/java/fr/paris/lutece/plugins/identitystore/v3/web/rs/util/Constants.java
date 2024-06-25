@@ -84,6 +84,9 @@ public final class Constants
     public static final String TASK_PATH = "/task";
     public static final String TASK_STATUS_PATH = "/status";
     public static final String SEARCH_TASK_PATH = "/search";
+    public static final String PARAM_RESOURCE_ID = "resource_id";
+    public static final String PARAM_RESOURCE_TYPE = "resource_type";
+
 
     /** Geocodes */
     public static final String SEARCH_PATH = "/search/{" + Constants.SEARCHED_STRING + "}";
