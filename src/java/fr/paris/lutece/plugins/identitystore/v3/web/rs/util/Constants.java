@@ -224,6 +224,7 @@ public final class Constants
     public static final String METADATA_MERGED_CHILD_IDENTITY_CUID = "merged_child_identity_cuid";
     public static final String METADATA_UNMERGED_MASTER_CUID = "unmerged_master_cuid";
     public static final String METADATA_UNMERGED_CHILD_CUID = "unmerged_child_cuid";
+    public static final String METADATA_ACCOUNT_MERGE_SECOND_CUID = "account_merge_second_cuid";
 
     /** Global Properties */
     public static final String PROPERTY_APPLICATION_VERSION = "identitystore.version";
