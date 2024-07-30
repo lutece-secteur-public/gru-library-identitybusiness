@@ -57,6 +57,7 @@ public final class Constants
     public static final String EXPORT_IDENTITIES_PATH = "/export";
     public static final String PARAM_AUTHOR_NAME = "author_name";
     public static final String PARAM_AUTHOR_TYPE = "author_type";
+    public static final String PARAM_MODIFICATION_DATE = "modification_date";
 
     public static final String PARAM_CLIENT_CODE = "client_code";
     public static final String PARAM_TARGET_CLIENT_CODE = "target_client_code";
@@ -86,6 +87,7 @@ public final class Constants
     public static final String SEARCH_TASK_PATH = "/search";
     public static final String PARAM_RESOURCE_ID = "resource_id";
     public static final String PARAM_RESOURCE_TYPE = "resource_type";
+    public static final String PARAM_CHANGE_TYPE = "change_type";
 
 
     /** Geocodes */
