@@ -428,6 +428,7 @@ public class CsvIdentityService
             final CsvIdentityChange csvIdentity = new CsvIdentityChange( );
             csvIdentity.setCustomerId( identity.getCustomerId( ) );
             csvIdentity.setChangeType( identity.getChangeType( ).name() );
+            csvIdentity.setStatus( identity.getChangeStatus( ) );
             csvIdentity.setModificationDate( identity.getModificationDate( ).toString() );
             csvIdentity.setAuthorType( identity.getAuthor( ).getType().name() );
             csvIdentity.setAuthorName( identity.getAuthor().getName() );

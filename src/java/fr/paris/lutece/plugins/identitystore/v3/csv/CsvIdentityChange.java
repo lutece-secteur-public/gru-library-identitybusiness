@@ -15,20 +15,24 @@ public class CsvIdentityChange
     @CsvBindByPosition( position = 1 )
     private String _strChangeType;
 
-    @CsvBindByName( column = Constants.PARAM_MODIFICATION_DATE )
+    @CsvBindByName( column = Constants.PARAM_CHANGE_STATUS )
     @CsvBindByPosition( position = 2 )
+    private String _strStatus;
+
+    @CsvBindByName( column = Constants.PARAM_MODIFICATION_DATE )
+    @CsvBindByPosition( position = 3 )
     private String _strModificationDate;
 
     @CsvBindByName( column = Constants.PARAM_AUTHOR_TYPE )
-    @CsvBindByPosition( position = 3 )
+    @CsvBindByPosition( position = 4 )
     private String _strAuthorType;
 
     @CsvBindByName( column = Constants.PARAM_AUTHOR_NAME )
-    @CsvBindByPosition( position = 4 )
+    @CsvBindByPosition( position = 5 )
     private String _strAuthorName;
 
     @CsvBindByName( column = Constants.PARAM_CLIENT_CODE )
-    @CsvBindByPosition( position = 5 )
+    @CsvBindByPosition( position = 6 )
     private String _strClientCode;
 
     public String getCustomerId()
@@ -49,6 +53,16 @@ public class CsvIdentityChange
     public void setChangeType(String _strChangeType)
     {
         this._strChangeType = _strChangeType;
+    }
+
+    public String getStatus()
+    {
+        return _strStatus;
+    }
+
+    public void setStatus(String _strStatus)
+    {
+        this._strStatus = _strStatus;
     }
 
     public String getModificationDate()
