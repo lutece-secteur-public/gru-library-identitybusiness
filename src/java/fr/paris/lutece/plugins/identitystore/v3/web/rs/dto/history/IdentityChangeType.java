@@ -53,7 +53,8 @@ public enum IdentityChangeType
     EXCLUDED( 7 ),
     EXCLUSION_CANCELLED( 8 ),
     MARKED_SUSPICIOUS( 9 ),
-    READ( 10 );
+    READ( 10 ),
+    INFO( 11 );
 
     private final static Map<Integer, IdentityChangeType> _mapTypes = new HashMap<>( );
     private final int _nValue;
