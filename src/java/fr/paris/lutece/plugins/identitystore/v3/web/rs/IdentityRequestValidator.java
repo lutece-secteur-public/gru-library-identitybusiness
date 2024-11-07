@@ -312,13 +312,6 @@ public final class IdentityRequestValidator extends RequestValidator
             throw new RequestFormatException( "An Identity merge request must provide the last update date of the secondary Identity",
                     Constants.PROPERTY_REST_ERROR_MERGE_REQUEST_NO_SECONDARY_LAST_UPDATE_DATE );
         }
-
-        if ( identityMergeRequest.getIdentity( ) != null
-                && ( identityMergeRequest.getIdentity( ).getAttributes( ) == null || identityMergeRequest.getIdentity( ).getAttributes( ).isEmpty( ) ) )
-        {
-            throw new RequestFormatException( "An Identity merge request that provides an Identity must provide at least one Attribute",
-                    Constants.PROPERTY_REST_ERROR_MERGE_REQUEST_NO_ATTRIBUTE );
-        }
     }
 
     /**
