@@ -247,12 +247,6 @@ public final class IdentityRequestValidator extends RequestValidator
         {
             throw new IdentityStoreException( "An Identity merge request must provide the last update date of the secondary Identity" );
         }
-
-        if ( identityMergeRequest.getIdentity( ) != null
-                && ( identityMergeRequest.getIdentity( ).getAttributes( ) == null || identityMergeRequest.getIdentity( ).getAttributes( ).isEmpty( ) ) )
-        {
-            throw new IdentityStoreException( "An Identity merge request that provides an Identity must provide at least one Attribute" );
-        }
     }
 
     /**
