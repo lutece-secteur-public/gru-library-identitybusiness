@@ -68,6 +68,7 @@ public final class Constants
     public static final String PARAM_FILE = "file";
     public static final String PARAM_ATTRIBUTE_KEY = "attribute_key";
     public static final String PLUGIN_PATH = "identitystore";
+    public static final String INTERNAL_API_PATH = "/internal/api/";
     public static final String RESPONSE_OK = "OK";
     public static final String PARAM_IDENTITY_CHANGE = "identityChange";
     public static final String ERROR_FIELD_MISSING = "FIELD_MISSING";
