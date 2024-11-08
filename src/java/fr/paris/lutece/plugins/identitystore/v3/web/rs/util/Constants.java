@@ -293,9 +293,9 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_NO_SUSPICIOUS_IDENTITY_FOUND = "identitystore.rest.error.no.suspicious.identity.found";
     public static final String PROPERTY_REST_ERROR_NO_CLIENT_FOUND_WITH_TOKEN = "identitystore.rest.error.no.client.found.with.token";
     public static final String PROPERTY_REST_ERROR_MUST_PROVIDE_CLIENT_CODE_OR_TOKEN = "identitystore.rest.error.must.provide.client.code.or.token";
-    public static final String PROPERTY_REST_ERROR_CONNECTED_IDENTITY_FORBIDDEN_UPDATE_NON_PIVOT = "identitystore.rest.error.connected.identity.forbidden.update.non.pivot";
-    public static final String PROPERTY_REST_ERROR_CONNECTED_IDENTITY_FORBIDDEN_PIVOT_SELF_DECLARE = "identitystore.rest.error.connected.identity.forbidden.pivot.self.declare";
-    public static final String PROPERTY_REST_ERROR_CONNECTED_IDENTITY_FORBIDDEN_UPDATE_PIVOT_LESSER_CERTIFICATION = "identitystore.rest.error.connected.identity.forbidden.update.pivot.lesser.certification";
+    public static final String PROPERTY_REST_ERROR_CONNECTED_IDENTITY_RESTRICTED_ATTRIBUTE_UPDATE = "identitystore.rest.error.connected.identity.restricted.attribute.update";
+    public static final String PROPERTY_REST_ERROR_CONNECTED_IDENTITY_FORBIDDEN_SELF_DECLARE = "identitystore.rest.error.connected.identity.forbidden.self.declare";
+    public static final String PROPERTY_REST_ERROR_CONNECTED_IDENTITY_FORBIDDEN_UPDATE_LESSER_CERTIFICATION = "identitystore.rest.error.connected.identity.forbidden.update.lesser.certification";
     public static final String PROPERTY_REST_ERROR_CONNECTED_IDENTITY_FORBIDDEN_PIVOT_CERTIFICATION_UNDER_THRESHOLD = "identitystore.rest.error.connected.identity.forbidden.pivot.certification.under.threshold";
     public static final String PROPERTY_REST_ERROR_BATCH_NOT_FOUND = "identityimport.rest.error.batch.not.found";
     public static final String PROPERTY_REST_ERROR_BATCH_STATE_NOT_FOUND = "identityimport.rest.error.batch.state.not.found";
