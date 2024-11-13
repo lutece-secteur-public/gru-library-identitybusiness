@@ -198,6 +198,11 @@ public final class Constants
     public static final String PARAM_BATCH_REFERENCE = "batch_reference";
     public static final String PARAM_BATCH_STATUS_MODE = "mode";
 
+    /** Account Generator */
+    public static final String GENERATOR_PATH = "/generator";
+    public static final String ACCOUNT_GENERATOR_PATH = "/account";
+    public static final String GENERATE_PATH = "/generate";
+
     /** Attribute keys for user search */
     public static final String PARAM_COMMON_EMAIL = "common_email";
     public static final String PARAM_COMMON_PHONE = "common_phone";
