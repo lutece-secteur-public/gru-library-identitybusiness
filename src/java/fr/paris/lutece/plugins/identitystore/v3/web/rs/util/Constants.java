@@ -137,6 +137,39 @@ public final class Constants
     public static final String PARAM_ADDRESS_CITY = "address_city";
     public static final String PARAM_FC_KEY = "fc_key";
 
+    public static final String PARAM_USER_PASSWORD = "userPassword";
+    public static final String PARAM_MAIL = "mail";
+    public static final String PARAM_INET_USER_STATUS = "inetUserStatus";
+    public static final String PARAM_VALIDATED_ACCOUNT = "validatedAccount";
+    public static final String PARAMETER_IDENTITY_ID = "identityId";
+    public static final String PARAMETER_IDENTITY_NAME = "identityName";
+    public static final String PARAMETER_IDENTITY_PROVIDER = "identityProvider";
+    public static final String PARAMETER_DESC = "desc";
+    public static final String PARAMETER_SORT = "sort";
+    public static final String PARAMETER_RANGE = "range";
+    public static final String HEADER_CURRENT_USER_PASSWORD = "current-user-password";
+    public static final String PARAMETER_SEARCH_KEYCLOCK = "search_keyclock";
+    public static final String PARAMETER_FIRST_NAME = "firstname";
+    public static final String PARAMETER_LAST_NAME = "lastname";
+    public static final String PARAMETER_UID = "uid";
+    public static final String PARAMETER_GUID = "guid";
+    public static final String PARAMETER_CITY = "city";
+    public static final String PARAMETER_CITY_OF_BIRTH = "cityOfBirth";
+    public static final String PARAMETER_CIVILITY = "civility";
+    public static final String PARAMETER_POSTAL_CODE = "postalCode";
+    public static final String PARAMETER_STREET = "street";
+    public static final String PARAMETER_TELEPHONE_NUMBER = "telephoneNumber";
+    public static final String PARAMETER_STAY_CONNECTED = "stayConnected";
+    public static final String PARAMETER_BIRHDAY = "birthday";
+    public static final String PATH_ACCOUNT_TECHNICAL_INFORMATIONS = "searchByTechnicalInformations";
+    public static final String PARAMETER_LAST_AUTH_DATE = "lastAuthDate";
+    public static final String PARAMETER_MODIF_DATE = "modifDate";
+    public static final String PARAMETER_TECHNICAL_OPERATION = "technicalOperation";
+    public static final String PARAMETER_BEFORE_LAST_AUTH_DATE = "beforeLastAuthDate";
+    public static final String PARAMETER_BEFORE_MODIF_DATE = "beforeModifDate";
+    public static final String PARAMETER_NOT_OPERATOR = "notOperator";
+    public static final String PATH_ACCOUNT_BY_GUID_LIST ="searchByGuidList";
+
     /** CSV */
     private static final String CERTIFIER_SUFFIX = "_certifier";
     private static final String CERTIFICATION_DATE_SUFFIX = "_certification_date";
