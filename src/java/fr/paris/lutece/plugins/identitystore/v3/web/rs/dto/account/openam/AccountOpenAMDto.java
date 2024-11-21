@@ -1,8 +1,9 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.account.openam;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
 
-public class AccountOpenAMDto
+public class AccountOpenAMDto extends ResponseDto
 {
     private String _strUid;
     private String _strLogin;
@@ -35,12 +36,12 @@ public class AccountOpenAMDto
     }
 
     @JsonProperty("inetUserStatus")
-    public String getStatus(  )
+    public String getAccountStatus(  )
     {
         return _strStatus;
     }
     @JsonProperty("inetUserStatus")
-    public void setStatus( String strStatus )
+    public void setAccountStatus( String strStatus )
     {
         this._strStatus = strStatus;
     }
