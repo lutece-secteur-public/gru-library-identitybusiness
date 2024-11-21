@@ -55,6 +55,12 @@ public final class Constants
     public static final String CANCEL_MERGE_IDENTITIES_PATH = "/unmerge";
     public static final String APPLICATION_RIGHTS_PATH = "/apprights";
     public static final String EXPORT_IDENTITIES_PATH = "/export";
+
+    public static final String ACCOUNTS_PATH = "/accounts";
+    public static final String FEDERATION_LINK_PATH = "/accounts";
+    public static final String IDENTITIES_PATH = "/identities";
+    public static final String PASSWORD_HISTORY_PATH = "/passwordshistory";
+
     public static final String PARAM_AUTHOR_NAME = "author_name";
     public static final String PARAM_AUTHOR_TYPE = "author_type";
     public static final String PARAM_MODIFICATION_DATE = "modification_date";
@@ -161,14 +167,14 @@ public final class Constants
     public static final String PARAMETER_TELEPHONE_NUMBER = "telephoneNumber";
     public static final String PARAMETER_STAY_CONNECTED = "stayConnected";
     public static final String PARAMETER_BIRHDAY = "birthday";
-    public static final String PATH_ACCOUNT_TECHNICAL_INFORMATIONS = "searchByTechnicalInformations";
+    public static final String PATH_ACCOUNT_TECHNICAL_INFORMATIONS = "/searchByTechnicalInformations";
     public static final String PARAMETER_LAST_AUTH_DATE = "lastAuthDate";
     public static final String PARAMETER_MODIF_DATE = "modifDate";
     public static final String PARAMETER_TECHNICAL_OPERATION = "technicalOperation";
     public static final String PARAMETER_BEFORE_LAST_AUTH_DATE = "beforeLastAuthDate";
     public static final String PARAMETER_BEFORE_MODIF_DATE = "beforeModifDate";
     public static final String PARAMETER_NOT_OPERATOR = "notOperator";
-    public static final String PATH_ACCOUNT_BY_GUID_LIST ="searchByGuidList";
+    public static final String PATH_ACCOUNT_BY_GUID_LIST ="/searchByGuidList";
 
     /** CSV */
     private static final String CERTIFIER_SUFFIX = "_certifier";
