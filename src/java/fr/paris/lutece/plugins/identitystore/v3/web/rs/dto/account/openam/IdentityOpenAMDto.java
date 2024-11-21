@@ -1,6 +1,8 @@
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.account.openam;
 
-public class IdentityOpenAMDto
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
+
+public class IdentityOpenAMDto extends ResponseDto
 {
     private String _strUid;
     private String _strCivility;

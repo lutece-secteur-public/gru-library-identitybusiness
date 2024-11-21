@@ -6,15 +6,15 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 public class AccountRequest
 {
 
-    protected AccountCreationDto accoutDto;
+    protected AccountCreationDto accountDto;
 
-    public AccountCreationDto getAccoutDto()
+    public AccountCreationDto getAccountDto()
     {
-        return accoutDto;
+        return accountDto;
     }
 
-    public void setAccoutDto(AccountCreationDto accoutDto)
+    public void setAccountDto(AccountCreationDto accountDto)
     {
-        this.accoutDto = accoutDto;
+        this.accountDto = accountDto;
     }
 }
