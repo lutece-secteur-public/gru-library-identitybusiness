@@ -58,7 +58,7 @@ public enum AttributeTreatmentType
     /**
      * Attribute must not exist in the search response.
      */
-    ABSENT( false );
+    ABSENT( true );
 
     /**
      * Defines if the treatment type can be used for rules design.
