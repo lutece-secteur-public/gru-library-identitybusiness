@@ -86,6 +86,23 @@ public final class Constants
     public static final String CONSTANT_DEFAULT_IDENTITY_PATH = "/identity";
     public static final String CONSTANT_DEFAULT_TASKSTACK_PATH = "/taskstack";
 
+    public static final String PARAM_MOA_ENTITY_NAME = "moa_entity_name";
+    public static final String PARAM_MOE_ENTITY_NAME = "moe_entity_name";
+    public static final String PARAM_STARTING_DATE = "starting_date";
+    public static final String PARAM_ENDING_DATE = "ending_date";
+    public static final String PARAM_SERVICE_TYPE = "service_type";
+    public static final String PARAM_DATA_RETENTION_IN_MONTH = "data_retention_in_month";
+    public static final String PARAM_AUTHORIZED_CREATION = "creation";
+    public static final String PARAM_AUTHORIZED_UPDATE = "update";
+    public static final String PARAM_AUTHORIZED_SEARCH = "search";
+    public static final String PARAM_AUTHORIZED_MERGE = "merge";
+    public static final String PARAM_AUTHORIZED_ACCOUNT_UPDATE = "account_update";
+    public static final String PARAM_AUTHORIZED_DELETION = "deletion";
+    public static final String PARAM_AUTHORIZED_IMPORT = "import";
+    public static final String PARAM_AUTHORIZED_EXPORT = "export";
+    public static final String PARAM_AUTHORIZED_DECERTIFICATION = "decertification";
+    public static final String PARAM_AUTHORIZED_AGENT_HISTORY_READ = "agent_history_read";
+
     /**
      * Tasks
      */

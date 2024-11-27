@@ -39,6 +39,7 @@ import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IdentityDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.ServiceContractDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history.IdentityChange;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
@@ -120,6 +121,26 @@ public class CsvIdentityService
             final StatefulBeanToCsv<CsvIdentityChange> identitiesWriter = new StatefulBeanToCsvBuilder<CsvIdentityChange>( writer ).withMappingStrategy( mappingStrategy )
                     .withOrderedResults( true ).withSeparator( Constants.CSV_SEPARATOR ).withApplyQuotesToAll( false ).build( );
             identitiesWriter.write( this.extractCsvIdentitiesChange( identities ) );
+            writer.close( );
+            return out.toByteArray( );
+        }
+        catch( Exception e )
+        {
+            throw new IdentityStoreException( "An error occurred while exporting csv identities. ", e );
+        }
+    }
+
+    public byte [ ] writeContract( final List<ServiceContractDto> serviceContract ) throws IdentityStoreException
+    {
+        try
+        {
+            final ByteArrayOutputStream out = new ByteArrayOutputStream( );
+            final Writer writer = new OutputStreamWriter( out );
+            final CustomMappingStrategy<CsvServiceContract> mappingStrategy = new CustomMappingStrategy<>( );
+            mappingStrategy.setType( CsvServiceContract.class );
+            final StatefulBeanToCsv<CsvServiceContract> identitiesWriter = new StatefulBeanToCsvBuilder<CsvServiceContract>( writer ).withMappingStrategy( mappingStrategy )
+                    .withOrderedResults( true ).withSeparator( Constants.CSV_SEPARATOR ).withApplyQuotesToAll( false ).build( );
+            identitiesWriter.write( this.extractCsvServiceContract( serviceContract ) );
             writer.close( );
             return out.toByteArray( );
         }
@@ -435,6 +456,37 @@ public class CsvIdentityService
             csvIdentity.setClientCode( identity.getClientCode( ) );
 
             list.add( csvIdentity );
+        }
+        return list;
+    }
+
+    public List<CsvServiceContract> extractCsvServiceContract( final List<ServiceContractDto> serviceContracts ) throws IdentityStoreException
+    {
+        final List<CsvServiceContract> list = new ArrayList<>( );
+        for ( final ServiceContractDto serviceContract : serviceContracts )
+        {
+            final CsvServiceContract csvServiceContract = new CsvServiceContract( );
+
+            csvServiceContract.setName( serviceContract.getName( ) );
+            csvServiceContract.setClientCode( serviceContract.getClientCode());
+            csvServiceContract.setMoaEntityName( serviceContract.getMoaEntityName( ) );
+            csvServiceContract.setMoeEntityName( serviceContract.getMoeEntityName( ) );
+            csvServiceContract.setStartingDate( serviceContract.getStartingDate( ) != null ? serviceContract.getStartingDate( ).toString() : "");
+            csvServiceContract.setEndingDate( serviceContract.getEndingDate( ) != null ? serviceContract.getEndingDate( ).toString() : "");
+            csvServiceContract.setServiceType( serviceContract.getServiceType( ) );
+            csvServiceContract.setDataRetentionPeriodInMonths( serviceContract.getDataRetentionPeriodInMonths( ) );
+            csvServiceContract.setAuthorizedCreation( serviceContract.isAuthorizedCreation( ) );
+            csvServiceContract.setAuthorizedUpdate( serviceContract.isAuthorizedUpdate( ) );
+            csvServiceContract.setAuthorizedSearch( serviceContract.isAuthorizedSearch( ) );
+            csvServiceContract.setAuthorizedMerge( serviceContract.isAuthorizedMerge( ) );
+            csvServiceContract.setAuthorizedAccountUpdate( serviceContract.isAuthorizedAccountUpdate( ) );
+            csvServiceContract.setAuthorizedDeletion( serviceContract.isAuthorizedDeletion( ) );
+            csvServiceContract.setAuthorizedImport( serviceContract.isAuthorizedImport( ) );
+            csvServiceContract.setAuthorizedExport( serviceContract.isAuthorizedExport( ) );
+            csvServiceContract.setAuthorizedDecertification( serviceContract.isAuthorizedDecertification( ) );
+            csvServiceContract.setAuthorizedAgentHistoryRead( serviceContract.isAuthorizedAgentHistoryRead( ) );
+
+            list.add( csvServiceContract );
         }
         return list;
     }
