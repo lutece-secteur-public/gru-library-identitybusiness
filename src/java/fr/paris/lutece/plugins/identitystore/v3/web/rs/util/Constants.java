@@ -229,6 +229,10 @@ public final class Constants
     public static final String METADATA_UNMERGED_MASTER_CUID = "unmerged_master_cuid";
     public static final String METADATA_UNMERGED_CHILD_CUID = "unmerged_child_cuid";
     public static final String METADATA_ACCOUNT_MERGE_SECOND_CUID = "account_merge_second_cuid";
+    public static final String METADATA_OLD_GUID = "old_guid";
+    public static final String METADATA_NEW_GUID = "new_guid";
+    public static final String METADATA_OLD_MON_PARIS_ACTIF = "old_mon_paris_actif";
+    public static final String METADATA_NEW_MON_PARIS_ACTIF = "new_mon_paris_actif";
 
     /** Global Properties */
     public static final String PROPERTY_APPLICATION_VERSION = "identitystore.version";
