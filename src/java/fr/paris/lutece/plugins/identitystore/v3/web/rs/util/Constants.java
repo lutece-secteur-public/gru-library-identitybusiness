@@ -233,6 +233,7 @@ public final class Constants
     public static final String METADATA_NEW_GUID = "new_guid";
     public static final String METADATA_OLD_MON_PARIS_ACTIF = "old_mon_paris_actif";
     public static final String METADATA_NEW_MON_PARIS_ACTIF = "new_mon_paris_actif";
+    public static final String METADATA_ORIGIN = "origin";
 
     /** Global Properties */
     public static final String PROPERTY_APPLICATION_VERSION = "identitystore.version";
