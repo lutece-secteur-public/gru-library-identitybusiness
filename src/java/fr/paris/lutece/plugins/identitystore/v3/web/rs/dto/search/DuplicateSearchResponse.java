@@ -45,8 +45,6 @@ public class DuplicateSearchResponse extends ResponseDto
 {
     protected List<IdentityDto> identities = new ArrayList<>( );
 
-    protected Map<String, String> metadata = new HashMap<>( );
-
     public List<IdentityDto> getIdentities( )
     {
         return identities;
@@ -55,15 +53,5 @@ public class DuplicateSearchResponse extends ResponseDto
     public void setIdentities( List<IdentityDto> identities )
     {
         this.identities = identities;
-    }
-
-    public Map<String, String> getMetadata( )
-    {
-        return metadata;
-    }
-
-    public void setMetadata( Map<String, String> metadata )
-    {
-        this.metadata = metadata;
     }
 }

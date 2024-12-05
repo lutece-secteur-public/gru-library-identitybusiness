@@ -90,6 +90,7 @@ public final class DtoFormatConstants
     public static final String KEY_RESPONSE = "response";
     public static final String KEY_ATTRIBUTE_VALUES = "attribute_values";
     public static final String KEY_ATTRIBUTE_KEY_NAMES = "attribute_key_names";
+    public static final String KEY_METADATA = "metadata";
 
     /**
      * Private constructor

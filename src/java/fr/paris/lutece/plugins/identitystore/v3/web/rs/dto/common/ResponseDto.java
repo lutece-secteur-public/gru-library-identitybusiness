@@ -40,6 +40,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatus;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_METADATA;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_RESPONSE;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_STATUS;
 
@@ -50,13 +54,16 @@ import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConst
  */
 @JsonRootName( value = KEY_RESPONSE )
 @JsonPropertyOrder( {
-        KEY_STATUS
+        KEY_STATUS,
+        KEY_METADATA
 } )
 @JsonFormat( shape = JsonFormat.Shape.OBJECT )
 @JsonInclude( JsonInclude.Include.NON_NULL )
 public class ResponseDto
 {
     protected ResponseStatus _status;
+
+    protected Map<String, String> metadata = new HashMap<>( );
 
     /**
      * @return the _status
@@ -77,10 +84,27 @@ public class ResponseDto
         this._status = status;
     }
 
+    /**
+     * return the metadata
+     */
+    @JsonProperty( KEY_METADATA )
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    /**
+     * @param metadata the metadata to set
+     */
+    @JsonProperty( KEY_METADATA )
+    public void setMetadata(final Map<String, String> metadata) {
+        this.metadata = metadata;
+    }
+
     @Override
     public String toString() {
         return "ResponseDto{" +
                 "_status=" + _status +
+                "metadata=" + metadata +
                 '}';
     }
 }
