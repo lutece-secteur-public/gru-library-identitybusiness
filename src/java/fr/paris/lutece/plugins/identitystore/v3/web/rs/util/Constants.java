@@ -296,6 +296,7 @@ public final class Constants
     public static final String METADATA_OLD_MON_PARIS_ACTIF = "old_mon_paris_actif";
     public static final String METADATA_NEW_MON_PARIS_ACTIF = "new_mon_paris_actif";
     public static final String METADATA_ORIGIN = "origin";
+    public static final String METADATA_DUPLICATE_CUID_LIST = "duplicate_cuid_list";
 
     /** Global Properties */
     public static final String PROPERTY_APPLICATION_VERSION = "identitystore.version";

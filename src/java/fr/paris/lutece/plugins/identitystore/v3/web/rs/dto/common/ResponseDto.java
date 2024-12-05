@@ -40,6 +40,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseStatus;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_METADATA;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_RESPONSE;
 import static fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.DtoFormatConstants.KEY_STATUS;
 
@@ -58,6 +62,8 @@ public class ResponseDto
 {
     protected ResponseStatus _status;
 
+    protected Map<String, String> metadata = new HashMap<>( );
+
     /**
      * @return the _status
      */
@@ -75,6 +81,22 @@ public class ResponseDto
     public void setStatus( final ResponseStatus status )
     {
         this._status = status;
+    }
+
+    /**
+     * @return the metadata
+     */
+    @JsonProperty( value = KEY_METADATA )
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    /**
+     * @param metadata the metadata to set
+     */
+    @JsonProperty( value = KEY_METADATA )
+    public void setMetadata(final Map<String, String> metadata) {
+        this.metadata = metadata;
     }
 
     @Override
