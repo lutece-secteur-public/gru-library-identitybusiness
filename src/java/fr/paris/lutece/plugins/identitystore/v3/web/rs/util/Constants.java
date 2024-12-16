@@ -107,10 +107,12 @@ public final class Constants
      * Tasks
      */
     public static final String TASK_PATH = "/task";
+    public static final String MERGE_PATH = "/merge";
     public static final String TASK_STATUS_PATH = "/status";
     public static final String SEARCH_TASK_PATH = "/search";
     public static final String PARAM_RESOURCE_ID = "resource_id";
     public static final String PARAM_RESOURCE_TYPE = "resource_type";
+    public static final String TASK_SECOND_CUID_PARAM = "second_cuid";
     public static final String PARAM_CHANGE_TYPE = "change_type";
     public static final String PARAM_CHANGE_STATUS = "status";
 

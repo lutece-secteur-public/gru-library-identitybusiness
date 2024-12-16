@@ -66,6 +66,14 @@ public class IdentityTaskRequestValidator extends RequestValidator {
         }
     }
 
+    public void validateTaskSecondCuid( final String taskSecondCuid ) throws IdentityStoreException
+    {
+        if ( StringUtils.isBlank( taskSecondCuid ) )
+        {
+            throw new IdentityStoreException( "Provided task second cuid is null or empty" );
+        }
+    }
+
     public void validateTaskResourceType( final String taskResourceType ) throws IdentityStoreException
     {
         if ( StringUtils.isBlank( taskResourceType ) )
