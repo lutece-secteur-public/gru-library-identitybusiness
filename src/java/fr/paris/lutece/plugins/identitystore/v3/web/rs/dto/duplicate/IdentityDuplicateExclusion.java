@@ -88,4 +88,14 @@ public class IdentityDuplicateExclusion
     {
         this.authorName = authorName;
     }
+
+    @Override
+    public String toString() {
+        return "IdentityDuplicateExclusion{" +
+                "excludedCustomerId='" + excludedCustomerId + '\'' +
+                ", exclusionDate=" + exclusionDate +
+                ", authorType='" + authorType + '\'' +
+                ", authorName='" + authorName + '\'' +
+                '}';
+    }
 }

@@ -88,4 +88,13 @@ public class MergeDefinition
     {
         this.mergeDate = mergeDate;
     }
+
+    @Override
+    public String toString() {
+        return "MergeDefinition{" +
+                "merged=" + merged +
+                ", masterCustomerId='" + masterCustomerId + '\'' +
+                ", mergeDate=" + mergeDate +
+                '}';
+    }
 }

@@ -58,4 +58,11 @@ public class IdentityChangeRequest
     {
         this.identity = identity;
     }
+
+    @Override
+    public String toString() {
+        return "IdentityChangeRequest{" +
+                "identity=" + identity +
+                '}';
+    }
 }

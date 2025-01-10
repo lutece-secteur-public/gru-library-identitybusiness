@@ -1,4 +1,4 @@
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.account.openam;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.account;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -62,5 +62,15 @@ public class FederationLinkDto
     public void setIdentityName( String _strIdentityName )
     {
         this._strIdentityName = _strIdentityName;
+    }
+
+    @Override
+    public String toString() {
+        return "FederationLinkDto{" +
+                "_strGuid='" + _strGuid + '\'' +
+                ", _strIdentityProvider='" + _strIdentityProvider + '\'' +
+                ", _strIdentityId='" + _strIdentityId + '\'' +
+                ", _strIdentityName='" + _strIdentityName + '\'' +
+                '}';
     }
 }

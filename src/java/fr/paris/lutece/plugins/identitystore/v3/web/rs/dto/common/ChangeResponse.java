@@ -79,4 +79,15 @@ public abstract class ChangeResponse extends ResponseDto
     {
         this.lastUpdateDate = lastUpdateDate;
     }
+
+    @Override
+    public String toString() {
+        return "ChangeResponse{" +
+                "customerId='" + customerId + '\'' +
+                ", connectionId='" + connectionId + '\'' +
+                ", lastUpdateDate=" + lastUpdateDate +
+                ", _status=" + _status +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

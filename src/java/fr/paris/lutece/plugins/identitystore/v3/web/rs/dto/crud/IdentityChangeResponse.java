@@ -58,4 +58,16 @@ public class IdentityChangeResponse extends ChangeResponse
     {
         this.creationDate = creationDate;
     }
+
+    @Override
+    public String toString() {
+        return "IdentityChangeResponse{" +
+                "creationDate=" + creationDate +
+                ", customerId='" + customerId + '\'' +
+                ", connectionId='" + connectionId + '\'' +
+                ", lastUpdateDate=" + lastUpdateDate +
+                ", _status=" + _status +
+                ", metadata=" + metadata +
+                '}';
+    }
 }
