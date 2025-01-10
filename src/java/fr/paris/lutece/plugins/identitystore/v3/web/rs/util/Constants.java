@@ -57,7 +57,7 @@ public final class Constants
     public static final String EXPORT_IDENTITIES_PATH = "/export";
 
     public static final String ACCOUNTS_PATH = "/accounts";
-    public static final String FEDERATION_LINK_PATH = "/accounts";
+    public static final String FEDERATION_LINK_PATH = "/federationlinks";
     public static final String IDENTITIES_PATH = "/identities";
     public static final String PASSWORD_HISTORY_PATH = "/passwordshistory";
 
@@ -66,6 +66,8 @@ public final class Constants
     public static final String PARAM_MODIFICATION_DATE = "modification_date";
 
     public static final String PARAM_CLIENT_CODE = "client_code";
+    public static final String PARAM_CLIENT_ID = "client-id";
+    public static final String PARAM_CLIENT_SECRET = "secret-id";
     public static final String PARAM_TARGET_CLIENT_CODE = "target_client_code";
     public static final String PARAM_APPLICATION_CODE = "application_code";
     public static final String PARAM_CLIENT_TOKEN = "client_token";
@@ -178,6 +180,7 @@ public final class Constants
     public static final String PARAMETER_LAST_NAME = "lastname";
     public static final String PARAMETER_UID = "uid";
     public static final String PARAMETER_GUID = "guid";
+    public static final String PARAMETER_GUID_LIST = "guidList";
     public static final String PARAMETER_CITY = "city";
     public static final String PARAMETER_CITY_OF_BIRTH = "cityOfBirth";
     public static final String PARAMETER_CIVILITY = "civility";
@@ -200,6 +203,7 @@ public final class Constants
     private static final String CERTIFICATION_DATE_SUFFIX = "_certification_date";
     public static final String CSV_DATE_FORMAT = "dd/MM/yyyy";
     public static final char CSV_SEPARATOR = ';';
+    public static final String COMA_SEPARATOR = ",";
     public static final String PARAM_CERTIFIER_GENDER = PARAM_GENDER + CERTIFIER_SUFFIX;
     public static final String PARAM_CERTIFICATION_DATE_GENDER = PARAM_GENDER + CERTIFICATION_DATE_SUFFIX;
     public static final String PARAM_CERTIFIER_FAMILY_NAME = PARAM_FAMILY_NAME + CERTIFIER_SUFFIX;

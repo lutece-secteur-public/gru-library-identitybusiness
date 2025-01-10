@@ -167,4 +167,18 @@ public class AttributeDto
     {
         return this.certificationDate != null && StringUtils.isNotEmpty( this.certifier );
     }
+
+    @Override
+    public String toString() {
+        return "AttributeDto{" +
+                "key='" + key + '\'' +
+                ", value='" + value + '\'' +
+                ", type='" + type + '\'' +
+                ", certificationLevel=" + certificationLevel +
+                ", certifier='" + certifier + '\'' +
+                ", certificationDate=" + certificationDate +
+                ", lastUpdateDate=" + lastUpdateDate +
+                ", lastUpdateClientCode='" + lastUpdateClientCode + '\'' +
+                '}';
+    }
 }

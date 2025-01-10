@@ -55,4 +55,11 @@ public class ConsolidateDefinition
     {
         this.mergedIdentities = mergedIdentities;
     }
+
+    @Override
+    public String toString() {
+        return "ConsolidateDefinition{" +
+                "mergedIdentities=" + mergedIdentities +
+                '}';
+    }
 }

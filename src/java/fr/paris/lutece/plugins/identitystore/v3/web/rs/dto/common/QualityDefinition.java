@@ -79,4 +79,13 @@ public class QualityDefinition
     {
         this.scoring = scoring;
     }
+
+    @Override
+    public String toString() {
+        return "QualityDefinition{" +
+                "quality=" + quality +
+                ", coverage=" + coverage +
+                ", scoring=" + scoring +
+                '}';
+    }
 }

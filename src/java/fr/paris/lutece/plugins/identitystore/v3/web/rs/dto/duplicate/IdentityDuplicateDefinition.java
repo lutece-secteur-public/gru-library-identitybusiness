@@ -87,4 +87,12 @@ public class IdentityDuplicateDefinition
     {
         this.duplicateSuspicion = duplicateSuspicion;
     }
+
+    @Override
+    public String toString() {
+        return "IdentityDuplicateDefinition{" +
+                "duplicateExclusions=" + duplicateExclusions +
+                ", duplicateSuspicion=" + duplicateSuspicion +
+                '}';
+    }
 }

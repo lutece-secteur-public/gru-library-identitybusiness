@@ -288,4 +288,24 @@ public class IdentityDto
     {
         this.attributes = attributes;
     }
+
+    @Override
+    public String toString() {
+        return "IdentityDto{" +
+                "connectionId='" + connectionId + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", externalCustomerId='" + externalCustomerId + '\'' +
+                ", monParisActive=" + monParisActive +
+                ", creationDate=" + creationDate +
+                ", lastUpdateDate=" + lastUpdateDate +
+                ", quality=" + quality +
+                ", expiration=" + expiration +
+                ", merge=" + merge +
+                ", consolidate=" + consolidate +
+                ", duplicateDefinition=" + duplicateDefinition +
+                ", matchedDuplicateRuleCode='" + matchedDuplicateRuleCode + '\'' +
+                ", suspicious=" + suspicious +
+                ", attributes=" + attributes +
+                '}';
+    }
 }

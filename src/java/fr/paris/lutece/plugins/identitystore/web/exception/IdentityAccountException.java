@@ -39,36 +39,58 @@ package fr.paris.lutece.plugins.identitystore.web.exception;
  * OpenamIdentityException
  *
  */
-public class OpenamIdentityException extends Exception
+public class IdentityAccountException extends Exception
 {
     private static final long serialVersionUID = 8620683498138147259L;
-    private String _strErrorCode;
+
+    private final String localeMessageKey;
 
     /**
-     *
-     * @param strErrorCode strErrorCode
-     *
+     * @param strError
+     *            error message
      */
-    public OpenamIdentityException( String strErrorCode )
+    public IdentityAccountException( final String strError )
     {
-        setErrorCode( strErrorCode );
+        this( strError, (String) null );
     }
 
     /**
-     *
-     * @return strErrorCode
+     * @param strError
+     *            error message
+     * @param error
+     *            error exception
      */
-    public String getErrorCode(  )
+    public IdentityAccountException( final String strError, final Exception error )
     {
-        return _strErrorCode;
+        this( strError, error, null );
     }
 
     /**
-     *
-     * @param strErrorCode strErrorCode
+     * @param strError
+     *            error message
+     * @param localeMessageKey
+     *            local message key
      */
-    public void setErrorCode( String strErrorCode )
+    public IdentityAccountException( final String strError, final String localeMessageKey )
     {
-        this._strErrorCode = strErrorCode;
+        super( strError );
+        this.localeMessageKey = localeMessageKey;
+    }
+
+    /**
+     * @param strError
+     *            error message
+     * @param error
+     *            error exception
+     */
+    public IdentityAccountException( final String strError, final Exception error, final String localeMessageKey )
+    {
+        super( strError, error );
+        this.localeMessageKey = localeMessageKey;
+    }
+
+    public String getLocaleMessageKey( )
+    {
+        return localeMessageKey;
     }
 }

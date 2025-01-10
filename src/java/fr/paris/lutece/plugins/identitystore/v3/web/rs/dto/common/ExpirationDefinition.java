@@ -86,4 +86,13 @@ public class ExpirationDefinition
     {
         this.deleteDate = deleteDate;
     }
+
+    @Override
+    public String toString() {
+        return "ExpirationDefinition{" +
+                "deleted=" + deleted +
+                ", expirationDate=" + expirationDate +
+                ", deleteDate=" + deleteDate +
+                '}';
+    }
 }

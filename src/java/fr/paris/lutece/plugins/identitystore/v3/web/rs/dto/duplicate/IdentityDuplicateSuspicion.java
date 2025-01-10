@@ -66,4 +66,12 @@ public class IdentityDuplicateSuspicion
     {
         this.creationDate = creationDate;
     }
+
+    @Override
+    public String toString() {
+        return "IdentityDuplicateSuspicion{" +
+                "duplicateRuleCode='" + duplicateRuleCode + '\'' +
+                ", creationDate=" + creationDate +
+                '}';
+    }
 }

@@ -1,19 +1,17 @@
-package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.account.openam;
+package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.account;
 
-import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.ResponseDto;
-
-public class CreateAccountResponse extends ResponseDto
+public class ChangeAccountResult
 {
     private String _strUid;
     private String _strTokenId;
 
-    public CreateAccountResponse( String strGuid, String strTokenId )
+    public ChangeAccountResult(String strGuid, String strTokenId )
     {
         this._strUid = strGuid;
         this._strTokenId = strTokenId;
     }
 
-    public CreateAccountResponse(  )
+    public ChangeAccountResult(  )
     {
     }
 
@@ -35,5 +33,13 @@ public class CreateAccountResponse extends ResponseDto
     public void setTokenId( String _strTokenId )
     {
         this._strTokenId = _strTokenId;
+    }
+
+    @Override
+    public String toString() {
+        return "CreateAccountResult{" +
+                "_strUid='" + _strUid + '\'' +
+                ", _strTokenId='" + _strTokenId + '\'' +
+                '}';
     }
 }

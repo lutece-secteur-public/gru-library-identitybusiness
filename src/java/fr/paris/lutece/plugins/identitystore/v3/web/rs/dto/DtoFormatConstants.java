@@ -81,6 +81,8 @@ public final class DtoFormatConstants
     public static final String KEY_LABEL = "label";
     public static final String KEY_ERRORS = "errors";
     public static final String KEY_ERROR = "error";
+    public static final String KEY_ERROR_CODE = "error";
+    public static final String KEY_RESULT = "result";
     public static final String KEY_STATUS = "status";
     public static final String KEY_MESSAGE = "message";
     public static final String KEY_MESSAGE_KEY = "message_key";
