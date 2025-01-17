@@ -40,6 +40,7 @@ import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IdentityDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.ServiceContractDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.duplicate.DuplicateRuleSummaryDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.history.IdentityChange;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 import fr.paris.lutece.plugins.identitystore.web.exception.IdentityStoreException;
@@ -147,6 +148,26 @@ public class CsvIdentityService
         catch( Exception e )
         {
             throw new IdentityStoreException( "An error occurred while exporting csv identities. ", e );
+        }
+    }
+
+    public byte [ ] writeDuplicateRules( final List<CsvDuplicateRule> duplicatesRules ) throws IdentityStoreException
+    {
+        try
+        {
+            final ByteArrayOutputStream out = new ByteArrayOutputStream( );
+            final Writer writer = new OutputStreamWriter( out );
+            final CustomMappingStrategy<CsvDuplicateRule> mappingStrategy = new CustomMappingStrategy<>( );
+            mappingStrategy.setType( CsvDuplicateRule.class );
+            final StatefulBeanToCsv<CsvDuplicateRule> identitiesWriter = new StatefulBeanToCsvBuilder<CsvDuplicateRule>( writer ).withMappingStrategy( mappingStrategy )
+                    .withOrderedResults( true ).withSeparator( Constants.CSV_SEPARATOR ).withApplyQuotesToAll( false ).build( );
+            identitiesWriter.write( duplicatesRules );
+            writer.close( );
+            return out.toByteArray( );
+        }
+        catch( Exception e )
+        {
+            throw new IdentityStoreException( "An error occurred while exporting csv duplicates rules. ", e );
         }
     }
 
