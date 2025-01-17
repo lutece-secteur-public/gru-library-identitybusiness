@@ -104,6 +104,17 @@ public final class Constants
     public static final String PARAM_AUTHORIZED_EXPORT = "export";
     public static final String PARAM_AUTHORIZED_DECERTIFICATION = "decertification";
     public static final String PARAM_AUTHORIZED_AGENT_HISTORY_READ = "agent_history_read";
+    public static final String PARAMETER_CODE = "code";
+    public static final String PARAMETER_DESCRIPTION = "description";
+    public static final String PARAMETER_PRIORITY = "priority";
+    public static final String PARAMETER_DETECTION_LIMIT = "detection_limit";
+    public static final String PARAMETER_ACTIVE = "active";
+    public static final String PARAMETER_DAEMON = "daemon";
+    public static final String PARAMETER_NB_IMPACTED_ATTRIBUTES = "nb_impacted_attributes";
+    public static final String PARAMETER_NB_FILLED_ATTRIBUTES = "nb_filled_attributes";
+    public static final String PARAMETER_NB_MISSING_ATTRIBUTES = "nb_missing_attributes";
+    public static final String PARAMETER_NB_EQUALS_ATTRIBUTES = "nb_equals_attributes";
+    public static final String PARAMETER_TREATMENT_TYPES = "treatment_types";
 
     /**
      * Tasks
