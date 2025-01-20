@@ -453,6 +453,7 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_EXPORT_UNAUTHORIZED = "identitystore.rest.error.export.unauthorized";
     public static final String PROPERTY_REST_ERROR_SCHEDULE_EXPORT_REQUEST_NULL_OR_EMPTY = "identityexport.rest.error.schedule.export.null.or.empty";
     public static final String PROPERTY_REST_ERROR_SCHEDULE_EXPORT_ALREADY_IN_PROGRESS = "identityexport.rest.error.schedule.export.already.in.progress";
+    public static final String PROPERTY_REST_ERROR_FORBIDDEN_EMAIL_DOMAIN = "identitystore.rest.error.forbidden.email.domain";
 
     public static final String PROPERTY_REST_INFO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.potential.duplicate.found";
     public static final String PROPERTY_REST_INFO_SUCCESSFUL_OPERATION = "identitystore.rest.info.successful.operation";
