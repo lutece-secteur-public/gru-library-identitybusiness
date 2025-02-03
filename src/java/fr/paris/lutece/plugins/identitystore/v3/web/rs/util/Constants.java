@@ -175,6 +175,8 @@ public final class Constants
     public static final String PARAM_ADDRESS_POSTAL_CODE = "address_postal_code";
     public static final String PARAM_ADDRESS_CITY = "address_city";
     public static final String PARAM_FC_KEY = "fc_key";
+    public static final String PARAM_IS_IDENTITTY_TO_KEEP_CONNECTED = "keep_connected";
+    public static final String PARAM_IS_IDENTITTY_TO_MERGE_CONNECTED = "merge_connected";
 
     public static final String PARAM_USER_PASSWORD = "userPassword";
     public static final String PARAM_MAIL = "mail";
