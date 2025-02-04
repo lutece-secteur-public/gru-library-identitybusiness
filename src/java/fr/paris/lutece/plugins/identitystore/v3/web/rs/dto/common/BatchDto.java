@@ -52,6 +52,9 @@ public class BatchDto
     @JsonIgnore
     protected String appCode;
 
+    @JsonIgnore
+    protected String clientCode;
+
     protected String comment;
 
     protected List<IdentityDto> identities = new ArrayList<>( );
@@ -94,6 +97,14 @@ public class BatchDto
     public void setAppCode( String appCode )
     {
         this.appCode = appCode;
+    }
+
+    public String getClientCode() {
+        return clientCode;
+    }
+
+    public void setClientCode(String clientCode) {
+        this.clientCode = clientCode;
     }
 
     public String getComment( )
