@@ -125,7 +125,6 @@ public final class Constants
     public static final String SEARCH_TASK_PATH = "/search";
     public static final String PARAM_RESOURCE_ID = "resource_id";
     public static final String PARAM_RESOURCE_TYPE = "resource_type";
-    public static final String TASK_SECOND_CUID_PARAM = "second_cuid";
     public static final String PARAM_CHANGE_TYPE = "change_type";
     public static final String PARAM_CHANGE_STATUS = "status";
 

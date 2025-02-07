@@ -3,7 +3,9 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.task;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @JsonRootName( "task_search" )
 public class IdentityTaskSearchRequest {
@@ -19,6 +21,9 @@ public class IdentityTaskSearchRequest {
 
     @JsonProperty("creation_date_ordering")
     protected IdentityCreationDateOrdering creationDateOrdering;
+
+    @JsonProperty( "metadata" )
+    protected Map<String, String> metadata = new HashMap<String, String>( );
 
     public IdentityTaskType getTaskType() {
         return identityTaskType;
@@ -50,5 +55,13 @@ public class IdentityTaskSearchRequest {
 
     public void setCreationDateOrdering(IdentityCreationDateOrdering creationDateOrdering) {
         this.creationDateOrdering = creationDateOrdering;
+    }
+
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
     }
 }
