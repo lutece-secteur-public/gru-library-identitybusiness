@@ -297,6 +297,8 @@ public final class Constants
     public static final String PARAM_PAGE = "page";
     public static final String PARAM_RULE_PRIORITY = "priority";
     public static final String PARAM_RULE_CODE = "code";
+    public static final String CHECK_LOCK_PATH = "checklock";
+    public static final String ALL_LOCKS_PATH = "allLocks";
 
     /** History and metadata */
     public static final String HISTORY_PATH = "/history";
