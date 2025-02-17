@@ -10,14 +10,9 @@
 	<groupId>fr.paris.lutece.plugins</groupId>
 	<artifactId>library-identitybusiness</artifactId>
 	<packaging>jar</packaging>
-	<version>3.1.8-SNAPSHOT</version>
+	<version>3.2.0-SNAPSHOT</version>
 	<name>Lutece identity business library</name>
 
-	<properties>
-		<componentName>GRU Library Identity business</componentName>
-		<jiraProjectName>LIBIDSBUS</jiraProjectName>
-		<jiraComponentId>13451</jiraComponentId>
-	</properties>
 
 	<repositories>
 		<repository>
@@ -52,5 +47,11 @@
 		<url>https://github.com/lutece-secteur-public/gru-library-identitybusiness.git</url>
 		<tag>HEAD</tag>
 	</scm>
+
+        <properties>
+                <componentName>GRU Library Identity business</componentName>
+                <jiraProjectName>LIBIDSBUS</jiraProjectName>
+                <jiraComponentId>13451</jiraComponentId>
+        </properties>
 
 </project>
