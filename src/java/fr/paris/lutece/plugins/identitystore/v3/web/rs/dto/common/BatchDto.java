@@ -36,7 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +45,7 @@ public class BatchDto
 {
     protected String reference;
 
-    protected Date date;
+    protected Timestamp creationDate;
 
     protected String user;
 
@@ -69,14 +69,14 @@ public class BatchDto
         this.reference = reference;
     }
 
-    public Date getDate( )
+    public Timestamp getCreationDate( )
     {
-        return date;
+        return creationDate;
     }
 
-    public void setDate( Date date )
+    public void setCreationDate(Timestamp creationDate)
     {
-        this.date = date;
+        this.creationDate = creationDate;
     }
 
     public String getUser( )
