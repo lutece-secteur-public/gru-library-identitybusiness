@@ -484,6 +484,9 @@ public final class Constants
 
     public static final String PROPERTY_ATTRIBUTE_STATUS_INSUFFICIENT_CERTIFICATION_LEVEL = "identitystore.attribute.status.insufficient.certification.level";
 
+    // Account generator
+    public static final String PROPERTY_REST_ERROR_ACCOUNT_GENERATION_REQUEST_FORMAT = "identitystore.account.generation.request.format";
+
     /**
      * Default constructor
      */
