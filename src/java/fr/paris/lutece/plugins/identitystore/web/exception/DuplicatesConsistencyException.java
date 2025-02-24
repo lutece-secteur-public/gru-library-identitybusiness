@@ -52,7 +52,7 @@ public class DuplicatesConsistencyException extends IdentityStoreException
         super( strErrorMsg, strErrorMsgKey );
         try
         {
-            response = responseClass.newInstance( );
+            response = responseClass.getDeclaredConstructor( ).newInstance( );
         }
         catch( final Exception e )
         {

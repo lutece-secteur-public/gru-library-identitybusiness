@@ -54,7 +54,7 @@ public class ResourceConsistencyException extends IdentityStoreException
         super( strErrorMsg, strErrorMsgKey );
         try
         {
-            response = responseClass.newInstance( );
+            response = responseClass.getDeclaredConstructor( ).newInstance( );
         }
         catch( final Exception e )
         {
