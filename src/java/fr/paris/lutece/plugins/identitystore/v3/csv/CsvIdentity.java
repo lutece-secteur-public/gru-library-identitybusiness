@@ -38,6 +38,7 @@ import com.opencsv.bean.CsvBindByPosition;
 import com.opencsv.bean.CsvDate;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class CsvIdentity
@@ -62,8 +63,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_GENDER )
     @CsvBindByPosition( position = 3 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateGenderCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateGenderCertificationDate;
 
     /**
      * FAMILY NAME
@@ -78,8 +79,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_FAMILY_NAME )
     @CsvBindByPosition( position = 6 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateFamilyNameCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateFamilyNameCertificationDate;
 
     /**
      * PREFERRED USER NAME
@@ -94,8 +95,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_PREFERRED_USERNAME )
     @CsvBindByPosition( position = 9 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _datePreferredUsernameCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _datePreferredUsernameCertificationDate;
 
     /**
      * FIRST NAME
@@ -110,8 +111,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_FIRST_NAME )
     @CsvBindByPosition( position = 12 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateFirstNameCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateFirstNameCertificationDate;
 
     /**
      * BIRTH DATE
@@ -127,8 +128,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_BIRTH_DATE )
     @CsvBindByPosition( position = 15 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateBirthdateCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateBirthdateCertificationDate;
 
     /**
      * BIRTHPLACE CODE
@@ -143,8 +144,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_BIRTH_PLACE_CODE )
     @CsvBindByPosition( position = 18 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateBirthplaceCodeCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateBirthplaceCodeCertificationDate;
 
     /**
      * BIRTH COUNTRY CODE
@@ -159,8 +160,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_BIRTH_COUNTRY_CODE )
     @CsvBindByPosition( position = 21 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateBirthCountryCodeCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateBirthCountryCodeCertificationDate;
 
     /**
      * BIRTHPLACE
@@ -175,8 +176,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_BIRTH_PLACE )
     @CsvBindByPosition( position = 24 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateBirthplaceCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateBirthplaceCertificationDate;
 
     /**
      * BIRTH COUNTRY
@@ -191,8 +192,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_BIRTH_COUNTRY )
     @CsvBindByPosition( position = 27 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateBirthCountryCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateBirthCountryCertificationDate;
 
     /**
      * EMAIL
@@ -207,8 +208,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_EMAIL )
     @CsvBindByPosition( position = 30 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateEmailCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateEmailCertificationDate;
 
     /**
      * MOBILE PHONE
@@ -223,8 +224,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_MOBILE_PHONE )
     @CsvBindByPosition( position = 33 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateMobilePhoneCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateMobilePhoneCertificationDate;
 
     /**
      * FIXED PHONE
@@ -239,8 +240,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_FIXED_PHONE )
     @CsvBindByPosition( position = 36 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateFixedPhoneCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateFixedPhoneCertificationDate;
 
     /**
      * ADDRESS
@@ -255,8 +256,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_ADDRESS )
     @CsvBindByPosition( position = 39 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateAddressCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateAddressCertificationDate;
 
     /**
      * ADDRESS COMPLEMENT
@@ -271,8 +272,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_ADDRESS_COMPLEMENT )
     @CsvBindByPosition( position = 42 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateAddressComplementCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateAddressComplementCertificationDate;
 
     /**
      * ADDRESS POSTAL CODE
@@ -287,8 +288,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_ADDRESS_POSTAL_CODE )
     @CsvBindByPosition( position = 45 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateAddressPostalCodeCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateAddressPostalCodeCertificationDate;
 
     /**
      * ADDRESS CITY
@@ -303,8 +304,8 @@ public class CsvIdentity
 
     @CsvBindByName( column = Constants.PARAM_CERTIFICATION_DATE_ADDRESS_CITY )
     @CsvBindByPosition( position = 48 )
-    @CsvDate( Constants.CSV_DATE_FORMAT )
-    private Date _dateAddressCityCertificationDate;
+    @CsvDate( Constants.CSV_TIMESTAMP_FORMAT )
+    private Timestamp _dateAddressCityCertificationDate;
 
     /**
      * Internal Customer ID
@@ -353,12 +354,12 @@ public class CsvIdentity
         this._strGenderCertifier = _strGenderCertifier;
     }
 
-    public Date getGenderCertificationDate( )
+    public Timestamp getGenderCertificationDate( )
     {
         return _dateGenderCertificationDate;
     }
 
-    public void setGenderCertificationDate( Date _dateGenderCertificationDate )
+    public void setGenderCertificationDate( Timestamp _dateGenderCertificationDate )
     {
         this._dateGenderCertificationDate = _dateGenderCertificationDate;
     }
@@ -383,12 +384,12 @@ public class CsvIdentity
         this._strFamilyNameCertifier = _strFamilyNameCertifier;
     }
 
-    public Date getFamilyNameCertificationDate( )
+    public Timestamp getFamilyNameCertificationDate( )
     {
         return _dateFamilyNameCertificationDate;
     }
 
-    public void setFamilyNameCertificationDate( Date _dateFamilyNameCertificationDate )
+    public void setFamilyNameCertificationDate( Timestamp _dateFamilyNameCertificationDate )
     {
         this._dateFamilyNameCertificationDate = _dateFamilyNameCertificationDate;
     }
@@ -413,12 +414,12 @@ public class CsvIdentity
         this._strPreferredUsernameCertifier = _strPreferredUsernameCertifier;
     }
 
-    public Date getPreferredUsernameCertificationDate( )
+    public Timestamp getPreferredUsernameCertificationDate( )
     {
         return _datePreferredUsernameCertificationDate;
     }
 
-    public void setPreferredUsernameCertificationDate( Date _datePreferredUsernameCertificationDate )
+    public void setPreferredUsernameCertificationDate( Timestamp _datePreferredUsernameCertificationDate )
     {
         this._datePreferredUsernameCertificationDate = _datePreferredUsernameCertificationDate;
     }
@@ -443,12 +444,12 @@ public class CsvIdentity
         this._strFirstNameCertifier = _strFirstNameCertifier;
     }
 
-    public Date getFirstNameCertificationDate( )
+    public Timestamp getFirstNameCertificationDate( )
     {
         return _dateFirstNameCertificationDate;
     }
 
-    public void setFirstNameCertificationDate( Date _dateFirstNameCertificationDate )
+    public void setFirstNameCertificationDate( Timestamp _dateFirstNameCertificationDate )
     {
         this._dateFirstNameCertificationDate = _dateFirstNameCertificationDate;
     }
@@ -473,12 +474,12 @@ public class CsvIdentity
         this._strBirthdateCertifier = _strBirthdateCertifier;
     }
 
-    public Date getBirthdateCertificationDate( )
+    public Timestamp getBirthdateCertificationDate( )
     {
         return _dateBirthdateCertificationDate;
     }
 
-    public void setBirthdateCertificationDate( Date _dateBirthdateCertificationDate )
+    public void setBirthdateCertificationDate( Timestamp _dateBirthdateCertificationDate )
     {
         this._dateBirthdateCertificationDate = _dateBirthdateCertificationDate;
     }
@@ -503,12 +504,12 @@ public class CsvIdentity
         this._strBirthplaceCodeCertifier = _strBirthplaceCodeCertifier;
     }
 
-    public Date getBirthplaceCodeCertificationDate( )
+    public Timestamp getBirthplaceCodeCertificationDate( )
     {
         return _dateBirthplaceCodeCertificationDate;
     }
 
-    public void setBirthplaceCodeCertificationDate( Date _dateBirthplaceCodeCertificationDate )
+    public void setBirthplaceCodeCertificationDate( Timestamp _dateBirthplaceCodeCertificationDate )
     {
         this._dateBirthplaceCodeCertificationDate = _dateBirthplaceCodeCertificationDate;
     }
@@ -533,12 +534,12 @@ public class CsvIdentity
         this._strBirthCountryCodeCertifier = _strBirthCountryCodeCertifier;
     }
 
-    public Date getBirthCountryCodeCertificationDate( )
+    public Timestamp getBirthCountryCodeCertificationDate( )
     {
         return _dateBirthCountryCodeCertificationDate;
     }
 
-    public void setBirthCountryCodeCertificationDate( Date _dateBirthCountryCodeCertificationDate )
+    public void setBirthCountryCodeCertificationDate( Timestamp _dateBirthCountryCodeCertificationDate )
     {
         this._dateBirthCountryCodeCertificationDate = _dateBirthCountryCodeCertificationDate;
     }
@@ -563,12 +564,12 @@ public class CsvIdentity
         this._strBirthplaceCertifier = _strBirthplaceCertifier;
     }
 
-    public Date getBirthplaceCertificationDate( )
+    public Timestamp getBirthplaceCertificationDate( )
     {
         return _dateBirthplaceCertificationDate;
     }
 
-    public void setBirthplaceCertificationDate( Date _dateBirthplaceCertificationDate )
+    public void setBirthplaceCertificationDate( Timestamp _dateBirthplaceCertificationDate )
     {
         this._dateBirthplaceCertificationDate = _dateBirthplaceCertificationDate;
     }
@@ -593,12 +594,12 @@ public class CsvIdentity
         this._strBirthCountryCertifier = _strBirthCountryCertifier;
     }
 
-    public Date getBirthCountryCertificationDate( )
+    public Timestamp getBirthCountryCertificationDate( )
     {
         return _dateBirthCountryCertificationDate;
     }
 
-    public void setBirthCountryCertificationDate( Date _dateBirthCountryCertificationDate )
+    public void setBirthCountryCertificationDate( Timestamp _dateBirthCountryCertificationDate )
     {
         this._dateBirthCountryCertificationDate = _dateBirthCountryCertificationDate;
     }
@@ -623,12 +624,12 @@ public class CsvIdentity
         this._strEmailCertifier = _strEmailCertifier;
     }
 
-    public Date getEmailCertificationDate( )
+    public Timestamp getEmailCertificationDate( )
     {
         return _dateEmailCertificationDate;
     }
 
-    public void setEmailCertificationDate( Date _dateEmailCertificationDate )
+    public void setEmailCertificationDate( Timestamp _dateEmailCertificationDate )
     {
         this._dateEmailCertificationDate = _dateEmailCertificationDate;
     }
@@ -653,12 +654,12 @@ public class CsvIdentity
         this._strMobilePhoneCertifier = _strMobilePhoneCertifier;
     }
 
-    public Date getMobilePhoneCertificationDate( )
+    public Timestamp getMobilePhoneCertificationDate( )
     {
         return _dateMobilePhoneCertificationDate;
     }
 
-    public void setMobilePhoneCertificationDate( Date _dateMobilePhoneCertificationDate )
+    public void setMobilePhoneCertificationDate( Timestamp _dateMobilePhoneCertificationDate )
     {
         this._dateMobilePhoneCertificationDate = _dateMobilePhoneCertificationDate;
     }
@@ -683,12 +684,12 @@ public class CsvIdentity
         this._strFixedPhoneCertifier = _strFixedPhoneCertifier;
     }
 
-    public Date getFixedPhoneCertificationDate( )
+    public Timestamp getFixedPhoneCertificationDate( )
     {
         return _dateFixedPhoneCertificationDate;
     }
 
-    public void setFixedPhoneCertificationDate( Date _dateFixedPhoneCertificationDate )
+    public void setFixedPhoneCertificationDate( Timestamp _dateFixedPhoneCertificationDate )
     {
         this._dateFixedPhoneCertificationDate = _dateFixedPhoneCertificationDate;
     }
@@ -713,12 +714,12 @@ public class CsvIdentity
         this._strAddressCertifier = _strAddressCertifier;
     }
 
-    public Date getAddressCertificationDate( )
+    public Timestamp getAddressCertificationDate( )
     {
         return _dateAddressCertificationDate;
     }
 
-    public void setAddressCertificationDate( Date _dateAddressCertificationDate )
+    public void setAddressCertificationDate( Timestamp _dateAddressCertificationDate )
     {
         this._dateAddressCertificationDate = _dateAddressCertificationDate;
     }
@@ -743,12 +744,12 @@ public class CsvIdentity
         this._strAddressComplementCertifier = _strAddressComplementCertifier;
     }
 
-    public Date getAddressComplementCertificationDate( )
+    public Timestamp getAddressComplementCertificationDate( )
     {
         return _dateAddressComplementCertificationDate;
     }
 
-    public void setAddressComplementCertificationDate( Date _dateAddressComplementCertificationDate )
+    public void setAddressComplementCertificationDate( Timestamp _dateAddressComplementCertificationDate )
     {
         this._dateAddressComplementCertificationDate = _dateAddressComplementCertificationDate;
     }
@@ -773,12 +774,12 @@ public class CsvIdentity
         this._strAddressPostalCodeCertifier = _strAddressPostalCodeCertifier;
     }
 
-    public Date getAddressPostalCodeCertificationDate( )
+    public Timestamp getAddressPostalCodeCertificationDate( )
     {
         return _dateAddressPostalCodeCertificationDate;
     }
 
-    public void setAddressPostalCodeCertificationDate( Date _dateAddressPostalCodeCertificationDate )
+    public void setAddressPostalCodeCertificationDate( Timestamp _dateAddressPostalCodeCertificationDate )
     {
         this._dateAddressPostalCodeCertificationDate = _dateAddressPostalCodeCertificationDate;
     }
@@ -803,12 +804,12 @@ public class CsvIdentity
         this._strAddressCityCertifier = _strAddressCityCertifier;
     }
 
-    public Date getAddressCityCertificationDate( )
+    public Timestamp getAddressCityCertificationDate( )
     {
         return _dateAddressCityCertificationDate;
     }
 
-    public void setAddressCityCertificationDate( Date _dateAddressCityCertificationDate )
+    public void setAddressCityCertificationDate( Timestamp _dateAddressCityCertificationDate )
     {
         this._dateAddressCityCertificationDate = _dateAddressCityCertificationDate;
     }

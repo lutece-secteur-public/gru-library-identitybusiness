@@ -215,6 +215,7 @@ public final class Constants
     private static final String CERTIFIER_SUFFIX = "_certifier";
     private static final String CERTIFICATION_DATE_SUFFIX = "_certification_date";
     public static final String CSV_DATE_FORMAT = "dd/MM/yyyy";
+    public static final String CSV_TIMESTAMP_FORMAT = "dd/MM/yyyy HH:mm:ss:SSS";
     public static final char CSV_SEPARATOR = ';';
     public static final String COMA_SEPARATOR = ",";
     public static final String PARAM_CERTIFIER_GENDER = PARAM_GENDER + CERTIFIER_SUFFIX;

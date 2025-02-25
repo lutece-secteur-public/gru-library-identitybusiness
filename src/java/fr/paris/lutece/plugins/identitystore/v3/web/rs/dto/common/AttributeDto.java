@@ -39,7 +39,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.StringUtils;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  * DTO contenant la requête de création d'un attribut avec sa certification
@@ -77,7 +76,7 @@ public class AttributeDto
      * Date à laquelle la donnée a été certifiée (si existe)(format timestamp ?)
      */
     @JsonProperty( "certDate" )
-    protected Date certificationDate;
+    protected Timestamp certificationDate;
 
     private Timestamp lastUpdateDate;
     private String lastUpdateClientCode;
@@ -132,12 +131,12 @@ public class AttributeDto
         this.certifier = certifier;
     }
 
-    public Date getCertificationDate( )
+    public Timestamp getCertificationDate( )
     {
         return certificationDate;
     }
 
-    public void setCertificationDate( Date certificationDate )
+    public void setCertificationDate( Timestamp certificationDate )
     {
         this.certificationDate = certificationDate;
     }
