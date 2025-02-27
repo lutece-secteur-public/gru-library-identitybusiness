@@ -316,6 +316,8 @@ public final class Constants
     public static final String METADATA_ORIGIN = "origin";
     public static final String METADATA_DUPLICATE_CUID_LIST = "duplicate_cuid_list";
     public static final String METADATA_MARKED_SUSPICIOUS = "marked_suspicious";
+    public static final String METADATA_LAST_UPDATE_CLIENT_CODE = "last_update_client_code";
+    public static final String METADATA_LAST_UPDATE_DATE = "last_update_date";
 
     /** Global Properties */
     public static final String PROPERTY_APPLICATION_VERSION = "identitystore.version";
