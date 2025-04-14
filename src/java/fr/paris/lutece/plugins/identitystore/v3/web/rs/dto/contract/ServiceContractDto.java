@@ -59,6 +59,7 @@ public class ServiceContractDto
     private boolean _bAuthorizedExport;
     private boolean _bAuthorizedDecertification;
     private boolean _bAuthorizedAgentHistoryRead;
+    private boolean _bAuthorizedAttachmentCertification;
     private int _nDataRetentionPeriodInMonths;
     private List<AttributeDefinitionDto> attributeDefinitions = new ArrayList<>( );
 
@@ -260,6 +261,16 @@ public class ServiceContractDto
     public void setAuthorizedAgentHistoryRead( boolean _bAuthorizedAgentHistoryRead )
     {
         this._bAuthorizedAgentHistoryRead = _bAuthorizedAgentHistoryRead;
+    }
+
+    public boolean isAuthorizedAttachementCertification()
+    {
+        return _bAuthorizedAttachmentCertification;
+    }
+
+    public void setAuthorizedAttachementCertification(boolean attachementCertification)
+    {
+        this._bAuthorizedAttachmentCertification = attachementCertification;
     }
 
     public int getDataRetentionPeriodInMonths( )
