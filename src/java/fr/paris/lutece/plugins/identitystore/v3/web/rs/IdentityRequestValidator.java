@@ -300,6 +300,12 @@ public final class IdentityRequestValidator extends RequestValidator
             throw new RequestFormatException( "An Identity merge request must provide the CUID of the secondary Identity",
                     Constants.PROPERTY_REST_ERROR_MERGE_REQUEST_NO_SECONDARY_CUID );
         }
+        
+        if ( identityMergeRequest.getPrimaryCuid( ).equals ( identityMergeRequest.getSecondaryCuid(  ) ) )
+        {
+            throw new RequestFormatException( "An Identity merge request must provide a different secondary CUID",
+                    Constants.PROPERTY_REST_ERROR_MERGE_REQUEST_NO_SECONDARY_CUID );
+        }
 
         if ( identityMergeRequest.getPrimaryLastUpdateDate( ) == null )
         {
