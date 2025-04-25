@@ -131,7 +131,6 @@ public final class Constants
     public static final String PARAM_CHANGE_TYPE = "change_type";
     public static final String PARAM_CHANGE_STATUS = "status";
 
-
     /** Geocodes */
     public static final String SEARCH_PATH = "/search/{" + Constants.SEARCHED_STRING + "}";
     public static final String SEARCHED_STRING = "searched_string";
@@ -322,6 +321,7 @@ public final class Constants
     public static final String METADATA_LAST_UPDATE_DATE = "last_update_date";
     public static final String METADATA_FILES = "files";
     public static final String METADATA_CLIENT_CODE = "client_code";
+    public static final String PARAM_ALL_TASK_TYPES = "*";
 
     /** Global Properties */
     public static final String PROPERTY_APPLICATION_VERSION = "identitystore.version";
@@ -451,6 +451,7 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_HISTORY_SEARCH_INVALID = "identitystore.rest.error.history.search.invalid";
     public static final String PROPERTY_REST_ERROR_MISSING_APPLICATION_CODE = "identitystore.rest.error.missing.application.code";
     public static final String PROPERTY_REST_ERROR_CLIENT_APPLICATION_NULL = "identitystore.rest.error.client.application.null";
+    public static final String PROPERTY_REST_ERROR_CLIENT_CODE_NULL = "identitystore.rest.error.client.code.null";
     public static final String PROPERTY_REST_ERROR_CLIENT_APPLICATION_WITHOUT_CLIENT_CODE = "identitystore.rest.error.client.application.without.client.code";
     public static final String PROPERTY_REST_ERROR_CHANGE_REQUEST_SAME_ATTRIUTE_DIFFERENT_VALUE = "identitystore.rest.error.change.request.same.attribute.different.value";
     public static final String PROPERTY_REST_ERROR_SUSPICIOUS_SEARCH_REQUEST_NULL = "identitystore.rest.error.suspicious.search.request.null";

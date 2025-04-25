@@ -413,6 +413,14 @@ public final class IdentityRequestValidator extends RequestValidator
         }
     }
 
+    public void checkClientCode( final String clientCode ) throws RequestFormatException
+    {
+        if(StringUtils.isBlank( clientCode ))
+        {
+            throw new RequestFormatException( "Provided client code is null", Constants.PROPERTY_REST_ERROR_CLIENT_CODE_NULL );
+        }
+    }
+
     public void checkUpdatedIdentitySearchRequest( final UpdatedIdentitySearchRequest request ) throws RequestFormatException
     {
         if ( request == null || ( request.getDays( ) == null && request.getUpdatedAttributes( ).isEmpty( ) && request.getIdentityChangeTypes( ).isEmpty( ) ) )
