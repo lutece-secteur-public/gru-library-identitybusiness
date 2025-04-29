@@ -69,6 +69,8 @@ public enum AttributeChangeStatus
     UNKNOWN_GEOCODES_LABEL( "unknown_geocodes_label", "The provided label was not found in the Geocodes repository.", ERROR ),
     MULTIPLE_GEOCODES_RESULTS_FOR_LABEL( "multiple_geocodes_results_for_label",
             "The provided label correspond to multiple results in Geocodes. Please specify by providing the code.", ERROR ),
+    MULTIPLE_GEOCODES_RESULTS_FOR_CODE( "multiple_geocodes_results_for_code",
+            "The provided code correspond to multiple results in Geocodes. Please specify by providing the date.", ERROR ),
     OVERRIDDEN_GEOCODES_LABEL( "overridden_geocodes_label",
             "The provided label was not corresponding to the provided code, and has been overridden with the correct Geocodes label.", SUCCESS ),
     INVALID_VALUE( "invalid_value", "This attribute value doesn't match its validation pattern.", ERROR ),

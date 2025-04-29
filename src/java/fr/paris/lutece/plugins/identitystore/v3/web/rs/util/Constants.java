@@ -474,6 +474,7 @@ public final class Constants
     public static final String PROPERTY_ATTRIBUTE_STATUS_VALIDATION_ERROR_UNKNOWN_GEOCODES_CODE = "identitystore.attribute.status.validation.error.unknown.geocodes.code";
     public static final String PROPERTY_ATTRIBUTE_STATUS_VALIDATION_ERROR_UNKNOWN_GEOCODES_LABEL = "identitystore.attribute.status.validation.error.unknown.geocodes.label";
     public static final String PROPERTY_ATTRIBUTE_STATUS_VALIDATION_ERROR_GEOCODES_LABEL_MULTIPLE_RESULTS = "identitystore.attribute.status.validation.error.geocodes.label.multiple.results";
+    public static final String PROPERTY_ATTRIBUTE_STATUS_VALIDATION_ERROR_GEOCODES_CODE_MULTIPLE_RESULTS = "identitystore.attribute.status.validation.error.geocodes.code.multiple.results";
 
     public static final String PROPERTY_ATTRIBUTE_STATUS_NOT_CREATED = "identitystore.attribute.status.not.created";
     public static final String PROPERTY_ATTRIBUTE_STATUS_CREATED = "identitystore.attribute.status.created";
