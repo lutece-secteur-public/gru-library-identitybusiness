@@ -98,7 +98,7 @@ public abstract class AbstractIdentityStoreRequest
      * @throws ResourceNotFoundException
      *             in case of error
      */
-    protected abstract void fetchResources( ) throws ResourceNotFoundException;
+    protected abstract void fetchResources( ) throws ResourceNotFoundException, ClientAuthorizationException;
 
     /**
      * Validates the request according to Request format validator
