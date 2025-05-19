@@ -81,6 +81,18 @@ public class CsvServiceContract
     @CsvBindByPosition( position = 17 )
     private boolean authorizedAgentHistoryRead;
 
+    @CsvBindByName( column = Constants.PARAM_CREATION_DATE )
+    @CsvBindByPosition( position = 18 )
+    private Date creationDate;
+
+    @CsvBindByName( column = Constants.PARAM_LAST_UPDATE_DATE )
+    @CsvBindByPosition( position = 19 )
+    private Date lastUpdatedDate;
+
+    @CsvBindByName( column = Constants.PARAM_AUTHOR_NAME )
+    @CsvBindByPosition( position = 20 )
+    private String authorName;
+
     public boolean isAuthorizedAccountUpdate()
     {
         return authorizedAccountUpdate;
@@ -259,5 +271,29 @@ public class CsvServiceContract
     public void setAuthorizedAgentHistoryRead(boolean authorizedAgentHistoryRead)
     {
         this.authorizedAgentHistoryRead = authorizedAgentHistoryRead;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Date getLastUpdatedDate() {
+        return lastUpdatedDate;
+    }
+
+    public void setLastUpdatedDate(Date lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 }

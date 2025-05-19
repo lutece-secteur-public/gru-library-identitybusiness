@@ -105,6 +105,8 @@ public final class Constants
     public static final String PARAM_AUTHORIZED_EXPORT = "export";
     public static final String PARAM_AUTHORIZED_DECERTIFICATION = "decertification";
     public static final String PARAM_AUTHORIZED_AGENT_HISTORY_READ = "agent_history_read";
+    public static final String PARAM_CREATION_DATE = "creation_date";
+    public static final String PARAM_LAST_UPDATE_DATE = "last_update_date";
     public static final String PARAMETER_CODE = "code";
     public static final String PARAMETER_DESCRIPTION = "description";
     public static final String PARAMETER_PRIORITY = "priority";

@@ -4,6 +4,8 @@ import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvBindByPosition;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 
+import java.sql.Date;
+
 public class CsvDuplicateRule
 {
 
@@ -54,6 +56,18 @@ public class CsvDuplicateRule
     @CsvBindByName( column = Constants.PARAMETER_TREATMENT_TYPES )
     @CsvBindByPosition( position = 11 )
     private String _strtreatmentType;
+
+    @CsvBindByName( column = Constants.PARAM_CREATION_DATE )
+    @CsvBindByPosition( position = 12 )
+    private Date creationDate;
+
+    @CsvBindByName( column = Constants.PARAM_LAST_UPDATE_DATE )
+    @CsvBindByPosition( position = 13 )
+    private Date lastUpdatedDate;
+
+    @CsvBindByName( column = Constants.PARAM_AUTHOR_NAME )
+    @CsvBindByPosition( position = 14 )
+    private String authorName;
 
     public String getCode()
     {
@@ -173,5 +187,29 @@ public class CsvDuplicateRule
     public void settreatmentType(String _strtreatmentType)
     {
         this._strtreatmentType = _strtreatmentType;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Date getLastUpdatedDate() {
+        return lastUpdatedDate;
+    }
+
+    public void setLastUpdatedDate(Date lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 }

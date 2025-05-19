@@ -506,6 +506,9 @@ public class CsvIdentityService
             csvServiceContract.setAuthorizedExport( serviceContract.isAuthorizedExport( ) );
             csvServiceContract.setAuthorizedDecertification( serviceContract.isAuthorizedDecertification( ) );
             csvServiceContract.setAuthorizedAgentHistoryRead( serviceContract.isAuthorizedAgentHistoryRead( ) );
+            csvServiceContract.setCreationDate( serviceContract.getCreationDate( ) );
+            csvServiceContract.setLastUpdatedDate( serviceContract.getLastUpdateDate());
+            csvServiceContract.setAuthorName( serviceContract.getAuthorName( ) );
 
             list.add( csvServiceContract );
         }

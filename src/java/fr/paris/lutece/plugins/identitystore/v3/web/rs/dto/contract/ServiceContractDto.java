@@ -33,6 +33,8 @@
  */
 package fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +64,9 @@ public class ServiceContractDto
     private boolean _bAuthorizedAttachmentCertification;
     private int _nDataRetentionPeriodInMonths;
     private List<AttributeDefinitionDto> attributeDefinitions = new ArrayList<>( );
+    private Date creationDate;
+    private Date lastUpdateDate;
+    private String _strAuthorName;
 
     public int getId( )
     {
@@ -291,5 +296,31 @@ public class ServiceContractDto
     public void setAttributeDefinitions( List<AttributeDefinitionDto> attributeDefinitions )
     {
         this.attributeDefinitions = attributeDefinitions;
+    }
+
+    public String getAuthorName()
+    {
+        return _strAuthorName;
+    }
+
+    public void setAuthorName(String _strAuthorName)
+    {
+        this._strAuthorName = _strAuthorName;
+    }
+
+    public Date getLastUpdateDate() {
+        return lastUpdateDate;
+    }
+
+    public void setLastUpdateDate(Date lastUpdateDate) {
+        this.lastUpdateDate = lastUpdateDate;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 }
