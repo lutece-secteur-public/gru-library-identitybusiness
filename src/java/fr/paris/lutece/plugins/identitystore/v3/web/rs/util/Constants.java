@@ -469,6 +469,7 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_LOCK_REQUEST_CUID_NULL_OR_EMPTY = "identitystore.rest.error.suspicious.exclude.request.null.or.empty";
 
     public static final String PROPERTY_REST_INFO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.potential.duplicate.found";
+    public static final String PROPERTY_REST_INFO_NO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.nopotential.duplicate.found";
     public static final String PROPERTY_REST_INFO_SUCCESSFUL_OPERATION = "identitystore.rest.info.successful.operation";
     public static final String PROPERTY_REST_INFO_NO_ATTRIBUTE_CHANGE = "identitystore.rest.info.no.attribute.change";
     public static final String PROPERTY_REST_INFO_UNABLE_TO_UPDATE = "identitystore.rest.info.import.update.error";
