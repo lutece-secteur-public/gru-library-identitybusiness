@@ -354,17 +354,7 @@ public final class IdentityRequestValidator extends RequestValidator
                     Constants.PROPERTY_REST_ERROR_MERGE_REQUEST_NO_PRIMARY_LAST_UPDATE_DATE );
         }
 
-        if ( identityMergeRequest.getSecondaryLastUpdateDate( ) == null )
-        {
-            throw new RequestFormatException( "An Identity merge request must provide the last update date of the secondary Identity",
-                    Constants.PROPERTY_REST_ERROR_MERGE_REQUEST_NO_SECONDARY_LAST_UPDATE_DATE );
-        }
-
-        if ( identityMergeRequest.getIdentity( ) != null )
-        {
-            throw new RequestFormatException( "A cancel identity merge request cannot provide an Identity. Only primary and secondary CUIDs are authorized.",
-                    Constants.PROPERTY_REST_ERROR_CANCEL_MERGE_REQUEST_WITH_IDENTITY );
-        }
+        // TODO : add a control for mandatory attributes ?
     }
 
     public void checkServiceContract( final ServiceContractDto serviceContractDto ) throws RequestFormatException
