@@ -47,6 +47,11 @@ public class IdentityDuplicateSuspicion
      */
     protected Date creationDate;
 
+    /**
+     * Le CUID de l'identité suspectée d'être en doublon
+     */
+    protected String suspiciousCuid;
+
     public String getDuplicateRuleCode( )
     {
         return duplicateRuleCode;
@@ -67,11 +72,20 @@ public class IdentityDuplicateSuspicion
         this.creationDate = creationDate;
     }
 
+    public String getSuspiciousCuid() {
+        return suspiciousCuid;
+    }
+
+    public void setSuspiciousCuid(final String suspiciousCuid) {
+        this.suspiciousCuid = suspiciousCuid;
+    }
+
     @Override
     public String toString() {
         return "IdentityDuplicateSuspicion{" +
                 "duplicateRuleCode='" + duplicateRuleCode + '\'' +
                 ", creationDate=" + creationDate +
+                ", suspiciousCuid='" + suspiciousCuid + '\'' +
                 '}';
     }
 }

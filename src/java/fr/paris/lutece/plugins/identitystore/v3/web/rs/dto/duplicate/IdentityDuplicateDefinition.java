@@ -46,7 +46,7 @@ public class IdentityDuplicateDefinition
     /**
      * Suspicion de doublon
      */
-    protected IdentityDuplicateSuspicion duplicateSuspicion;
+    protected List<IdentityDuplicateSuspicion> duplicateSuspicions = new ArrayList<>( );
 
     /**
      * Flag indiquant si l'identité est susceptible d'avoir des doublons
@@ -55,7 +55,7 @@ public class IdentityDuplicateDefinition
      */
     public boolean isSuspicious( )
     {
-        return this.getDuplicateSuspicion( ) != null;
+        return duplicateSuspicions != null && !duplicateSuspicions.isEmpty();
     }
 
     /**
@@ -78,21 +78,21 @@ public class IdentityDuplicateDefinition
         this.duplicateExclusions = duplicateExclusions;
     }
 
-    public IdentityDuplicateSuspicion getDuplicateSuspicion( )
+    public List<IdentityDuplicateSuspicion> getDuplicateSuspicions( )
     {
-        return duplicateSuspicion;
+        return duplicateSuspicions;
     }
 
-    public void setDuplicateSuspicion( IdentityDuplicateSuspicion duplicateSuspicion )
+    public void setDuplicateSuspicions( List<IdentityDuplicateSuspicion> duplicateSuspicions )
     {
-        this.duplicateSuspicion = duplicateSuspicion;
+        this.duplicateSuspicions = duplicateSuspicions;
     }
 
     @Override
     public String toString() {
         return "IdentityDuplicateDefinition{" +
                 "duplicateExclusions=" + duplicateExclusions +
-                ", duplicateSuspicion=" + duplicateSuspicion +
+                ", duplicateSuspicions=" + duplicateSuspicions +
                 '}';
     }
 }

@@ -78,6 +78,12 @@ public class SuspiciousIdentityDto
     @JsonProperty( "metadata" )
     protected Map<String, String> metadata = new HashMap<>( );
 
+    /**
+     * Duplicate CUID
+     */
+    @JsonProperty( "duplicate_cuid" )
+    protected String duplicateCuid;
+
     public String getDuplicationRuleCode( )
     {
         return duplicationRuleCode;
@@ -136,5 +142,13 @@ public class SuspiciousIdentityDto
     public void setMetadata( Map<String, String> metadata )
     {
         this.metadata = metadata;
+    }
+
+    public String getDuplicateCuid() {
+        return duplicateCuid;
+    }
+
+    public void setDuplicateCuid(final String duplicateCuid) {
+        this.duplicateCuid = duplicateCuid;
     }
 }
