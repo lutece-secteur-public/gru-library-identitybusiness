@@ -84,6 +84,12 @@ public class IdentityDto
     protected Timestamp lastUpdateDate;
 
     /**
+     * La date de demande de suppression  l'identité.
+     */
+    @JsonProperty( "delete_date" )
+    protected Timestamp deleteDate;
+
+    /**
      * Bloc optionnel définissant le niveau de qualité de l'identité
      */
     @JsonProperty( "quality" )
@@ -203,6 +209,16 @@ public class IdentityDto
     public void setCreationDate( Timestamp creationDate )
     {
         this.creationDate = creationDate;
+    }
+
+    public Timestamp getDeleteDate( )
+    {
+        return deleteDate;
+    }
+
+    public void setDeleteDate( Timestamp deleteDate )
+    {
+        this.deleteDate = deleteDate;
     }
 
     public Timestamp getLastUpdateDate( )
