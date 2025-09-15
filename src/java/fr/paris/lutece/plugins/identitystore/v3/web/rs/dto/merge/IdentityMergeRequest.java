@@ -57,6 +57,9 @@ public class IdentityMergeRequest
     @JsonProperty( "secondary_last_update_date" )
     protected Timestamp secondaryLastUpdateDate;
 
+    @JsonProperty( "reset_ismonparisactive_for_secondary_identity" )
+    protected boolean resetIsmonparisactiveForSecondaryIdentity = false;
+
     @JsonProperty( "identity" )
     protected IdentityDto identity;
 
@@ -119,4 +122,14 @@ public class IdentityMergeRequest
     {
         this.identity = identity;
     }
+
+	public boolean isResetIsmonparisactiveForSecondaryIdentity( ) 
+	{
+		return resetIsmonparisactiveForSecondaryIdentity;
+	}
+
+	public void setResetIsmonparisactiveForSecondaryIdentity( boolean resetIsmonparisactiveForSecondaryIdentity ) 
+	{
+		this.resetIsmonparisactiveForSecondaryIdentity = resetIsmonparisactiveForSecondaryIdentity;
+	}
 }
