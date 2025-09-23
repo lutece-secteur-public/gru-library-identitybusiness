@@ -357,6 +357,7 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_FORBIDDEN_UPDATE_ON_DELETED_IDENTITY = "identitystore.rest.error.forbidden.update.on.deleted.identity";
     public static final String PROPERTY_REST_ERROR_FORBIDDEN_MON_PARIS_ACTIVE_UPDATE = "identitystore.rest.error.forbidden.mon.paris.active.update";
     public static final String PROPERTY_REST_ERROR_CONFLICT_CONNECTION_ID = "identitystore.rest.error.conflict.connection.id";
+    public static final String PROPERTY_REST_ERROR_CONFLICT_LOGIN = "identitystore.rest.error.conflict.login";
     public static final String PROPERTY_REST_ERROR_PRIMARY_IDENTITY_NOT_FOUND = "identitystore.rest.error.primary.identity.not.found";
     public static final String PROPERTY_REST_ERROR_PRIMARY_IDENTITY_DELETED = "identitystore.rest.error.primary.identity.deleted";
     public static final String PROPERTY_REST_ERROR_PRIMARY_IDENTITY_MERGED = "identitystore.rest.error.primary.identity.merged";
