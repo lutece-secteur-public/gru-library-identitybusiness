@@ -70,6 +70,8 @@ public final class Constants
     public static final String PARAM_CLIENT_ID = "client-id";
     public static final String PARAM_CLIENT_SECRET = "secret-id";
     public static final String PARAM_TARGET_CLIENT_CODE = "target_client_code";
+    public static final String PARAM_MIN_END_DATE = "min_end_date";
+    public static final String PARAM_LOAD_DETAILS = "load_details";
     public static final String PARAM_APPLICATION_CODE = "application_code";
     public static final String PARAM_CLIENT_TOKEN = "client_token";
     public static final String PARAM_DAYS = "days";
@@ -469,6 +471,8 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_SCHEDULE_EXPORT_ALREADY_IN_PROGRESS = "identityexport.rest.error.schedule.export.already.in.progress";
     public static final String PROPERTY_REST_ERROR_FORBIDDEN_EMAIL_DOMAIN = "identitystore.rest.error.forbidden.email.domain";
     public static final String PROPERTY_REST_ERROR_LOCK_REQUEST_CUID_NULL_OR_EMPTY = "identitystore.rest.error.suspicious.exclude.request.null.or.empty";
+    public static final String PROPERTY_REST_ERROR_LOAD_DETAILS_WRONG_VALUE =  "identitystore.rest.error.load.details.wrong.value";
+    public static final String PROPERTY_REST_ERROR_MIN_END_DATE_WRONG_VALUE =  "identitystore.rest.error.min.end.date.wrong.value";
 
     public static final String PROPERTY_REST_INFO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.potential.duplicate.found";
     public static final String PROPERTY_REST_INFO_NO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.nopotential.duplicate.found";
