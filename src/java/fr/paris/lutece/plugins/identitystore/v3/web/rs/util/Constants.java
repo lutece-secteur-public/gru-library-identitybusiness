@@ -501,6 +501,18 @@ public final class Constants
     // Account generator
     public static final String PROPERTY_REST_ERROR_ACCOUNT_GENERATION_REQUEST_FORMAT = "identitystore.account.generation.request.format";
 
+    // Tasks
+    public static final String PROPERTY_REST_ERROR_EMAIL_ALREADY_VALIDATED = "identitystore.rest.error.email.already.validated";
+    public static final String PROPERTY_REST_ERROR_EMAIL_FORMAT_ERROR = "identitystore.rest.error.email.format.error";
+    public static final String PROPERTY_REST_ERROR_ATTRIBUTE_NOT_FOUND = "identitystore.rest.error.attribute.not.found";
+    public static final String PROPERTY_REST_ERROR_IDENTITY_MERGED = "identitystore.rest.error.identity.merged";
+    public static final String PROPERTY_REST_ERROR_IDENTITY_ALREADY_CONNECTED = "identitystore.rest.error.identity.already.connected";
+    public static final String PROPERTY_REST_ERROR_IDENTITY_REQUIRED_PIVOT_ATTRIBUTES = "identitystore.rest.error.identity.required.pivot.attributes";
+    public static final String PROPERTY_REST_ERROR_IDENTITY_ATTRIBUTES_CERTIFICATION_VALIDATION = "identitystore.rest.error.identity.attributes.certification.validation";
+    public static final String PROPERTY_REST_ERROR_IDENTITY_NOT_CONNECTED = "identitystore.rest.error.identity.not.connected";
+    public static final String PROPERTY_REST_ERROR_FILES_METADATA_EMPTY = "identitystore.rest.error.files.metadata.empty";
+    public static final String PROPERTY_REST_ERROR_CLIENT_IMPORT_FILES_RIGHT = "identitystore.rest.error.client.import.files.right";
+
     /**
      * Default constructor
      */
