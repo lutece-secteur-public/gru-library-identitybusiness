@@ -42,32 +42,34 @@ public enum AttributeTreatmentType
     /**
      * Attribute must exist and have a different value (not APPROXIMATED) in the search response.
      */
-    DIFFERENT( true ),
+    DIFFERENT( true, "Attribute must exist and have a different value (not APPROXIMATED)." ),
     /**
      * Attribute must exist and be approximated in the search response.
      */
-    APPROXIMATED( true ),
+    APPROXIMATED( true, "Attribute must exist and be approximated." ),
     /**
      * Attribute must exist and be strictly approximated in the search response, which means it cannot be equal.
      */
-    STRICTLY_APPROXIMATED( false ),
+    STRICTLY_APPROXIMATED( false, "Attribute must exist and be strictly approximated, which means it cannot be equal." ),
     /**
      * Attribute must exist and be strictly equal in the search response.
      */
-    STRICT( false ),
+    STRICT( false, "Attribute must exist and be strictly equal." ),
     /**
      * Attribute must not exist in the search response.
      */
-    ABSENT( true );
+    ABSENT( true, "Attribute must not exist." );
 
     /**
      * Defines if the treatment type can be used for rules design.
      */
     private final boolean forRules;
+    private final String description;
 
-    AttributeTreatmentType( boolean forRules )
+    AttributeTreatmentType( final boolean forRules, final String description )
     {
         this.forRules = forRules;
+        this.description = description;
     }
 
     /**
@@ -85,6 +87,13 @@ public enum AttributeTreatmentType
         return forRules;
     }
 
+    public static String displayValues( boolean forRules )
+    {
+        return ( forRules ? valuesForRules() : Arrays.asList( values( ) ) )
+                .stream( ).map( e -> e.name( ) + " - " + e.getDescription( ) )
+                .collect(Collectors.joining( "," ) );
+    }
+
     @Override
     public String toString( )
     {
@@ -94,5 +103,10 @@ public enum AttributeTreatmentType
     public String getLabel( )
     {
         return this.name( );
+    }
+
+    public String getDescription( )
+    {
+        return this.description;
     }
 }

@@ -411,6 +411,7 @@ public final class Constants
     public static final String PROPERTY_REST_ERROR_INVALID_AUTHOR_TYPE = "identitystore.rest.error.invalid.author.type";
     public static final String PROPERTY_REST_ERROR_MISSING_CLIENT_CODE = "identitystore.rest.error.missing.client.code";
     public static final String PROPERTY_REST_ERROR_EMPTY_SEARCH_CRITERIAS = "identitystore.rest.error.empty.search.criterias";
+    public static final String PROPERTY_REST_ERROR_MISSING_ATTRIBUTE_TREATMENT = "identitystore.rest.error.missing.attribute.treatment";
     public static final String PROPERTY_REST_ERROR_EMPTY_SEARCH_CRITERIAS_ATTRIBUTES = "identitystore.rest.error.empty.search.criterias.attributes";
     public static final String PROPERTY_REST_ERROR_EMPTY_CHANGE_CRITERIAS = "identitystore.rest.error.empty.change.criterias";
     public static final String PROPERTY_REST_ERROR_EMPTY_IDENTITY_LAST_UPDATE_DATE = "identitystore.rest.error.empty.identity.last.update.date";
