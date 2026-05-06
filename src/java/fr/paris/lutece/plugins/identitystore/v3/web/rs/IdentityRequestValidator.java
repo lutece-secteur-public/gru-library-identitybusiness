@@ -35,6 +35,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application.ClientApplicationDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeDto;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeTreatmentType;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.AttributeDefinitionDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.ServiceContractDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.IdentityChangeRequest;
@@ -236,6 +237,15 @@ public final class IdentityRequestValidator extends RequestValidator
                 || identitySearch.getSearch( ).getAttributes( ) == null || identitySearch.getSearch( ).getAttributes( ).isEmpty( ) ) ) )
         {
             throw new RequestFormatException( "Provided Identity Search request is null or empty", Constants.PROPERTY_REST_ERROR_EMPTY_SEARCH_CRITERIAS );
+        }
+
+        if( identitySearch.getSearch( ) != null
+                && identitySearch.getSearch( ).getAttributes( ) != null
+                && !identitySearch.getSearch( ).getAttributes( ).isEmpty( )
+                && identitySearch.getSearch( ).getAttributes( ).stream( ).anyMatch( a -> a.getTreatmentType( ) == null ) )
+        {
+            throw new RequestFormatException( "You must provide an attribute treatment type in each attribute definition: " + AttributeTreatmentType.displayValues( false ),
+                    Constants.PROPERTY_REST_ERROR_MISSING_ATTRIBUTE_TREATMENT );
         }
 
         if ( StringUtils.isNotEmpty( identitySearch.getConnectionId( ) ) && identitySearch.getSearch( ) != null )
