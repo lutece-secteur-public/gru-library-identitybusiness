@@ -1,6 +1,5 @@
 package fr.paris.lutece.plugins.identitystore.v3.csv;
 
-import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvBindByPosition;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.util.Constants;
 
@@ -9,88 +8,73 @@ import java.sql.Date;
 public class CsvServiceContract
 {
 
-    @CsvBindByName( column = Constants.PARAMETER_NAME )
     @CsvBindByPosition( position = 0 )
     private String name;
 
-    @CsvBindByName( column = Constants.PARAM_CLIENT_CODE )
     @CsvBindByPosition( position = 1 )
     private String clientCode;
 
-    @CsvBindByName( column = Constants.PARAM_MOA_ENTITY_NAME )
     @CsvBindByPosition( position = 2 )
     private String moaEntityName;
 
-    @CsvBindByName( column = Constants.PARAM_MOE_ENTITY_NAME )
     @CsvBindByPosition( position = 3 )
     private String moeEntityName;
 
-    @CsvBindByName( column = Constants.PARAM_STARTING_DATE )
     @CsvBindByPosition( position = 4 )
+    private String moeResponsibleName;
+
+    @CsvBindByPosition( position = 5 )
     private String startingDate;
 
-    @CsvBindByName( column = Constants.PARAM_ENDING_DATE )
-    @CsvBindByPosition( position = 5 )
+    @CsvBindByPosition( position = 6 )
     private String endingDate;
 
-    @CsvBindByName( column = Constants.PARAM_SERVICE_TYPE )
-    @CsvBindByPosition( position = 6 )
+    @CsvBindByPosition( position = 7 )
     private String serviceType;
 
-    @CsvBindByName( column = Constants.PARAM_DATA_RETENTION_IN_MONTH )
-    @CsvBindByPosition( position = 7 )
+    @CsvBindByPosition( position = 8 )
     private int dataRetentionPeriodInMonths;
 
-    @CsvBindByName( column = Constants.PARAM_AUTHORIZED_CREATION )
-    @CsvBindByPosition( position = 8 )
+    @CsvBindByPosition( position = 9 )
     private boolean authorizedCreation;
 
-    @CsvBindByName( column = Constants.PARAM_AUTHORIZED_UPDATE )
-    @CsvBindByPosition( position = 9 )
+    @CsvBindByPosition( position = 10 )
     private boolean authorizedUpdate;
 
-    @CsvBindByName( column = Constants.PARAM_AUTHORIZED_SEARCH )
-    @CsvBindByPosition( position = 10 )
+    @CsvBindByPosition( position = 11 )
     private boolean authorizedSearch;
 
-    @CsvBindByName( column = Constants.PARAM_AUTHORIZED_MERGE )
-    @CsvBindByPosition( position = 11 )
+    @CsvBindByPosition( position = 12 )
     private boolean authorizedMerge;
 
-    @CsvBindByName( column = Constants.PARAM_AUTHORIZED_ACCOUNT_UPDATE )
-    @CsvBindByPosition( position = 12 )
+    @CsvBindByPosition( position = 13 )
     private boolean authorizedAccountUpdate;
 
-    @CsvBindByName( column = Constants.PARAM_AUTHORIZED_DELETION )
-    @CsvBindByPosition( position = 13 )
+    @CsvBindByPosition( position = 14 )
     private boolean authorizedDeletion;
 
-    @CsvBindByName( column = Constants.PARAM_AUTHORIZED_IMPORT )
-    @CsvBindByPosition( position = 14 )
+    @CsvBindByPosition( position = 15 )
     private boolean authorizedImport;
 
-    @CsvBindByName( column = Constants.PARAM_AUTHORIZED_EXPORT )
-    @CsvBindByPosition( position = 15 )
+    @CsvBindByPosition( position = 16 )
     private boolean authorizedExport;
 
-    @CsvBindByName( column = Constants.PARAM_AUTHORIZED_DECERTIFICATION )
-    @CsvBindByPosition( position = 16 )
+    @CsvBindByPosition( position = 17 )
     private boolean authorizedDecertification;
 
-    @CsvBindByName( column = Constants.PARAM_AUTHORIZED_AGENT_HISTORY_READ )
-    @CsvBindByPosition( position = 17 )
+    @CsvBindByPosition( position = 18 )
     private boolean authorizedAgentHistoryRead;
 
-    @CsvBindByName( column = Constants.PARAM_CREATION_DATE )
-    @CsvBindByPosition( position = 18 )
+    @CsvBindByPosition( position = 19 )
+    private boolean authorizedAttachmentCertification;
+
+    @CsvBindByPosition( position = 20 )
     private Date creationDate;
 
-    @CsvBindByName( column = Constants.PARAM_LAST_UPDATE_DATE )
-    @CsvBindByPosition( position = 19 )
+    @CsvBindByPosition( position = 21 )
     private Date lastUpdatedDate;
 
-    @CsvBindByName( column = Constants.PARAM_AUTHOR_NAME )
-    @CsvBindByPosition( position = 20 )
+    @CsvBindByPosition( position = 22 )
     private String authorName;
 
     public boolean isAuthorizedAccountUpdate()
@@ -141,6 +125,14 @@ public class CsvServiceContract
     public void setMoeEntityName(String moeEntityName)
     {
         this.moeEntityName = moeEntityName;
+    }
+
+    public String getMoeResponsibleName() {
+        return moeResponsibleName;
+    }
+
+    public void setMoeResponsibleName(final String moeResponsibleName) {
+        this.moeResponsibleName = moeResponsibleName;
     }
 
     public String getStartingDate()
@@ -271,6 +263,14 @@ public class CsvServiceContract
     public void setAuthorizedAgentHistoryRead(boolean authorizedAgentHistoryRead)
     {
         this.authorizedAgentHistoryRead = authorizedAgentHistoryRead;
+    }
+
+    public boolean isAuthorizedAttachmentCertification() {
+        return authorizedAttachmentCertification;
+    }
+
+    public void setAuthorizedAttachmentCertification(final boolean authorizedAttachmentCertification) {
+        this.authorizedAttachmentCertification = authorizedAttachmentCertification;
     }
 
     public Date getCreationDate() {

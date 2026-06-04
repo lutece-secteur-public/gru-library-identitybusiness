@@ -41,12 +41,24 @@ import org.apache.commons.lang3.StringUtils;
 
 public class CustomMappingStrategy<T> extends ColumnPositionMappingStrategy<T>
 {
+    private String [ ] customHeaders;
+
+    public void setHeaders( final String [ ] headers )
+    {
+        this.customHeaders = headers;
+    }
+
     @Override
     public String [ ] generateHeader( T bean ) throws CsvRequiredFieldEmptyException
     {
-        final int numColumns = getFieldMap( ).values( ).size( );
         super.generateHeader( bean );
 
+        if ( customHeaders != null )
+        {
+            return customHeaders;
+        }
+
+        final int numColumns = getFieldMap( ).values( ).size( );
         String [ ] header = new String [ numColumns];
 
         BeanField beanField;
