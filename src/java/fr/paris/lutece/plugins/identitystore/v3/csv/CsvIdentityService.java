@@ -131,7 +131,7 @@ public class CsvIdentityService
         }
     }
 
-    public byte [ ] writeContract( final List<ServiceContractDto> serviceContract ) throws IdentityStoreException
+    public byte [ ] writeContract( final List<ServiceContractDto> serviceContract, final List<String> headers ) throws IdentityStoreException
     {
         try
         {
@@ -139,6 +139,10 @@ public class CsvIdentityService
             final Writer writer = new OutputStreamWriter( out );
             final CustomMappingStrategy<CsvServiceContract> mappingStrategy = new CustomMappingStrategy<>( );
             mappingStrategy.setType( CsvServiceContract.class );
+            if ( headers != null && !headers.isEmpty( ) )
+            {
+                mappingStrategy.setHeaders( headers.toArray( new String [ 0 ] ) );
+            }
             final StatefulBeanToCsv<CsvServiceContract> identitiesWriter = new StatefulBeanToCsvBuilder<CsvServiceContract>( writer ).withMappingStrategy( mappingStrategy )
                     .withOrderedResults( true ).withSeparator( Constants.CSV_SEPARATOR ).withApplyQuotesToAll( false ).build( );
             identitiesWriter.write( this.extractCsvServiceContract( serviceContract ) );
@@ -492,6 +496,7 @@ public class CsvIdentityService
             csvServiceContract.setClientCode( serviceContract.getClientCode());
             csvServiceContract.setMoaEntityName( serviceContract.getMoaEntityName( ) );
             csvServiceContract.setMoeEntityName( serviceContract.getMoeEntityName( ) );
+            csvServiceContract.setMoeResponsibleName( serviceContract.getMoeResponsibleName( ) );
             csvServiceContract.setStartingDate( serviceContract.getStartingDate( ) != null ? serviceContract.getStartingDate( ).toString() : "");
             csvServiceContract.setEndingDate( serviceContract.getEndingDate( ) != null ? serviceContract.getEndingDate( ).toString() : "");
             csvServiceContract.setServiceType( serviceContract.getServiceType( ) );
@@ -506,6 +511,7 @@ public class CsvIdentityService
             csvServiceContract.setAuthorizedExport( serviceContract.isAuthorizedExport( ) );
             csvServiceContract.setAuthorizedDecertification( serviceContract.isAuthorizedDecertification( ) );
             csvServiceContract.setAuthorizedAgentHistoryRead( serviceContract.isAuthorizedAgentHistoryRead( ) );
+            csvServiceContract.setAuthorizedAttachmentCertification( serviceContract.isAuthorizedAttachementCertification( ) );
             csvServiceContract.setCreationDate( serviceContract.getCreationDate( ) );
             csvServiceContract.setLastUpdatedDate( serviceContract.getLastUpdateDate());
             csvServiceContract.setAuthorName( serviceContract.getAuthorName( ) );
