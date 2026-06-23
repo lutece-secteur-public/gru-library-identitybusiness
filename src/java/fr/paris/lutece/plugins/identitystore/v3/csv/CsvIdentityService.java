@@ -495,6 +495,7 @@ public class CsvIdentityService
             csvServiceContract.setName( serviceContract.getName( ) );
             csvServiceContract.setClientCode( serviceContract.getClientCode());
             csvServiceContract.setMoaEntityName( serviceContract.getMoaEntityName( ) );
+            csvServiceContract.setMoaContactName( serviceContract.getMoaContactName( ) );
             csvServiceContract.setMoeEntityName( serviceContract.getMoeEntityName( ) );
             csvServiceContract.setMoeResponsibleName( serviceContract.getMoeResponsibleName( ) );
             csvServiceContract.setStartingDate( serviceContract.getStartingDate( ) != null ? serviceContract.getStartingDate( ).toString() : "");
