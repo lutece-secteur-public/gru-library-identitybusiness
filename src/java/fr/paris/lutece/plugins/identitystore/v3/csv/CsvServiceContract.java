@@ -18,63 +18,66 @@ public class CsvServiceContract
     private String moaEntityName;
 
     @CsvBindByPosition( position = 3 )
-    private String moeEntityName;
+    private String moaContactName;
 
     @CsvBindByPosition( position = 4 )
-    private String moeResponsibleName;
+    private String moeEntityName;
 
     @CsvBindByPosition( position = 5 )
-    private String startingDate;
+    private String moeResponsibleName;
 
     @CsvBindByPosition( position = 6 )
-    private String endingDate;
+    private String startingDate;
 
     @CsvBindByPosition( position = 7 )
-    private String serviceType;
+    private String endingDate;
 
     @CsvBindByPosition( position = 8 )
-    private int dataRetentionPeriodInMonths;
+    private String serviceType;
 
     @CsvBindByPosition( position = 9 )
-    private boolean authorizedCreation;
+    private int dataRetentionPeriodInMonths;
 
     @CsvBindByPosition( position = 10 )
-    private boolean authorizedUpdate;
+    private boolean authorizedCreation;
 
     @CsvBindByPosition( position = 11 )
-    private boolean authorizedSearch;
+    private boolean authorizedUpdate;
 
     @CsvBindByPosition( position = 12 )
-    private boolean authorizedMerge;
+    private boolean authorizedSearch;
 
     @CsvBindByPosition( position = 13 )
-    private boolean authorizedAccountUpdate;
+    private boolean authorizedMerge;
 
     @CsvBindByPosition( position = 14 )
-    private boolean authorizedDeletion;
+    private boolean authorizedAccountUpdate;
 
     @CsvBindByPosition( position = 15 )
-    private boolean authorizedImport;
+    private boolean authorizedDeletion;
 
     @CsvBindByPosition( position = 16 )
-    private boolean authorizedExport;
+    private boolean authorizedImport;
 
     @CsvBindByPosition( position = 17 )
-    private boolean authorizedDecertification;
+    private boolean authorizedExport;
 
     @CsvBindByPosition( position = 18 )
-    private boolean authorizedAgentHistoryRead;
+    private boolean authorizedDecertification;
 
     @CsvBindByPosition( position = 19 )
-    private boolean authorizedAttachmentCertification;
+    private boolean authorizedAgentHistoryRead;
 
     @CsvBindByPosition( position = 20 )
-    private Date creationDate;
+    private boolean authorizedAttachmentCertification;
 
     @CsvBindByPosition( position = 21 )
-    private Date lastUpdatedDate;
+    private Date creationDate;
 
     @CsvBindByPosition( position = 22 )
+    private Date lastUpdatedDate;
+
+    @CsvBindByPosition( position = 23 )
     private String authorName;
 
     public boolean isAuthorizedAccountUpdate()
@@ -115,6 +118,14 @@ public class CsvServiceContract
     public void setMoaEntityName(String moaEntityName)
     {
         this.moaEntityName = moaEntityName;
+    }
+
+    public String getMoaContactName() {
+        return moaContactName;
+    }
+
+    public void setMoaContactName(String moaContactName) {
+        this.moaContactName = moaContactName;
     }
 
     public String getMoeEntityName()
