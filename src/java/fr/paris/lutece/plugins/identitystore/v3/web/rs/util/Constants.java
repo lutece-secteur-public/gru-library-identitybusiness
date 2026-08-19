@@ -480,6 +480,7 @@ public final class Constants
     public static final String PROPERTY_REST_INFO_NO_POTENTIAL_DUPLICATE_FOUND = "identitystore.rest.info.nopotential.duplicate.found";
     public static final String PROPERTY_REST_INFO_SUCCESSFUL_OPERATION = "identitystore.rest.info.successful.operation";
     public static final String PROPERTY_REST_INFO_NO_ATTRIBUTE_CHANGE = "identitystore.rest.info.no.attribute.change";
+    public static final String PROPERTY_REST_INFO_NOTHING_TO_UPDATE = "identitystore.rest.info.nothing.to.update";
     public static final String PROPERTY_REST_INFO_UNABLE_TO_UPDATE = "identitystore.rest.info.import.update.error";
 
     public static final String PROPERTY_ATTRIBUTE_STATUS_VALIDATION_ERROR_UNKNOWN_GEOCODES_CODE = "identitystore.attribute.status.validation.error.unknown.geocodes.code";
