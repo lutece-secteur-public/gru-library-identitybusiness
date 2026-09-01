@@ -36,6 +36,7 @@ package fr.paris.lutece.plugins.identitystore.v3.web.rs;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.application.ClientApplicationDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.AttributeTreatmentType;
+import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.common.IdentityDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.AttributeDefinitionDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.contract.ServiceContractDto;
 import fr.paris.lutece.plugins.identitystore.v3.web.rs.dto.crud.IdentityChangeRequest;
@@ -159,69 +160,91 @@ public final class IdentityRequestValidator extends RequestValidator
      */
     public void checkIdentityChange( final IdentityChangeRequest identityChange, final boolean isUpdate ) throws RequestFormatException
     {
-        if ( identityChange == null || identityChange.getIdentity( ) == null || identityChange.getIdentity( ).getAttributes( ) == null
-                || identityChange.getIdentity( ).getAttributes( ).isEmpty( ) )
+        if (identityChange == null || identityChange.getIdentity( ) == null )
         {
-            throw new RequestFormatException( "Provided Identity Change request is null or empty", Constants.PROPERTY_REST_ERROR_EMPTY_CHANGE_CRITERIAS );
+            throw new RequestFormatException( "Provided Identity Change request is null or empty",
+                    Constants.PROPERTY_REST_ERROR_EMPTY_CHANGE_CRITERIAS );
+        }
+        final IdentityDto identity = identityChange.getIdentity( );
+        if ( isUpdate
+                  && identity.getMonParisActive() == null
+                  && ( identity.getConnectionId( ) == null || identity.getConnectionId( ).isEmpty( ) )
+                  && ( identity.getAttributes( ) == null || identity.getAttributes( ).isEmpty( ) ) )
+        {
+            // If this is an update request, reject if there is no attributes, no monParisFlag and no connectionId set
+            throw new RequestFormatException( "Provided Identity Change request is null or empty",
+                    Constants.PROPERTY_REST_ERROR_EMPTY_CHANGE_CRITERIAS );
+        }
+        else if ( !isUpdate && ( identity.getAttributes( ) == null || identity.getAttributes( ).isEmpty( ) ) )
+        {
+            // If this is a create request, reject if there is no attributes
+            throw new RequestFormatException( "Provided Identity Change request is null or empty",
+                    Constants.PROPERTY_REST_ERROR_EMPTY_CHANGE_CRITERIAS );
         }
 
-        if ( isUpdate && identityChange.getIdentity( ).getLastUpdateDate( ) == null )
+        if ( isUpdate && identity.getLastUpdateDate( ) == null )
         {
             throw new RequestFormatException( "The identity's last update date must be provided.",
                     Constants.PROPERTY_REST_ERROR_EMPTY_IDENTITY_LAST_UPDATE_DATE );
         }
 
-        if ( identityChange.getIdentity( ).getAttributes( ).stream( ).anyMatch( a -> a.getKey( ) == null || a.getKey( ).isEmpty( ) ) )
+        if ( identity.getAttributes( ) != null
+            && identity.getAttributes( ).stream( ).anyMatch( a -> a.getKey( ) == null || a.getKey( ).isEmpty( ) ) )
         {
             throw new RequestFormatException( "Provided attributes must specify their key.", Constants.PROPERTY_REST_ERROR_IDENTITY_ATTRIBUTE_MISSING_KEY );
         }
 
-        if ( identityChange.getIdentity( ).getAttributes( ).stream( ).anyMatch( a -> !a.isCertified( ) ) )
+        if ( identity.getAttributes( ) != null
+            && identity.getAttributes( ).stream( ).anyMatch( a -> !a.isCertified( ) ) )
         {
             throw new RequestFormatException( "Provided attributes must be fully certified (process + date)",
                     Constants.PROPERTY_REST_ERROR_IDENTITY_ATTRIBUTE_NOT_CERTIFIED );
         }
 
-        if ( identityChange.getIdentity( ).getAttributes( ).stream( ).anyMatch( a -> a.getValue( ) == null ) )
+        if ( identity.getAttributes( ) != null
+            && identity.getAttributes( ).stream( ).anyMatch( a -> a.getValue( ) == null ) )
         {
             throw new RequestFormatException( "Provided attributes must specify a value", Constants.PROPERTY_REST_ERROR_IDENTITY_ATTRIBUTE_MISSING_VALUE );
         }
 
-        if ( !isUpdate && identityChange.getIdentity( ).getAttributes( ).stream( ).anyMatch( a -> a.getValue( ) == null || a.getValue( ).isEmpty( ) ) )
+        if ( !isUpdate && identity.getAttributes( ).stream( ).anyMatch( a -> a.getValue( ) == null || a.getValue( ).isEmpty( ) ) )
         {
             throw new RequestFormatException( "You cannot provide empty attribute values for creating an identity.",
                     Constants.PROPERTY_REST_ERROR_IDENTITY_ATTRIBUTE_EMPTY_VALUE_FOR_CREATE );
         }
 
-        if ( !isUpdate && StringUtils.isNotEmpty( identityChange.getIdentity( ).getCustomerId( ) ) )
+        if ( !isUpdate && StringUtils.isNotEmpty( identity.getCustomerId( ) ) )
         {
             throw new RequestFormatException( "You cannot specify a CUID when requesting for a creation",
                     Constants.PROPERTY_REST_ERROR_IDENTITY_CREATE_WITH_CUID );
         }
 
         // check if duplicates were sent in the attributes
-        final Map<String, List<AttributeDto>> attrMap = new HashMap<>( );
-        identityChange.getIdentity( ).getAttributes( ).forEach( a -> attrMap.compute( a.getKey( ), ( key, value ) -> {
-            final List<AttributeDto> attrList = value == null ? new ArrayList<>( ) : value;
-            attrList.add( a );
-            return attrList;
-        } ) );
-        final List<List<AttributeDto>> duplicateAttrLists = attrMap.values( ).stream( ).filter( l -> l.size( ) > 1 ).collect( Collectors.toList( ) );
-        if ( !duplicateAttrLists.isEmpty( ) )
+        if ( identity.getAttributes( ) != null )
         {
-            for ( final List<AttributeDto> duplicateAttrList : duplicateAttrLists )
+            final Map<String, List<AttributeDto>> attrMap = new HashMap<>( );
+            identity.getAttributes( ).forEach( a -> attrMap.compute( a.getKey( ), ( key, value ) -> {
+                final List<AttributeDto> attrList = value == null ? new ArrayList<>( ) : value;
+                attrList.add( a );
+                return attrList;
+            } ) );
+            final List<List<AttributeDto>> duplicateAttrLists = attrMap.values( ).stream( ).filter( l -> l.size( ) > 1 ).collect( Collectors.toList( ) );
+            if ( !duplicateAttrLists.isEmpty( ) )
             {
-                final long diffValueDuplicateCount = duplicateAttrList.stream( ).map( AttributeDto::getValue )
-                        .collect( Collectors.groupingBy( Function.identity( ), Collectors.counting( ) ) ).size();
-                if ( diffValueDuplicateCount > 1 )
+                for ( final List<AttributeDto> duplicateAttrList : duplicateAttrLists )
                 {
-                    throw new RequestFormatException( "You cannot provide the same attribute multiple times with different values",
-                            Constants.PROPERTY_REST_ERROR_CHANGE_REQUEST_SAME_ATTRIUTE_DIFFERENT_VALUE );
+                    final long diffValueDuplicateCount = duplicateAttrList.stream( ).map( AttributeDto::getValue )
+                            .collect( Collectors.groupingBy( Function.identity( ), Collectors.counting( ) ) ).size();
+                    if ( diffValueDuplicateCount > 1 )
+                    {
+                        throw new RequestFormatException( "You cannot provide the same attribute multiple times with different values",
+                                Constants.PROPERTY_REST_ERROR_CHANGE_REQUEST_SAME_ATTRIUTE_DIFFERENT_VALUE );
+                    }
                 }
-            }
 
-            // No duplicate with different value => remove the duplicates from the request
-            identityChange.getIdentity( ).setAttributes( attrMap.values( ).stream( ).map( l -> l.get( 0 ) ).collect( Collectors.toList( ) ) );
+                // No duplicate with different value => remove the duplicates from the request
+                identity.setAttributes( attrMap.values( ).stream( ).map( l -> l.get( 0 ) ).collect( Collectors.toList( ) ) );
+            }
         }
     }
 
