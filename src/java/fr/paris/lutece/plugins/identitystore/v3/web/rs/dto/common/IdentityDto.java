@@ -137,6 +137,12 @@ public class IdentityDto
     @JsonProperty( "attributes" )
     protected List<AttributeDto> attributes = new ArrayList<>( );
 
+    /**
+     * Liste des connection_id ayant été ou étant liés à l'identité
+     */
+    @JsonProperty( "account_history" )
+    protected List<IdentityAccountDto> accountHistory = new ArrayList<>();
+
     @JsonIgnore
     public boolean isMerged( )
     {
@@ -311,6 +317,14 @@ public class IdentityDto
         this.attributes = attributes;
     }
 
+    public List<IdentityAccountDto> getAccountHistory() {
+        return accountHistory;
+    }
+
+    public void setAccountHistory(final List<IdentityAccountDto> accountHistory) {
+        this.accountHistory = accountHistory;
+    }
+
     @Override
     public String toString() {
         return "IdentityDto{" +
@@ -328,6 +342,7 @@ public class IdentityDto
                 ", matchedDuplicateRuleCode='" + matchedDuplicateRuleCode + '\'' +
                 ", suspicious=" + suspicious +
                 ", attributes=" + attributes +
+                ", accountHistory=" + accountHistory +
                 '}';
     }
 }
